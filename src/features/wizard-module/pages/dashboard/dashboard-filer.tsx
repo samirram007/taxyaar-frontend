@@ -1,7 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Link, useRouter } from "@tanstack/react-router"
+import { useRouter } from "@tanstack/react-router"
+import Breadcrumb from "../../components/CustomBreadCrumb"
 
 type TaxFiler = {
   pan?: string
@@ -38,17 +39,8 @@ export default function DashboardFiler() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      <div className="bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 py-6">
-          <nav className="text-sm text-slate-500">
-            <Link to="/" className="text-primary hover:underline">
-              Home
-            </Link>
-            <span className="mx-2">/</span>
-            <span className="text-slate-700">Member</span>
-          </nav>
-        </div>
-      </div>
+      <Breadcrumb title="Dashboard" />
+
 
       <main className="max-w-7xl mx-auto px-6 py-10">
         <div className="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden">
