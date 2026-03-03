@@ -8,7 +8,7 @@ import HelpSidebar from "./HelpSidebar"
 export default function AddTaxForm() {
   return (
     <div className="min-h-screen bg-background">
-      <div className="border-b border-border bg-muted/50">
+      <div className="border-b border-border bg-transparent">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
           <Breadcrumb title="Add Tax Filer" />
         </div>
