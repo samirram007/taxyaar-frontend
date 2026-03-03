@@ -22,7 +22,7 @@ if (rootElement && !rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <TanstackQuery.Provider>
-        <ThemeContextProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <ThemeContextProvider defaultTheme="light" storageKey="vite-ui-theme">
           <FontProvider>
 
             <AuthProvider>

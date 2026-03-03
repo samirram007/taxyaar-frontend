@@ -40,7 +40,7 @@ export default function VerifyPage() {
       
       <div className="border-b border-border bg-muted/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
-          <Link to="/auth/addtaxform" className="text-primary hover:underline text-sm">
+          <Link to="/addtaxform" className="text-primary hover:underline text-sm">
             Home
           </Link>
           <span className="text-muted-foreground mx-2">/</span>
@@ -66,10 +66,10 @@ export default function VerifyPage() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/auth/verify-pan" className="px-6 py-3 rounded bg-blue-500 text-primary-foreground hover:opacity-90 transition font-medium">
+                <Link to="/verify-pan" className="px-6 py-3 rounded bg-blue-500 text-primary-foreground hover:opacity-90 transition font-medium">
                   Request OTP
                 </Link>
-                <Link to="/auth/dashboard" className="px-6 py-3 rounded border border-border text-foreground hover:bg-muted transition font-medium">
+                <Link to="/dashboard" className="px-6 py-3 rounded border border-border text-foreground hover:bg-muted transition font-medium">
                   Skip for Now
                 </Link>
               </div>

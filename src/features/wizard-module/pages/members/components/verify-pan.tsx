@@ -52,7 +52,7 @@ export default function VerifyPan() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
     sessionStorage.setItem("taxFilerVerification", JSON.stringify({ ...form, submittedAt: new Date().toISOString() }))
-    router.navigate({ to: "/auth/member" })
+    router.navigate({ to: "/sign-in" })
   }
 
   return (
@@ -101,6 +101,8 @@ export default function VerifyPan() {
                   <div>
                     <label className="block text-sm text-slate-700 mb-2">Premises / Building</label>
                     <input
+                      type="text"
+                      aria-label="Premises / Building"
                       value={form.premises}
                       onChange={handleChange("premises")}
                       className="w-full rounded border border-slate-200 px-3 py-2 bg-white"
@@ -112,6 +114,8 @@ export default function VerifyPan() {
                   <div>
                     <label className="block text-sm text-slate-700 mb-2">Street / Road</label>
                     <input
+                      type="text"
+                      aria-label="Street / Road"
                       value={form.street}
                       onChange={handleChange("street")}
                       className="w-full rounded border border-slate-200 px-3 py-2 bg-white"
@@ -121,6 +125,8 @@ export default function VerifyPan() {
                   <div>
                     <label className="block text-sm text-slate-700 mb-2">Area / Locality</label>
                     <input
+                      type="text"
+                      aria-label="Area / Locality"
                       value={form.area}
                       onChange={handleChange("area")}
                       className="w-full rounded border border-slate-200 px-3 py-2 bg-white"
@@ -132,6 +138,8 @@ export default function VerifyPan() {
                   <div>
                     <label className="block text-sm text-slate-700 mb-2">Town / City / District</label>
                     <input
+                      type="text"
+                      aria-label="Town / City / District"
                       value={form.town}
                       onChange={handleChange("town")}
                       className="w-full rounded border border-slate-200 px-3 py-2 bg-white"
@@ -141,6 +149,8 @@ export default function VerifyPan() {
                   <div>
                     <label className="block text-sm text-slate-700 mb-2">Pin Code</label>
                     <input
+                      type="text"
+                      aria-label="Pin Code"
                       value={form.pin}
                       onChange={handleChange("pin")}
                       className="w-full rounded border border-slate-200 px-3 py-2 bg-white"
@@ -151,7 +161,7 @@ export default function VerifyPan() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm text-slate-700 mb-2">Country</label>
-                    <select value={form.country} onChange={handleChange("country")} className="w-full rounded border border-slate-200 px-3 py-2 bg-white">
+                    <select value={form.country} onChange={handleChange("country")} className="w-full rounded border border-slate-200 px-3 py-2 bg-white" aria-label="Country">
                       <option value="">--Select--</option>
                       <option>India</option>
                       <option>United States</option>
@@ -161,7 +171,7 @@ export default function VerifyPan() {
 
                   <div>
                     <label className="block text-sm text-slate-700 mb-2">State</label>
-                    <select value={form.state} onChange={handleChange("state")} className="w-full rounded border border-slate-200 px-3 py-2 bg-white">
+                    <select value={form.state} onChange={handleChange("state")} className="w-full rounded border border-slate-200 px-3 py-2 bg-white" aria-label="State">
                       <option value="">--Select--</option>
                       <option>Andhra Pradesh</option>
                       <option>Delhi</option>

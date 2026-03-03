@@ -1,5 +1,8 @@
 "use client"
 
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Select } from "@/components/ui/select"
 import { useRouter } from "@tanstack/react-router"
 import { useState } from "react"
 
@@ -52,7 +55,7 @@ export default function FormFields() {
 
     sessionStorage.setItem("taxFillerData", JSON.stringify(taxFillerData))
 
-    router.navigate({ to: "/auth/member" })
+    router.navigate({ to: "/member" })
     console.log("submit", form)
   }
 
@@ -96,7 +99,7 @@ export default function FormFields() {
           <label className="block text-sm font-medium text-foreground mb-2">
             Email <span className="text-red-500">*</span>
           </label>
-          <input
+          <Input
             type="email"
             value={form.email}
             readOnly
@@ -106,8 +109,8 @@ export default function FormFields() {
 
         <div className="grid sm:grid-cols-3 gap-6">
           <div>
-            <label className="block text-sm font-medium text-foreground mb-2">First Name</label>
-            <input
+            <Label htmlFor="firstName" className="block text-sm font-medium text-foreground mb-2">First Name</Label>
+            <Input
               type="text"
               value={form.firstName}
               onChange={handleChange("firstName")}
@@ -115,8 +118,8 @@ export default function FormFields() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-foreground mb-2">Middle Name</label>
-            <input
+            <Label htmlFor="middleName" className="block text-sm font-medium text-foreground mb-2">Middle Name</Label>
+            <Input
               type="text"
               value={form.middleName}
               onChange={handleChange("middleName")}
@@ -124,10 +127,10 @@ export default function FormFields() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-foreground mb-2">
+            <Label htmlFor="lastName" className="block text-sm font-medium text-foreground mb-2">
               Last Name <span className="text-red-500">*</span>
-            </label>
-            <input
+            </Label>
+            <Input
               type="text"
               value={form.lastName}
               onChange={handleChange("lastName")}
@@ -139,26 +142,25 @@ export default function FormFields() {
 
         <div className="grid sm:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-medium text-foreground mb-2">
+            <Label htmlFor="gender" className="block text-sm font-medium text-foreground mb-2">
               Gender <span className="text-red-500">*</span>
-            </label>
-            <select
-              value={form.gender}
-              onChange={handleChange("gender")}
-              className="w-full px-4 py-2 rounded border border-input bg-transparent text-foreground focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+            </Label>
+            <Select
+              value={form.gender}  
             >
               <option value="">--Select--</option>
-              <option>Male</option>
-              <option>Female</option>
-              <option>Other</option>
-            </select>
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+              <option value="O">Other</option>
+            </Select>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-foreground mb-2">
+            <Label htmlFor="fatherName" className="block text-sm font-medium text-foreground mb-2">
               Father Name <span className="text-red-500">*</span>
-            </label>
-            <input
+            </Label>
+            <Input
+              id="fatherName"
               type="text"
               value={form.fatherName}
               onChange={handleChange("fatherName")}
@@ -169,10 +171,11 @@ export default function FormFields() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-foreground mb-2">
+          <Label htmlFor="mobile" className="block text-sm font-medium text-foreground mb-2">
             Mobile Number <span className="text-red-500">*</span>
-          </label>
-          <input
+          </Label>
+          <Input
+            id="mobile"
             type="tel"
             placeholder="+91"
             value={form.mobile}

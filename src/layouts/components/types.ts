@@ -24,13 +24,14 @@ interface BaseNavItem {
 }
 
 type NavLink = BaseNavItem & {
-  url: LinkProps['to']
-  items?: never
+  url: LinkProps['to'],
+  icon?: React.ElementType,
+  items?: []
 }
 
 type NavCollapsible = BaseNavItem & {
-  items: (BaseNavItem & { url: LinkProps['to'] })[]
-  url?: never
+  items: (BaseNavItem & { url: String | LinkProps['to'] })[]
+  url?: String
 }
 
 type NavItem = NavCollapsible | NavLink

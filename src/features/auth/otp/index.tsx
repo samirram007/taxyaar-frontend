@@ -1,7 +1,7 @@
 import { Card } from '@/components/ui/card'
 import { Link } from '@tanstack/react-router'
 import AuthLayout from '../auth-layout'
-import { OtpForm } from './components/otp-form'
+
 
 export default function Otp() {
   return (
@@ -16,7 +16,7 @@ export default function Otp() {
             authentication code to your email.
           </p>
         </div>
-        <OtpForm />
+
         <p className='mt-4 px-8 text-center text-sm text-muted-foreground'>
           Haven't received it?{' '}
           <Link

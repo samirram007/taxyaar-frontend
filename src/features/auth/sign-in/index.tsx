@@ -2,7 +2,6 @@ import { Card } from '@/components/ui/card'
 import AuthLayout from '../auth-layout'
 import { UserAuthForm } from './components/user-auth-form'
 import { Button } from '@/components/ui/button'
-import { useRouter } from '@tanstack/react-router'
 
 
 
@@ -54,7 +53,7 @@ const GoogleSignIn = () => {
 }
 
 const SignInWithGoogle = () => {
-  const router = useRouter()
+
 
 
   const handleClick = async () => {

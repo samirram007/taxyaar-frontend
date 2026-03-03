@@ -8,7 +8,7 @@ import HelpArticles from "../../components/help-articles";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { DropdownMenuItem } from "@radix-ui/react-dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { IconArrowRight, IconArrowRightToArc, IconEdit, IconHttpDelete, IconRecycle, IconRowRemove } from "@tabler/icons-react";
+import { IconArrowRight, IconEdit, IconRecycle } from "@tabler/icons-react";
 
 interface TaxFillerData {
   firstName: string
@@ -20,11 +20,11 @@ const memberData = [
   { firstName: "Rahul", lastName: "Sharma", pan: "ABCD1234E" },
   { firstName: "Anita", lastName: "Verma", pan: "WXYZ5678K" },
 ]
-const pageLinks = [
-  { name: "Dashboard", href: "/dashboard" },
-  { name: "Members", href: "/members" },
-  { name: "Settings", href: "/settings" },
-]
+// const pageLinks = [
+//   { name: "Dashboard", href: "/dashboard" },
+//   { name: "Members", href: "/members" },
+//   { name: "Settings", href: "/settings" },
+// ]
 export default function MembersPage() {
   const router = useRouter()
   const [member, setMember] = useState<TaxFillerData | null>(memberData[0])

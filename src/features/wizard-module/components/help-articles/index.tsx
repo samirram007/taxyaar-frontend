@@ -8,14 +8,15 @@ const helpArticles = [
     { id: "1", title: "How to Add or Edit a member?" },
     { id: "2", title: "How to enable ERI manually?" },
 ]
-type HelpArticle = {
+type HelpArticleType = {
     slugs: string[]
 }
-const HelpArticles = ({ slugs }: { slugs: string[] }) => {
+const HelpArticles = ({ slugs }: HelpArticleType) => {
     const [expandedArticles, setExpandedArticles] = useState<string[]>([])
     const toggleArticle = (id: string) => {
         setExpandedArticles((prev) => (prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]))
     }
+    console.log(slugs)
 
     return (
         <div className="bg-background border border-border rounded-lg p-6 sticky top-24">
