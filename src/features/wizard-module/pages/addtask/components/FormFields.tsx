@@ -2,7 +2,7 @@
 
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Select } from "@/components/ui/select"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useRouter } from "@tanstack/react-router"
 import { useState } from "react"
 
@@ -34,8 +34,8 @@ export default function FormFields() {
 
   const handleChange =
     (key: keyof FormState) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
-      setForm((s) => ({ ...s, [key]: e.target.value }))
+      (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
+        setForm((s) => ({ ...s, [key]: e.target.value }))
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -60,8 +60,8 @@ export default function FormFields() {
   }
 
   return (
-    <div className="bg-background border border-border rounded-lg p-8">
-      <h2 className="text-2xl font-bold text-foreground mb-8">Add Tax Filer</h2>
+    <div className="bg-background border border-border rounded-lg p-8 shadow shadow-gray-400">
+      <h2 className="text-xl font-bold text-foreground mb-8">Add Tax Filer</h2>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid sm:grid-cols-2 gap-6">
@@ -102,7 +102,7 @@ export default function FormFields() {
           <Input
             type="email"
             value={form.email}
-            readOnly
+
             className="w-full px-4 py-2 rounded border border-input bg-muted text-foreground focus:outline-none"
           />
         </div>
@@ -142,16 +142,27 @@ export default function FormFields() {
 
         <div className="grid sm:grid-cols-2 gap-6">
           <div>
-            <Label htmlFor="gender" className="block text-sm font-medium text-foreground mb-2">
+            <Label
+              htmlFor="gender"
+              className="block text-sm font-medium text-foreground mb-2"
+            >
               Gender <span className="text-red-500">*</span>
             </Label>
             <Select
-              value={form.gender}  
+              value={form.gender}
+              onValueChange={(value) =>
+                setForm((prev) => ({ ...prev, gender: value }))
+              }
             >
-              <option value="">--Select--</option>
-              <option value="M">Male</option>
-              <option value="F">Female</option>
-              <option value="O">Other</option>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="--Select--" />
+              </SelectTrigger>
+
+              <SelectContent>
+                <SelectItem value="M">Male</SelectItem>
+                <SelectItem value="F">Female</SelectItem>
+                <SelectItem value="O">Other</SelectItem>
+              </SelectContent>
             </Select>
           </div>
 

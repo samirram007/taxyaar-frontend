@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { MoreVertical } from "lucide-react"
-import { Link, useRouter } from "@tanstack/react-router"
+import { useRouter } from "@tanstack/react-router"
 import Breadcrumb from '../../components/CustomBreadCrumb';
 import HelpArticles from "../../components/help-articles";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -26,6 +26,7 @@ const memberData = [
 //   { name: "Settings", href: "/settings" },
 // ]
 export default function MembersPage() {
+
   const router = useRouter()
   const [member, setMember] = useState<TaxFillerData | null>(memberData[0])
 
@@ -48,8 +49,15 @@ export default function MembersPage() {
     return <div className="flex items-center justify-center min-h-screen">Loading...</div>
   }
 
-  const memberName = `${member.firstName || "Sneha"} ${member.lastName || "Ghoshal"}`
-  const memberInitial = memberName.charAt(0).toUpperCase()
+
+  const onHandleAddClient = (member: TaxFillerData) => {
+    sessionStorage.clear();
+    sessionStorage.setItem("taxFillerData", JSON.stringify(member));
+    setTimeout(() => {
+      router.navigate({ to: '/department_add_client' })
+    }, 400);
+  }
+
 
   return (
     <div className="min-h-screen ">
@@ -85,61 +93,72 @@ export default function MembersPage() {
               </div>
               <div className="px-8">
 
+                {
+                  memberData.map((member, index) => (
+                    <div key={index} onClick={() => onHandleAddClient(member)} className="bg-muted mb-3 rounded-lg p-4 flex items-center justify-between hover:bg-muted/80 transition cursor-pointer">
 
-                <div className="bg-muted/50 rounded-lg p-4 flex items-center justify-between hover:bg-muted/80 transition cursor-pointer">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center shrink-0">
-                      <span className="text-primary-foreground font-bold text-lg">{memberInitial}</span>
+                      <div className="flex gap-5">
+                        <div className="flex items-center gap-4">
+                          <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center shrink-0">
+                            <span className="text-primary-foreground font-bold text-lg">{member.firstName.charAt(0)}</span>
+                          </div>
+
+                          <div>
+                            <h3 className="text-foreground font-semibold">{member.firstName + " " + member.lastName}</h3>
+                            <p className="text-sm text-muted-foreground">{member.pan}</p>
+                          </div>
+                        </div>
+                        <div className="ml-auto">
+                          <span className="inline-block bg-yellow-700 text-yellow-200 text-xs font-semibold px-3 py-1 rounded-2xl">
+                            Continue
+                          </span>
+                        </div>
+                      </div>
+
+
+
+
+
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button
+                            variant={'outline'}
+                            className="p-2 rounded-md cursor-pointer hover:bg-background  transition ml-2"
+                            aria-label="More options"
+                          >
+                            <MoreVertical size={20} className="text-muted-foreground" />
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end" className="min-w-40 space-y-4 p-4 text-sm">
+                          <DropdownMenuItem className="grid grid-cols-[10px_1fr] justify-start items-center gap-4" onSelect={() => router.navigate({ to: "/assessee/add" })}>
+                            <IconArrowRight size={16} className="ml-auto" />
+                            Continue
+                          </DropdownMenuItem>
+                          <DropdownMenuItem className="grid grid-cols-[10px_1fr] justify-start items-center gap-4" onSelect={() => router.navigate({ to: "/assessee/edit" })}>
+                            <IconEdit size={16} className="ml-auto" />
+                            Edit
+                          </DropdownMenuItem>
+                          <DropdownMenuItem className="grid grid-cols-[10px_1fr] justify-start items-center gap-4" onSelect={() => router.navigate({ to: "/assessee/edit" })}>
+                            <IconRecycle size={16} className="ml-auto" />
+                            Delete
+                          </DropdownMenuItem>
+
+                        </DropdownMenuContent>
+                      </DropdownMenu>
                     </div>
-
-                    <div>
-                      <h3 className="text-foreground font-semibold">{memberName}</h3>
-                      <p className="text-sm text-muted-foreground">{member.pan}</p>
-                    </div>
+                  ))
+                }
 
 
-                    <div className="ml-auto">
-                      <span className="inline-block bg-yellow-100 text-yellow-800 text-xs font-semibold px-3 py-1 rounded">
-                        Continue
-                      </span>
-                    </div>
-                  </div>
 
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <Button
-                        variant={'outline'}
-                        className="p-2 rounded-md cursor-pointer hover:bg-background  transition ml-2"
-                        aria-label="More options"
-                      >
-                        <MoreVertical size={20} className="text-muted-foreground" />
-                      </Button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end" className="min-w-40 space-y-4 p-4 text-sm">
-                      <DropdownMenuItem className="grid grid-cols-[10px_1fr] justify-start items-center gap-4" onSelect={() => router.navigate({ to: "/assessee/add" })}>
-                        <IconArrowRight size={16} className="ml-auto" />
-                        Continue
-                      </DropdownMenuItem>
-                      <DropdownMenuItem className="grid grid-cols-[10px_1fr] justify-start items-center gap-4" onSelect={() => router.navigate({ to: "/assessee/edit" })}>
-                        <IconEdit size={16} className="ml-auto" />
-                        Edit
-                      </DropdownMenuItem>
-                      <DropdownMenuItem className="grid grid-cols-[10px_1fr] justify-start items-center gap-4" onSelect={() => router.navigate({ to: "/assessee/edit" })}>
-                        <IconRecycle size={16} className="ml-auto" />
-                        Delete
-                      </DropdownMenuItem>
-
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </div>
 
                 <div className="mt-8">
-                  <Link
+                  {/* <Link
                     to={'/'}
                     className="px-6 py-2 rounded bg-blue-500 text-primary-foreground hover:opacity-90 transition font-medium"
                   >
                     Continue
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             </div>

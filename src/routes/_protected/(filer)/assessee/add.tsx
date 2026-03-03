@@ -1,4 +1,5 @@
-import MembersPage from '@/features/wizard-module/pages/members'
+import AddTaxForm from '@/features/wizard-module/pages/addtask/components/addtaxform'
+// import MembersPage from '@/features/wizard-module/pages/members'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_protected/(filer)/assessee/add')({
@@ -6,5 +7,5 @@ export const Route = createFileRoute('/_protected/(filer)/assessee/add')({
 })
 
 function RouteComponent() {
-  return <MembersPage />
+  return <AddTaxForm />
 }
