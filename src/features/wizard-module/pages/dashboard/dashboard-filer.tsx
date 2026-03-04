@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "@tanstack/react-router"
 import Breadcrumb from "../../components/CustomBreadCrumb"
+import { Form16Modal } from "./components/Form16Modal"
 
 type TaxFiler = {
   pan?: string
@@ -125,12 +126,7 @@ export default function DashboardFiler() {
                   </div>
 
                   <div className="mt-6">
-                    <button
-                      onClick={() => router.navigate({ to: "/" })}
-                      className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-indigo-600 text-white rounded hover:bg-indigo-700"
-                    >
-                      <span>Upload</span>
-                    </button>
+                    <Form16Modal />
                   </div>
                 </div>
 
