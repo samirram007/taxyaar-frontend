@@ -1,7 +1,6 @@
-
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
-
+import { GoogleOAuthProvider } from '@react-oauth/google'
 import * as TanstackQuery from './integrations/tanstack-query/root-provider'
 
 // Import the generated route tree
@@ -11,9 +10,8 @@ import { Toaster } from './components/ui/sonner'
 import { FontProvider } from './core/contexts/font-context'
 import { ThemeContextProvider } from './core/contexts/ThemeContextProvider'
 import { AuthProvider } from './features/auth/contexts/AuthContext'
+import { env } from './env'
 import './styles.css'
-
-
 
 // Render the app
 const rootElement = document.getElementById('app')
@@ -21,17 +19,18 @@ if (rootElement && !rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement)
   root.render(
     <StrictMode>
-      <TanstackQuery.Provider>
-        <ThemeContextProvider defaultTheme="light" storageKey="vite-ui-theme">
-          <FontProvider>
-
-            <AuthProvider>
-              <Toaster position="top-center" richColors />
-              <AppRouter />
-            </AuthProvider>
-          </FontProvider>
-        </ThemeContextProvider>
-      </TanstackQuery.Provider>
+      <GoogleOAuthProvider clientId={env.VITE_GOOGLE_CLIENT_ID}>
+        <TanstackQuery.Provider>
+          <ThemeContextProvider defaultTheme="light" storageKey="vite-ui-theme">
+            <FontProvider>
+              <AuthProvider>
+                <Toaster position="top-center" richColors />
+                <AppRouter />
+              </AuthProvider>
+            </FontProvider>
+          </ThemeContextProvider>
+        </TanstackQuery.Provider>
+      </GoogleOAuthProvider>
     </StrictMode>,
   )
 }
