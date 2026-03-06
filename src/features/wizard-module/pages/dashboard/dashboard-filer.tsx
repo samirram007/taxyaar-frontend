@@ -19,9 +19,9 @@ type TaxFiler = {
 }
 
 export default function DashboardFiler() {
-  const router = useRouter()
-  const [taxFiler, setTaxFiler] = useState<TaxFiler | null>(null)
-  const [fy, setFy] = useState<string>("2024-25")
+  const router = useRouter();
+  const [taxFiler, setTaxFiler] = useState<TaxFiler | null>(null);
+  const [fy, setFy] = useState<string>("2024-25");
 
   useEffect(() => {
     try {
