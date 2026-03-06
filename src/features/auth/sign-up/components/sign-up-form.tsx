@@ -11,7 +11,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { IconBrandFacebook, IconBrandGithub } from '@tabler/icons-react'
+
 import { useState, type HTMLAttributes } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'

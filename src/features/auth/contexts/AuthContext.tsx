@@ -139,7 +139,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     try {
       const response = await googleLoginService(googleToken)
 
-      console.log('G login - response:', response)
+      // console.log('G login - response:', response)
       if (response?.status === 'success') {
         await fetchProfile()
       } else {
@@ -162,7 +162,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }, [])
 
   const logout = React.useCallback(async () => {
-    console.log('Logging out...')
+    //  console.log('Logging out...')
     setIsLoading(true)
     try {
       // Optionally hit a logout endpoint to clear server-side auth
