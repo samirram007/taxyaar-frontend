@@ -20,6 +20,7 @@ import { Route as authOtpRouteImport } from './routes/(auth)/otp'
 import { Route as ProtectedAdministrationLayoutRouteImport } from './routes/_protected/administration/_layout'
 import { Route as ProtectedauthChangePasswordRouteImport } from './routes/_protected/(auth)/change-password'
 import { Route as ProtectedSupportHelpIndexRouteImport } from './routes/_protected/support/help/index'
+import { Route as ProtectedfilerStartIndexRouteImport } from './routes/_protected/(filer)/start/index'
 import { Route as ProtectedfilerDepartment_add_clientIndexRouteImport } from './routes/_protected/(filer)/department_add_client/index'
 import { Route as ProtectedfilerDashboard_filerIndexRouteImport } from './routes/_protected/(filer)/dashboard_filer/index'
 import { Route as ProtectedfilerDashboardIndexRouteImport } from './routes/_protected/(filer)/dashboard/index'
@@ -243,6 +244,12 @@ const ProtectedSupportHelpIndexRoute =
   ProtectedSupportHelpIndexRouteImport.update({
     id: '/support/help/',
     path: '/support/help/',
+    getParentRoute: () => ProtectedRoute,
+  } as any)
+const ProtectedfilerStartIndexRoute =
+  ProtectedfilerStartIndexRouteImport.update({
+    id: '/(filer)/start/',
+    path: '/start/',
     getParentRoute: () => ProtectedRoute,
   } as any)
 const ProtectedfilerDepartment_add_clientIndexRoute =
@@ -535,6 +542,7 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof ProtectedfilerDashboardIndexRoute
   '/dashboard_filer': typeof ProtectedfilerDashboard_filerIndexRoute
   '/department_add_client': typeof ProtectedfilerDepartment_add_clientIndexRoute
+  '/start': typeof ProtectedfilerStartIndexRoute
   '/support/help': typeof ProtectedSupportHelpIndexRoute
   '/administration/role': typeof ProtectedAdministrationLayoutRoleLayoutRouteWithChildren
   '/administration/user': typeof ProtectedAdministrationLayoutUserLayoutRouteWithChildren
@@ -593,6 +601,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof ProtectedfilerDashboardIndexRoute
   '/dashboard_filer': typeof ProtectedfilerDashboard_filerIndexRoute
   '/department_add_client': typeof ProtectedfilerDepartment_add_clientIndexRoute
+  '/start': typeof ProtectedfilerStartIndexRoute
   '/support/help': typeof ProtectedSupportHelpIndexRoute
   '/administration/role': typeof ProtectedAdministrationLayoutRoleLayoutIndexRoute
   '/administration/user': typeof ProtectedAdministrationLayoutUserLayoutIndexRoute
@@ -647,6 +656,7 @@ export interface FileRoutesById {
   '/_protected/(filer)/dashboard/': typeof ProtectedfilerDashboardIndexRoute
   '/_protected/(filer)/dashboard_filer/': typeof ProtectedfilerDashboard_filerIndexRoute
   '/_protected/(filer)/department_add_client/': typeof ProtectedfilerDepartment_add_clientIndexRoute
+  '/_protected/(filer)/start/': typeof ProtectedfilerStartIndexRoute
   '/_protected/support/help/': typeof ProtectedSupportHelpIndexRoute
   '/_protected/administration/_layout/role': typeof ProtectedAdministrationLayoutRoleRouteWithChildren
   '/_protected/administration/_layout/role/_layout': typeof ProtectedAdministrationLayoutRoleLayoutRouteWithChildren
@@ -715,6 +725,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/dashboard_filer'
     | '/department_add_client'
+    | '/start'
     | '/support/help'
     | '/administration/role'
     | '/administration/user'
@@ -773,6 +784,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/dashboard_filer'
     | '/department_add_client'
+    | '/start'
     | '/support/help'
     | '/administration/role'
     | '/administration/user'
@@ -826,6 +838,7 @@ export interface FileRouteTypes {
     | '/_protected/(filer)/dashboard/'
     | '/_protected/(filer)/dashboard_filer/'
     | '/_protected/(filer)/department_add_client/'
+    | '/_protected/(filer)/start/'
     | '/_protected/support/help/'
     | '/_protected/administration/_layout/role'
     | '/_protected/administration/_layout/role/_layout'
@@ -1043,6 +1056,13 @@ declare module '@tanstack/react-router' {
       path: '/support/help'
       fullPath: '/support/help'
       preLoaderRoute: typeof ProtectedSupportHelpIndexRouteImport
+      parentRoute: typeof ProtectedRoute
+    }
+    '/_protected/(filer)/start/': {
+      id: '/_protected/(filer)/start/'
+      path: '/start'
+      fullPath: '/start'
+      preLoaderRoute: typeof ProtectedfilerStartIndexRouteImport
       parentRoute: typeof ProtectedRoute
     }
     '/_protected/(filer)/department_add_client/': {
@@ -1759,6 +1779,7 @@ interface ProtectedRouteChildren {
   ProtectedfilerDashboardIndexRoute: typeof ProtectedfilerDashboardIndexRoute
   ProtectedfilerDashboard_filerIndexRoute: typeof ProtectedfilerDashboard_filerIndexRoute
   ProtectedfilerDepartment_add_clientIndexRoute: typeof ProtectedfilerDepartment_add_clientIndexRoute
+  ProtectedfilerStartIndexRoute: typeof ProtectedfilerStartIndexRoute
   ProtectedSupportHelpIndexRoute: typeof ProtectedSupportHelpIndexRoute
   ProtectedauthProfileIndexRoute: typeof ProtectedauthProfileIndexRoute
 }
@@ -1782,6 +1803,7 @@ const ProtectedRouteChildren: ProtectedRouteChildren = {
     ProtectedfilerDashboard_filerIndexRoute,
   ProtectedfilerDepartment_add_clientIndexRoute:
     ProtectedfilerDepartment_add_clientIndexRoute,
+  ProtectedfilerStartIndexRoute: ProtectedfilerStartIndexRoute,
   ProtectedSupportHelpIndexRoute: ProtectedSupportHelpIndexRoute,
   ProtectedauthProfileIndexRoute: ProtectedauthProfileIndexRoute,
 }

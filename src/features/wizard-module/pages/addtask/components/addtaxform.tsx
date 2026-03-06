@@ -2,7 +2,7 @@
 
 import Breadcrumb from "../../../components/CustomBreadCrumb"
 import FormFields from "./FormFields"
-import HelpSidebar from "./HelpSidebar"
+import HelpSidebar from "../../../components/HelpSidebar"
 
 
 export default function AddTaxForm() {

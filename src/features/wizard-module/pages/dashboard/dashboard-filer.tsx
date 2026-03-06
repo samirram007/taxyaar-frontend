@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "@tanstack/react-router"
 import Breadcrumb from "../../components/CustomBreadCrumb"
+import { Button } from "@/components/ui/button"
 
 type TaxFiler = {
   pan?: string
@@ -99,12 +100,12 @@ export default function DashboardFiler() {
                   </div>
 
                   <div className="mt-6">
-                    <button
+                    <Button
                       onClick={() => router.navigate({ to: "/" })}
-                      className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-sky-600 text-white rounded hover:bg-sky-700"
+                      className="w-full inline-flex items-center justify-center gap-2  p-6 bg-sky-600 text-white rounded hover:bg-sky-700"
                     >
                       <span>Import and Continue</span>
-                    </button>
+                    </Button>
                   </div>
                 </div>
 
@@ -125,12 +126,12 @@ export default function DashboardFiler() {
                   </div>
 
                   <div className="mt-6">
-                    <button
+                    <Button
                       onClick={() => router.navigate({ to: "/" })}
-                      className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-indigo-600 text-white rounded hover:bg-indigo-700"
+                      className="w-full inline-flex items-center justify-center gap-2 p-6 bg-indigo-600 text-white rounded hover:bg-indigo-700"
                     >
                       <span>Upload</span>
-                    </button>
+                    </Button>
                   </div>
                 </div>
 
@@ -151,12 +152,12 @@ export default function DashboardFiler() {
                   </div>
 
                   <div className="mt-6">
-                    <button
-                      onClick={() => router.navigate({ to: "/" })}
-                      className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-emerald-600 text-white rounded hover:bg-emerald-700"
+                    <Button
+                      onClick={() => router.navigate({ to: "/start" })}
+                      className="p-6 w-full inline-flex items-center justify-center gap-2   bg-emerald-600 text-white rounded hover:bg-emerald-700"
                     >
-                      <span>Continue</span>
-                    </button>
+                      <span>Continue..</span>
+                    </Button>
                   </div>
                 </div>
               </div>
