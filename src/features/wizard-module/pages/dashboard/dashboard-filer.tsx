@@ -4,6 +4,8 @@ import { useEffect, useState } from "react"
 import { useRouter } from "@tanstack/react-router"
 import Breadcrumb from "../../components/CustomBreadCrumb"
 import { Button } from "@/components/ui/button"
+import { Form16Modal } from "./components/Form16Modal"
+
 
 type TaxFiler = {
   pan?: string
@@ -19,9 +21,9 @@ type TaxFiler = {
 }
 
 export default function DashboardFiler() {
-  const router = useRouter()
-  const [taxFiler, setTaxFiler] = useState<TaxFiler | null>(null)
-  const [fy, setFy] = useState<string>("2024-25")
+  const router = useRouter();
+  const [taxFiler, setTaxFiler] = useState<TaxFiler | null>(null);
+  const [fy, setFy] = useState<string>("2024-25");
 
   useEffect(() => {
     try {
@@ -132,6 +134,7 @@ export default function DashboardFiler() {
                     >
                       <span>Upload</span>
                     </Button>
+                    <Form16Modal />
                   </div>
                 </div>
 

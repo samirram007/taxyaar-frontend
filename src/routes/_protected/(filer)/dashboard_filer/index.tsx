@@ -8,3 +8,5 @@ export const Route = createFileRoute('/_protected/(filer)/dashboard_filer/')({
 function RouteComponent() {
   return <DashboardFiler />
 }
+
+
