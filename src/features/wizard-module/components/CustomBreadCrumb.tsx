@@ -30,7 +30,8 @@ export default function CustomBreadcrumb({ title = "Page" }: { title?: string })
       },
       {
         onSuccess: () => {
-          localStorage.removeItem("autkn")
+          localStorage.removeItem("autkn");
+          localStorage.removeItem("transactionId");
           sessionStorage.clear()
           router.navigate({ to: "/dashboard" })
         },
