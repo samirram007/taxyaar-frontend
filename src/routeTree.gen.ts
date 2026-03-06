@@ -32,11 +32,11 @@ import { Route as ProtectedfilerAssesseeHeyassesseeRouteImport } from './routes/
 import { Route as ProtectedfilerAssesseeEditRouteImport } from './routes/_protected/(filer)/assessee/edit'
 import { Route as ProtectedfilerAssesseeAddRouteImport } from './routes/_protected/(filer)/assessee/add'
 import { Route as ProtectedauthUserFiscalYearLayoutRouteImport } from './routes/_protected/(auth)/user-fiscal-year/_layout'
+import { Route as ProtectedauthProfileIndexRouteImport } from './routes/_protected/(auth)/profile/index.'
 import { Route as ProtectedAdministrationLayoutPermissionIndexRouteImport } from './routes/_protected/administration/_layout/permission/index'
 import { Route as ProtectedAdministrationLayoutApp_module_featureIndexRouteImport } from './routes/_protected/administration/_layout/app_module_feature/index'
 import { Route as ProtectedAdministrationLayoutApp_moduleIndexRouteImport } from './routes/_protected/administration/_layout/app_module/index'
 import { Route as ProtectedauthUserFiscalYearLayoutIndexRouteImport } from './routes/_protected/(auth)/user-fiscal-year/_layout/index'
-import { Route as ProtectedauthProfileIndexRouteImport } from './routes/_protected/(auth)/profile/index.'
 import { Route as ProtectedAdministrationLayoutUserLayoutRouteImport } from './routes/_protected/administration/_layout/user/_layout'
 import { Route as ProtectedAdministrationLayoutRoleLayoutRouteImport } from './routes/_protected/administration/_layout/role/_layout'
 import { Route as ProtectedMastersOrganizationLayoutBranchIndexRouteImport } from './routes/_protected/masters/organization/_layout/branch/index'
@@ -62,9 +62,6 @@ import { Route as ProtectedAdministrationLayoutRoleLayoutIdModuleRouteImport } f
 import { Route as ProtectedAdministrationLayoutRoleLayoutIdModuleIndexRouteImport } from './routes/_protected/administration/_layout/role/_layout/$id/_module/index'
 import { Route as ProtectedAdministrationLayoutRoleLayoutIdModuleModuleidRouteImport } from './routes/_protected/administration/_layout/role/_layout/$id/_module/$moduleid'
 
-const ProtectedAdministrationRouteImport = createFileRoute(
-  '/_protected/administration',
-)()
 const errors503LazyRouteImport = createFileRoute('/(errors)/503')()
 const errors500LazyRouteImport = createFileRoute('/(errors)/500')()
 const errors404LazyRouteImport = createFileRoute('/(errors)/404')()
@@ -76,35 +73,6 @@ const authSignIn2LazyRouteImport = createFileRoute('/(auth)/sign-in-2')()
 const authForgotPasswordLazyRouteImport = createFileRoute(
   '/(auth)/forgot-password',
 )()
-const ProtectedMastersOrganizationRouteImport = createFileRoute(
-  '/_protected/masters/organization',
-)()
-const ProtectedauthUserFiscalYearRouteImport = createFileRoute(
-  '/_protected/(auth)/user-fiscal-year',
-)()
-const ProtectedAdministrationLayoutUserRouteImport = createFileRoute(
-  '/_protected/administration/_layout/user',
-)()
-const ProtectedAdministrationLayoutRoleRouteImport = createFileRoute(
-  '/_protected/administration/_layout/role',
-)()
-const ProtectedMastersOrganizationLayoutStateRouteImport = createFileRoute(
-  '/_protected/masters/organization/_layout/state',
-)()
-const ProtectedMastersOrganizationLayoutFiscal_yearRouteImport =
-  createFileRoute('/_protected/masters/organization/_layout/fiscal_year')()
-const ProtectedMastersOrganizationLayoutCurrencyRouteImport = createFileRoute(
-  '/_protected/masters/organization/_layout/currency',
-)()
-const ProtectedMastersOrganizationLayoutCountryRouteImport = createFileRoute(
-  '/_protected/masters/organization/_layout/country',
-)()
-const ProtectedMastersOrganizationLayoutCompanyRouteImport = createFileRoute(
-  '/_protected/masters/organization/_layout/company',
-)()
-const ProtectedAdministrationLayoutRoleLayoutIdRouteImport = createFileRoute(
-  '/_protected/administration/_layout/role/_layout/$id',
-)()
 
 const ProtectedRoute = ProtectedRouteImport.update({
   id: '/_protected',
@@ -114,11 +82,6 @@ const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
-} as any)
-const ProtectedAdministrationRoute = ProtectedAdministrationRouteImport.update({
-  id: '/administration',
-  path: '/administration',
-  getParentRoute: () => ProtectedRoute,
 } as any)
 const errors503LazyRoute = errors503LazyRouteImport
   .update({
@@ -206,40 +169,17 @@ const authOtpRoute = authOtpRouteImport.update({
   path: '/otp',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProtectedMastersOrganizationRoute =
-  ProtectedMastersOrganizationRouteImport.update({
-    id: '/masters/organization',
-    path: '/masters/organization',
-    getParentRoute: () => ProtectedRoute,
-  } as any)
-const ProtectedauthUserFiscalYearRoute =
-  ProtectedauthUserFiscalYearRouteImport.update({
-    id: '/(auth)/user-fiscal-year',
-    path: '/user-fiscal-year',
-    getParentRoute: () => ProtectedRoute,
-  } as any)
 const ProtectedAdministrationLayoutRoute =
   ProtectedAdministrationLayoutRouteImport.update({
-    id: '/_layout',
-    getParentRoute: () => ProtectedAdministrationRoute,
+    id: '/administration/_layout',
+    path: '/administration',
+    getParentRoute: () => ProtectedRoute,
   } as any)
 const ProtectedauthChangePasswordRoute =
   ProtectedauthChangePasswordRouteImport.update({
     id: '/(auth)/change-password',
     path: '/change-password',
     getParentRoute: () => ProtectedRoute,
-  } as any)
-const ProtectedAdministrationLayoutUserRoute =
-  ProtectedAdministrationLayoutUserRouteImport.update({
-    id: '/user',
-    path: '/user',
-    getParentRoute: () => ProtectedAdministrationLayoutRoute,
-  } as any)
-const ProtectedAdministrationLayoutRoleRoute =
-  ProtectedAdministrationLayoutRoleRouteImport.update({
-    id: '/role',
-    path: '/role',
-    getParentRoute: () => ProtectedAdministrationLayoutRoute,
   } as any)
 const ProtectedSupportHelpIndexRoute =
   ProtectedSupportHelpIndexRouteImport.update({
@@ -291,8 +231,9 @@ const ProtectedauthAddtaxformIndexRoute =
   } as any)
 const ProtectedMastersOrganizationLayoutRoute =
   ProtectedMastersOrganizationLayoutRouteImport.update({
-    id: '/_layout',
-    getParentRoute: () => ProtectedMastersOrganizationRoute,
+    id: '/masters/organization/_layout',
+    path: '/masters/organization',
+    getParentRoute: () => ProtectedRoute,
   } as any)
 const ProtectedfilerAssesseeHeyassesseeRoute =
   ProtectedfilerAssesseeHeyassesseeRouteImport.update({
@@ -314,38 +255,15 @@ const ProtectedfilerAssesseeAddRoute =
   } as any)
 const ProtectedauthUserFiscalYearLayoutRoute =
   ProtectedauthUserFiscalYearLayoutRouteImport.update({
-    id: '/_layout',
-    getParentRoute: () => ProtectedauthUserFiscalYearRoute,
+    id: '/(auth)/user-fiscal-year/_layout',
+    path: '/user-fiscal-year',
+    getParentRoute: () => ProtectedRoute,
   } as any)
-const ProtectedMastersOrganizationLayoutStateRoute =
-  ProtectedMastersOrganizationLayoutStateRouteImport.update({
-    id: '/state',
-    path: '/state',
-    getParentRoute: () => ProtectedMastersOrganizationLayoutRoute,
-  } as any)
-const ProtectedMastersOrganizationLayoutFiscal_yearRoute =
-  ProtectedMastersOrganizationLayoutFiscal_yearRouteImport.update({
-    id: '/fiscal_year',
-    path: '/fiscal_year',
-    getParentRoute: () => ProtectedMastersOrganizationLayoutRoute,
-  } as any)
-const ProtectedMastersOrganizationLayoutCurrencyRoute =
-  ProtectedMastersOrganizationLayoutCurrencyRouteImport.update({
-    id: '/currency',
-    path: '/currency',
-    getParentRoute: () => ProtectedMastersOrganizationLayoutRoute,
-  } as any)
-const ProtectedMastersOrganizationLayoutCountryRoute =
-  ProtectedMastersOrganizationLayoutCountryRouteImport.update({
-    id: '/country',
-    path: '/country',
-    getParentRoute: () => ProtectedMastersOrganizationLayoutRoute,
-  } as any)
-const ProtectedMastersOrganizationLayoutCompanyRoute =
-  ProtectedMastersOrganizationLayoutCompanyRouteImport.update({
-    id: '/company',
-    path: '/company',
-    getParentRoute: () => ProtectedMastersOrganizationLayoutRoute,
+const ProtectedauthProfileIndexRoute =
+  ProtectedauthProfileIndexRouteImport.update({
+    id: '/(auth)/profile/index/',
+    path: '/profile/index/',
+    getParentRoute: () => ProtectedRoute,
   } as any)
 const ProtectedAdministrationLayoutPermissionIndexRoute =
   ProtectedAdministrationLayoutPermissionIndexRouteImport.update({
@@ -371,27 +289,17 @@ const ProtectedauthUserFiscalYearLayoutIndexRoute =
     path: '/',
     getParentRoute: () => ProtectedauthUserFiscalYearLayoutRoute,
   } as any)
-const ProtectedauthProfileIndexRoute =
-  ProtectedauthProfileIndexRouteImport.update({
-    id: '/(auth)/profile/index/',
-    path: '/profile/index/',
-    getParentRoute: () => ProtectedRoute,
-  } as any)
 const ProtectedAdministrationLayoutUserLayoutRoute =
   ProtectedAdministrationLayoutUserLayoutRouteImport.update({
-    id: '/_layout',
-    getParentRoute: () => ProtectedAdministrationLayoutUserRoute,
+    id: '/user/_layout',
+    path: '/user',
+    getParentRoute: () => ProtectedAdministrationLayoutRoute,
   } as any)
 const ProtectedAdministrationLayoutRoleLayoutRoute =
   ProtectedAdministrationLayoutRoleLayoutRouteImport.update({
-    id: '/_layout',
-    getParentRoute: () => ProtectedAdministrationLayoutRoleRoute,
-  } as any)
-const ProtectedAdministrationLayoutRoleLayoutIdRoute =
-  ProtectedAdministrationLayoutRoleLayoutIdRouteImport.update({
-    id: '/$id',
-    path: '/$id',
-    getParentRoute: () => ProtectedAdministrationLayoutRoleLayoutRoute,
+    id: '/role/_layout',
+    path: '/role',
+    getParentRoute: () => ProtectedAdministrationLayoutRoute,
   } as any)
 const ProtectedMastersOrganizationLayoutBranchIndexRoute =
   ProtectedMastersOrganizationLayoutBranchIndexRouteImport.update({
@@ -413,28 +321,33 @@ const ProtectedAdministrationLayoutRoleLayoutIndexRoute =
   } as any)
 const ProtectedMastersOrganizationLayoutStateLayoutRoute =
   ProtectedMastersOrganizationLayoutStateLayoutRouteImport.update({
-    id: '/_layout',
-    getParentRoute: () => ProtectedMastersOrganizationLayoutStateRoute,
+    id: '/state/_layout',
+    path: '/state',
+    getParentRoute: () => ProtectedMastersOrganizationLayoutRoute,
   } as any)
 const ProtectedMastersOrganizationLayoutFiscal_yearLayoutRoute =
   ProtectedMastersOrganizationLayoutFiscal_yearLayoutRouteImport.update({
-    id: '/_layout',
-    getParentRoute: () => ProtectedMastersOrganizationLayoutFiscal_yearRoute,
+    id: '/fiscal_year/_layout',
+    path: '/fiscal_year',
+    getParentRoute: () => ProtectedMastersOrganizationLayoutRoute,
   } as any)
 const ProtectedMastersOrganizationLayoutCurrencyLayoutRoute =
   ProtectedMastersOrganizationLayoutCurrencyLayoutRouteImport.update({
-    id: '/_layout',
-    getParentRoute: () => ProtectedMastersOrganizationLayoutCurrencyRoute,
+    id: '/currency/_layout',
+    path: '/currency',
+    getParentRoute: () => ProtectedMastersOrganizationLayoutRoute,
   } as any)
 const ProtectedMastersOrganizationLayoutCountryLayoutRoute =
   ProtectedMastersOrganizationLayoutCountryLayoutRouteImport.update({
-    id: '/_layout',
-    getParentRoute: () => ProtectedMastersOrganizationLayoutCountryRoute,
+    id: '/country/_layout',
+    path: '/country',
+    getParentRoute: () => ProtectedMastersOrganizationLayoutRoute,
   } as any)
 const ProtectedMastersOrganizationLayoutCompanyLayoutRoute =
   ProtectedMastersOrganizationLayoutCompanyLayoutRouteImport.update({
-    id: '/_layout',
-    getParentRoute: () => ProtectedMastersOrganizationLayoutCompanyRoute,
+    id: '/company/_layout',
+    path: '/company',
+    getParentRoute: () => ProtectedMastersOrganizationLayoutRoute,
   } as any)
 const ProtectedAdministrationLayoutUserLayoutIdRoute =
   ProtectedAdministrationLayoutUserLayoutIdRouteImport.update({
@@ -506,8 +419,9 @@ const ProtectedMastersOrganizationLayoutCompanyLayoutIdRoute =
   } as any)
 const ProtectedAdministrationLayoutRoleLayoutIdModuleRoute =
   ProtectedAdministrationLayoutRoleLayoutIdModuleRouteImport.update({
-    id: '/_module',
-    getParentRoute: () => ProtectedAdministrationLayoutRoleLayoutIdRoute,
+    id: '/$id/_module',
+    path: '/$id',
+    getParentRoute: () => ProtectedAdministrationLayoutRoleLayoutRoute,
   } as any)
 const ProtectedAdministrationLayoutRoleLayoutIdModuleIndexRoute =
   ProtectedAdministrationLayoutRoleLayoutIdModuleIndexRouteImport.update({
@@ -544,6 +458,7 @@ export interface FileRoutesByFullPath {
   '/assessee/edit': typeof ProtectedfilerAssesseeEditRoute
   '/assessee/heyassessee': typeof ProtectedfilerAssesseeHeyassesseeRoute
   '/masters/organization': typeof ProtectedMastersOrganizationLayoutRouteWithChildren
+<<<<<<< HEAD
   '/addtaxform': typeof ProtectedauthAddtaxformIndexRoute
   '/member': typeof ProtectedauthMemberIndexRoute
   '/verify-pan': typeof ProtectedauthVerifyPanIndexRoute
@@ -552,13 +467,22 @@ export interface FileRoutesByFullPath {
   '/department_add_client': typeof ProtectedfilerDepartment_add_clientIndexRoute
   '/start': typeof ProtectedfilerStartIndexRoute
   '/support/help': typeof ProtectedSupportHelpIndexRoute
+=======
+  '/addtaxform/': typeof ProtectedauthAddtaxformIndexRoute
+  '/member/': typeof ProtectedauthMemberIndexRoute
+  '/verify-pan/': typeof ProtectedauthVerifyPanIndexRoute
+  '/dashboard/': typeof ProtectedfilerDashboardIndexRoute
+  '/dashboard_filer/': typeof ProtectedfilerDashboard_filerIndexRoute
+  '/department_add_client/': typeof ProtectedfilerDepartment_add_clientIndexRoute
+  '/support/help/': typeof ProtectedSupportHelpIndexRoute
+>>>>>>> 528eb86 (taxyaar merger)
   '/administration/role': typeof ProtectedAdministrationLayoutRoleLayoutRouteWithChildren
   '/administration/user': typeof ProtectedAdministrationLayoutUserLayoutRouteWithChildren
-  '/profile/index': typeof ProtectedauthProfileIndexRoute
+  '/profile/index/': typeof ProtectedauthProfileIndexRoute
   '/user-fiscal-year/': typeof ProtectedauthUserFiscalYearLayoutIndexRoute
-  '/administration/app_module': typeof ProtectedAdministrationLayoutApp_moduleIndexRoute
-  '/administration/app_module_feature': typeof ProtectedAdministrationLayoutApp_module_featureIndexRoute
-  '/administration/permission': typeof ProtectedAdministrationLayoutPermissionIndexRoute
+  '/administration/app_module/': typeof ProtectedAdministrationLayoutApp_moduleIndexRoute
+  '/administration/app_module_feature/': typeof ProtectedAdministrationLayoutApp_module_featureIndexRoute
+  '/administration/permission/': typeof ProtectedAdministrationLayoutPermissionIndexRoute
   '/administration/user/$id': typeof ProtectedAdministrationLayoutUserLayoutIdRoute
   '/masters/organization/company': typeof ProtectedMastersOrganizationLayoutCompanyLayoutRouteWithChildren
   '/masters/organization/country': typeof ProtectedMastersOrganizationLayoutCountryLayoutRouteWithChildren
@@ -567,7 +491,7 @@ export interface FileRoutesByFullPath {
   '/masters/organization/state': typeof ProtectedMastersOrganizationLayoutStateLayoutRouteWithChildren
   '/administration/role/': typeof ProtectedAdministrationLayoutRoleLayoutIndexRoute
   '/administration/user/': typeof ProtectedAdministrationLayoutUserLayoutIndexRoute
-  '/masters/organization/branch': typeof ProtectedMastersOrganizationLayoutBranchIndexRoute
+  '/masters/organization/branch/': typeof ProtectedMastersOrganizationLayoutBranchIndexRoute
   '/administration/role/$id': typeof ProtectedAdministrationLayoutRoleLayoutIdModuleRouteWithChildren
   '/masters/organization/company/$id': typeof ProtectedMastersOrganizationLayoutCompanyLayoutIdRoute
   '/masters/organization/country/$id': typeof ProtectedMastersOrganizationLayoutCountryLayoutIdRoute
@@ -599,7 +523,6 @@ export interface FileRoutesByTo {
   '/503': typeof errors503LazyRoute
   '/change-password': typeof ProtectedauthChangePasswordRoute
   '/administration': typeof ProtectedAdministrationLayoutRouteWithChildren
-  '/user-fiscal-year': typeof ProtectedauthUserFiscalYearLayoutIndexRoute
   '/assessee/add': typeof ProtectedfilerAssesseeAddRoute
   '/assessee/edit': typeof ProtectedfilerAssesseeEditRoute
   '/assessee/heyassessee': typeof ProtectedfilerAssesseeHeyassesseeRoute
@@ -612,26 +535,27 @@ export interface FileRoutesByTo {
   '/department_add_client': typeof ProtectedfilerDepartment_add_clientIndexRoute
   '/start': typeof ProtectedfilerStartIndexRoute
   '/support/help': typeof ProtectedSupportHelpIndexRoute
-  '/administration/role': typeof ProtectedAdministrationLayoutRoleLayoutIndexRoute
-  '/administration/user': typeof ProtectedAdministrationLayoutUserLayoutIndexRoute
   '/profile/index': typeof ProtectedauthProfileIndexRoute
+  '/user-fiscal-year': typeof ProtectedauthUserFiscalYearLayoutIndexRoute
   '/administration/app_module': typeof ProtectedAdministrationLayoutApp_moduleIndexRoute
   '/administration/app_module_feature': typeof ProtectedAdministrationLayoutApp_module_featureIndexRoute
   '/administration/permission': typeof ProtectedAdministrationLayoutPermissionIndexRoute
   '/administration/user/$id': typeof ProtectedAdministrationLayoutUserLayoutIdRoute
-  '/masters/organization/company': typeof ProtectedMastersOrganizationLayoutCompanyLayoutIndexRoute
-  '/masters/organization/country': typeof ProtectedMastersOrganizationLayoutCountryLayoutIndexRoute
-  '/masters/organization/currency': typeof ProtectedMastersOrganizationLayoutCurrencyLayoutIndexRoute
-  '/masters/organization/fiscal_year': typeof ProtectedMastersOrganizationLayoutFiscal_yearLayoutIndexRoute
-  '/masters/organization/state': typeof ProtectedMastersOrganizationLayoutStateLayoutIndexRoute
+  '/administration/role': typeof ProtectedAdministrationLayoutRoleLayoutIndexRoute
+  '/administration/user': typeof ProtectedAdministrationLayoutUserLayoutIndexRoute
   '/masters/organization/branch': typeof ProtectedMastersOrganizationLayoutBranchIndexRoute
-  '/administration/role/$id': typeof ProtectedAdministrationLayoutRoleLayoutIdModuleIndexRoute
   '/masters/organization/company/$id': typeof ProtectedMastersOrganizationLayoutCompanyLayoutIdRoute
   '/masters/organization/country/$id': typeof ProtectedMastersOrganizationLayoutCountryLayoutIdRoute
   '/masters/organization/currency/$id': typeof ProtectedMastersOrganizationLayoutCurrencyLayoutIdRoute
   '/masters/organization/fiscal_year/$id': typeof ProtectedMastersOrganizationLayoutFiscal_yearLayoutIdRoute
   '/masters/organization/state/$id': typeof ProtectedMastersOrganizationLayoutStateLayoutIdRoute
+  '/masters/organization/company': typeof ProtectedMastersOrganizationLayoutCompanyLayoutIndexRoute
+  '/masters/organization/country': typeof ProtectedMastersOrganizationLayoutCountryLayoutIndexRoute
+  '/masters/organization/currency': typeof ProtectedMastersOrganizationLayoutCurrencyLayoutIndexRoute
+  '/masters/organization/fiscal_year': typeof ProtectedMastersOrganizationLayoutFiscal_yearLayoutIndexRoute
+  '/masters/organization/state': typeof ProtectedMastersOrganizationLayoutStateLayoutIndexRoute
   '/administration/role/$id/$moduleid': typeof ProtectedAdministrationLayoutRoleLayoutIdModuleModuleidRoute
+  '/administration/role/$id': typeof ProtectedAdministrationLayoutRoleLayoutIdModuleIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -651,14 +575,11 @@ export interface FileRoutesById {
   '/(errors)/500': typeof errors500LazyRoute
   '/(errors)/503': typeof errors503LazyRoute
   '/_protected/(auth)/change-password': typeof ProtectedauthChangePasswordRoute
-  '/_protected/administration': typeof ProtectedAdministrationRouteWithChildren
   '/_protected/administration/_layout': typeof ProtectedAdministrationLayoutRouteWithChildren
-  '/_protected/(auth)/user-fiscal-year': typeof ProtectedauthUserFiscalYearRouteWithChildren
   '/_protected/(auth)/user-fiscal-year/_layout': typeof ProtectedauthUserFiscalYearLayoutRouteWithChildren
   '/_protected/(filer)/assessee/add': typeof ProtectedfilerAssesseeAddRoute
   '/_protected/(filer)/assessee/edit': typeof ProtectedfilerAssesseeEditRoute
   '/_protected/(filer)/assessee/heyassessee': typeof ProtectedfilerAssesseeHeyassesseeRoute
-  '/_protected/masters/organization': typeof ProtectedMastersOrganizationRouteWithChildren
   '/_protected/masters/organization/_layout': typeof ProtectedMastersOrganizationLayoutRouteWithChildren
   '/_protected/(auth)/addtaxform/': typeof ProtectedauthAddtaxformIndexRoute
   '/_protected/(auth)/member/': typeof ProtectedauthMemberIndexRoute
@@ -668,9 +589,7 @@ export interface FileRoutesById {
   '/_protected/(filer)/department_add_client/': typeof ProtectedfilerDepartment_add_clientIndexRoute
   '/_protected/(filer)/start/': typeof ProtectedfilerStartIndexRoute
   '/_protected/support/help/': typeof ProtectedSupportHelpIndexRoute
-  '/_protected/administration/_layout/role': typeof ProtectedAdministrationLayoutRoleRouteWithChildren
   '/_protected/administration/_layout/role/_layout': typeof ProtectedAdministrationLayoutRoleLayoutRouteWithChildren
-  '/_protected/administration/_layout/user': typeof ProtectedAdministrationLayoutUserRouteWithChildren
   '/_protected/administration/_layout/user/_layout': typeof ProtectedAdministrationLayoutUserLayoutRouteWithChildren
   '/_protected/(auth)/profile/index/': typeof ProtectedauthProfileIndexRoute
   '/_protected/(auth)/user-fiscal-year/_layout/': typeof ProtectedauthUserFiscalYearLayoutIndexRoute
@@ -678,20 +597,14 @@ export interface FileRoutesById {
   '/_protected/administration/_layout/app_module_feature/': typeof ProtectedAdministrationLayoutApp_module_featureIndexRoute
   '/_protected/administration/_layout/permission/': typeof ProtectedAdministrationLayoutPermissionIndexRoute
   '/_protected/administration/_layout/user/_layout/$id': typeof ProtectedAdministrationLayoutUserLayoutIdRoute
-  '/_protected/masters/organization/_layout/company': typeof ProtectedMastersOrganizationLayoutCompanyRouteWithChildren
   '/_protected/masters/organization/_layout/company/_layout': typeof ProtectedMastersOrganizationLayoutCompanyLayoutRouteWithChildren
-  '/_protected/masters/organization/_layout/country': typeof ProtectedMastersOrganizationLayoutCountryRouteWithChildren
   '/_protected/masters/organization/_layout/country/_layout': typeof ProtectedMastersOrganizationLayoutCountryLayoutRouteWithChildren
-  '/_protected/masters/organization/_layout/currency': typeof ProtectedMastersOrganizationLayoutCurrencyRouteWithChildren
   '/_protected/masters/organization/_layout/currency/_layout': typeof ProtectedMastersOrganizationLayoutCurrencyLayoutRouteWithChildren
-  '/_protected/masters/organization/_layout/fiscal_year': typeof ProtectedMastersOrganizationLayoutFiscal_yearRouteWithChildren
   '/_protected/masters/organization/_layout/fiscal_year/_layout': typeof ProtectedMastersOrganizationLayoutFiscal_yearLayoutRouteWithChildren
-  '/_protected/masters/organization/_layout/state': typeof ProtectedMastersOrganizationLayoutStateRouteWithChildren
   '/_protected/masters/organization/_layout/state/_layout': typeof ProtectedMastersOrganizationLayoutStateLayoutRouteWithChildren
   '/_protected/administration/_layout/role/_layout/': typeof ProtectedAdministrationLayoutRoleLayoutIndexRoute
   '/_protected/administration/_layout/user/_layout/': typeof ProtectedAdministrationLayoutUserLayoutIndexRoute
   '/_protected/masters/organization/_layout/branch/': typeof ProtectedMastersOrganizationLayoutBranchIndexRoute
-  '/_protected/administration/_layout/role/_layout/$id': typeof ProtectedAdministrationLayoutRoleLayoutIdRouteWithChildren
   '/_protected/administration/_layout/role/_layout/$id/_module': typeof ProtectedAdministrationLayoutRoleLayoutIdModuleRouteWithChildren
   '/_protected/masters/organization/_layout/company/_layout/$id': typeof ProtectedMastersOrganizationLayoutCompanyLayoutIdRoute
   '/_protected/masters/organization/_layout/country/_layout/$id': typeof ProtectedMastersOrganizationLayoutCountryLayoutIdRoute
@@ -730,6 +643,7 @@ export interface FileRouteTypes {
     | '/assessee/edit'
     | '/assessee/heyassessee'
     | '/masters/organization'
+<<<<<<< HEAD
     | '/addtaxform'
     | '/member'
     | '/verify-pan'
@@ -738,13 +652,22 @@ export interface FileRouteTypes {
     | '/department_add_client'
     | '/start'
     | '/support/help'
+=======
+    | '/addtaxform/'
+    | '/member/'
+    | '/verify-pan/'
+    | '/dashboard/'
+    | '/dashboard_filer/'
+    | '/department_add_client/'
+    | '/support/help/'
+>>>>>>> 528eb86 (taxyaar merger)
     | '/administration/role'
     | '/administration/user'
-    | '/profile/index'
+    | '/profile/index/'
     | '/user-fiscal-year/'
-    | '/administration/app_module'
-    | '/administration/app_module_feature'
-    | '/administration/permission'
+    | '/administration/app_module/'
+    | '/administration/app_module_feature/'
+    | '/administration/permission/'
     | '/administration/user/$id'
     | '/masters/organization/company'
     | '/masters/organization/country'
@@ -753,7 +676,7 @@ export interface FileRouteTypes {
     | '/masters/organization/state'
     | '/administration/role/'
     | '/administration/user/'
-    | '/masters/organization/branch'
+    | '/masters/organization/branch/'
     | '/administration/role/$id'
     | '/masters/organization/company/$id'
     | '/masters/organization/country/$id'
@@ -785,7 +708,6 @@ export interface FileRouteTypes {
     | '/503'
     | '/change-password'
     | '/administration'
-    | '/user-fiscal-year'
     | '/assessee/add'
     | '/assessee/edit'
     | '/assessee/heyassessee'
@@ -798,26 +720,27 @@ export interface FileRouteTypes {
     | '/department_add_client'
     | '/start'
     | '/support/help'
-    | '/administration/role'
-    | '/administration/user'
     | '/profile/index'
+    | '/user-fiscal-year'
     | '/administration/app_module'
     | '/administration/app_module_feature'
     | '/administration/permission'
     | '/administration/user/$id'
-    | '/masters/organization/company'
-    | '/masters/organization/country'
-    | '/masters/organization/currency'
-    | '/masters/organization/fiscal_year'
-    | '/masters/organization/state'
+    | '/administration/role'
+    | '/administration/user'
     | '/masters/organization/branch'
-    | '/administration/role/$id'
     | '/masters/organization/company/$id'
     | '/masters/organization/country/$id'
     | '/masters/organization/currency/$id'
     | '/masters/organization/fiscal_year/$id'
     | '/masters/organization/state/$id'
+    | '/masters/organization/company'
+    | '/masters/organization/country'
+    | '/masters/organization/currency'
+    | '/masters/organization/fiscal_year'
+    | '/masters/organization/state'
     | '/administration/role/$id/$moduleid'
+    | '/administration/role/$id'
   id:
     | '__root__'
     | '/'
@@ -836,14 +759,11 @@ export interface FileRouteTypes {
     | '/(errors)/500'
     | '/(errors)/503'
     | '/_protected/(auth)/change-password'
-    | '/_protected/administration'
     | '/_protected/administration/_layout'
-    | '/_protected/(auth)/user-fiscal-year'
     | '/_protected/(auth)/user-fiscal-year/_layout'
     | '/_protected/(filer)/assessee/add'
     | '/_protected/(filer)/assessee/edit'
     | '/_protected/(filer)/assessee/heyassessee'
-    | '/_protected/masters/organization'
     | '/_protected/masters/organization/_layout'
     | '/_protected/(auth)/addtaxform/'
     | '/_protected/(auth)/member/'
@@ -853,9 +773,7 @@ export interface FileRouteTypes {
     | '/_protected/(filer)/department_add_client/'
     | '/_protected/(filer)/start/'
     | '/_protected/support/help/'
-    | '/_protected/administration/_layout/role'
     | '/_protected/administration/_layout/role/_layout'
-    | '/_protected/administration/_layout/user'
     | '/_protected/administration/_layout/user/_layout'
     | '/_protected/(auth)/profile/index/'
     | '/_protected/(auth)/user-fiscal-year/_layout/'
@@ -863,20 +781,14 @@ export interface FileRouteTypes {
     | '/_protected/administration/_layout/app_module_feature/'
     | '/_protected/administration/_layout/permission/'
     | '/_protected/administration/_layout/user/_layout/$id'
-    | '/_protected/masters/organization/_layout/company'
     | '/_protected/masters/organization/_layout/company/_layout'
-    | '/_protected/masters/organization/_layout/country'
     | '/_protected/masters/organization/_layout/country/_layout'
-    | '/_protected/masters/organization/_layout/currency'
     | '/_protected/masters/organization/_layout/currency/_layout'
-    | '/_protected/masters/organization/_layout/fiscal_year'
     | '/_protected/masters/organization/_layout/fiscal_year/_layout'
-    | '/_protected/masters/organization/_layout/state'
     | '/_protected/masters/organization/_layout/state/_layout'
     | '/_protected/administration/_layout/role/_layout/'
     | '/_protected/administration/_layout/user/_layout/'
     | '/_protected/masters/organization/_layout/branch/'
-    | '/_protected/administration/_layout/role/_layout/$id'
     | '/_protected/administration/_layout/role/_layout/$id/_module'
     | '/_protected/masters/organization/_layout/company/_layout/$id'
     | '/_protected/masters/organization/_layout/country/_layout/$id'
@@ -913,7 +825,7 @@ declare module '@tanstack/react-router' {
     '/_protected': {
       id: '/_protected'
       path: ''
-      fullPath: ''
+      fullPath: '/'
       preLoaderRoute: typeof ProtectedRouteImport
       parentRoute: typeof rootRouteImport
     }
@@ -923,13 +835,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
-    }
-    '/_protected/administration': {
-      id: '/_protected/administration'
-      path: '/administration'
-      fullPath: '/administration'
-      preLoaderRoute: typeof ProtectedAdministrationRouteImport
-      parentRoute: typeof ProtectedRoute
     }
     '/(errors)/503': {
       id: '/(errors)/503'
@@ -1022,26 +927,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof authOtpRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_protected/masters/organization': {
-      id: '/_protected/masters/organization'
-      path: '/masters/organization'
-      fullPath: '/masters/organization'
-      preLoaderRoute: typeof ProtectedMastersOrganizationRouteImport
-      parentRoute: typeof ProtectedRoute
-    }
-    '/_protected/(auth)/user-fiscal-year': {
-      id: '/_protected/(auth)/user-fiscal-year'
-      path: '/user-fiscal-year'
-      fullPath: '/user-fiscal-year'
-      preLoaderRoute: typeof ProtectedauthUserFiscalYearRouteImport
-      parentRoute: typeof ProtectedRoute
-    }
     '/_protected/administration/_layout': {
       id: '/_protected/administration/_layout'
       path: '/administration'
       fullPath: '/administration'
       preLoaderRoute: typeof ProtectedAdministrationLayoutRouteImport
-      parentRoute: typeof ProtectedAdministrationRoute
+      parentRoute: typeof ProtectedRoute
     }
     '/_protected/(auth)/change-password': {
       id: '/_protected/(auth)/change-password'
@@ -1050,24 +941,10 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedauthChangePasswordRouteImport
       parentRoute: typeof ProtectedRoute
     }
-    '/_protected/administration/_layout/user': {
-      id: '/_protected/administration/_layout/user'
-      path: '/user'
-      fullPath: '/administration/user'
-      preLoaderRoute: typeof ProtectedAdministrationLayoutUserRouteImport
-      parentRoute: typeof ProtectedAdministrationLayoutRoute
-    }
-    '/_protected/administration/_layout/role': {
-      id: '/_protected/administration/_layout/role'
-      path: '/role'
-      fullPath: '/administration/role'
-      preLoaderRoute: typeof ProtectedAdministrationLayoutRoleRouteImport
-      parentRoute: typeof ProtectedAdministrationLayoutRoute
-    }
     '/_protected/support/help/': {
       id: '/_protected/support/help/'
       path: '/support/help'
-      fullPath: '/support/help'
+      fullPath: '/support/help/'
       preLoaderRoute: typeof ProtectedSupportHelpIndexRouteImport
       parentRoute: typeof ProtectedRoute
     }
@@ -1081,42 +958,42 @@ declare module '@tanstack/react-router' {
     '/_protected/(filer)/department_add_client/': {
       id: '/_protected/(filer)/department_add_client/'
       path: '/department_add_client'
-      fullPath: '/department_add_client'
+      fullPath: '/department_add_client/'
       preLoaderRoute: typeof ProtectedfilerDepartment_add_clientIndexRouteImport
       parentRoute: typeof ProtectedRoute
     }
     '/_protected/(filer)/dashboard_filer/': {
       id: '/_protected/(filer)/dashboard_filer/'
       path: '/dashboard_filer'
-      fullPath: '/dashboard_filer'
+      fullPath: '/dashboard_filer/'
       preLoaderRoute: typeof ProtectedfilerDashboard_filerIndexRouteImport
       parentRoute: typeof ProtectedRoute
     }
     '/_protected/(filer)/dashboard/': {
       id: '/_protected/(filer)/dashboard/'
       path: '/dashboard'
-      fullPath: '/dashboard'
+      fullPath: '/dashboard/'
       preLoaderRoute: typeof ProtectedfilerDashboardIndexRouteImport
       parentRoute: typeof ProtectedRoute
     }
     '/_protected/(auth)/verify-pan/': {
       id: '/_protected/(auth)/verify-pan/'
       path: '/verify-pan'
-      fullPath: '/verify-pan'
+      fullPath: '/verify-pan/'
       preLoaderRoute: typeof ProtectedauthVerifyPanIndexRouteImport
       parentRoute: typeof ProtectedRoute
     }
     '/_protected/(auth)/member/': {
       id: '/_protected/(auth)/member/'
       path: '/member'
-      fullPath: '/member'
+      fullPath: '/member/'
       preLoaderRoute: typeof ProtectedauthMemberIndexRouteImport
       parentRoute: typeof ProtectedRoute
     }
     '/_protected/(auth)/addtaxform/': {
       id: '/_protected/(auth)/addtaxform/'
       path: '/addtaxform'
-      fullPath: '/addtaxform'
+      fullPath: '/addtaxform/'
       preLoaderRoute: typeof ProtectedauthAddtaxformIndexRouteImport
       parentRoute: typeof ProtectedRoute
     }
@@ -1125,7 +1002,7 @@ declare module '@tanstack/react-router' {
       path: '/masters/organization'
       fullPath: '/masters/organization'
       preLoaderRoute: typeof ProtectedMastersOrganizationLayoutRouteImport
-      parentRoute: typeof ProtectedMastersOrganizationRoute
+      parentRoute: typeof ProtectedRoute
     }
     '/_protected/(filer)/assessee/heyassessee': {
       id: '/_protected/(filer)/assessee/heyassessee'
@@ -1153,61 +1030,33 @@ declare module '@tanstack/react-router' {
       path: '/user-fiscal-year'
       fullPath: '/user-fiscal-year'
       preLoaderRoute: typeof ProtectedauthUserFiscalYearLayoutRouteImport
-      parentRoute: typeof ProtectedauthUserFiscalYearRoute
+      parentRoute: typeof ProtectedRoute
     }
-    '/_protected/masters/organization/_layout/state': {
-      id: '/_protected/masters/organization/_layout/state'
-      path: '/state'
-      fullPath: '/masters/organization/state'
-      preLoaderRoute: typeof ProtectedMastersOrganizationLayoutStateRouteImport
-      parentRoute: typeof ProtectedMastersOrganizationLayoutRoute
-    }
-    '/_protected/masters/organization/_layout/fiscal_year': {
-      id: '/_protected/masters/organization/_layout/fiscal_year'
-      path: '/fiscal_year'
-      fullPath: '/masters/organization/fiscal_year'
-      preLoaderRoute: typeof ProtectedMastersOrganizationLayoutFiscal_yearRouteImport
-      parentRoute: typeof ProtectedMastersOrganizationLayoutRoute
-    }
-    '/_protected/masters/organization/_layout/currency': {
-      id: '/_protected/masters/organization/_layout/currency'
-      path: '/currency'
-      fullPath: '/masters/organization/currency'
-      preLoaderRoute: typeof ProtectedMastersOrganizationLayoutCurrencyRouteImport
-      parentRoute: typeof ProtectedMastersOrganizationLayoutRoute
-    }
-    '/_protected/masters/organization/_layout/country': {
-      id: '/_protected/masters/organization/_layout/country'
-      path: '/country'
-      fullPath: '/masters/organization/country'
-      preLoaderRoute: typeof ProtectedMastersOrganizationLayoutCountryRouteImport
-      parentRoute: typeof ProtectedMastersOrganizationLayoutRoute
-    }
-    '/_protected/masters/organization/_layout/company': {
-      id: '/_protected/masters/organization/_layout/company'
-      path: '/company'
-      fullPath: '/masters/organization/company'
-      preLoaderRoute: typeof ProtectedMastersOrganizationLayoutCompanyRouteImport
-      parentRoute: typeof ProtectedMastersOrganizationLayoutRoute
+    '/_protected/(auth)/profile/index/': {
+      id: '/_protected/(auth)/profile/index/'
+      path: '/profile/index'
+      fullPath: '/profile/index/'
+      preLoaderRoute: typeof ProtectedauthProfileIndexRouteImport
+      parentRoute: typeof ProtectedRoute
     }
     '/_protected/administration/_layout/permission/': {
       id: '/_protected/administration/_layout/permission/'
       path: '/permission'
-      fullPath: '/administration/permission'
+      fullPath: '/administration/permission/'
       preLoaderRoute: typeof ProtectedAdministrationLayoutPermissionIndexRouteImport
       parentRoute: typeof ProtectedAdministrationLayoutRoute
     }
     '/_protected/administration/_layout/app_module_feature/': {
       id: '/_protected/administration/_layout/app_module_feature/'
       path: '/app_module_feature'
-      fullPath: '/administration/app_module_feature'
+      fullPath: '/administration/app_module_feature/'
       preLoaderRoute: typeof ProtectedAdministrationLayoutApp_module_featureIndexRouteImport
       parentRoute: typeof ProtectedAdministrationLayoutRoute
     }
     '/_protected/administration/_layout/app_module/': {
       id: '/_protected/administration/_layout/app_module/'
       path: '/app_module'
-      fullPath: '/administration/app_module'
+      fullPath: '/administration/app_module/'
       preLoaderRoute: typeof ProtectedAdministrationLayoutApp_moduleIndexRouteImport
       parentRoute: typeof ProtectedAdministrationLayoutRoute
     }
@@ -1218,38 +1067,24 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedauthUserFiscalYearLayoutIndexRouteImport
       parentRoute: typeof ProtectedauthUserFiscalYearLayoutRoute
     }
-    '/_protected/(auth)/profile/index/': {
-      id: '/_protected/(auth)/profile/index/'
-      path: '/profile/index'
-      fullPath: '/profile/index'
-      preLoaderRoute: typeof ProtectedauthProfileIndexRouteImport
-      parentRoute: typeof ProtectedRoute
-    }
     '/_protected/administration/_layout/user/_layout': {
       id: '/_protected/administration/_layout/user/_layout'
       path: '/user'
       fullPath: '/administration/user'
       preLoaderRoute: typeof ProtectedAdministrationLayoutUserLayoutRouteImport
-      parentRoute: typeof ProtectedAdministrationLayoutUserRoute
+      parentRoute: typeof ProtectedAdministrationLayoutRoute
     }
     '/_protected/administration/_layout/role/_layout': {
       id: '/_protected/administration/_layout/role/_layout'
       path: '/role'
       fullPath: '/administration/role'
       preLoaderRoute: typeof ProtectedAdministrationLayoutRoleLayoutRouteImport
-      parentRoute: typeof ProtectedAdministrationLayoutRoleRoute
-    }
-    '/_protected/administration/_layout/role/_layout/$id': {
-      id: '/_protected/administration/_layout/role/_layout/$id'
-      path: '/$id'
-      fullPath: '/administration/role/$id'
-      preLoaderRoute: typeof ProtectedAdministrationLayoutRoleLayoutIdRouteImport
-      parentRoute: typeof ProtectedAdministrationLayoutRoleLayoutRoute
+      parentRoute: typeof ProtectedAdministrationLayoutRoute
     }
     '/_protected/masters/organization/_layout/branch/': {
       id: '/_protected/masters/organization/_layout/branch/'
       path: '/branch'
-      fullPath: '/masters/organization/branch'
+      fullPath: '/masters/organization/branch/'
       preLoaderRoute: typeof ProtectedMastersOrganizationLayoutBranchIndexRouteImport
       parentRoute: typeof ProtectedMastersOrganizationLayoutRoute
     }
@@ -1272,35 +1107,35 @@ declare module '@tanstack/react-router' {
       path: '/state'
       fullPath: '/masters/organization/state'
       preLoaderRoute: typeof ProtectedMastersOrganizationLayoutStateLayoutRouteImport
-      parentRoute: typeof ProtectedMastersOrganizationLayoutStateRoute
+      parentRoute: typeof ProtectedMastersOrganizationLayoutRoute
     }
     '/_protected/masters/organization/_layout/fiscal_year/_layout': {
       id: '/_protected/masters/organization/_layout/fiscal_year/_layout'
       path: '/fiscal_year'
       fullPath: '/masters/organization/fiscal_year'
       preLoaderRoute: typeof ProtectedMastersOrganizationLayoutFiscal_yearLayoutRouteImport
-      parentRoute: typeof ProtectedMastersOrganizationLayoutFiscal_yearRoute
+      parentRoute: typeof ProtectedMastersOrganizationLayoutRoute
     }
     '/_protected/masters/organization/_layout/currency/_layout': {
       id: '/_protected/masters/organization/_layout/currency/_layout'
       path: '/currency'
       fullPath: '/masters/organization/currency'
       preLoaderRoute: typeof ProtectedMastersOrganizationLayoutCurrencyLayoutRouteImport
-      parentRoute: typeof ProtectedMastersOrganizationLayoutCurrencyRoute
+      parentRoute: typeof ProtectedMastersOrganizationLayoutRoute
     }
     '/_protected/masters/organization/_layout/country/_layout': {
       id: '/_protected/masters/organization/_layout/country/_layout'
       path: '/country'
       fullPath: '/masters/organization/country'
       preLoaderRoute: typeof ProtectedMastersOrganizationLayoutCountryLayoutRouteImport
-      parentRoute: typeof ProtectedMastersOrganizationLayoutCountryRoute
+      parentRoute: typeof ProtectedMastersOrganizationLayoutRoute
     }
     '/_protected/masters/organization/_layout/company/_layout': {
       id: '/_protected/masters/organization/_layout/company/_layout'
       path: '/company'
       fullPath: '/masters/organization/company'
       preLoaderRoute: typeof ProtectedMastersOrganizationLayoutCompanyLayoutRouteImport
-      parentRoute: typeof ProtectedMastersOrganizationLayoutCompanyRoute
+      parentRoute: typeof ProtectedMastersOrganizationLayoutRoute
     }
     '/_protected/administration/_layout/user/_layout/$id': {
       id: '/_protected/administration/_layout/user/_layout/$id'
@@ -1384,7 +1219,7 @@ declare module '@tanstack/react-router' {
       path: '/$id'
       fullPath: '/administration/role/$id'
       preLoaderRoute: typeof ProtectedAdministrationLayoutRoleLayoutIdModuleRouteImport
-      parentRoute: typeof ProtectedAdministrationLayoutRoleLayoutIdRoute
+      parentRoute: typeof ProtectedAdministrationLayoutRoleLayoutRoute
     }
     '/_protected/administration/_layout/role/_layout/$id/_module/': {
       id: '/_protected/administration/_layout/role/_layout/$id/_module/'
@@ -1421,52 +1256,22 @@ const ProtectedAdministrationLayoutRoleLayoutIdModuleRouteWithChildren =
     ProtectedAdministrationLayoutRoleLayoutIdModuleRouteChildren,
   )
 
-interface ProtectedAdministrationLayoutRoleLayoutIdRouteChildren {
-  ProtectedAdministrationLayoutRoleLayoutIdModuleRoute: typeof ProtectedAdministrationLayoutRoleLayoutIdModuleRouteWithChildren
-}
-
-const ProtectedAdministrationLayoutRoleLayoutIdRouteChildren: ProtectedAdministrationLayoutRoleLayoutIdRouteChildren =
-  {
-    ProtectedAdministrationLayoutRoleLayoutIdModuleRoute:
-      ProtectedAdministrationLayoutRoleLayoutIdModuleRouteWithChildren,
-  }
-
-const ProtectedAdministrationLayoutRoleLayoutIdRouteWithChildren =
-  ProtectedAdministrationLayoutRoleLayoutIdRoute._addFileChildren(
-    ProtectedAdministrationLayoutRoleLayoutIdRouteChildren,
-  )
-
 interface ProtectedAdministrationLayoutRoleLayoutRouteChildren {
   ProtectedAdministrationLayoutRoleLayoutIndexRoute: typeof ProtectedAdministrationLayoutRoleLayoutIndexRoute
-  ProtectedAdministrationLayoutRoleLayoutIdRoute: typeof ProtectedAdministrationLayoutRoleLayoutIdRouteWithChildren
+  ProtectedAdministrationLayoutRoleLayoutIdModuleRoute: typeof ProtectedAdministrationLayoutRoleLayoutIdModuleRouteWithChildren
 }
 
 const ProtectedAdministrationLayoutRoleLayoutRouteChildren: ProtectedAdministrationLayoutRoleLayoutRouteChildren =
   {
     ProtectedAdministrationLayoutRoleLayoutIndexRoute:
       ProtectedAdministrationLayoutRoleLayoutIndexRoute,
-    ProtectedAdministrationLayoutRoleLayoutIdRoute:
-      ProtectedAdministrationLayoutRoleLayoutIdRouteWithChildren,
+    ProtectedAdministrationLayoutRoleLayoutIdModuleRoute:
+      ProtectedAdministrationLayoutRoleLayoutIdModuleRouteWithChildren,
   }
 
 const ProtectedAdministrationLayoutRoleLayoutRouteWithChildren =
   ProtectedAdministrationLayoutRoleLayoutRoute._addFileChildren(
     ProtectedAdministrationLayoutRoleLayoutRouteChildren,
-  )
-
-interface ProtectedAdministrationLayoutRoleRouteChildren {
-  ProtectedAdministrationLayoutRoleLayoutRoute: typeof ProtectedAdministrationLayoutRoleLayoutRouteWithChildren
-}
-
-const ProtectedAdministrationLayoutRoleRouteChildren: ProtectedAdministrationLayoutRoleRouteChildren =
-  {
-    ProtectedAdministrationLayoutRoleLayoutRoute:
-      ProtectedAdministrationLayoutRoleLayoutRouteWithChildren,
-  }
-
-const ProtectedAdministrationLayoutRoleRouteWithChildren =
-  ProtectedAdministrationLayoutRoleRoute._addFileChildren(
-    ProtectedAdministrationLayoutRoleRouteChildren,
   )
 
 interface ProtectedAdministrationLayoutUserLayoutRouteChildren {
@@ -1487,24 +1292,9 @@ const ProtectedAdministrationLayoutUserLayoutRouteWithChildren =
     ProtectedAdministrationLayoutUserLayoutRouteChildren,
   )
 
-interface ProtectedAdministrationLayoutUserRouteChildren {
-  ProtectedAdministrationLayoutUserLayoutRoute: typeof ProtectedAdministrationLayoutUserLayoutRouteWithChildren
-}
-
-const ProtectedAdministrationLayoutUserRouteChildren: ProtectedAdministrationLayoutUserRouteChildren =
-  {
-    ProtectedAdministrationLayoutUserLayoutRoute:
-      ProtectedAdministrationLayoutUserLayoutRouteWithChildren,
-  }
-
-const ProtectedAdministrationLayoutUserRouteWithChildren =
-  ProtectedAdministrationLayoutUserRoute._addFileChildren(
-    ProtectedAdministrationLayoutUserRouteChildren,
-  )
-
 interface ProtectedAdministrationLayoutRouteChildren {
-  ProtectedAdministrationLayoutRoleRoute: typeof ProtectedAdministrationLayoutRoleRouteWithChildren
-  ProtectedAdministrationLayoutUserRoute: typeof ProtectedAdministrationLayoutUserRouteWithChildren
+  ProtectedAdministrationLayoutRoleLayoutRoute: typeof ProtectedAdministrationLayoutRoleLayoutRouteWithChildren
+  ProtectedAdministrationLayoutUserLayoutRoute: typeof ProtectedAdministrationLayoutUserLayoutRouteWithChildren
   ProtectedAdministrationLayoutApp_moduleIndexRoute: typeof ProtectedAdministrationLayoutApp_moduleIndexRoute
   ProtectedAdministrationLayoutApp_module_featureIndexRoute: typeof ProtectedAdministrationLayoutApp_module_featureIndexRoute
   ProtectedAdministrationLayoutPermissionIndexRoute: typeof ProtectedAdministrationLayoutPermissionIndexRoute
@@ -1512,10 +1302,10 @@ interface ProtectedAdministrationLayoutRouteChildren {
 
 const ProtectedAdministrationLayoutRouteChildren: ProtectedAdministrationLayoutRouteChildren =
   {
-    ProtectedAdministrationLayoutRoleRoute:
-      ProtectedAdministrationLayoutRoleRouteWithChildren,
-    ProtectedAdministrationLayoutUserRoute:
-      ProtectedAdministrationLayoutUserRouteWithChildren,
+    ProtectedAdministrationLayoutRoleLayoutRoute:
+      ProtectedAdministrationLayoutRoleLayoutRouteWithChildren,
+    ProtectedAdministrationLayoutUserLayoutRoute:
+      ProtectedAdministrationLayoutUserLayoutRouteWithChildren,
     ProtectedAdministrationLayoutApp_moduleIndexRoute:
       ProtectedAdministrationLayoutApp_moduleIndexRoute,
     ProtectedAdministrationLayoutApp_module_featureIndexRoute:
@@ -1527,21 +1317,6 @@ const ProtectedAdministrationLayoutRouteChildren: ProtectedAdministrationLayoutR
 const ProtectedAdministrationLayoutRouteWithChildren =
   ProtectedAdministrationLayoutRoute._addFileChildren(
     ProtectedAdministrationLayoutRouteChildren,
-  )
-
-interface ProtectedAdministrationRouteChildren {
-  ProtectedAdministrationLayoutRoute: typeof ProtectedAdministrationLayoutRouteWithChildren
-}
-
-const ProtectedAdministrationRouteChildren: ProtectedAdministrationRouteChildren =
-  {
-    ProtectedAdministrationLayoutRoute:
-      ProtectedAdministrationLayoutRouteWithChildren,
-  }
-
-const ProtectedAdministrationRouteWithChildren =
-  ProtectedAdministrationRoute._addFileChildren(
-    ProtectedAdministrationRouteChildren,
   )
 
 interface ProtectedauthUserFiscalYearLayoutRouteChildren {
@@ -1557,21 +1332,6 @@ const ProtectedauthUserFiscalYearLayoutRouteChildren: ProtectedauthUserFiscalYea
 const ProtectedauthUserFiscalYearLayoutRouteWithChildren =
   ProtectedauthUserFiscalYearLayoutRoute._addFileChildren(
     ProtectedauthUserFiscalYearLayoutRouteChildren,
-  )
-
-interface ProtectedauthUserFiscalYearRouteChildren {
-  ProtectedauthUserFiscalYearLayoutRoute: typeof ProtectedauthUserFiscalYearLayoutRouteWithChildren
-}
-
-const ProtectedauthUserFiscalYearRouteChildren: ProtectedauthUserFiscalYearRouteChildren =
-  {
-    ProtectedauthUserFiscalYearLayoutRoute:
-      ProtectedauthUserFiscalYearLayoutRouteWithChildren,
-  }
-
-const ProtectedauthUserFiscalYearRouteWithChildren =
-  ProtectedauthUserFiscalYearRoute._addFileChildren(
-    ProtectedauthUserFiscalYearRouteChildren,
   )
 
 interface ProtectedMastersOrganizationLayoutCompanyLayoutRouteChildren {
@@ -1592,21 +1352,6 @@ const ProtectedMastersOrganizationLayoutCompanyLayoutRouteWithChildren =
     ProtectedMastersOrganizationLayoutCompanyLayoutRouteChildren,
   )
 
-interface ProtectedMastersOrganizationLayoutCompanyRouteChildren {
-  ProtectedMastersOrganizationLayoutCompanyLayoutRoute: typeof ProtectedMastersOrganizationLayoutCompanyLayoutRouteWithChildren
-}
-
-const ProtectedMastersOrganizationLayoutCompanyRouteChildren: ProtectedMastersOrganizationLayoutCompanyRouteChildren =
-  {
-    ProtectedMastersOrganizationLayoutCompanyLayoutRoute:
-      ProtectedMastersOrganizationLayoutCompanyLayoutRouteWithChildren,
-  }
-
-const ProtectedMastersOrganizationLayoutCompanyRouteWithChildren =
-  ProtectedMastersOrganizationLayoutCompanyRoute._addFileChildren(
-    ProtectedMastersOrganizationLayoutCompanyRouteChildren,
-  )
-
 interface ProtectedMastersOrganizationLayoutCountryLayoutRouteChildren {
   ProtectedMastersOrganizationLayoutCountryLayoutIdRoute: typeof ProtectedMastersOrganizationLayoutCountryLayoutIdRoute
   ProtectedMastersOrganizationLayoutCountryLayoutIndexRoute: typeof ProtectedMastersOrganizationLayoutCountryLayoutIndexRoute
@@ -1623,21 +1368,6 @@ const ProtectedMastersOrganizationLayoutCountryLayoutRouteChildren: ProtectedMas
 const ProtectedMastersOrganizationLayoutCountryLayoutRouteWithChildren =
   ProtectedMastersOrganizationLayoutCountryLayoutRoute._addFileChildren(
     ProtectedMastersOrganizationLayoutCountryLayoutRouteChildren,
-  )
-
-interface ProtectedMastersOrganizationLayoutCountryRouteChildren {
-  ProtectedMastersOrganizationLayoutCountryLayoutRoute: typeof ProtectedMastersOrganizationLayoutCountryLayoutRouteWithChildren
-}
-
-const ProtectedMastersOrganizationLayoutCountryRouteChildren: ProtectedMastersOrganizationLayoutCountryRouteChildren =
-  {
-    ProtectedMastersOrganizationLayoutCountryLayoutRoute:
-      ProtectedMastersOrganizationLayoutCountryLayoutRouteWithChildren,
-  }
-
-const ProtectedMastersOrganizationLayoutCountryRouteWithChildren =
-  ProtectedMastersOrganizationLayoutCountryRoute._addFileChildren(
-    ProtectedMastersOrganizationLayoutCountryRouteChildren,
   )
 
 interface ProtectedMastersOrganizationLayoutCurrencyLayoutRouteChildren {
@@ -1658,21 +1388,6 @@ const ProtectedMastersOrganizationLayoutCurrencyLayoutRouteWithChildren =
     ProtectedMastersOrganizationLayoutCurrencyLayoutRouteChildren,
   )
 
-interface ProtectedMastersOrganizationLayoutCurrencyRouteChildren {
-  ProtectedMastersOrganizationLayoutCurrencyLayoutRoute: typeof ProtectedMastersOrganizationLayoutCurrencyLayoutRouteWithChildren
-}
-
-const ProtectedMastersOrganizationLayoutCurrencyRouteChildren: ProtectedMastersOrganizationLayoutCurrencyRouteChildren =
-  {
-    ProtectedMastersOrganizationLayoutCurrencyLayoutRoute:
-      ProtectedMastersOrganizationLayoutCurrencyLayoutRouteWithChildren,
-  }
-
-const ProtectedMastersOrganizationLayoutCurrencyRouteWithChildren =
-  ProtectedMastersOrganizationLayoutCurrencyRoute._addFileChildren(
-    ProtectedMastersOrganizationLayoutCurrencyRouteChildren,
-  )
-
 interface ProtectedMastersOrganizationLayoutFiscal_yearLayoutRouteChildren {
   ProtectedMastersOrganizationLayoutFiscal_yearLayoutIdRoute: typeof ProtectedMastersOrganizationLayoutFiscal_yearLayoutIdRoute
   ProtectedMastersOrganizationLayoutFiscal_yearLayoutIndexRoute: typeof ProtectedMastersOrganizationLayoutFiscal_yearLayoutIndexRoute
@@ -1689,21 +1404,6 @@ const ProtectedMastersOrganizationLayoutFiscal_yearLayoutRouteChildren: Protecte
 const ProtectedMastersOrganizationLayoutFiscal_yearLayoutRouteWithChildren =
   ProtectedMastersOrganizationLayoutFiscal_yearLayoutRoute._addFileChildren(
     ProtectedMastersOrganizationLayoutFiscal_yearLayoutRouteChildren,
-  )
-
-interface ProtectedMastersOrganizationLayoutFiscal_yearRouteChildren {
-  ProtectedMastersOrganizationLayoutFiscal_yearLayoutRoute: typeof ProtectedMastersOrganizationLayoutFiscal_yearLayoutRouteWithChildren
-}
-
-const ProtectedMastersOrganizationLayoutFiscal_yearRouteChildren: ProtectedMastersOrganizationLayoutFiscal_yearRouteChildren =
-  {
-    ProtectedMastersOrganizationLayoutFiscal_yearLayoutRoute:
-      ProtectedMastersOrganizationLayoutFiscal_yearLayoutRouteWithChildren,
-  }
-
-const ProtectedMastersOrganizationLayoutFiscal_yearRouteWithChildren =
-  ProtectedMastersOrganizationLayoutFiscal_yearRoute._addFileChildren(
-    ProtectedMastersOrganizationLayoutFiscal_yearRouteChildren,
   )
 
 interface ProtectedMastersOrganizationLayoutStateLayoutRouteChildren {
@@ -1724,42 +1424,27 @@ const ProtectedMastersOrganizationLayoutStateLayoutRouteWithChildren =
     ProtectedMastersOrganizationLayoutStateLayoutRouteChildren,
   )
 
-interface ProtectedMastersOrganizationLayoutStateRouteChildren {
-  ProtectedMastersOrganizationLayoutStateLayoutRoute: typeof ProtectedMastersOrganizationLayoutStateLayoutRouteWithChildren
-}
-
-const ProtectedMastersOrganizationLayoutStateRouteChildren: ProtectedMastersOrganizationLayoutStateRouteChildren =
-  {
-    ProtectedMastersOrganizationLayoutStateLayoutRoute:
-      ProtectedMastersOrganizationLayoutStateLayoutRouteWithChildren,
-  }
-
-const ProtectedMastersOrganizationLayoutStateRouteWithChildren =
-  ProtectedMastersOrganizationLayoutStateRoute._addFileChildren(
-    ProtectedMastersOrganizationLayoutStateRouteChildren,
-  )
-
 interface ProtectedMastersOrganizationLayoutRouteChildren {
-  ProtectedMastersOrganizationLayoutCompanyRoute: typeof ProtectedMastersOrganizationLayoutCompanyRouteWithChildren
-  ProtectedMastersOrganizationLayoutCountryRoute: typeof ProtectedMastersOrganizationLayoutCountryRouteWithChildren
-  ProtectedMastersOrganizationLayoutCurrencyRoute: typeof ProtectedMastersOrganizationLayoutCurrencyRouteWithChildren
-  ProtectedMastersOrganizationLayoutFiscal_yearRoute: typeof ProtectedMastersOrganizationLayoutFiscal_yearRouteWithChildren
-  ProtectedMastersOrganizationLayoutStateRoute: typeof ProtectedMastersOrganizationLayoutStateRouteWithChildren
+  ProtectedMastersOrganizationLayoutCompanyLayoutRoute: typeof ProtectedMastersOrganizationLayoutCompanyLayoutRouteWithChildren
+  ProtectedMastersOrganizationLayoutCountryLayoutRoute: typeof ProtectedMastersOrganizationLayoutCountryLayoutRouteWithChildren
+  ProtectedMastersOrganizationLayoutCurrencyLayoutRoute: typeof ProtectedMastersOrganizationLayoutCurrencyLayoutRouteWithChildren
+  ProtectedMastersOrganizationLayoutFiscal_yearLayoutRoute: typeof ProtectedMastersOrganizationLayoutFiscal_yearLayoutRouteWithChildren
+  ProtectedMastersOrganizationLayoutStateLayoutRoute: typeof ProtectedMastersOrganizationLayoutStateLayoutRouteWithChildren
   ProtectedMastersOrganizationLayoutBranchIndexRoute: typeof ProtectedMastersOrganizationLayoutBranchIndexRoute
 }
 
 const ProtectedMastersOrganizationLayoutRouteChildren: ProtectedMastersOrganizationLayoutRouteChildren =
   {
-    ProtectedMastersOrganizationLayoutCompanyRoute:
-      ProtectedMastersOrganizationLayoutCompanyRouteWithChildren,
-    ProtectedMastersOrganizationLayoutCountryRoute:
-      ProtectedMastersOrganizationLayoutCountryRouteWithChildren,
-    ProtectedMastersOrganizationLayoutCurrencyRoute:
-      ProtectedMastersOrganizationLayoutCurrencyRouteWithChildren,
-    ProtectedMastersOrganizationLayoutFiscal_yearRoute:
-      ProtectedMastersOrganizationLayoutFiscal_yearRouteWithChildren,
-    ProtectedMastersOrganizationLayoutStateRoute:
-      ProtectedMastersOrganizationLayoutStateRouteWithChildren,
+    ProtectedMastersOrganizationLayoutCompanyLayoutRoute:
+      ProtectedMastersOrganizationLayoutCompanyLayoutRouteWithChildren,
+    ProtectedMastersOrganizationLayoutCountryLayoutRoute:
+      ProtectedMastersOrganizationLayoutCountryLayoutRouteWithChildren,
+    ProtectedMastersOrganizationLayoutCurrencyLayoutRoute:
+      ProtectedMastersOrganizationLayoutCurrencyLayoutRouteWithChildren,
+    ProtectedMastersOrganizationLayoutFiscal_yearLayoutRoute:
+      ProtectedMastersOrganizationLayoutFiscal_yearLayoutRouteWithChildren,
+    ProtectedMastersOrganizationLayoutStateLayoutRoute:
+      ProtectedMastersOrganizationLayoutStateLayoutRouteWithChildren,
     ProtectedMastersOrganizationLayoutBranchIndexRoute:
       ProtectedMastersOrganizationLayoutBranchIndexRoute,
   }
@@ -1769,31 +1454,16 @@ const ProtectedMastersOrganizationLayoutRouteWithChildren =
     ProtectedMastersOrganizationLayoutRouteChildren,
   )
 
-interface ProtectedMastersOrganizationRouteChildren {
-  ProtectedMastersOrganizationLayoutRoute: typeof ProtectedMastersOrganizationLayoutRouteWithChildren
-}
-
-const ProtectedMastersOrganizationRouteChildren: ProtectedMastersOrganizationRouteChildren =
-  {
-    ProtectedMastersOrganizationLayoutRoute:
-      ProtectedMastersOrganizationLayoutRouteWithChildren,
-  }
-
-const ProtectedMastersOrganizationRouteWithChildren =
-  ProtectedMastersOrganizationRoute._addFileChildren(
-    ProtectedMastersOrganizationRouteChildren,
-  )
-
 interface ProtectedRouteChildren {
   ProtectedProduct_launchboardRoute: typeof ProtectedProduct_launchboardRoute
   ProtectedSignOutRoute: typeof ProtectedSignOutRoute
   ProtectedauthChangePasswordRoute: typeof ProtectedauthChangePasswordRoute
-  ProtectedAdministrationRoute: typeof ProtectedAdministrationRouteWithChildren
-  ProtectedauthUserFiscalYearRoute: typeof ProtectedauthUserFiscalYearRouteWithChildren
+  ProtectedAdministrationLayoutRoute: typeof ProtectedAdministrationLayoutRouteWithChildren
+  ProtectedauthUserFiscalYearLayoutRoute: typeof ProtectedauthUserFiscalYearLayoutRouteWithChildren
   ProtectedfilerAssesseeAddRoute: typeof ProtectedfilerAssesseeAddRoute
   ProtectedfilerAssesseeEditRoute: typeof ProtectedfilerAssesseeEditRoute
   ProtectedfilerAssesseeHeyassesseeRoute: typeof ProtectedfilerAssesseeHeyassesseeRoute
-  ProtectedMastersOrganizationRoute: typeof ProtectedMastersOrganizationRouteWithChildren
+  ProtectedMastersOrganizationLayoutRoute: typeof ProtectedMastersOrganizationLayoutRouteWithChildren
   ProtectedauthAddtaxformIndexRoute: typeof ProtectedauthAddtaxformIndexRoute
   ProtectedauthMemberIndexRoute: typeof ProtectedauthMemberIndexRoute
   ProtectedauthVerifyPanIndexRoute: typeof ProtectedauthVerifyPanIndexRoute
@@ -1809,15 +1479,16 @@ const ProtectedRouteChildren: ProtectedRouteChildren = {
   ProtectedProduct_launchboardRoute: ProtectedProduct_launchboardRoute,
   ProtectedSignOutRoute: ProtectedSignOutRoute,
   ProtectedauthChangePasswordRoute: ProtectedauthChangePasswordRoute,
-  ProtectedAdministrationRoute: ProtectedAdministrationRouteWithChildren,
-  ProtectedauthUserFiscalYearRoute:
-    ProtectedauthUserFiscalYearRouteWithChildren,
+  ProtectedAdministrationLayoutRoute:
+    ProtectedAdministrationLayoutRouteWithChildren,
+  ProtectedauthUserFiscalYearLayoutRoute:
+    ProtectedauthUserFiscalYearLayoutRouteWithChildren,
   ProtectedfilerAssesseeAddRoute: ProtectedfilerAssesseeAddRoute,
   ProtectedfilerAssesseeEditRoute: ProtectedfilerAssesseeEditRoute,
   ProtectedfilerAssesseeHeyassesseeRoute:
     ProtectedfilerAssesseeHeyassesseeRoute,
-  ProtectedMastersOrganizationRoute:
-    ProtectedMastersOrganizationRouteWithChildren,
+  ProtectedMastersOrganizationLayoutRoute:
+    ProtectedMastersOrganizationLayoutRouteWithChildren,
   ProtectedauthAddtaxformIndexRoute: ProtectedauthAddtaxformIndexRoute,
   ProtectedauthMemberIndexRoute: ProtectedauthMemberIndexRoute,
   ProtectedauthVerifyPanIndexRoute: ProtectedauthVerifyPanIndexRoute,

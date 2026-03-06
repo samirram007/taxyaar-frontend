@@ -17,6 +17,14 @@ interface TaxFillerData {
   pan: string,
   dateOfBirth: string,
 }
+
+const isPanVerified = (pan: string): boolean => {
+  const stored = localStorage.getItem("verifiedPans");
+  if (!stored) return false;
+
+  const verifiedMap = JSON.parse(stored);
+  return !!verifiedMap[pan];
+};
 const memberData: TaxFillerData[] = [
   { firstName: "Sourav", lastName: "Gupta", pan: "LWAPT2025A", dateOfBirth: "1995-01-01" },
   { firstName: "Sourav", lastName: "Gupta", pan: "LWAPT2025C", dateOfBirth: "1995-01-01" },
@@ -55,6 +63,13 @@ export default function MembersPage() {
 
 
   const onHandleAddClient = (member: TaxFillerData) => {
+
+    if (isPanVerified(member.pan)) {
+      sessionStorage.setItem("taxFillerData", JSON.stringify(member));
+      router.navigate({ to: "/dashboard_filer" });
+      return;
+    }
+
     authMutation.mutate(undefined, {
       onSuccess: (res) => {
         const token = res?.data?.data?.result?.autkn;
@@ -64,13 +79,9 @@ export default function MembersPage() {
           return;
         }
 
-        // store token
         localStorage.setItem("autkn", token);
-
-        // store selected member
         sessionStorage.setItem("taxFillerData", JSON.stringify(member));
 
-        // navigate
         router.navigate({ to: "/department_add_client" });
       },
 
@@ -131,9 +142,15 @@ export default function MembersPage() {
                           </div>
                         </div>
                         <div className="ml-auto">
-                          <span className="inline-block bg-yellow-700 text-yellow-200 text-xs font-semibold px-3 py-1 rounded-2xl">
-                            Continue
-                          </span>
+                          {isPanVerified(member.pan) ? (
+                            <span className="inline-block bg-green-700 text-green-200 text-xs font-semibold px-3 py-1 rounded-2xl">
+                              Verified
+                            </span>
+                          ) : (
+                            <span className="inline-block bg-yellow-700 text-yellow-200 text-xs font-semibold px-3 py-1 rounded-2xl">
+                              Continue
+                            </span>
+                          )}
                         </div>
                       </div>
 

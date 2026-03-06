@@ -23,15 +23,26 @@ type TaxFiler = {
 export default function DashboardFiler() {
   const router = useRouter();
   const [taxFiler, setTaxFiler] = useState<TaxFiler | null>(null);
+  const [isVerified, setIsVerified] = useState(false);
   const [fy, setFy] = useState<string>("2024-25");
 
   useEffect(() => {
     try {
-      const raw = sessionStorage.getItem("taxFillerData")
-      if (raw) setTaxFiler(JSON.parse(raw))
-      else setTaxFiler(null)
+      const raw = sessionStorage.getItem("taxFillerData");
+
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        setTaxFiler(parsed);
+
+        const stored = localStorage.getItem("verifiedPans");
+        const verifiedMap = stored ? JSON.parse(stored) : {};
+
+        setIsVerified(!!verifiedMap[parsed.pan]);
+      } else {
+        setTaxFiler(null);
+      }
     } catch {
-      setTaxFiler(null)
+      setTaxFiler(null);
     }
   }, [])
 
@@ -51,12 +62,14 @@ export default function DashboardFiler() {
             <div>
               <h1 className="text-lg font-semibold text-slate-800">
                 Dashboard of {displayName} [{displayPan}]
-                <span
-                  className="ml-3 inline-block align-middle px-3 py-1 text-xs font-medium rounded-full bg-amber-100 text-amber-800 cursor-pointer"
-                  onClick={() => router.navigate({ to: "/" })}
-                >
-                  Click to Verify
-                </span>
+                {!isVerified && (
+                  <span
+                    className="ml-3 inline-block align-middle px-3 py-1 text-xs font-medium rounded-full bg-amber-100 text-amber-800 cursor-pointer"
+                    onClick={() => router.navigate({ to: "/department_add_client" })}
+                  >
+                    Click to Verify
+                  </span>
+                )}
               </h1>
               <p className="mt-3 text-slate-600 font-medium">Financial Year: <span className="text-slate-800">{fy}</span></p>
             </div>
