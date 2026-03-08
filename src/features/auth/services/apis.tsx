@@ -6,6 +6,11 @@ export async function fetchUserProfileService() {
   return await getData('/auth/profile')
 }
 
+export async function registerService(payload: any) {
+  const data = await postData('/auth/register', payload)
+  return data
+}
+
 export async function loginService(payload: any) {
   // console.log('loginService called', payload);
   const data = await postData('/auth/login', payload)
