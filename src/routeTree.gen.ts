@@ -21,6 +21,7 @@ import { Route as authOtpRouteImport } from './routes/(auth)/otp'
 import { Route as ProtectedAdministrationLayoutRouteImport } from './routes/_protected/administration/_layout'
 import { Route as ProtectedauthChangePasswordRouteImport } from './routes/_protected/(auth)/change-password'
 import { Route as ProtectedSupportHelpIndexRouteImport } from './routes/_protected/support/help/index'
+import { Route as ProtectedfilerStartIndexRouteImport } from './routes/_protected/(filer)/start/index'
 import { Route as ProtectedfilerDepartment_add_clientIndexRouteImport } from './routes/_protected/(filer)/department_add_client/index'
 import { Route as ProtectedfilerDashboard_filerIndexRouteImport } from './routes/_protected/(filer)/dashboard_filer/index'
 import { Route as ProtectedfilerDashboardIndexRouteImport } from './routes/_protected/(filer)/dashboard/index'
@@ -28,6 +29,7 @@ import { Route as ProtectedauthVerifyPanIndexRouteImport } from './routes/_prote
 import { Route as ProtectedauthMemberIndexRouteImport } from './routes/_protected/(auth)/member/index'
 import { Route as ProtectedauthAddtaxformIndexRouteImport } from './routes/_protected/(auth)/addtaxform/index'
 import { Route as ProtectedMastersOrganizationLayoutRouteImport } from './routes/_protected/masters/organization/_layout'
+import { Route as ProtectedfilerAssesseeHeyassesseeRouteImport } from './routes/_protected/(filer)/assessee/heyassessee'
 import { Route as ProtectedfilerAssesseeEditRouteImport } from './routes/_protected/(filer)/assessee/edit'
 import { Route as ProtectedfilerAssesseeAddRouteImport } from './routes/_protected/(filer)/assessee/add'
 import { Route as ProtectedauthUserFiscalYearLayoutRouteImport } from './routes/_protected/(auth)/user-fiscal-year/_layout'
@@ -185,6 +187,12 @@ const ProtectedSupportHelpIndexRoute =
     path: '/support/help/',
     getParentRoute: () => ProtectedRoute,
   } as any)
+const ProtectedfilerStartIndexRoute =
+  ProtectedfilerStartIndexRouteImport.update({
+    id: '/(filer)/start/',
+    path: '/start/',
+    getParentRoute: () => ProtectedRoute,
+  } as any)
 const ProtectedfilerDepartment_add_clientIndexRoute =
   ProtectedfilerDepartment_add_clientIndexRouteImport.update({
     id: '/(filer)/department_add_client/',
@@ -225,6 +233,12 @@ const ProtectedMastersOrganizationLayoutRoute =
   ProtectedMastersOrganizationLayoutRouteImport.update({
     id: '/masters/organization/_layout',
     path: '/masters/organization',
+    getParentRoute: () => ProtectedRoute,
+  } as any)
+const ProtectedfilerAssesseeHeyassesseeRoute =
+  ProtectedfilerAssesseeHeyassesseeRouteImport.update({
+    id: '/(filer)/assessee/heyassessee',
+    path: '/assessee/heyassessee',
     getParentRoute: () => ProtectedRoute,
   } as any)
 const ProtectedfilerAssesseeEditRoute =
@@ -442,6 +456,7 @@ export interface FileRoutesByFullPath {
   '/user-fiscal-year': typeof ProtectedauthUserFiscalYearLayoutRouteWithChildren
   '/assessee/add': typeof ProtectedfilerAssesseeAddRoute
   '/assessee/edit': typeof ProtectedfilerAssesseeEditRoute
+  '/assessee/heyassessee': typeof ProtectedfilerAssesseeHeyassesseeRoute
   '/masters/organization': typeof ProtectedMastersOrganizationLayoutRouteWithChildren
   '/addtaxform/': typeof ProtectedauthAddtaxformIndexRoute
   '/member/': typeof ProtectedauthMemberIndexRoute
@@ -449,6 +464,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/': typeof ProtectedfilerDashboardIndexRoute
   '/dashboard_filer/': typeof ProtectedfilerDashboard_filerIndexRoute
   '/department_add_client/': typeof ProtectedfilerDepartment_add_clientIndexRoute
+  '/start/': typeof ProtectedfilerStartIndexRoute
   '/support/help/': typeof ProtectedSupportHelpIndexRoute
   '/administration/role': typeof ProtectedAdministrationLayoutRoleLayoutRouteWithChildren
   '/administration/user': typeof ProtectedAdministrationLayoutUserLayoutRouteWithChildren
@@ -499,6 +515,7 @@ export interface FileRoutesByTo {
   '/administration': typeof ProtectedAdministrationLayoutRouteWithChildren
   '/assessee/add': typeof ProtectedfilerAssesseeAddRoute
   '/assessee/edit': typeof ProtectedfilerAssesseeEditRoute
+  '/assessee/heyassessee': typeof ProtectedfilerAssesseeHeyassesseeRoute
   '/masters/organization': typeof ProtectedMastersOrganizationLayoutRouteWithChildren
   '/addtaxform': typeof ProtectedauthAddtaxformIndexRoute
   '/member': typeof ProtectedauthMemberIndexRoute
@@ -506,6 +523,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof ProtectedfilerDashboardIndexRoute
   '/dashboard_filer': typeof ProtectedfilerDashboard_filerIndexRoute
   '/department_add_client': typeof ProtectedfilerDepartment_add_clientIndexRoute
+  '/start': typeof ProtectedfilerStartIndexRoute
   '/support/help': typeof ProtectedSupportHelpIndexRoute
   '/profile/index': typeof ProtectedauthProfileIndexRoute
   '/user-fiscal-year': typeof ProtectedauthUserFiscalYearLayoutIndexRoute
@@ -551,6 +569,7 @@ export interface FileRoutesById {
   '/_protected/(auth)/user-fiscal-year/_layout': typeof ProtectedauthUserFiscalYearLayoutRouteWithChildren
   '/_protected/(filer)/assessee/add': typeof ProtectedfilerAssesseeAddRoute
   '/_protected/(filer)/assessee/edit': typeof ProtectedfilerAssesseeEditRoute
+  '/_protected/(filer)/assessee/heyassessee': typeof ProtectedfilerAssesseeHeyassesseeRoute
   '/_protected/masters/organization/_layout': typeof ProtectedMastersOrganizationLayoutRouteWithChildren
   '/_protected/(auth)/addtaxform/': typeof ProtectedauthAddtaxformIndexRoute
   '/_protected/(auth)/member/': typeof ProtectedauthMemberIndexRoute
@@ -558,6 +577,7 @@ export interface FileRoutesById {
   '/_protected/(filer)/dashboard/': typeof ProtectedfilerDashboardIndexRoute
   '/_protected/(filer)/dashboard_filer/': typeof ProtectedfilerDashboard_filerIndexRoute
   '/_protected/(filer)/department_add_client/': typeof ProtectedfilerDepartment_add_clientIndexRoute
+  '/_protected/(filer)/start/': typeof ProtectedfilerStartIndexRoute
   '/_protected/support/help/': typeof ProtectedSupportHelpIndexRoute
   '/_protected/administration/_layout/role/_layout': typeof ProtectedAdministrationLayoutRoleLayoutRouteWithChildren
   '/_protected/administration/_layout/user/_layout': typeof ProtectedAdministrationLayoutUserLayoutRouteWithChildren
@@ -611,6 +631,7 @@ export interface FileRouteTypes {
     | '/user-fiscal-year'
     | '/assessee/add'
     | '/assessee/edit'
+    | '/assessee/heyassessee'
     | '/masters/organization'
     | '/addtaxform/'
     | '/member/'
@@ -618,6 +639,7 @@ export interface FileRouteTypes {
     | '/dashboard/'
     | '/dashboard_filer/'
     | '/department_add_client/'
+    | '/start/'
     | '/support/help/'
     | '/administration/role'
     | '/administration/user'
@@ -668,6 +690,7 @@ export interface FileRouteTypes {
     | '/administration'
     | '/assessee/add'
     | '/assessee/edit'
+    | '/assessee/heyassessee'
     | '/masters/organization'
     | '/addtaxform'
     | '/member'
@@ -675,6 +698,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/dashboard_filer'
     | '/department_add_client'
+    | '/start'
     | '/support/help'
     | '/profile/index'
     | '/user-fiscal-year'
@@ -719,6 +743,7 @@ export interface FileRouteTypes {
     | '/_protected/(auth)/user-fiscal-year/_layout'
     | '/_protected/(filer)/assessee/add'
     | '/_protected/(filer)/assessee/edit'
+    | '/_protected/(filer)/assessee/heyassessee'
     | '/_protected/masters/organization/_layout'
     | '/_protected/(auth)/addtaxform/'
     | '/_protected/(auth)/member/'
@@ -726,6 +751,7 @@ export interface FileRouteTypes {
     | '/_protected/(filer)/dashboard/'
     | '/_protected/(filer)/dashboard_filer/'
     | '/_protected/(filer)/department_add_client/'
+    | '/_protected/(filer)/start/'
     | '/_protected/support/help/'
     | '/_protected/administration/_layout/role/_layout'
     | '/_protected/administration/_layout/user/_layout'
@@ -902,6 +928,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedSupportHelpIndexRouteImport
       parentRoute: typeof ProtectedRoute
     }
+    '/_protected/(filer)/start/': {
+      id: '/_protected/(filer)/start/'
+      path: '/start'
+      fullPath: '/start/'
+      preLoaderRoute: typeof ProtectedfilerStartIndexRouteImport
+      parentRoute: typeof ProtectedRoute
+    }
     '/_protected/(filer)/department_add_client/': {
       id: '/_protected/(filer)/department_add_client/'
       path: '/department_add_client'
@@ -949,6 +982,13 @@ declare module '@tanstack/react-router' {
       path: '/masters/organization'
       fullPath: '/masters/organization'
       preLoaderRoute: typeof ProtectedMastersOrganizationLayoutRouteImport
+      parentRoute: typeof ProtectedRoute
+    }
+    '/_protected/(filer)/assessee/heyassessee': {
+      id: '/_protected/(filer)/assessee/heyassessee'
+      path: '/assessee/heyassessee'
+      fullPath: '/assessee/heyassessee'
+      preLoaderRoute: typeof ProtectedfilerAssesseeHeyassesseeRouteImport
       parentRoute: typeof ProtectedRoute
     }
     '/_protected/(filer)/assessee/edit': {
@@ -1402,6 +1442,7 @@ interface ProtectedRouteChildren {
   ProtectedauthUserFiscalYearLayoutRoute: typeof ProtectedauthUserFiscalYearLayoutRouteWithChildren
   ProtectedfilerAssesseeAddRoute: typeof ProtectedfilerAssesseeAddRoute
   ProtectedfilerAssesseeEditRoute: typeof ProtectedfilerAssesseeEditRoute
+  ProtectedfilerAssesseeHeyassesseeRoute: typeof ProtectedfilerAssesseeHeyassesseeRoute
   ProtectedMastersOrganizationLayoutRoute: typeof ProtectedMastersOrganizationLayoutRouteWithChildren
   ProtectedauthAddtaxformIndexRoute: typeof ProtectedauthAddtaxformIndexRoute
   ProtectedauthMemberIndexRoute: typeof ProtectedauthMemberIndexRoute
@@ -1409,6 +1450,7 @@ interface ProtectedRouteChildren {
   ProtectedfilerDashboardIndexRoute: typeof ProtectedfilerDashboardIndexRoute
   ProtectedfilerDashboard_filerIndexRoute: typeof ProtectedfilerDashboard_filerIndexRoute
   ProtectedfilerDepartment_add_clientIndexRoute: typeof ProtectedfilerDepartment_add_clientIndexRoute
+  ProtectedfilerStartIndexRoute: typeof ProtectedfilerStartIndexRoute
   ProtectedSupportHelpIndexRoute: typeof ProtectedSupportHelpIndexRoute
   ProtectedauthProfileIndexRoute: typeof ProtectedauthProfileIndexRoute
 }
@@ -1423,6 +1465,8 @@ const ProtectedRouteChildren: ProtectedRouteChildren = {
     ProtectedauthUserFiscalYearLayoutRouteWithChildren,
   ProtectedfilerAssesseeAddRoute: ProtectedfilerAssesseeAddRoute,
   ProtectedfilerAssesseeEditRoute: ProtectedfilerAssesseeEditRoute,
+  ProtectedfilerAssesseeHeyassesseeRoute:
+    ProtectedfilerAssesseeHeyassesseeRoute,
   ProtectedMastersOrganizationLayoutRoute:
     ProtectedMastersOrganizationLayoutRouteWithChildren,
   ProtectedauthAddtaxformIndexRoute: ProtectedauthAddtaxformIndexRoute,
@@ -1433,6 +1477,7 @@ const ProtectedRouteChildren: ProtectedRouteChildren = {
     ProtectedfilerDashboard_filerIndexRoute,
   ProtectedfilerDepartment_add_clientIndexRoute:
     ProtectedfilerDepartment_add_clientIndexRoute,
+  ProtectedfilerStartIndexRoute: ProtectedfilerStartIndexRoute,
   ProtectedSupportHelpIndexRoute: ProtectedSupportHelpIndexRoute,
   ProtectedauthProfileIndexRoute: ProtectedauthProfileIndexRoute,
 }

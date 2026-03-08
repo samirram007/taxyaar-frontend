@@ -126,7 +126,7 @@ const ProductLaunchboard = () => {
                             <div className="card-footer">
 
                                 <Button className="btn btn-primary bg-blue-50/5 hover:text-blue-600 hover:bg-blue-50/5 text-blue-500" asChild>
-                                    <a href="https://help.myitreturn.com" className="text-blue-500   mr-4" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://help.taxyaar.com" className="text-blue-500   mr-4" target="_blank" rel="noopener noreferrer">
                                         Read Articles <IconArrowRight className="" />
 
                                     </a>

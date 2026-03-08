@@ -17,12 +17,18 @@ export function GoogleSignInButton({
 
   const handleGoogleSuccess = async (credentialResponse: any) => {
     try {
-      console.log('G auth - starting')
+      //  console.log('G auth - starting')
       await googleLogin(credentialResponse.credential)
-      console.log('G auth - success')
-      toast.success('Authenticated successfully!')
-      await router.invalidate()
-      router.navigate({ to: '/dashboard' })
+        .then(() => {
+          toast.success('Authenticated successfully!')
+
+        router.invalidate()
+      })
+
+
+      // console.log('G auth - success')
+      //await router.invalidate()
+      //router.navigate({ to: '/dashboard' })
 
       onSuccess?.()
     } catch (error: any) {

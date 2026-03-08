@@ -3,6 +3,9 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "@tanstack/react-router"
 import Breadcrumb from "../../components/CustomBreadCrumb"
+import { Button } from "@/components/ui/button"
+import { Form16Modal } from "./components/Form16Modal"
+
 
 type TaxFiler = {
   pan?: string
@@ -18,17 +21,28 @@ type TaxFiler = {
 }
 
 export default function DashboardFiler() {
-  const router = useRouter()
-  const [taxFiler, setTaxFiler] = useState<TaxFiler | null>(null)
-  const [fy, setFy] = useState<string>("2024-25")
+  const router = useRouter();
+  const [taxFiler, setTaxFiler] = useState<TaxFiler | null>(null);
+  const [isVerified, setIsVerified] = useState(false);
+  const [fy, setFy] = useState<string>("2024-25");
 
   useEffect(() => {
     try {
-      const raw = sessionStorage.getItem("taxFillerData")
-      if (raw) setTaxFiler(JSON.parse(raw))
-      else setTaxFiler(null)
+      const raw = sessionStorage.getItem("taxFillerData");
+
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        setTaxFiler(parsed);
+
+        const stored = localStorage.getItem("verifiedPans");
+        const verifiedMap = stored ? JSON.parse(stored) : {};
+
+        setIsVerified(!!verifiedMap[parsed.pan]);
+      } else {
+        setTaxFiler(null);
+      }
     } catch {
-      setTaxFiler(null)
+      setTaxFiler(null);
     }
   }, [])
 
@@ -48,12 +62,14 @@ export default function DashboardFiler() {
             <div>
               <h1 className="text-lg font-semibold text-slate-800">
                 Dashboard of {displayName} [{displayPan}]
-                <span
-                  className="ml-3 inline-block align-middle px-3 py-1 text-xs font-medium rounded-full bg-amber-100 text-amber-800 cursor-pointer"
-                  onClick={() => router.navigate({ to: "/" })}
-                >
-                  Click to Verify
-                </span>
+                {!isVerified && (
+                  <span
+                    className="ml-3 inline-block align-middle px-3 py-1 text-xs font-medium rounded-full bg-amber-100 text-amber-800 cursor-pointer"
+                    onClick={() => router.navigate({ to: "/department_add_client" })}
+                  >
+                    Click to Verify
+                  </span>
+                )}
               </h1>
               <p className="mt-3 text-slate-600 font-medium">Financial Year: <span className="text-slate-800">{fy}</span></p>
             </div>
@@ -99,12 +115,12 @@ export default function DashboardFiler() {
                   </div>
 
                   <div className="mt-6">
-                    <button
+                    <Button
                       onClick={() => router.navigate({ to: "/" })}
-                      className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-sky-600 text-white rounded hover:bg-sky-700"
+                      className="w-full inline-flex items-center justify-center gap-2  p-6 bg-sky-600 text-white rounded hover:bg-sky-700"
                     >
                       <span>Import and Continue</span>
-                    </button>
+                    </Button>
                   </div>
                 </div>
 
@@ -125,12 +141,13 @@ export default function DashboardFiler() {
                   </div>
 
                   <div className="mt-6">
-                    <button
+                    <Button
                       onClick={() => router.navigate({ to: "/" })}
-                      className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-indigo-600 text-white rounded hover:bg-indigo-700"
+                      className="w-full inline-flex items-center justify-center gap-2 p-6 bg-indigo-600 text-white rounded hover:bg-indigo-700"
                     >
                       <span>Upload</span>
-                    </button>
+                    </Button>
+                    <Form16Modal />
                   </div>
                 </div>
 
@@ -151,12 +168,12 @@ export default function DashboardFiler() {
                   </div>
 
                   <div className="mt-6">
-                    <button
-                      onClick={() => router.navigate({ to: "/" })}
-                      className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-emerald-600 text-white rounded hover:bg-emerald-700"
+                    <Button
+                      onClick={() => router.navigate({ to: "/start" })}
+                      className="p-6 w-full inline-flex items-center justify-center gap-2   bg-emerald-600 text-white rounded hover:bg-emerald-700"
                     >
-                      <span>Continue</span>
-                    </button>
+                      <span>Continue..</span>
+                    </Button>
                   </div>
                 </div>
               </div>

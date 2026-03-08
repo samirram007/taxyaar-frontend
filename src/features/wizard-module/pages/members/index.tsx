@@ -9,16 +9,26 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "@/compon
 import { DropdownMenuItem } from "@radix-ui/react-dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { IconArrowRight, IconEdit, IconRecycle } from "@tabler/icons-react";
+import { useAuthenticationUser } from "../../data/queryOptions";
 
 interface TaxFillerData {
   firstName: string
   lastName: string
-  pan: string
+  pan: string,
+  dateOfBirth: string,
 }
-const memberData = [
-  { firstName: "Sneha", lastName: "Ghoshal", pan: "EMPG3394H" },
-  { firstName: "Rahul", lastName: "Sharma", pan: "ABCD1234E" },
-  { firstName: "Anita", lastName: "Verma", pan: "WXYZ5678K" },
+
+const isPanVerified = (pan: string): boolean => {
+  const stored = localStorage.getItem("verifiedPans");
+  if (!stored) return false;
+
+  const verifiedMap = JSON.parse(stored);
+  return !!verifiedMap[pan];
+};
+const memberData: TaxFillerData[] = [
+  { firstName: "Sourav", lastName: "Gupta", pan: "LWAPT2025A", dateOfBirth: "1995-01-01" },
+  { firstName: "Sourav", lastName: "Gupta", pan: "LWAPT2025C", dateOfBirth: "1995-01-01" },
+  { firstName: "Sourav", lastName: "Gupta", pan: "LWAPT2025D", dateOfBirth: "1995-01-01" },
 ]
 // const pageLinks = [
 //   { name: "Dashboard", href: "/dashboard" },
@@ -27,8 +37,9 @@ const memberData = [
 // ]
 export default function MembersPage() {
 
-  const router = useRouter()
-  const [member, setMember] = useState<TaxFillerData | null>(memberData[0])
+  const router = useRouter();
+  const [member, setMember] = useState<TaxFillerData | null>(memberData[0]);
+  const authMutation = useAuthenticationUser();
 
   useEffect(() => {
     const data = sessionStorage.getItem("taxFillerData")
@@ -38,6 +49,7 @@ export default function MembersPage() {
         firstName: parsed.firstName,
         lastName: parsed.lastName,
         pan: parsed.pan || "EMPG3394H",
+        dateOfBirth: parsed.dateOfBirth
       })
     }
   }, [])
@@ -51,12 +63,33 @@ export default function MembersPage() {
 
 
   const onHandleAddClient = (member: TaxFillerData) => {
-    sessionStorage.clear();
-    sessionStorage.setItem("taxFillerData", JSON.stringify(member));
-    setTimeout(() => {
-      router.navigate({ to: '/department_add_client' })
-    }, 400);
-  }
+
+    if (isPanVerified(member.pan)) {
+      sessionStorage.setItem("taxFillerData", JSON.stringify(member));
+      router.navigate({ to: "/dashboard_filer" });
+      return;
+    }
+
+    authMutation.mutate(undefined, {
+      onSuccess: (res) => {
+        const token = res?.data?.data?.result?.autkn;
+
+        if (!token) {
+          alert("Authentication failed. Token not received.");
+          return;
+        }
+
+        localStorage.setItem("autkn", token);
+        sessionStorage.setItem("taxFillerData", JSON.stringify(member));
+
+        router.navigate({ to: "/department_add_client" });
+      },
+
+      onError: (error) => {
+        alert(error.message || "Login failed");
+      },
+    });
+  };
 
 
   return (
@@ -95,9 +128,9 @@ export default function MembersPage() {
 
                 {
                   memberData.map((member, index) => (
-                    <div key={index} onClick={() => onHandleAddClient(member)} className="bg-muted mb-3 rounded-lg p-4 flex items-center justify-between hover:bg-muted/80 transition cursor-pointer">
+                    <div key={index} className="bg-muted mb-3 rounded-lg p-4 flex items-center justify-between hover:bg-muted/80 transition cursor-pointer">
 
-                      <div className="flex gap-5">
+                      <div className="flex gap-5" onClick={() => onHandleAddClient(member)} >
                         <div className="flex items-center gap-4">
                           <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center shrink-0">
                             <span className="text-primary-foreground font-bold text-lg">{member.firstName.charAt(0)}</span>
@@ -109,9 +142,15 @@ export default function MembersPage() {
                           </div>
                         </div>
                         <div className="ml-auto">
-                          <span className="inline-block bg-yellow-700 text-yellow-200 text-xs font-semibold px-3 py-1 rounded-2xl">
-                            Continue
-                          </span>
+                          {isPanVerified(member.pan) ? (
+                            <span className="inline-block bg-green-700 text-green-200 text-xs font-semibold px-3 py-1 rounded-2xl">
+                              Verified
+                            </span>
+                          ) : (
+                            <span className="inline-block bg-yellow-700 text-yellow-200 text-xs font-semibold px-3 py-1 rounded-2xl">
+                              Continue
+                            </span>
+                          )}
                         </div>
                       </div>
 
@@ -134,9 +173,14 @@ export default function MembersPage() {
                             <IconArrowRight size={16} className="ml-auto" />
                             Continue
                           </DropdownMenuItem>
-                          <DropdownMenuItem className="grid grid-cols-[10px_1fr] justify-start items-center gap-4" onSelect={() => router.navigate({ to: "/assessee/edit" })}>
+                          <DropdownMenuItem className="grid grid-cols-[10px_1fr] justify-start items-center gap-4" onSelect={(e) => {
+                            e.preventDefault();
+                            router.navigate({ to: "/assessee/edit" })
+                          }}>
                             <IconEdit size={16} className="ml-auto" />
-                            Edit
+                            <div >
+                              Edit
+                            </div>
                           </DropdownMenuItem>
                           <DropdownMenuItem className="grid grid-cols-[10px_1fr] justify-start items-center gap-4" onSelect={() => router.navigate({ to: "/assessee/edit" })}>
                             <IconRecycle size={16} className="ml-auto" />

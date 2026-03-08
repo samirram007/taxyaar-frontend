@@ -2,10 +2,10 @@
 
 import Breadcrumb from "../../../components/CustomBreadCrumb"
 import FormFields from "./FormFields"
-import HelpSidebar from "../../../components/HelpSidebar"
+import HelpSidebar from "./HelpSidebar"
 
 
-export default function AddTaxForm() {
+export default function EditTaxForm() {
   return (
     <div className="min-h-screen bg-background">
       <div className="border-b border-border bg-transparent">

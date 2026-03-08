@@ -1,0 +1,98 @@
+import { z } from "zod";
+
+export const eriLoginSchema = z.object({
+    code: z.number(),
+    success: z.boolean(),
+    message: z.string(),
+    data: z.object({
+        result: z.object({
+            messages: z.array(
+                z.object({
+                    code: z.string(),
+                    type: z.string(),
+                    desc: z.string(),
+                    fieldName: z.string().nullable(),
+                })
+            ),
+            entity: z.string(),
+            transactionId: z.string(),
+            autkn: z.string(),
+        }),
+    }),
+});
+
+export type AuthResponse = z.infer<typeof eriLoginSchema>;
+
+export const addClientSchema = z.object({
+    pan: z.string().max(10).optional(),
+    dateOfBirth: z.string().date(),
+    authToken: z.string()
+});
+
+export type AddClientRequest = z.infer<typeof addClientSchema>;
+
+export const validateAddClientSchema = z.object({
+    Pan: z.string(),
+    transactionId: z.string(),
+    Otp: z.string(),
+    validUpto: z.string().date(),
+    authToken: z.string()
+});
+
+export type ValidateAddClientRequest = z.infer<typeof validateAddClientSchema>;
+
+export const addClientResponseSchema = z.object({
+    code: z.number(),
+    success: z.boolean(),
+    message: z.string(),
+    data: z.object({
+        result: z.object({
+            messages: z.array(
+                z.object({
+                    code: z.string(),
+                    type: z.string(),
+                    desc: z.string(),
+                    fieldName: z.string().nullable(),
+                })
+            ),
+            errors: z.array(z.any()),
+            successFlag: z.boolean(),
+            transactionId: z.string(),
+            httpStatus: z.string(),
+        }),
+    }),
+});
+
+export type AddClientResponse = z.infer<typeof addClientResponseSchema>;
+
+
+
+export const validateAddClientResponseSchema = z.object({
+    code: z.number(),
+    success: z.boolean(),
+    message: z.string(),
+    data: z.object({
+        result: z.object({
+            messages: z.array(
+                z.object({
+                    code: z.string(),
+                    type: z.string(),
+                    desc: z.string(),
+                    fieldName: z.string().nullable(),
+                })
+            ),
+            errors: z.array(
+                z.object({
+                    code: z.string(),
+                    type: z.string(),
+                    desc: z.string(),
+                    fieldName: z.string().nullable(),
+                })
+            ),
+            successFlag: z.boolean(),
+            httpStatus: z.string(),
+        }),
+    }),
+});
+
+export type ValidateAddClientResponse = z.infer<typeof validateAddClientResponseSchema>;
