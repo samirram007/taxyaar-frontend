@@ -11,15 +11,21 @@ import {
 import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
 import { zodResolver } from '@hookform/resolvers/zod'
-
+import { IconBrandFacebook, IconBrandGithub } from '@tabler/icons-react'
 import { useState, type HTMLAttributes } from 'react'
+import { useRouter } from '@tanstack/react-router'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
+import { useAuth } from '../../contexts/AuthContext'
 
 type SignUpFormProps = HTMLAttributes<HTMLDivElement>
 
 const formSchema = z
   .object({
+    name: z
+      .string()
+      .min(1, { message: 'Please enter your name' })
+      .min(2, { message: 'Name must be at least 2 characters long' }),
     email: z
       .string()
       .min(1, { message: 'Please enter your email' })
@@ -40,25 +46,29 @@ const formSchema = z
   })
 
 export function SignUpForm({ className, ...props }: SignUpFormProps) {
-  const [isLoading, setIsLoading] = useState(false)
+  const { register, isLoading } = useAuth()
+  const router = useRouter()
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      name: '',
       email: '',
       password: '',
       confirmPassword: '',
     },
   })
 
-  function onSubmit(data: z.infer<typeof formSchema>) {
-    setIsLoading(true)
-    // eslint-disable-next-line no-console
-    console.log(data)
-
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 3000)
+  async function onSubmit(data: z.infer<typeof formSchema>) {
+    await register({
+      name: data.name,
+      email: data.email,
+      password: data.password,
+    })
+      .then(() => router.invalidate())
+      .catch((error) => {
+        console.error('Registration failed:...........', error)
+      })
   }
 
   return (
@@ -66,6 +76,19 @@ export function SignUpForm({ className, ...props }: SignUpFormProps) {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <div className="grid gap-2">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem className="space-y-1">
+                  <FormLabel>Full Name</FormLabel>
+                  <FormControl>
+                    <Input placeholder="John Doe" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
             <FormField
               control={form.control}
               name="email"
@@ -119,25 +142,6 @@ export function SignUpForm({ className, ...props }: SignUpFormProps) {
                 </span>
               </div>
             </div>
-            {/* 
-            <div className="grid grid-cols-2 gap-2">
-              <Button
-                variant="outline"
-                className="w-full text-xs py-1"
-                type="button"
-                disabled={isLoading}
-              >
-                <IconBrandGithub className="h-3 w-3" /> GitHub
-              </Button>
-              <Button
-                variant="outline"
-                className="w-full text-xs py-1"
-                type="button"
-                disabled={isLoading}
-              >
-                <IconBrandFacebook className="h-3 w-3" /> Facebook
-              </Button>
-            </div> */}
           </div>
         </form>
       </Form>

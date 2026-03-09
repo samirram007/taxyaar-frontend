@@ -5,6 +5,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react'
 import { flushSync } from 'react-dom'
 import {
   fetchUserProfileService,
+  registerService,
   loginService,
   logoutService,
   googleLoginService,
@@ -13,6 +14,12 @@ import type { UserWithRole } from '../data/schema'
 import type { Permission } from '@/features/modules/permission/data/schema'
 import type { Role } from '@/features/modules/role/data/schema'
 export type LoginProps = {
+  email: string
+  password: string
+}
+
+export type RegisterProps = {
+  name: string
   email: string
   password: string
 }
@@ -26,6 +33,7 @@ export interface AuthContextType {
   userFiscalYear: UserFiscalYear | null
   isLoading: boolean
   isAuthenticated: boolean
+  register: (props: RegisterProps) => Promise<void>
   login: (props: LoginProps) => Promise<void>
   googleLogin: (googleToken: string) => Promise<void>
   logout: () => Promise<void>
@@ -107,6 +115,33 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       setIsLoading(false)
     }
   }
+  const register = React.useCallback(
+    async ({ name, email, password }: RegisterProps) => {
+      setIsLoading(true)
+      try {
+        const response = await registerService({ name, email, password })
+        if (response?.success === true || response?.status === 'success') {
+          await fetchProfile()
+        } else {
+          flushSync(() => {
+            setUser(null)
+            setUserFiscalYear(null)
+          })
+          throw new Error(response?.message || 'Registration failed')
+        }
+      } catch (error) {
+        flushSync(() => {
+          setUser(null)
+          setUserFiscalYear(null)
+        })
+        throw error
+      } finally {
+        setIsLoading(false)
+      }
+    },
+    [],
+  )
+
   const login = React.useCallback(async ({ email, password }: LoginProps) => {
     setIsLoading(true)
     try {
@@ -195,6 +230,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         period,
         setPeriod,
         isAuthenticated: !!user,
+        register,
         login,
         googleLogin,
         logout,

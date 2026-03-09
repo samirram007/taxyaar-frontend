@@ -15,6 +15,7 @@ import { Route as ProtectedRouteImport } from './routes/_protected'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProtectedSignOutRouteImport } from './routes/_protected/sign-out'
 import { Route as ProtectedProduct_launchboardRouteImport } from './routes/_protected/product_launchboard'
+import { Route as authSignUpRouteImport } from './routes/(auth)/sign-up'
 import { Route as authSignInRouteImport } from './routes/(auth)/sign-in'
 import { Route as authOtpRouteImport } from './routes/(auth)/otp'
 import { Route as ProtectedAdministrationLayoutRouteImport } from './routes/_protected/administration/_layout'
@@ -68,7 +69,6 @@ const errors404LazyRouteImport = createFileRoute('/(errors)/404')()
 const errors403LazyRouteImport = createFileRoute('/(errors)/403')()
 const errors401LazyRouteImport = createFileRoute('/(errors)/401')()
 const authSigninLazyRouteImport = createFileRoute('/(auth)/signin')()
-const authSignUpLazyRouteImport = createFileRoute('/(auth)/sign-up')()
 const authSignIn2LazyRouteImport = createFileRoute('/(auth)/sign-in-2')()
 const authForgotPasswordLazyRouteImport = createFileRoute(
   '/(auth)/forgot-password',
@@ -125,13 +125,6 @@ const authSigninLazyRoute = authSigninLazyRouteImport
     getParentRoute: () => rootRouteImport,
   } as any)
   .lazy(() => import('./routes/(auth)/signin.lazy').then((d) => d.Route))
-const authSignUpLazyRoute = authSignUpLazyRouteImport
-  .update({
-    id: '/(auth)/sign-up',
-    path: '/sign-up',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-  .lazy(() => import('./routes/(auth)/sign-up.lazy').then((d) => d.Route))
 const authSignIn2LazyRoute = authSignIn2LazyRouteImport
   .update({
     id: '/(auth)/sign-in-2',
@@ -159,6 +152,13 @@ const ProtectedProduct_launchboardRoute =
     path: '/product_launchboard',
     getParentRoute: () => ProtectedRoute,
   } as any)
+const authSignUpRoute = authSignUpRouteImport
+  .update({
+    id: '/(auth)/sign-up',
+    path: '/sign-up',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+  .lazy(() => import('./routes/(auth)/sign-up.lazy').then((d) => d.Route))
 const authSignInRoute = authSignInRouteImport.update({
   id: '/(auth)/sign-in',
   path: '/sign-in',
@@ -440,11 +440,11 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/otp': typeof authOtpRoute
   '/sign-in': typeof authSignInRoute
+  '/sign-up': typeof authSignUpRoute
   '/product_launchboard': typeof ProtectedProduct_launchboardRoute
   '/sign-out': typeof ProtectedSignOutRoute
   '/forgot-password': typeof authForgotPasswordLazyRoute
   '/sign-in-2': typeof authSignIn2LazyRoute
-  '/sign-up': typeof authSignUpLazyRoute
   '/signin': typeof authSigninLazyRoute
   '/401': typeof errors401LazyRoute
   '/403': typeof errors403LazyRoute
@@ -500,11 +500,11 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/otp': typeof authOtpRoute
   '/sign-in': typeof authSignInRoute
+  '/sign-up': typeof authSignUpRoute
   '/product_launchboard': typeof ProtectedProduct_launchboardRoute
   '/sign-out': typeof ProtectedSignOutRoute
   '/forgot-password': typeof authForgotPasswordLazyRoute
   '/sign-in-2': typeof authSignIn2LazyRoute
-  '/sign-up': typeof authSignUpLazyRoute
   '/signin': typeof authSigninLazyRoute
   '/401': typeof errors401LazyRoute
   '/403': typeof errors403LazyRoute
@@ -553,11 +553,11 @@ export interface FileRoutesById {
   '/_protected': typeof ProtectedRouteWithChildren
   '/(auth)/otp': typeof authOtpRoute
   '/(auth)/sign-in': typeof authSignInRoute
+  '/(auth)/sign-up': typeof authSignUpRoute
   '/_protected/product_launchboard': typeof ProtectedProduct_launchboardRoute
   '/_protected/sign-out': typeof ProtectedSignOutRoute
   '/(auth)/forgot-password': typeof authForgotPasswordLazyRoute
   '/(auth)/sign-in-2': typeof authSignIn2LazyRoute
-  '/(auth)/sign-up': typeof authSignUpLazyRoute
   '/(auth)/signin': typeof authSigninLazyRoute
   '/(errors)/401': typeof errors401LazyRoute
   '/(errors)/403': typeof errors403LazyRoute
@@ -615,11 +615,11 @@ export interface FileRouteTypes {
     | '/'
     | '/otp'
     | '/sign-in'
+    | '/sign-up'
     | '/product_launchboard'
     | '/sign-out'
     | '/forgot-password'
     | '/sign-in-2'
-    | '/sign-up'
     | '/signin'
     | '/401'
     | '/403'
@@ -675,11 +675,11 @@ export interface FileRouteTypes {
     | '/'
     | '/otp'
     | '/sign-in'
+    | '/sign-up'
     | '/product_launchboard'
     | '/sign-out'
     | '/forgot-password'
     | '/sign-in-2'
-    | '/sign-up'
     | '/signin'
     | '/401'
     | '/403'
@@ -727,11 +727,11 @@ export interface FileRouteTypes {
     | '/_protected'
     | '/(auth)/otp'
     | '/(auth)/sign-in'
+    | '/(auth)/sign-up'
     | '/_protected/product_launchboard'
     | '/_protected/sign-out'
     | '/(auth)/forgot-password'
     | '/(auth)/sign-in-2'
-    | '/(auth)/sign-up'
     | '/(auth)/signin'
     | '/(errors)/401'
     | '/(errors)/403'
@@ -789,9 +789,9 @@ export interface RootRouteChildren {
   ProtectedRoute: typeof ProtectedRouteWithChildren
   authOtpRoute: typeof authOtpRoute
   authSignInRoute: typeof authSignInRoute
+  authSignUpRoute: typeof authSignUpRoute
   authForgotPasswordLazyRoute: typeof authForgotPasswordLazyRoute
   authSignIn2LazyRoute: typeof authSignIn2LazyRoute
-  authSignUpLazyRoute: typeof authSignUpLazyRoute
   authSigninLazyRoute: typeof authSigninLazyRoute
   errors401LazyRoute: typeof errors401LazyRoute
   errors403LazyRoute: typeof errors403LazyRoute
@@ -858,13 +858,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof authSigninLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/(auth)/sign-up': {
-      id: '/(auth)/sign-up'
-      path: '/sign-up'
-      fullPath: '/sign-up'
-      preLoaderRoute: typeof authSignUpLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/(auth)/sign-in-2': {
       id: '/(auth)/sign-in-2'
       path: '/sign-in-2'
@@ -892,6 +885,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/product_launchboard'
       preLoaderRoute: typeof ProtectedProduct_launchboardRouteImport
       parentRoute: typeof ProtectedRoute
+    }
+    '/(auth)/sign-up': {
+      id: '/(auth)/sign-up'
+      path: '/sign-up'
+      fullPath: '/sign-up'
+      preLoaderRoute: typeof authSignUpRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/(auth)/sign-in': {
       id: '/(auth)/sign-in'
@@ -1491,9 +1491,9 @@ const rootRouteChildren: RootRouteChildren = {
   ProtectedRoute: ProtectedRouteWithChildren,
   authOtpRoute: authOtpRoute,
   authSignInRoute: authSignInRoute,
+  authSignUpRoute: authSignUpRoute,
   authForgotPasswordLazyRoute: authForgotPasswordLazyRoute,
   authSignIn2LazyRoute: authSignIn2LazyRoute,
-  authSignUpLazyRoute: authSignUpLazyRoute,
   authSigninLazyRoute: authSigninLazyRoute,
   errors401LazyRoute: errors401LazyRoute,
   errors403LazyRoute: errors403LazyRoute,

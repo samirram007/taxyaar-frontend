@@ -1,6 +1,6 @@
 // import { Link } from '@tanstack/react-router'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Button } from '@/components/ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,30 +10,33 @@ import {
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { useAuth } from '@/features/auth/contexts/AuthContext';
-import { Link } from '@tanstack/react-router';
+} from '@/components/ui/dropdown-menu'
+import { useAuth } from '@/features/auth/contexts/AuthContext'
+import { Link } from '@tanstack/react-router'
 
 export function ProfileDropdown() {
-  const auth = useAuth();
+  const auth = useAuth()
   const handleLogout = async () => {
-    await auth.logout();
-  };
+    await auth.logout()
+  }
   return (
     <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
-        <Button variant='ghost' className='relative h-8 w-8 rounded-full shadow-md'>
-          <Avatar className='h-8 w-8'>
-            <AvatarImage src='/avatars/01.png' alt='@shadcn' />
+        <Button
+          variant="ghost"
+          className="relative h-8 w-8 rounded-full shadow-md"
+        >
+          <Avatar className="h-8 w-8">
+            <AvatarImage src="/avatars/01.png" alt="@shadcn" />
             <AvatarFallback>SN</AvatarFallback>
           </Avatar>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className='w-56' align='end' forceMount>
-        <DropdownMenuLabel className='font-normal'>
-          <div className='flex flex-col space-y-1'>
-            <p className='text-sm font-medium leading-none'>satnaing</p>
-            <p className='text-xs leading-none text-muted-foreground'>
+      <DropdownMenuContent className="w-56" align="end" forceMount>
+        <DropdownMenuLabel className="font-normal">
+          <div className="flex flex-col space-y-1">
+            <p className="text-sm font-medium leading-none">satnaing</p>
+            <p className="text-xs leading-none text-muted-foreground">
               satnaingdev@gmail.com
             </p>
           </div>
@@ -41,19 +44,19 @@ export function ProfileDropdown() {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem asChild>
-            <Link to='/'>
+            <Link to="/">
               Profile
               <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <Link to='/'>
+            <Link to="/">
               Billing
               <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem asChild>
-            <Link to='/'>
+            <Link to="/">
               Settings
               <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
             </Link>
@@ -62,10 +65,7 @@ export function ProfileDropdown() {
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={handleLogout}>
-          <div >
-            Log out
-
-          </div>
+          <div>Log out</div>
           <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
         </DropdownMenuItem>
       </DropdownMenuContent>
