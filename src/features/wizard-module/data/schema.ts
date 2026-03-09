@@ -96,3 +96,19 @@ export const validateAddClientResponseSchema = z.object({
 });
 
 export type ValidateAddClientResponse = z.infer<typeof validateAddClientResponseSchema>;
+
+
+const articleSchema = z.object({
+    id: z.string(),
+    title: z.string(),
+    content: z.string(),
+    slug: z.string(),
+    linkText: z.string(),
+    page: z.string(),
+});
+
+export type Article = z.infer<typeof articleSchema>;
+
+export const articlesSchema = z.array(articleSchema);
+
+export type Articles = z.infer<typeof articlesSchema>;

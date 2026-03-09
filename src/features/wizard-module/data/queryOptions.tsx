@@ -1,7 +1,17 @@
-import { useMutation } from "@tanstack/react-query";
-import { addClient, authenticationUser, logout, validateAddClient } from "./api";
+import { queryOptions, useMutation } from "@tanstack/react-query";
+import { addClient, authenticationUser, fetchArticleBySlug, logout, validateAddClient } from "./api";
 import type { AddClientRequest, AddClientResponse, AuthResponse, ValidateAddClientRequest, ValidateAddClientResponse } from "./schema";
 import type { AxiosResponse } from "axios";
+
+
+export const articleSlugQueryOptions = (slug: string) => {
+    return queryOptions({
+        queryKey: [slug],
+        queryFn: () => fetchArticleBySlug(slug),
+        staleTime: 1000 * 60 * 5, // 5 minutes
+        retry: 1,
+    })
+}
 
 export function useAuthenticationUser() {
     return useMutation<AxiosResponse<AuthResponse>, Error>({

@@ -141,12 +141,7 @@ export default function DashboardFiler() {
                   </div>
 
                   <div className="mt-6">
-                    <Button
-                      onClick={() => router.navigate({ to: "/" })}
-                      className="w-full inline-flex items-center justify-center gap-2 p-6 bg-indigo-600 text-white rounded hover:bg-indigo-700"
-                    >
-                      <span>Upload</span>
-                    </Button>
+
                     <Form16Modal />
                   </div>
                 </div>

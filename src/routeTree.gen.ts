@@ -458,24 +458,14 @@ export interface FileRoutesByFullPath {
   '/assessee/edit': typeof ProtectedfilerAssesseeEditRoute
   '/assessee/heyassessee': typeof ProtectedfilerAssesseeHeyassesseeRoute
   '/masters/organization': typeof ProtectedMastersOrganizationLayoutRouteWithChildren
-<<<<<<< HEAD
-  '/addtaxform': typeof ProtectedauthAddtaxformIndexRoute
-  '/member': typeof ProtectedauthMemberIndexRoute
-  '/verify-pan': typeof ProtectedauthVerifyPanIndexRoute
-  '/dashboard': typeof ProtectedfilerDashboardIndexRoute
-  '/dashboard_filer': typeof ProtectedfilerDashboard_filerIndexRoute
-  '/department_add_client': typeof ProtectedfilerDepartment_add_clientIndexRoute
-  '/start': typeof ProtectedfilerStartIndexRoute
-  '/support/help': typeof ProtectedSupportHelpIndexRoute
-=======
   '/addtaxform/': typeof ProtectedauthAddtaxformIndexRoute
   '/member/': typeof ProtectedauthMemberIndexRoute
   '/verify-pan/': typeof ProtectedauthVerifyPanIndexRoute
   '/dashboard/': typeof ProtectedfilerDashboardIndexRoute
   '/dashboard_filer/': typeof ProtectedfilerDashboard_filerIndexRoute
   '/department_add_client/': typeof ProtectedfilerDepartment_add_clientIndexRoute
+  '/start/': typeof ProtectedfilerStartIndexRoute
   '/support/help/': typeof ProtectedSupportHelpIndexRoute
->>>>>>> 528eb86 (taxyaar merger)
   '/administration/role': typeof ProtectedAdministrationLayoutRoleLayoutRouteWithChildren
   '/administration/user': typeof ProtectedAdministrationLayoutUserLayoutRouteWithChildren
   '/profile/index/': typeof ProtectedauthProfileIndexRoute
@@ -643,24 +633,14 @@ export interface FileRouteTypes {
     | '/assessee/edit'
     | '/assessee/heyassessee'
     | '/masters/organization'
-<<<<<<< HEAD
-    | '/addtaxform'
-    | '/member'
-    | '/verify-pan'
-    | '/dashboard'
-    | '/dashboard_filer'
-    | '/department_add_client'
-    | '/start'
-    | '/support/help'
-=======
     | '/addtaxform/'
     | '/member/'
     | '/verify-pan/'
     | '/dashboard/'
     | '/dashboard_filer/'
     | '/department_add_client/'
+    | '/start/'
     | '/support/help/'
->>>>>>> 528eb86 (taxyaar merger)
     | '/administration/role'
     | '/administration/user'
     | '/profile/index/'
@@ -951,7 +931,7 @@ declare module '@tanstack/react-router' {
     '/_protected/(filer)/start/': {
       id: '/_protected/(filer)/start/'
       path: '/start'
-      fullPath: '/start'
+      fullPath: '/start/'
       preLoaderRoute: typeof ProtectedfilerStartIndexRouteImport
       parentRoute: typeof ProtectedRoute
     }

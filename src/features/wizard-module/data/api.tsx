@@ -2,6 +2,17 @@ import type { AxiosResponse } from "axios";
 import type { AddClientRequest, AddClientResponse, AuthResponse, ValidateAddClientRequest, ValidateAddClientResponse } from "./schema";
 import springClient from "./config";
 import axios from "axios";
+import { getData } from "@/utils/dataClient";
+
+
+export async function fetchArticleBySlug(slug: string) {
+
+    if (!slug) {
+        throw new Error("Slug is required");
+    }
+
+    return await getData(`/help_center_topic_articles/${slug}/slug`);
+}
 
 
 

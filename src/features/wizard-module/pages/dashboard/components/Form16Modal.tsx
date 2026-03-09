@@ -56,7 +56,7 @@ export function Form16Modal() {
         <>
             <Dialog>
                 <DialogTrigger asChild>
-                    <Button className="bg-blue-500 hover:bg-blue-600 cursor-pointer w-full h-full py-3 text-base">
+                    <Button className="w-full inline-flex items-center justify-center gap-2 p-6 bg-indigo-600 text-white rounded hover:bg-indigo-700">
                         Upload
                     </Button>
                 </DialogTrigger>

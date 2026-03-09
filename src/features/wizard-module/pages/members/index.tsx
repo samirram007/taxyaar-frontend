@@ -208,10 +208,7 @@ export default function MembersPage() {
             </div>
           </div>
           <div className="lg:col-span-1">
-            <HelpArticles slugs={[
-              "0001-tax-made-easy-series-1",
-              "0001-tax-made-easy-series-2",
-            ]} />
+            <HelpArticles page="dashboard" />
           </div>
         </div>
       </div>
