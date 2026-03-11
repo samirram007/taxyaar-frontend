@@ -1,6 +1,6 @@
 import useDialogState from '@/core/hooks/use-dialog-state'
 import React, { useState } from 'react'
-import type { Article, articlesSchema } from '../data/schema'
+import type { Article, TaxFilerData } from '../data/schema'
 
 
 
@@ -11,7 +11,9 @@ interface WizardModuleContextType {
     setOpen: (str: WizardModuleDialogType | null) => void
     currentRow: Article | null
     setCurrentRow: React.Dispatch<React.SetStateAction<Article | null>>
-    keyName: string
+    keyName: string 
+    member: TaxFilerData | null
+    setMember: React.Dispatch<React.SetStateAction<TaxFilerData | null>>
 }
 
 const WizardModuleContext = React.createContext<WizardModuleContextType | null>(null)
@@ -23,9 +25,16 @@ interface Props {
 export default function WizardModuleProvider({ children }: Props) {
     const [open, setOpen] = useDialogState<WizardModuleDialogType>(null)
     const [currentRow, setCurrentRow] = useState<Article | null>(null)
-
+    const [member, _setMember] = useState<TaxFilerData | null>(null);
+    const setMember: React.Dispatch<React.SetStateAction<TaxFilerData | null>> = (value) => {
+        _setMember((prev) => {
+            const nextValue = typeof value === 'function' ? value(prev) : value
+            sessionStorage.setItem("taxFilerData", JSON.stringify(nextValue));
+            return nextValue
+        })
+    }
     return (
-        <WizardModuleContext.Provider value={{ open, setOpen, currentRow, setCurrentRow, keyName: "Wizard_modules" }}>
+        <WizardModuleContext.Provider value={{ open, setOpen, member, setMember, currentRow, setCurrentRow, keyName: "Wizard_modules" }}>
             {children}
         </WizardModuleContext.Provider>
     )

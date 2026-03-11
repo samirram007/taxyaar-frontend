@@ -6,6 +6,7 @@ import { getData } from "@/utils/dataClient";
 
 
 export async function fetchArticleBySlug(slug: string) {
+    //console.log("api call: ", `/help_center_topic_articles/${slug}/slug`);
 
     if (!slug) {
         throw new Error("Slug is required");

@@ -5,9 +5,14 @@ import { IconBrandWhatsapp } from '@tabler/icons-react'
 import { Link } from '@tanstack/react-router'
 import { Minus, Plus } from 'lucide-react'
 
-import { useState } from 'react'
-import ArticleDialog from './article-dialog'
+
 import { useWizardModule } from '../../contexts/wizard_module-context'
+import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
+import { Button } from '@/components/ui/button'
+
+import { articleSlugQueryOptions } from '../../data/queryOptions'
+import { useQuery } from '@tanstack/react-query'
+import './render.css'
 
 const helpUrl = import.meta.env.VITE_HELP_URL || "https://help.taxyaar.com"
 const helpArticles = [
@@ -42,7 +47,7 @@ type HelpArticleType = {
 }
 const HelpArticles = ({ page }: HelpArticleType) => {
 
-    const { open: openDialog, setOpen: setOpenDialog, currentRow: selectedSlug, setCurrentRow: setSelectedSlug } = useWizardModule()
+    const { setOpen: setOpenDialog, setCurrentRow: setSelectedSlug } = useWizardModule()
 
     const handleSlugClick = (slug: string) => {
         const article = helpArticles
@@ -50,7 +55,7 @@ const HelpArticles = ({ page }: HelpArticleType) => {
             .find((article) => article.slug === slug);
         
         if (article) {
-            setOpenDialog('article');
+            setOpenDialog('add');
             setSelectedSlug({
                 id: article.slug,
                 title: article.trigger,
@@ -63,11 +68,6 @@ const HelpArticles = ({ page }: HelpArticleType) => {
     };
 
 
-
-
-    console.log(
-        helpArticles.filter((item) => item.page === page)
-    )
 
     return (
         <div className="bg-background text-muted-foreground border border-border rounded-lg p-6 sticky top-24">
@@ -94,11 +94,33 @@ const HelpArticles = ({ page }: HelpArticleType) => {
                                     </div>
                                 </AccordionTrigger>
 
-                                <AccordionContent >
-                                    {article.content}
-                                    <span onClick={() => handleSlugClick(article.slug)} className="text-blue-500 hover:underline cursor-pointer">{article.linkText}</span>
+                                <AccordionContent className='text-wrap  ' >
+                                    <span className='mr-2'> {article.content}</span>
+                                    <span onClick={() => handleSlugClick(article.slug)} className="text-blue-500 hover:underline cursor-pointer">
+                                        {/* {openDialog ? 'close' : 'more'} */}
+                                        {/* <ArticleDialog /> */}
 
 
+                                        <Dialog >
+                                            <DialogTrigger asChild>
+                                                <Button variant="link" className="ml-0! pl-0! text-blue-500 hover:underline cursor-pointer">{article.linkText}</Button>
+                                            </DialogTrigger>
+                                            {<DialogContent className="sm:max-w-4xl  ">
+                                                <DialogHeader>
+                                                    <DialogTitle>Article: {article?.trigger}</DialogTitle>
+                                                    {/* <DialogDescription>
+                                                        This is helpful information about {article.trigger.toLowerCase()}.
+                                                    </DialogDescription> */}
+                                                </DialogHeader>
+                                                <DialogContentComponent slug={article.slug} />
+                                                <DialogFooter className="sm:justify-start hidden">
+                                                    <DialogClose asChild>
+                                                        <Button type="button">Close</Button>
+                                                    </DialogClose>
+                                                </DialogFooter>
+                                            </DialogContent>}
+                                        </Dialog>
+                                    </span>
 
                                 </AccordionContent>
                             </AccordionItem>
@@ -127,3 +149,30 @@ const HelpArticles = ({ page }: HelpArticleType) => {
 }
 
 export default HelpArticles
+
+const DialogContentComponent = ({ slug }: { slug: string }) => {
+    const { data: article } = useQuery(articleSlugQueryOptions(slug || ""))
+    if (!article) {
+        return null;
+    }
+    return (
+
+        <div className="flex items-center gap-2">
+            <div className="grid flex-1 gap-2 max-h-[80vh] overflow-y-auto">
+                <section className='article-info'>
+                    <div className="article-content  article-container not-prose">
+                        <div className="isolate-content article-body">
+                            {article && (
+                                <>
+                                    <h2 className="text-xl font-bold mb-4">{article.data?.title}</h2>
+                                    <div dangerouslySetInnerHTML={{ __html: article.data?.content || "" }} />
+                                </>
+                            )}
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+    )
+}

@@ -6,11 +6,13 @@ import "slick-carousel/slick/slick.css";
 const Banner: React.FC = () => {
     const settings = {
         dots: true,
-        arrows: true,
+        arrows: false,
+        fade: true,
+        cssEase: 'linear',
         infinite: true,
         autoplay: true,
-        speed: 2000,
-        autoplaySpeed: 2000,
+        speed: 5000,
+        autoplaySpeed: 8000,
         slidesToShow: 1,
         adaptiveHeight: true,
         prevArrow: (
@@ -33,21 +35,21 @@ const Banner: React.FC = () => {
             title: "Complete",
             subtitle: "Submit & Relax",
             desc: "Return Filing Made Easy",
-            img: "img/ban-img.png",
+            img: "img/ban-img.webp",
         },
         {
             id: 2,
             title: "Complete",
             subtitle: "Submit & Relax",
             desc: "Return Filing Made Easy",
-            img: "img/ban-img.png",
+            img: "img/ban-img.webp",
         },
         {
             id: 3,
             title: "Complete",
             subtitle: "Submit & Relax",
             desc: "Return Filing Made Easy",
-            img: "img/ban-img.png",
+            img: "img/ban-img.webp",
         },
     ];
     return (

@@ -6,7 +6,7 @@ import type { AxiosResponse } from "axios";
 
 export const articleSlugQueryOptions = (slug: string) => {
     return queryOptions({
-        queryKey: [slug],
+        queryKey: ['article', slug],
         queryFn: () => fetchArticleBySlug(slug),
         staleTime: 1000 * 60 * 5, // 5 minutes
         retry: 1,

@@ -1,8 +1,8 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { MoreVertical } from "lucide-react"
-import { useRouter } from "@tanstack/react-router"
+import { Link, useRouter } from "@tanstack/react-router"
 import Breadcrumb from '../../components/CustomBreadCrumb';
 import HelpArticles from "../../components/help-articles";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -10,13 +10,11 @@ import { DropdownMenuItem } from "@radix-ui/react-dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { IconArrowRight, IconEdit, IconRecycle } from "@tabler/icons-react";
 import { useAuthenticationUser } from "../../data/queryOptions";
+import { useWizardModule } from "../../contexts/wizard_module-context";
+import type { TaxFilerData } from "../../data/schema";
 
-interface TaxFillerData {
-  firstName: string
-  lastName: string
-  pan: string,
-  dateOfBirth: string,
-}
+
+
 
 const isPanVerified = (pan: string): boolean => {
   const stored = localStorage.getItem("verifiedPans");
@@ -25,33 +23,34 @@ const isPanVerified = (pan: string): boolean => {
   const verifiedMap = JSON.parse(stored);
   return !!verifiedMap[pan];
 };
-const memberData: TaxFillerData[] = [
-  { firstName: "Sourav", lastName: "Gupta", pan: "LWAPT2025A", dateOfBirth: "1995-01-01" },
-  { firstName: "Sourav", lastName: "Gupta", pan: "LWAPT2025C", dateOfBirth: "1995-01-01" },
-  { firstName: "Sourav", lastName: "Gupta", pan: "LWAPT2025D", dateOfBirth: "1995-01-01" },
+const memberData: TaxFilerData[] = [
+  { firstName: "Sourav", lastName: "Gupta", pan: "LWAPT2025A", dateOfBirth: "1995-01-01", isVerified: true },
+  { firstName: "Sourav", lastName: "Gupta", pan: "LWAPT2025C", dateOfBirth: "1995-01-01", isVerified: true },
+  { firstName: "Sourav", lastName: "Gupta", pan: "LWAPT2025D", dateOfBirth: "1995-01-01", isVerified: true },
+  { firstName: "Sourav", lastName: "Gupta", pan: "LWAPT2025D", dateOfBirth: "1995-01-01", isVerified: false },
 ]
-// const pageLinks = [
-//   { name: "Dashboard", href: "/dashboard" },
-//   { name: "Members", href: "/members" },
-//   { name: "Settings", href: "/settings" },
-// ]
+
 export default function MembersPage() {
 
   const router = useRouter();
-  const [member, setMember] = useState<TaxFillerData | null>(memberData[0]);
+  const { member, setMember } = useWizardModule();
   const authMutation = useAuthenticationUser();
 
   useEffect(() => {
-    const data = sessionStorage.getItem("taxFillerData")
+    const data = sessionStorage.getItem("taxFilerData") ?? JSON.stringify(memberData[0]) ?? null;
+    console.log("parsed: ", data)
     if (data) {
       const parsed = JSON.parse(data)
       setMember({
         firstName: parsed.firstName,
         lastName: parsed.lastName,
         pan: parsed.pan || "EMPG3394H",
-        dateOfBirth: parsed.dateOfBirth
+        dateOfBirth: parsed.dateOfBirth,
+        isVerified: parsed.isVerified || isPanVerified(parsed.pan)
+        // isVerified: isPanVerified(parsed.pan)
       })
     }
+
   }, [])
 
 
@@ -62,10 +61,10 @@ export default function MembersPage() {
   }
 
 
-  const onHandleAddClient = (member: TaxFillerData) => {
+  const onHandleAddClient = (member: TaxFilerData) => {
 
     if (isPanVerified(member.pan)) {
-      sessionStorage.setItem("taxFillerData", JSON.stringify(member));
+      sessionStorage.setItem("taxFilerData", JSON.stringify(member));
       router.navigate({ to: "/dashboard_filer" });
       return;
     }
@@ -133,7 +132,7 @@ export default function MembersPage() {
                       <div className="flex gap-5" onClick={() => onHandleAddClient(member)} >
                         <div className="flex items-center gap-4">
                           <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center shrink-0">
-                            <span className="text-primary-foreground font-bold text-lg">{member.firstName.charAt(0)}</span>
+                            <span className="text-primary-foreground font-bold text-lg">{member.firstName?.charAt(0)}</span>
                           </div>
 
                           <div>
@@ -142,13 +141,15 @@ export default function MembersPage() {
                           </div>
                         </div>
                         <div className="ml-auto">
-                          {isPanVerified(member.pan) ? (
+                          {member.isVerified ? (
                             <span className="inline-block bg-green-700 text-green-200 text-xs font-semibold px-3 py-1 rounded-2xl">
                               Verified
                             </span>
                           ) : (
                             <span className="inline-block bg-yellow-700 text-yellow-200 text-xs font-semibold px-3 py-1 rounded-2xl">
-                              Continue
+                                <Link
+                                  to={'/department_add_client'}
+                                  className="px-"> Continue</Link>
                             </span>
                           )}
                         </div>
@@ -169,7 +170,7 @@ export default function MembersPage() {
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end" className="min-w-40 space-y-4 p-4 text-sm">
-                          <DropdownMenuItem className="grid grid-cols-[10px_1fr] justify-start items-center gap-4" onSelect={() => router.navigate({ to: "/assessee/add" })}>
+                          <DropdownMenuItem className="grid grid-cols-[10px_1fr] justify-start items-center gap-4" onSelect={() => router.navigate({ to: "/department_add_client" })}>
                             <IconArrowRight size={16} className="ml-auto" />
                             Continue
                           </DropdownMenuItem>

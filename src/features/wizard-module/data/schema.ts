@@ -1,5 +1,18 @@
 import { z } from "zod";
 
+
+export const taxFilerDataSchema = z.object({
+    firstName: z.string().optional(),
+    lastName: z.string(),
+    pan: z.string().max(10),
+    dateOfBirth: z.string().date(),
+    isVerified: z.boolean(),
+});
+
+export type TaxFilerData = z.infer<typeof taxFilerDataSchema>;
+
+
+
 export const eriLoginSchema = z.object({
     code: z.number(),
     success: z.boolean(),

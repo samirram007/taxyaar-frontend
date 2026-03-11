@@ -13,17 +13,18 @@ export function YesNoToggle({ value, onChange }: Props) {
             onValueChange={(v) => {
                 if (v) onChange?.(v as "yes" | "no")
             }}
+            className="bg-blue-500  h-auto w-auto mt-1 shadow-2xl rounded-lg"
         >
             <ToggleGroupItem
                 value="yes"
-                className="px-4"
+                className="px-4 cursor-pointer bg-gray-100 data-[state=on]:bg-blue-600 text-gray-800 data-[state=on]:text-white border border-gray-300 data-[state=on]:border-blue-600"
             >
                 YES
             </ToggleGroupItem>
 
             <ToggleGroupItem
                 value="no"
-                className="px-4"
+                className="px-4 cursor-pointer bg-gray-100 data-[state=on]:bg-[#ff9800] text-gray-800 data-[state=on]:text-white border border-gray-300 data-[state=on]:border-[#ff9800]"
             >
                 NO
             </ToggleGroupItem>

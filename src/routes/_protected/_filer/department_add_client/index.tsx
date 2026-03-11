@@ -2,7 +2,7 @@ import { DepartmentAddClientPage } from '@/features/wizard-module/pages/departme
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute(
-  '/_protected/(filer)/department_add_client/',
+  '/_protected/_filer/department_add_client/',
 )({
   component: RouteComponent,
 })

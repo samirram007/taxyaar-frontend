@@ -6,18 +6,18 @@ import ArticleDialog from './help-articles/article-dialog'
 
 
 export function Dialogs() {
-  const { open, setOpen, currentRow, setCurrentRow, keyName } = useWizardModule()
+  const { keyName } = useWizardModule()
   return (
     <>
       <ArticleDialog
         key={`${keyName}-add`}
-        open={open === 'add'}
-        onOpenChange={() => setOpen('add')}
+        // open={open === 'add'}
+        // onOpenChange={() => setOpen('add')}
       />
-      {currentRow && (
+      {/* {currentRow && (
         <>
           <ArticleDialog
-            key={`${keyName}-edit-${currentRow.slug}`}
+            key={`${keyName}-article-${currentRow.slug}`}
             open={open === 'article'}
             onOpenChange={() => {
               setOpen('article')
@@ -30,7 +30,7 @@ export function Dialogs() {
 
 
         </>
-      )}
+      )} */}
     </>
   )
 }

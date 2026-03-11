@@ -2,7 +2,7 @@ import AddTaxForm from '@/features/wizard-module/pages/addtask/components/addtax
 // import MembersPage from '@/features/wizard-module/pages/members'
 import { createFileRoute } from '@tanstack/react-router'
 
-export const Route = createFileRoute('/_protected/(filer)/assessee/add')({
+export const Route = createFileRoute('/_protected/_filer/assessee/add')({
   component: RouteComponent,
 })
 
