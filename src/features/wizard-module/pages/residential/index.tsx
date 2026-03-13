@@ -3,7 +3,6 @@ import { useState } from "react"
 import HelpSidebar from "../../components/HelpSidebar"
 import { MoveLeft, MoveRight } from "lucide-react"
 import { useWizardModule } from "../../contexts/wizard_module-context"
-import { Link } from "@tanstack/react-router"
 
 const questions = [
     {
@@ -77,7 +76,7 @@ const questions = [
     },
 ]
 
-const Start = () => {
+const Residential = () => {
     const { member } = useWizardModule()
     const [questionsState, setQuestionsState] = useState(questions)
     const assessmentYear = "2025-26"
@@ -91,7 +90,8 @@ const Start = () => {
             </div>
             <div className="grid lg:grid-cols-3 gap-8 mb-24">
                 <div className="grid grid-rows-1   lg:col-span-2">
-                    <div className="lg:col-span-2 grid grid-cols-[150px_1fr] bg-gray-50 rounded-lg p-6  gap-6">
+                    <div className="lg:col-span-2 grid grid-cols-[150px_1fr] bg-white
+                    shadow rounded-lg p-6  gap-6">
                         <div className="grid w-full">
                             <img src="/images/income.png" alt="Income" className="w-full" />
                         </div>
@@ -173,20 +173,12 @@ const Start = () => {
                     <div className="bg-gray-400/20 p-4 w-full lg:col-span-2 flex justify-between items-center gap-4">
                         <div >
                             <div>Previous</div>
-                            <div className="flex flex-row gap-2 items-center">
-                                <Link to="/start" className="flex flex-row gap-1 items-center">
-                                    <MoveLeft /> Previous Page
-                                </Link>
-                            </div>
+                            <div className="flex flex-row gap-2 items-center"><MoveLeft /> Previous Page</div>
                         </div>
                         <div className="flex flex-col items-end">
                             <div>Next</div>
                             <div className="flex flex-row text-xl text-sky-600 cursor-pointer ">
-
-                                <Link to="/choose_return_type" className="flex flex-row gap-1 items-center">
-                                    Choose Return Type <MoveRight />
-                                </Link>
-
+                                <span className="flex flex-row gap-1 items-center">Choose Return Type <MoveRight /></span>
                             </div>
                         </div>
                     </div>
@@ -199,4 +191,4 @@ const Start = () => {
 
 
 
-export default Start
+export default Residential

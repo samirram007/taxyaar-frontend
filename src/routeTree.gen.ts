@@ -22,10 +22,16 @@ import { Route as authOtpRouteImport } from './routes/(auth)/otp'
 import { Route as ProtectedAdministrationLayoutRouteImport } from './routes/_protected/administration/_layout'
 import { Route as ProtectedauthChangePasswordRouteImport } from './routes/_protected/(auth)/change-password'
 import { Route as ProtectedSupportHelpIndexRouteImport } from './routes/_protected/support/help/index'
+import { Route as ProtectedFilerTds_taxIndexRouteImport } from './routes/_protected/_filer/tds_tax/index'
+import { Route as ProtectedFilerTdsIndexRouteImport } from './routes/_protected/_filer/tds/index'
+import { Route as ProtectedFilerTax_paidIndexRouteImport } from './routes/_protected/_filer/tax_paid/index'
 import { Route as ProtectedFilerStartIndexRouteImport } from './routes/_protected/_filer/start/index'
+import { Route as ProtectedFilerSeventh_provisoIndexRouteImport } from './routes/_protected/_filer/seventh_proviso/index'
 import { Route as ProtectedFilerDepartment_add_clientIndexRouteImport } from './routes/_protected/_filer/department_add_client/index'
 import { Route as ProtectedFilerDashboard_filerIndexRouteImport } from './routes/_protected/_filer/dashboard_filer/index'
 import { Route as ProtectedFilerDashboardIndexRouteImport } from './routes/_protected/_filer/dashboard/index'
+import { Route as ProtectedFilerChoose_return_typeIndexRouteImport } from './routes/_protected/_filer/choose_return_type/index'
+import { Route as ProtectedFilerChoose_regimeIndexRouteImport } from './routes/_protected/_filer/choose_regime/index'
 import { Route as ProtectedauthVerifyPanIndexRouteImport } from './routes/_protected/(auth)/verify-pan/index'
 import { Route as ProtectedauthMemberIndexRouteImport } from './routes/_protected/(auth)/member/index'
 import { Route as ProtectedauthAddtaxformIndexRouteImport } from './routes/_protected/(auth)/addtaxform/index'
@@ -192,10 +198,33 @@ const ProtectedSupportHelpIndexRoute =
     path: '/support/help/',
     getParentRoute: () => ProtectedRoute,
   } as any)
+const ProtectedFilerTds_taxIndexRoute =
+  ProtectedFilerTds_taxIndexRouteImport.update({
+    id: '/tds_tax/',
+    path: '/tds_tax/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerTdsIndexRoute = ProtectedFilerTdsIndexRouteImport.update({
+  id: '/tds/',
+  path: '/tds/',
+  getParentRoute: () => ProtectedFilerRoute,
+} as any)
+const ProtectedFilerTax_paidIndexRoute =
+  ProtectedFilerTax_paidIndexRouteImport.update({
+    id: '/tax_paid/',
+    path: '/tax_paid/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
 const ProtectedFilerStartIndexRoute =
   ProtectedFilerStartIndexRouteImport.update({
     id: '/start/',
     path: '/start/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerSeventh_provisoIndexRoute =
+  ProtectedFilerSeventh_provisoIndexRouteImport.update({
+    id: '/seventh_proviso/',
+    path: '/seventh_proviso/',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
 const ProtectedFilerDepartment_add_clientIndexRoute =
@@ -214,6 +243,18 @@ const ProtectedFilerDashboardIndexRoute =
   ProtectedFilerDashboardIndexRouteImport.update({
     id: '/dashboard/',
     path: '/dashboard/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerChoose_return_typeIndexRoute =
+  ProtectedFilerChoose_return_typeIndexRouteImport.update({
+    id: '/choose_return_type/',
+    path: '/choose_return_type/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerChoose_regimeIndexRoute =
+  ProtectedFilerChoose_regimeIndexRouteImport.update({
+    id: '/choose_regime/',
+    path: '/choose_regime/',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
 const ProtectedauthVerifyPanIndexRoute =
@@ -466,10 +507,16 @@ export interface FileRoutesByFullPath {
   '/addtaxform/': typeof ProtectedauthAddtaxformIndexRoute
   '/member/': typeof ProtectedauthMemberIndexRoute
   '/verify-pan/': typeof ProtectedauthVerifyPanIndexRoute
+  '/choose_regime/': typeof ProtectedFilerChoose_regimeIndexRoute
+  '/choose_return_type/': typeof ProtectedFilerChoose_return_typeIndexRoute
   '/dashboard/': typeof ProtectedFilerDashboardIndexRoute
   '/dashboard_filer/': typeof ProtectedFilerDashboard_filerIndexRoute
   '/department_add_client/': typeof ProtectedFilerDepartment_add_clientIndexRoute
+  '/seventh_proviso/': typeof ProtectedFilerSeventh_provisoIndexRoute
   '/start/': typeof ProtectedFilerStartIndexRoute
+  '/tax_paid/': typeof ProtectedFilerTax_paidIndexRoute
+  '/tds/': typeof ProtectedFilerTdsIndexRoute
+  '/tds_tax/': typeof ProtectedFilerTds_taxIndexRoute
   '/support/help/': typeof ProtectedSupportHelpIndexRoute
   '/administration/role': typeof ProtectedAdministrationLayoutRoleLayoutRouteWithChildren
   '/administration/user': typeof ProtectedAdministrationLayoutUserLayoutRouteWithChildren
@@ -525,10 +572,16 @@ export interface FileRoutesByTo {
   '/addtaxform': typeof ProtectedauthAddtaxformIndexRoute
   '/member': typeof ProtectedauthMemberIndexRoute
   '/verify-pan': typeof ProtectedauthVerifyPanIndexRoute
+  '/choose_regime': typeof ProtectedFilerChoose_regimeIndexRoute
+  '/choose_return_type': typeof ProtectedFilerChoose_return_typeIndexRoute
   '/dashboard': typeof ProtectedFilerDashboardIndexRoute
   '/dashboard_filer': typeof ProtectedFilerDashboard_filerIndexRoute
   '/department_add_client': typeof ProtectedFilerDepartment_add_clientIndexRoute
+  '/seventh_proviso': typeof ProtectedFilerSeventh_provisoIndexRoute
   '/start': typeof ProtectedFilerStartIndexRoute
+  '/tax_paid': typeof ProtectedFilerTax_paidIndexRoute
+  '/tds': typeof ProtectedFilerTdsIndexRoute
+  '/tds_tax': typeof ProtectedFilerTds_taxIndexRoute
   '/support/help': typeof ProtectedSupportHelpIndexRoute
   '/profile/index': typeof ProtectedauthProfileIndexRoute
   '/user-fiscal-year': typeof ProtectedauthUserFiscalYearLayoutIndexRoute
@@ -580,10 +633,16 @@ export interface FileRoutesById {
   '/_protected/(auth)/addtaxform/': typeof ProtectedauthAddtaxformIndexRoute
   '/_protected/(auth)/member/': typeof ProtectedauthMemberIndexRoute
   '/_protected/(auth)/verify-pan/': typeof ProtectedauthVerifyPanIndexRoute
+  '/_protected/_filer/choose_regime/': typeof ProtectedFilerChoose_regimeIndexRoute
+  '/_protected/_filer/choose_return_type/': typeof ProtectedFilerChoose_return_typeIndexRoute
   '/_protected/_filer/dashboard/': typeof ProtectedFilerDashboardIndexRoute
   '/_protected/_filer/dashboard_filer/': typeof ProtectedFilerDashboard_filerIndexRoute
   '/_protected/_filer/department_add_client/': typeof ProtectedFilerDepartment_add_clientIndexRoute
+  '/_protected/_filer/seventh_proviso/': typeof ProtectedFilerSeventh_provisoIndexRoute
   '/_protected/_filer/start/': typeof ProtectedFilerStartIndexRoute
+  '/_protected/_filer/tax_paid/': typeof ProtectedFilerTax_paidIndexRoute
+  '/_protected/_filer/tds/': typeof ProtectedFilerTdsIndexRoute
+  '/_protected/_filer/tds_tax/': typeof ProtectedFilerTds_taxIndexRoute
   '/_protected/support/help/': typeof ProtectedSupportHelpIndexRoute
   '/_protected/administration/_layout/role/_layout': typeof ProtectedAdministrationLayoutRoleLayoutRouteWithChildren
   '/_protected/administration/_layout/user/_layout': typeof ProtectedAdministrationLayoutUserLayoutRouteWithChildren
@@ -642,10 +701,16 @@ export interface FileRouteTypes {
     | '/addtaxform/'
     | '/member/'
     | '/verify-pan/'
+    | '/choose_regime/'
+    | '/choose_return_type/'
     | '/dashboard/'
     | '/dashboard_filer/'
     | '/department_add_client/'
+    | '/seventh_proviso/'
     | '/start/'
+    | '/tax_paid/'
+    | '/tds/'
+    | '/tds_tax/'
     | '/support/help/'
     | '/administration/role'
     | '/administration/user'
@@ -701,10 +766,16 @@ export interface FileRouteTypes {
     | '/addtaxform'
     | '/member'
     | '/verify-pan'
+    | '/choose_regime'
+    | '/choose_return_type'
     | '/dashboard'
     | '/dashboard_filer'
     | '/department_add_client'
+    | '/seventh_proviso'
     | '/start'
+    | '/tax_paid'
+    | '/tds'
+    | '/tds_tax'
     | '/support/help'
     | '/profile/index'
     | '/user-fiscal-year'
@@ -755,10 +826,16 @@ export interface FileRouteTypes {
     | '/_protected/(auth)/addtaxform/'
     | '/_protected/(auth)/member/'
     | '/_protected/(auth)/verify-pan/'
+    | '/_protected/_filer/choose_regime/'
+    | '/_protected/_filer/choose_return_type/'
     | '/_protected/_filer/dashboard/'
     | '/_protected/_filer/dashboard_filer/'
     | '/_protected/_filer/department_add_client/'
+    | '/_protected/_filer/seventh_proviso/'
     | '/_protected/_filer/start/'
+    | '/_protected/_filer/tax_paid/'
+    | '/_protected/_filer/tds/'
+    | '/_protected/_filer/tds_tax/'
     | '/_protected/support/help/'
     | '/_protected/administration/_layout/role/_layout'
     | '/_protected/administration/_layout/user/_layout'
@@ -942,11 +1019,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedSupportHelpIndexRouteImport
       parentRoute: typeof ProtectedRoute
     }
+    '/_protected/_filer/tds_tax/': {
+      id: '/_protected/_filer/tds_tax/'
+      path: '/tds_tax'
+      fullPath: '/tds_tax/'
+      preLoaderRoute: typeof ProtectedFilerTds_taxIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/tds/': {
+      id: '/_protected/_filer/tds/'
+      path: '/tds'
+      fullPath: '/tds/'
+      preLoaderRoute: typeof ProtectedFilerTdsIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/tax_paid/': {
+      id: '/_protected/_filer/tax_paid/'
+      path: '/tax_paid'
+      fullPath: '/tax_paid/'
+      preLoaderRoute: typeof ProtectedFilerTax_paidIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
     '/_protected/_filer/start/': {
       id: '/_protected/_filer/start/'
       path: '/start'
       fullPath: '/start/'
       preLoaderRoute: typeof ProtectedFilerStartIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/seventh_proviso/': {
+      id: '/_protected/_filer/seventh_proviso/'
+      path: '/seventh_proviso'
+      fullPath: '/seventh_proviso/'
+      preLoaderRoute: typeof ProtectedFilerSeventh_provisoIndexRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
     '/_protected/_filer/department_add_client/': {
@@ -968,6 +1073,20 @@ declare module '@tanstack/react-router' {
       path: '/dashboard'
       fullPath: '/dashboard/'
       preLoaderRoute: typeof ProtectedFilerDashboardIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/choose_return_type/': {
+      id: '/_protected/_filer/choose_return_type/'
+      path: '/choose_return_type'
+      fullPath: '/choose_return_type/'
+      preLoaderRoute: typeof ProtectedFilerChoose_return_typeIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/choose_regime/': {
+      id: '/_protected/_filer/choose_regime/'
+      path: '/choose_regime'
+      fullPath: '/choose_regime/'
+      preLoaderRoute: typeof ProtectedFilerChoose_regimeIndexRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
     '/_protected/(auth)/verify-pan/': {
@@ -1236,10 +1355,16 @@ interface ProtectedFilerRouteChildren {
   ProtectedFilerAssesseeAddRoute: typeof ProtectedFilerAssesseeAddRoute
   ProtectedFilerAssesseeEditRoute: typeof ProtectedFilerAssesseeEditRoute
   ProtectedFilerAssesseeHeyassesseeRoute: typeof ProtectedFilerAssesseeHeyassesseeRoute
+  ProtectedFilerChoose_regimeIndexRoute: typeof ProtectedFilerChoose_regimeIndexRoute
+  ProtectedFilerChoose_return_typeIndexRoute: typeof ProtectedFilerChoose_return_typeIndexRoute
   ProtectedFilerDashboardIndexRoute: typeof ProtectedFilerDashboardIndexRoute
   ProtectedFilerDashboard_filerIndexRoute: typeof ProtectedFilerDashboard_filerIndexRoute
   ProtectedFilerDepartment_add_clientIndexRoute: typeof ProtectedFilerDepartment_add_clientIndexRoute
+  ProtectedFilerSeventh_provisoIndexRoute: typeof ProtectedFilerSeventh_provisoIndexRoute
   ProtectedFilerStartIndexRoute: typeof ProtectedFilerStartIndexRoute
+  ProtectedFilerTax_paidIndexRoute: typeof ProtectedFilerTax_paidIndexRoute
+  ProtectedFilerTdsIndexRoute: typeof ProtectedFilerTdsIndexRoute
+  ProtectedFilerTds_taxIndexRoute: typeof ProtectedFilerTds_taxIndexRoute
 }
 
 const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
@@ -1247,12 +1372,20 @@ const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
   ProtectedFilerAssesseeEditRoute: ProtectedFilerAssesseeEditRoute,
   ProtectedFilerAssesseeHeyassesseeRoute:
     ProtectedFilerAssesseeHeyassesseeRoute,
+  ProtectedFilerChoose_regimeIndexRoute: ProtectedFilerChoose_regimeIndexRoute,
+  ProtectedFilerChoose_return_typeIndexRoute:
+    ProtectedFilerChoose_return_typeIndexRoute,
   ProtectedFilerDashboardIndexRoute: ProtectedFilerDashboardIndexRoute,
   ProtectedFilerDashboard_filerIndexRoute:
     ProtectedFilerDashboard_filerIndexRoute,
   ProtectedFilerDepartment_add_clientIndexRoute:
     ProtectedFilerDepartment_add_clientIndexRoute,
+  ProtectedFilerSeventh_provisoIndexRoute:
+    ProtectedFilerSeventh_provisoIndexRoute,
   ProtectedFilerStartIndexRoute: ProtectedFilerStartIndexRoute,
+  ProtectedFilerTax_paidIndexRoute: ProtectedFilerTax_paidIndexRoute,
+  ProtectedFilerTdsIndexRoute: ProtectedFilerTdsIndexRoute,
+  ProtectedFilerTds_taxIndexRoute: ProtectedFilerTds_taxIndexRoute,
 }
 
 const ProtectedFilerRouteWithChildren = ProtectedFilerRoute._addFileChildren(

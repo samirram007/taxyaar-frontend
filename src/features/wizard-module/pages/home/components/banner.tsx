@@ -52,6 +52,7 @@ const Banner: React.FC = () => {
             img: "img/ban-img.webp",
         },
     ];
+
     return (
         <section className="c-banner-main">
             <Slider {...settings} className="slick-slider c-banner-w slick-initialized"  >
