@@ -10,4 +10,4 @@ count.txt
 .env.development
 .env.production
 package-lock.json
-src/routeTreegen.ts
+src/routeTree.gen.ts
