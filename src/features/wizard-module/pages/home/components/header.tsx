@@ -37,10 +37,10 @@ const Header = () => {
                       </Link>
                     </li>
                     <li>
-                      <a href="javascript:;">Pricing</a>
+                      <Link to="/pricing">Pricing</Link>
                     </li>
                     <li>
-                      <a href="javascript:;">Support</a>
+                      <Link to="/support">Support</Link>
                     </li>
                     <li>
                       {isAuthenticated ? (

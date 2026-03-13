@@ -11,6 +11,8 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SupportRouteImport } from './routes/support'
+import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as ImportCgSharesRouteImport } from './routes/import-cg-shares'
 import { Route as ProtectedRouteImport } from './routes/_protected'
 import { Route as IndexRouteImport } from './routes/index'
@@ -82,6 +84,16 @@ const authForgotPasswordLazyRouteImport = createFileRoute(
   '/(auth)/forgot-password',
 )()
 
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ImportCgSharesRoute = ImportCgSharesRouteImport.update({
   id: '/import-cg-shares',
   path: '/import-cg-shares',
@@ -491,6 +503,8 @@ const ProtectedAdministrationLayoutRoleLayoutIdModuleModuleidRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/import-cg-shares': typeof ImportCgSharesRoute
+  '/pricing': typeof PricingRoute
+  '/support': typeof SupportRoute
   '/otp': typeof authOtpRoute
   '/sign-in': typeof authSignInRoute
   '/sign-up': typeof authSignUpRoute
@@ -558,6 +572,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/import-cg-shares': typeof ImportCgSharesRoute
+  '/pricing': typeof PricingRoute
+  '/support': typeof SupportRoute
   '/otp': typeof authOtpRoute
   '/sign-in': typeof authSignInRoute
   '/sign-up': typeof authSignUpRoute
@@ -618,6 +634,8 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_protected': typeof ProtectedRouteWithChildren
   '/import-cg-shares': typeof ImportCgSharesRoute
+  '/pricing': typeof PricingRoute
+  '/support': typeof SupportRoute
   '/(auth)/otp': typeof authOtpRoute
   '/(auth)/sign-in': typeof authSignInRoute
   '/(auth)/sign-up': typeof authSignUpRoute
@@ -688,6 +706,8 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/import-cg-shares'
+    | '/pricing'
+    | '/support'
     | '/otp'
     | '/sign-in'
     | '/sign-up'
@@ -755,6 +775,8 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/import-cg-shares'
+    | '/pricing'
+    | '/support'
     | '/otp'
     | '/sign-in'
     | '/sign-up'
@@ -814,6 +836,8 @@ export interface FileRouteTypes {
     | '/'
     | '/_protected'
     | '/import-cg-shares'
+    | '/pricing'
+    | '/support'
     | '/(auth)/otp'
     | '/(auth)/sign-in'
     | '/(auth)/sign-up'
@@ -884,6 +908,8 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ProtectedRoute: typeof ProtectedRouteWithChildren
   ImportCgSharesRoute: typeof ImportCgSharesRoute
+  PricingRoute: typeof PricingRoute
+  SupportRoute: typeof SupportRoute
   authOtpRoute: typeof authOtpRoute
   authSignInRoute: typeof authSignInRoute
   authSignUpRoute: typeof authSignUpRoute
@@ -899,6 +925,20 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/import-cg-shares': {
       id: '/import-cg-shares'
       path: '/import-cg-shares'
@@ -1669,6 +1709,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProtectedRoute: ProtectedRouteWithChildren,
   ImportCgSharesRoute: ImportCgSharesRoute,
+  PricingRoute: PricingRoute,
+  SupportRoute: SupportRoute,
   authOtpRoute: authOtpRoute,
   authSignInRoute: authSignInRoute,
   authSignUpRoute: authSignUpRoute,
