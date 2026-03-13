@@ -21,7 +21,7 @@ export default function HelpSidebar() {
   }
 
   return (
-    <div className="bg-background border border-border rounded-lg p-6 sticky top-24">
+    <div className="bg-background border border-border rounded-lg p-6 sticky top-24 h-max">
       <h3 className="text-sm font-semibold text-muted-foreground mb-4 flex items-center gap-2">
         <span>ℹ️</span> HELP ARTICLES
       </h3>

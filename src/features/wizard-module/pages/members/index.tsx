@@ -142,11 +142,17 @@ export default function MembersPage() {
                         </div>
                         <div className="ml-auto">
                           {member.isVerified ? (
-                            <span className="inline-block bg-green-700 text-green-200 text-xs font-semibold px-3 py-1 rounded-2xl">
+                            <span className="inline-block bg-green-300/50 text-green-800 
+                              border border-green-400/50
+                            text-xs font-semibold px-3 py-1 rounded-2xl shadow-md">
                               Verified
                             </span>
                           ) : (
-                            <span className="inline-block bg-yellow-700 text-yellow-200 text-xs font-semibold px-3 py-1 rounded-2xl">
+                              <span className="inline-block 
+                              bg-yellow-200/50 
+                              text-yellow-800 
+                              border border-yellow-400
+                              text-xs font-semibold px-3 py-1 rounded-2xl shadow-md">
                                 <Link
                                   to={'/department_add_client'}
                                   className="px-"> Continue</Link>
