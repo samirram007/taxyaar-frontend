@@ -1,75 +1,33 @@
 import { useState, useMemo } from 'react'
-import {
-  SiMoneygram,
-  SiChartdotjs,
-  SiZerodha,
-  SiAnilist,
-  SiTradingview,
-  SiIcicibank,
-  SiBankofamerica,
-  SiHsbc,
-  SiBitcoin,
-  SiEthereum,
-  SiPaytm,
-  SiSharex,
-  SiCoinbase,
-  SiAxisbank,
-  SiGooglefit,
-  SiEditorconfig,
-  SiInterbase,
-  SiRevanced,
-  SiKodak,
-  SiTrino,
-  SiApple,
-  SiArgo,
-  SiKubernetes,
-  SiQuest,
-} from 'react-icons/si'
 import brokerData from '../data/brokerSelection.json'
 import brokerIconData from '../data/brokerIcons.json'
 
-const iconMap: Record<string, any> = {
-  SiMoneygram,
-  SiChartdotjs,
-  SiZerodha,
-  SiAnilist,
-  SiTradingview,
-  SiIcicibank,
-  SiBankofamerica,
-  SiHsbc,
-  SiBitcoin,
-  SiEthereum,
-  SiPaytm,
-  SiSharex,
-  SiCoinbase,
-  SiAxisbank,
-  SiGooglefit,
-  SiEditorconfig,
-  SiInterbase,
-  SiRevanced,
-  SiKodak,
-  SiTrino,
-  SiApple,
-  SiArgo,
-  SiKubernetes,
-  SiQuest,
+const resolveImageSrc = (imagePath?: string) => {
+  if (!imagePath) {
+    return ''
+  }
+
+  const normalizedPath = imagePath.replace(/^\//, '')
+  return encodeURI(`${import.meta.env.BASE_URL}${normalizedPath}`)
 }
 
-export default function BrokerSelection() {
-  const [selected, setSelected] = useState<number | null>(null)
+interface BrokerSelectionProps {
+  selectedBrokerId: number | null
+  onSelectBroker: (brokerId: number) => void
+}
+
+export default function BrokerSelection({
+  selectedBrokerId,
+  onSelectBroker,
+}: BrokerSelectionProps) {
   const [hoveredId, setHoveredId] = useState<number | null>(null)
 
   const brokers = useMemo(() => {
     return brokerData.brokers.map((broker) => ({
       ...broker,
-      Icon: iconMap[
-        brokerIconData.brokerIconMap[
-          broker.id as unknown as keyof typeof brokerIconData.brokerIconMap
-        ]
-      ],
-      bgColor:
-        brokerIconData.brokerColorMap[
-          broker.id as unknown as keyof typeof brokerIconData.brokerColorMap
+      image:
+        brokerIconData.brokerImageMap[
+          broker.id as unknown as keyof typeof brokerIconData.brokerImageMap
         ],
     }))
   }, [])
@@ -89,34 +47,37 @@ export default function BrokerSelection() {
         <h3 className="text-xs! font-bold text-gray-800 mb-5 uppercase tracking-wider">
           {brokerData.sectionTitle}
         </h3>
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5">
           {brokers.map((broker) => {
-            const IconComponent = broker.Icon
+            const imageSrc = resolveImageSrc(broker.image)
+
             return (
               <button
                 key={broker.id}
-                onClick={() => setSelected(broker.id)}
+                onClick={() => onSelectBroker(broker.id)}
                 onMouseEnter={() => setHoveredId(broker.id)}
                 onMouseLeave={() => setHoveredId(null)}
-                className={`flex flex-col items-center gap-3 p-3 transition-all duration-200 ${
-                  selected === broker.id ? 'transform scale-105' : ''
-                } ${hoveredId === broker.id ? 'transform scale-110' : ''}`}
+                className={`rounded-xl border border-gray-200 bg-white px-4 py-4 flex flex-col items-center justify-between h-[118px] md:h-[124px] transition-all duration-200 ${
+                  selectedBrokerId === broker.id
+                    ? 'border-blue-500 shadow-md scale-[1.01]'
+                    : 'shadow-sm'
+                } ${hoveredId === broker.id ? 'shadow-md -translate-y-[1px]' : ''}`}
               >
-                <div
-                  className={`w-16 h-16 rounded-lg flex items-center justify-center text-white shadow-sm transition-all duration-200 ${broker.bgColor} ${
-                    hoveredId === broker.id ? 'shadow-lg' : ''
-                  }`}
-                >
-                  <IconComponent size={28} />
+                <div className="h-12 md:h-14 w-full flex items-center justify-center">
+                  <img
+                    src={imageSrc}
+                    alt={broker.name}
+                    className="max-h-12 md:max-h-14 max-w-full object-contain"
+                    loading="lazy"
+                  />
                 </div>
-                <span className="text-xs font-semibold text-gray-700 text-center leading-snug">
+                <span className="text-[15px] font-medium text-gray-800 text-center leading-snug mt-2">
                   {broker.name}
                 </span>
               </button>
             )
           })}
         </div>
-        ` `
       </div>
     </div>
   )

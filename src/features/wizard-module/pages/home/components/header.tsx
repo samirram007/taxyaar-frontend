@@ -29,7 +29,12 @@ const Header = () => {
                 <div className="c-nav-bottom-list">
                   <ul>
                     <li>
-                      <Link to="/import-cg-shares">Import CG / Shares</Link>
+                      <Link
+                        to="/import-cg-shares"
+                        search={{ brokerId: undefined }}
+                      >
+                        Import CG / Shares
+                      </Link>
                     </li>
                     <li>
                       <a href="javascript:;">Pricing</a>

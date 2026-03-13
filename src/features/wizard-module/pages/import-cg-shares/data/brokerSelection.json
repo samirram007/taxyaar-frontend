@@ -3,7 +3,7 @@
   "description": "Select the name of the broker / trader below. If you do not see your broker listed here, Click on the \"?\" icon to see how you can import your template here and also request the support team to integrate the same. We will incorporate it for you.",
   "sectionTitle": "Shares and Mutual Funds",
   "brokers": [
-    { "id": 1, "name": "myITreturn" },
+    { "id": 1, "name": "Taxyaar" },
     { "id": 2, "name": "Groww" },
     { "id": 3, "name": "Zerodha" },
     { "id": 4, "name": "Angel One" },
