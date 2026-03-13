@@ -1,122 +1,107 @@
-import { Link } from "@tanstack/react-router"
-
+import { Link } from '@tanstack/react-router'
+import footerData from '../data/footer.json'
 
 const Footer = () => {
+  const {
+    taxyaar,
+    importantTools,
+    corporate,
+    otherLinks,
+    copyright,
+    disclaimer,
+  } = footerData
 
-
-    return (
-        <footer className="c-footer-w">
-            <div className="container">
-                <div className="row">
-
-                    <div className="col-lg-3 col-md-12">
-                        <div className="c-footer-left">
-                            <div className="c-footer-logo">
-                                <a href="#">
-                                    <img src="img/logo.png" alt="" />
-                                </a>
-                            </div>
-                            <ul>
-                                <li>
-                                    <Link to={'/'}>
-                                        <i className="fa fa-facebook" aria-hidden="true"></i>
-                                    </Link>
-                                </li>
-                                <li>
-                                    <a href="#"> <i className="fa fa-twitter" aria-hidden="true"></i> </a></li>
-                                <li><a href="#"> <i className="fa fa-instagram" aria-hidden="true"></i> </a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="col-lg-9 col-md-12">
-                        <div className="row">
-                            <div className="col-lg-3 col-md-6">
-                                <div className="c-footer-nav">
-                                    <h3>TAXYAAR</h3>
-                                    <ul>
-                                        <li><a href="#">TAXYAAR Home</a></li>
-                                        <li><a href="#">Support</a></li>
-                                        <li><a href="#">Track Refund</a></li>
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Privacy Policy</a></li>
-                                        <li><a href="#">Terms of Use</a></li>
-                                        <li><a href="#">Pricing</a></li>
-                                        <li><a href="#">Team</a></li>
-                                        <li><a href="#">Branding</a></li>
-                                        <li><a href="#">Refer &amp; earn</a></li>
-                                        <li><a href="#">Share with friends</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-6">
-                                <div className="c-footer-nav">
-                                    <h3>Important Tools</h3>
-                                    <ul>
-                                        <li><a href="#">Capital Gain Calculator</a></li>
-                                        <li><a href="#">Shares &amp; Securities Calculator</a></li>
-                                        <li><a href="#">Land &amp; Building Calculator</a></li>
-                                        <li><a href="#">Crypto Tax Calculator</a></li>
-                                        <li><a href="#">Advance Tax Estimator</a></li>
-                                        <li><a href="#">Tax Calculator 2025-26</a></li>
-                                        <li><a href="#">Tax Calculator 2025-26</a></li>
-                                        <li><a href="#">Generate Form 12BB</a></li>
-                                        <li><a href="#">Generate Rent Receipt</a></li>
-                                        <li><a href="#">Check Refund Status</a></li>
-                                        <li><a href="#">Find IFSC Code</a></li>
-                                        <li><a href="#">HRA Calculator</a></li>
-                                        <li><a href="#">EMI Calculator</a></li>
-                                        <li><a href="#">BMI Calculator</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-6">
-                                <div className="c-footer-nav">
-                                    <h3>Corporate</h3>
-                                    <ul>
-                                        <li><a href="#">Form-16 Software</a></li>
-                                        <li><a href="#">Digital Signature</a></li>
-                                        <li><a href="#">TDS Software</a></li>
-                                        <li><a href="#">TDS Outsourcing</a></li>
-                                        <li><a href="#">STACOS</a></li>
-                                        <li><a href="#">Lexlegis</a></li>
-                                        <li><a href="#">Teamnest</a></li>
-                                        <li><a href="#">Partner with myITreturn</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="col-lg-3 col-md-6">
-                                <div className="c-footer-nav">
-                                    <h3>Other Links</h3>
-                                    <ul>
-                                        <li><a href="#">Assisted Service</a></li>
-                                        <li><a href="#">Notice Assistance</a></li>
-                                        <li><a href="#">Notice Section 139(9)</a></li>
-                                        <li><a href="#">Notice Section 143(1)</a></li>
-                                        <li><a href="#">Notice Section 133(6)</a></li>
-                                        <li><a href="#">Notice Section 245</a></li>
-                                        <li><a href="#">Last date to file Income tax return</a></li>
-                                        <li><a href="#">Tax Planning</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="c-footer-bottom">
-                    <p> 2025-26 © Taxyaar Pvt. Ltd. | <span>All Rights Reserved</span> </p>
-                </div>
-                <div className="disclaimer">
-                    Disclaimer: File your Income Tax Return online with Taxyaar. E-filing through myitreturn is quick, safe, and
-                    hassle-free. Simply upload your Form-16 and complete your filing in just 15 minutes. <a href="#">taxyaar.com</a> supports salary income,
-                    interest from banks and other sources, capital gains, income from house property, as well as business and professional
-                    income. With the Taxyaar website, you can file your return right from your smartphone. Begin filing for free and get the
-                    assurance of maximum refund, guaranteed. We are the smartest and most reliable platform for individuals to e-file their
-                    returns. As an authorized e-return intermediary with the Income Tax Department, Government of India, we promise you the
-                    smoothest and most secure filing experience. We are <a href="#">taxyaar.com</a>.
-                </div>
+  return (
+    <footer className="c-footer-w">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-3 col-md-12">
+            <div className="c-footer-left">
+              <div className="c-footer-logo">
+                <a href="#">
+                  <img src="img/logo.png" alt="" />
+                </a>
+              </div>
+              <ul>
+                <li>
+                  <Link to={'/'}>
+                    <i className="fa fa-facebook" aria-hidden="true"></i>
+                  </Link>
+                </li>
+                <li>
+                  <a href="#">
+                    {' '}
+                    <i className="fa fa-twitter" aria-hidden="true"></i>{' '}
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    {' '}
+                    <i className="fa fa-instagram" aria-hidden="true"></i>{' '}
+                  </a>
+                </li>
+              </ul>
             </div>
-
-        </footer>
-    )
+          </div>
+          <div className="col-lg-9 col-md-12">
+            <div className="row">
+              <div className="col-lg-3 col-md-6">
+                <div className="c-footer-nav">
+                  <h3>{taxyaar.heading}</h3>
+                  <ul>
+                    {taxyaar.links.map((link) => (
+                      <li key={link}>
+                        <a href="#">{link}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="col-lg-3 col-md-6">
+                <div className="c-footer-nav">
+                  <h3>{importantTools.heading}</h3>
+                  <ul>
+                    {importantTools.links.map((link) => (
+                      <li key={link}>
+                        <a href="#">{link}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="col-lg-3 col-md-6">
+                <div className="c-footer-nav">
+                  <h3>{corporate.heading}</h3>
+                  <ul>
+                    {corporate.links.map((link) => (
+                      <li key={link}>
+                        <a href="#">{link}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="col-lg-3 col-md-6">
+                <div className="c-footer-nav">
+                  <h3>{otherLinks.heading}</h3>
+                  <ul>
+                    {otherLinks.links.map((link) => (
+                      <li key={link}>
+                        <a href="#">{link}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="c-footer-bottom">
+          <p> {copyright} </p>
+        </div>
+        <div className="disclaimer">{disclaimer}</div>
+      </div>
+    </footer>
+  )
 }
 export default Footer
