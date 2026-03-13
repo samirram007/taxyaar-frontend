@@ -15,9 +15,9 @@ const Header = () => {
         <div className="row">
           <div className="col-md-3">
             <div className="c-logo-w">
-              <a href="index.html">
+              <Link to="/">
                 <img src="img/logo.png" alt="Taxyaar" />
-              </a>
+              </Link>
             </div>
           </div>
           <div className="col-md-9">
@@ -29,7 +29,7 @@ const Header = () => {
                 <div className="c-nav-bottom-list">
                   <ul>
                     <li>
-                      <a href="javascript:;">Import CG / Shares </a>
+                      <Link to="/import-cg-shares">Import CG / Shares</Link>
                     </li>
                     <li>
                       <a href="javascript:;">Pricing</a>

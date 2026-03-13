@@ -1,0 +1,19 @@
+{
+  "steps": [
+    {
+      "number": 1,
+      "title": "Step 1",
+      "subtitle": "Select Name of Broker"
+    },
+    {
+      "number": 2,
+      "title": "Step 2",
+      "subtitle": "Select Broker File"
+    },
+    {
+      "number": 3,
+      "title": "Step 3",
+      "subtitle": "Review your Data"
+    }
+  ]
+}

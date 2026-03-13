@@ -1,0 +1,31 @@
+{
+  "header": "Select Name of Broker",
+  "description": "Select the name of the broker / trader below. If you do not see your broker listed here, Click on the \"?\" icon to see how you can import your template here and also request the support team to integrate the same. We will incorporate it for you.",
+  "sectionTitle": "Shares and Mutual Funds",
+  "brokers": [
+    { "id": 1, "name": "myITreturn" },
+    { "id": 2, "name": "Groww" },
+    { "id": 3, "name": "Zerodha" },
+    { "id": 4, "name": "Angel One" },
+    { "id": 5, "name": "Upstox" },
+    { "id": 6, "name": "ICICI Direct" },
+    { "id": 7, "name": "Kotak Securities" },
+    { "id": 8, "name": "HDFC" },
+    { "id": 9, "name": "Motilal Oswal" },
+    { "id": 10, "name": "SBI" },
+    { "id": 11, "name": "Paytm Money" },
+    { "id": 12, "name": "Sharekhan" },
+    { "id": 13, "name": "Spaisa" },
+    { "id": 14, "name": "Axis Securities" },
+    { "id": 15, "name": "Geojit" },
+    { "id": 16, "name": "Edelweiss" },
+    { "id": 17, "name": "Integrated" },
+    { "id": 18, "name": "Reliance" },
+    { "id": 19, "name": "Karvy" },
+    { "id": 20, "name": "NJ Wealth" },
+    { "id": 21, "name": "Rksy Securities" },
+    { "id": 22, "name": "CAMS" },
+    { "id": 23, "name": "Kuvera" },
+    { "id": 24, "name": "Other Brokers" }
+  ]
+}
