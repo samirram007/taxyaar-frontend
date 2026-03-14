@@ -9,7 +9,6 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Field, FieldContent, FieldDescription, FieldLabel } from '@/components/ui/field'
 import { Link } from '@tanstack/react-router'
 
-
 const questions = [
     {
         id: 8,
@@ -33,7 +32,7 @@ const questions = [
     },
 ]
 const helpUrl = import.meta.env.VITE_HELP_URL || "https://help.taxyaar.com"
-const BankDetails = () => {
+const SalaryIncome = () => {
     const [questionsState /*, setQuestionsState */] = useState(questions)
     const [answer, setAnswer] = useState(questions[0].answer[0].key)
     const handleChange = (value: string) => {
@@ -135,11 +134,11 @@ const BankDetails = () => {
 
                         </div>
                         <WizardFooter
-                            previousPageLink="/contact_details"
-                            previousPageName="Contact Details"
-                            nextPageLink="/summary"
-                            nextPageName="Summary"
-
+                            previousPageLink="/residential"
+                            previousPageName="Residential Status"
+                            nextPageLink="/house_property"
+                            nextPageName="House Property"
+                            progress={{ percentage: '7%', remaining: '16 min more' }}
 
                         />
                     </div>
@@ -150,4 +149,4 @@ const BankDetails = () => {
     )
 }
 
-export default BankDetails
+export default SalaryIncome

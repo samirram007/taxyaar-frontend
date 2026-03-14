@@ -174,7 +174,7 @@ const Start = () => {
                         <div >
                             <div>Previous</div>
                             <div className="flex flex-row gap-2 items-center">
-                                <Link to="/start" className="flex flex-row gap-1 items-center">
+                                <Link to="/dashboard_filer" className="flex flex-row gap-1 items-center">
                                     <MoveLeft /> Previous Page
                                 </Link>
                             </div>
