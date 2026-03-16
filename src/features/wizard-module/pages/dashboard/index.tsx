@@ -1,25 +1,23 @@
 
 import { Main } from "@/layouts/components/main";
-import MembersPage from "../members";
+import type { ClientList } from "../taxfiler/data/schema";
+import MemberCard from "./components/MemberCard";
+
+interface DashboardProps {
+    data: ClientList
+}
 
 
 
+export default function Dashboard({ data }: DashboardProps) {
 
-const Dashboard = () => {
+    console.log("data: ", data);
 
     return (
         <>
-
-
-                <Main className='min-w-full'>
-
-
-                    <MembersPage />
-                </Main>
-            {/* <Dialogs /> */}
-
+            <Main className='min-w-full'>
+                <MemberCard clientList={data} />
+            </Main>
         </>
     )
 }
-
-export default Dashboard

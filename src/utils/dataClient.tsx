@@ -59,7 +59,7 @@ const successHandler = (response: any) => {
   toast.success(response?.data.message)
 }
 
-const errorHandler = (error: any) => {
+export const errorHandler = (error: any) => {
   // Check if the error is from a response with data (usually API error responses)
   // console.log("ResponseError", error);
 

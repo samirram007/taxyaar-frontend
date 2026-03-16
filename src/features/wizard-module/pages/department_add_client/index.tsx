@@ -9,6 +9,9 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { useAddClient, useValidateAddClient } from "../../data/queryOptions";
 import { toast } from "sonner";
+import OTPCard from "./components/OTPCard";
+import VerificationCard from "./components/VerificationCard";
+import RegistrationCard from "./components/RegistrationCard";
 
 function getValidUpto(monthsToAdd: number) {
 
@@ -31,8 +34,8 @@ export function DepartmentAddClientPage() {
     const [requestOtp, setRequestOtp] = useState(false);
     const router = useRouter();
     const validateClientMutation = useValidateAddClient();
-    const [otp, setOtp] = useState("");
     const addClientMutation = useAddClient();
+    const [clientVerified, setClientVerified] = useState<boolean | null>(null);
 
     const handleRequestOtp = () => {
 
@@ -84,7 +87,7 @@ export function DepartmentAddClientPage() {
             {
                 Pan: parsed.pan,
                 transactionId: transactionId,
-                Otp: otp,
+                Otp: "otp",
                 validUpto: getValidUpto(3),
                 authToken: token
             },
@@ -123,93 +126,15 @@ export function DepartmentAddClientPage() {
                 <div className="grid lg:grid-cols-3 gap-8">
 
                     <div className="lg:col-span-2 space-y-6">
-
-
-
-
-                        {requestOtp ? (
-                            <Card className="py-6">
-                                <CardHeader className="border-b-2 py-7">
-                                    <CardTitle className="text-xl px-3">
-                                        Income-tax Department PAN verification process
-                                    </CardTitle>
-                                </CardHeader>
-
-                                <CardContent>
-                                    <p className="text-sm mb-4">
-                                        Please refrain from refreshing this page or pressing "BACK" button. Kindly wait for minimum of 60 seconds to receive the OTP before attempting this process again.
-                                    </p>
-
-                                    <div className="max-w-sm">
-                                        <Input
-                                            type="text"
-                                            placeholder="Enter OTP"
-                                            value={otp}
-                                            onChange={(e) => setOtp(e.target.value)}
-                                        />
-                                    </div>
-                                </CardContent>
-
-                                <CardFooter className="flex flex-col items-start justify-start gap-3">
-                                    <div className="flex items-center gap-3">
-                                        <Button
-                                            onClick={handleVerifyOtp}
-                                            className="bg-blue-500 rounded-sm"
-                                        >
-                                            Submit
-                                        </Button>
-
-                                        <Button
-                                            variant="outline"
-                                            className="bg-orange-300"
-                                            onClick={() => router.navigate({ to: "/dashboard_filer" })}
-                                        >
-                                            Skip and try later
-                                        </Button>
-                                    </div>
-                                    <div>
-                                        By giving consent you understand that Taxyaar can access your data available with the Income Tax Department for Income Tax Return preparation purposes or for any related status updates.
-                                    </div>
-                                </CardFooter>
-                            </Card>
-                        )
-                            :
-                            <Card className="py-6">
-                                <CardHeader className="border-b-2 py-7">
-                                    <CardTitle className="text-2xl px-3">
-                                        Income-tax Department PAN verification process
-                                    </CardTitle>
-                                </CardHeader>
-
-                                <CardContent>
-                                    <p className="text-left text-sm">
-                                        Your verification with the Income-tax Department is pending.
-                                        To continue filing your IT return we have to mandatorily add you as our client first.
-                                        An OTP will be sent to the mobile number registered with your aadhar card.
-                                        In case you require another option to verify or receive any error in this process,
-                                        we will guide you to complete it.
-                                    </p>
-                                </CardContent>
-
-                                <CardFooter className="flex items-center gap-3">
-                                    <Button
-                                        onClick={handleRequestOtp}
-                                        className="bg-blue-500 rounded-sm"
-                                    >
-                                        Request OTP
-                                    </Button>
-
-                                    <Button
-                                        onClick={() => router.navigate({ to: "/dashboard_filer" })}
-                                        className="bg-gray-200 text-gray-500 hover:bg-gray-600 cursor-pointer hover:text-gray-50 px-6 rounded-sm"
-                                    >
-                                        Skip for Now
-                                    </Button>
-                                </CardFooter>
-                            </Card>
-
+                        {
+                            clientVerified == false ?
+                                <RegistrationCard />
+                                :
+                                requestOtp ?
+                                    <OTPCard />
+                                    :
+                                    <VerificationCard onHandleRequestOtp={handleRequestOtp} />
                         }
-
                     </div>
 
                     <div className="lg:col-span-1">

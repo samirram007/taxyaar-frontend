@@ -6,8 +6,8 @@ import WizardFooter from '../../components/wizard_footer'
 import {
   Select,
   SelectContent,
-  /* SelectGroup, */ SelectItem,
-  /* SelectLabel, */ SelectTrigger,
+  SelectItem,
+  SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
 import { Input } from '@/components/ui/input'
@@ -33,7 +33,7 @@ const questions = [
 ]
 
 const ChooseReturnType = () => {
-  const [questionsState /*, setQuestionsState */] = useState(questions)
+  const [questionsState, _setQuestionsState] = useState(questions)
   const [answer, setAnswer] = useState(questions[0].answer[0].key)
   const handleChange = (value: string) => {
     setAnswer(value)

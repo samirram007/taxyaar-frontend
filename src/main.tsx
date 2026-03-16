@@ -12,6 +12,7 @@ import { ThemeContextProvider } from './core/contexts/ThemeContextProvider'
 import { AuthProvider } from './features/auth/contexts/AuthContext'
 import { env } from './env'
 import './styles.css'
+import { Form16Provider } from './features/wizard-module/pages/form16/contexts/Form16Context'
 
 // Render the app
 const rootElement = document.getElementById('app')
@@ -24,8 +25,10 @@ if (rootElement && !rootElement.innerHTML) {
           <ThemeContextProvider defaultTheme="light" storageKey="vite-ui-theme">
             <FontProvider>
               <AuthProvider>
-                <Toaster position="top-center" richColors />
-                <AppRouter />
+                <Form16Provider>
+                  <Toaster position="top-center" richColors />
+                  <AppRouter />
+                </Form16Provider>
               </AuthProvider>
             </FontProvider>
           </ThemeContextProvider>
