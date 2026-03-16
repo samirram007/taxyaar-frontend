@@ -33,32 +33,32 @@ const memberData: TaxFilerData[] = [
 export default function MembersPage() {
 
   const router = useRouter();
-  const { member, setMember } = useWizardModule();
+  // const { member, setMember } = useWizardModule();
   const authMutation = useAuthenticationUser();
 
-  useEffect(() => {
-    const data = sessionStorage.getItem("taxFilerData") ?? JSON.stringify(memberData[0]) ?? null;
-    console.log("parsed: ", data)
-    if (data) {
-      const parsed = JSON.parse(data)
-      setMember({
-        firstName: parsed.firstName,
-        lastName: parsed.lastName,
-        pan: parsed.pan || "EMPG3394H",
-        dateOfBirth: parsed.dateOfBirth,
-        isVerified: parsed.isVerified || isPanVerified(parsed.pan)
-        // isVerified: isPanVerified(parsed.pan)
-      })
-    }
+  // useEffect(() => {
+  //   const data = sessionStorage.getItem("taxFilerData") ?? JSON.stringify(memberData[0]) ?? null;
+  //   console.log("parsed: ", data)
+  //   if (data) {
+  //     const parsed = JSON.parse(data)
+  //     setMember({
+  //       firstName: parsed.firstName,
+  //       lastName: parsed.lastName,
+  //       pan: parsed.pan || "EMPG3394H",
+  //       dateOfBirth: parsed.dateOfBirth,
+  //       isVerified: parsed.isVerified || isPanVerified(parsed.pan)
+  //       // isVerified: isPanVerified(parsed.pan)
+  //     })
+  //   }
 
-  }, [])
-
-
+  // }, [])
 
 
-  if (!member) {
-    return <div className="flex items-center justify-center min-h-screen">Loading...</div>
-  }
+
+
+  // if (!member) {
+  //   return <div className="flex items-center justify-center min-h-screen">Loading...</div>
+  // }
 
 
   const onHandleAddClient = (member: TaxFilerData) => {
@@ -79,7 +79,7 @@ export default function MembersPage() {
         }
 
         localStorage.setItem("autkn", token);
-        sessionStorage.setItem("taxFillerData", JSON.stringify(member));
+        sessionStorage.setItem("taxFilerData", JSON.stringify(member));
 
         router.navigate({ to: "/department_add_client" });
       },

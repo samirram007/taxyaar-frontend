@@ -4,10 +4,8 @@ import HelpSidebar from '../../components/HelpSidebar'
 import WizardHeader from '../../components/wizard_header'
 import WizardFooter from '../../components/wizard_footer'
 
-import { Input } from '@/components/ui/input'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { Field, FieldContent, FieldDescription, FieldLabel } from '@/components/ui/field'
 import { Link } from '@tanstack/react-router'
+import { Button } from '@/components/ui/button'
 
 const questions = [
     {
@@ -51,85 +49,38 @@ const SalaryIncome = () => {
                     shadow rounded-lg   gap-6"
                     >
                         <div className="grid grid-cols-1 justify-center items-start gap-6 pb-6">
-                            <div className='border-b-2 p-6 text-2xl'>Which tax regime have you opted for?</div>
-                            <div className="space-y-1 px-6">
-                                <div className="mt-5 space-y-8 ">
-                                    {questionsState.map((q) => (
-                                        <div key={q.id}>
-                                            <div className="grid grid-cols-[1fr_1fr] justify-center items-start gap-6">
-                                                <div key={q.id} className="space-y-1">
-                                                    <p className="text-md ">{q.question}</p>
-                                                </div>
-                                                <div>
-                                                    <RadioGroup value={answer} onValueChange={handleChange} className="w-fit">
-                                                        {q.answer.map((a) => (
-                                                            <Field key={a.key} orientation="horizontal" className='border p-2 rounded-md shadow-sm'>
-                                                                <RadioGroupItem value={a.key} id={`desc-${a.key}`} disabled={a.disabled} />
-                                                                <FieldContent>
-                                                                    <FieldLabel htmlFor={`desc-${a.key}`} className='flex flex-col items-start'>
-                                                                        {a.value}
-                                                                        <FieldDescription>
-                                                                            Standard spacing for most use cases.
-                                                                        </FieldDescription>
-                                                                    </FieldLabel>
-
-                                                                </FieldContent>
-                                                            </Field>
-                                                        ))}
-
-                                                    </RadioGroup>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))}
-
-                                    {answer === 'no' && (
-                                        <div>
-                                            <div className="p-4 bg-yellow-50 border border-yellow-200 rounded">
-                                                <p className="text-sm text-yellow-800">
-                                                    If revised, then enter following details of Original
-                                                    Return filed.:
-                                                </p>
-                                            </div>
-                                            <div className="mt-5 mb-8 space-y-8 ">
-                                                <div className="grid  grid-cols-2 gap-4">
-                                                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                                                        E-filing Acknowledgement No./Receipt No. *
-                                                    </label>
-                                                    <Input
-                                                        type="text"
-                                                        className="block w-10/12 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                                        placeholder=""
-                                                    />
-                                                </div>
-                                                <div className="grid  grid-cols-2 gap-4">
-                                                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                                                        Date of Original Return *
-                                                    </label>
-                                                    <Input
-                                                        disabled
-                                                        type="date"
-                                                        className=" block w-10/12 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                                                        placeholder=""
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-                            <div className="mx-6 mt-6 py-4 px-8 bg-blue-50 border border-blue-200 rounded-md">
-                                <p className="text-sm text-blue-900">
-                                    <ul className="list-disc list-inside space-y-2">
-                                        <li>New tax regime allows fewer deduction and have lower tax rates.</li>
-                                        <li>Old tax regime allows all deductions and have higher tax rates.</li>
-                                        <li className=' gap-2'>To read more about the two regimes please read  <Link to={helpUrl} target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="  text-blue-500 hover:underline text-sm " >this article</Link>.
-                                        </li>
-                                    </ul>
+                            <div className='border-b-2 p-6 text-2xl'>Salary / Pension Income</div>
+                            <div className="space-y-1 px-6 flex flex-col items-center gap-4">
+                                <p>Refer your Form-16 to quickly add your salary income</p>
+                                <p>
+                                    <Button
+                                        asChild
+                                        className="
+  bg-violet-800 hover:bg-violet-600
+  transition-all duration-200 ease-out
+  hover:shadow-lg hover:-translate-y-px
+  active:scale-[0.97] cursor-pointer">
+                                        <Link to={"/salary_income/add"} className="text-violet-50 ">
+                                            + ADD SALARY / PENSION INCOME
+                                        </Link>
+                                    </Button>
+                                </p>
+                                <p>OR</p>
+                                <p>
+                                    <Button
+                                        asChild
+                                        className="
+  bg-blue-500 hover:bg-blue-600
+  transition-all duration-200 ease-out
+  hover:shadow-lg hover:-translate-y-px
+  active:scale-[0.97] cursor-pointer">
+                                        <Link to={"/salary_income/add"} className="text-violet-50 ">
+                                            UPLOAD FORM-16
+                                        </Link>
+                                    </Button>
                                 </p>
                             </div>
+
 
 
                         </div>

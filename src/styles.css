@@ -166,6 +166,21 @@ code {
     transform: translateX(0);
   }
 }
+@keyframes dialog-appear {
+  from { opacity: 0; transform: scale(.92) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes scale-in {
+  from { transform: scale(.6); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes check-pop {
+  0% { transform: scale(.4); opacity: 0; }
+  60% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
 @layer base {
   * {
     @apply border-border outline-ring/50;

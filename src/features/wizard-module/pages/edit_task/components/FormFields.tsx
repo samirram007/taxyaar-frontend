@@ -40,7 +40,7 @@ export default function FormFields() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
-    const taxFillerData = {
+    const taxFilerData = {
       pan: form.pan,
       dob: form.dob,
       email: form.email,
@@ -53,7 +53,7 @@ export default function FormFields() {
       createdAt: new Date().toISOString(),
     }
 
-    sessionStorage.setItem("taxFillerData", JSON.stringify(taxFillerData))
+    sessionStorage.setItem("taxFilerData", JSON.stringify(taxFilerData))
 
     router.navigate({ to: "/member" })
     console.log("submit", form)

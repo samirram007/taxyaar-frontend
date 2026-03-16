@@ -1,9 +1,10 @@
 import { YesNoToggle } from "@/components/yes-no-toggle"
 import { useState } from "react"
 import HelpSidebar from "../../components/HelpSidebar"
-import { MoveLeft, MoveRight } from "lucide-react"
+
 import { useWizardModule } from "../../contexts/wizard_module-context"
-import { Link } from "@tanstack/react-router"
+
+import WizardFooter from "../../components/wizard_footer"
 
 const questions = [
     {
@@ -171,24 +172,12 @@ const Start = () => {
                     </div>
 
                     <div className="bg-gray-400/20 p-4 w-full lg:col-span-2 flex justify-between items-center gap-4">
-                        <div >
-                            <div>Previous</div>
-                            <div className="flex flex-row gap-2 items-center">
-                                <Link to="/dashboard_filer" className="flex flex-row gap-1 items-center">
-                                    <MoveLeft /> Previous Page
-                                </Link>
-                            </div>
-                        </div>
-                        <div className="flex flex-col items-end">
-                            <div>Next</div>
-                            <div className="flex flex-row text-xl text-sky-600 cursor-pointer ">
-
-                                <Link to="/choose_return_type" className="flex flex-row gap-1 items-center">
-                                    Choose Return Type <MoveRight />
-                                </Link>
-
-                            </div>
-                        </div>
+                        <WizardFooter
+                            previousPageLink="/dashboard"
+                            previousPageName="Previous Page"
+                            nextPageLink="/choose_return_type"
+                            nextPageName="Choose Return Type"
+                        />
                     </div>
                 </div>
                 <HelpSidebar />

@@ -36,7 +36,7 @@ export function DepartmentAddClientPage() {
 
     const handleRequestOtp = () => {
 
-        const memberData = sessionStorage.getItem("taxFillerData");
+        const memberData = sessionStorage.getItem("taxFilerData");
         const token = localStorage.getItem("autkn");
 
         if (!memberData || !token) {
@@ -67,7 +67,7 @@ export function DepartmentAddClientPage() {
 
     const handleVerifyOtp = () => {
 
-        const memberData = sessionStorage.getItem("taxFillerData");
+        const memberData = sessionStorage.getItem("taxFilerData");
         const token = localStorage.getItem("autkn");
         const transactionId = localStorage.getItem("transactionId");
 
@@ -94,7 +94,7 @@ export function DepartmentAddClientPage() {
                         toast.error(data.data.data.result.errors[0].desc);
                         return;
                     }
-                    const memberData = sessionStorage.getItem("taxFillerData");
+                    const memberData = sessionStorage.getItem("taxFilerData");
                     if (memberData) {
                         const { pan } = JSON.parse(memberData);
 
