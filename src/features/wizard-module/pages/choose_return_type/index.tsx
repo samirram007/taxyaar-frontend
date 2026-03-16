@@ -4,7 +4,7 @@ import HelpSidebar from "../../components/HelpSidebar"
 
 import WizardHeader from "../../components/wizard_header"
 import WizardFooter from "../../components/wizard_footer"
-import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Input } from "@/components/ui/input"
 
 const questions = [
@@ -30,7 +30,7 @@ const questions = [
 
 const ChooseReturnType = () => {
 
-    const [questionsState, setQuestionsState] = useState(questions)
+    const [questionsState, _setQuestionsState] = useState(questions)
     const [answer, setAnswer] = useState(questions[0].answer[0].key)
     const handleChange = (value: string) => {
         setAnswer(value)

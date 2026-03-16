@@ -1,0 +1,68 @@
+import { SelectDropdown } from "@/components/select-dropdown";
+import { FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { capitalizeAllWords } from "@/utils/removeEmptyStrings";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import type { UseFormReturn } from "react-hook-form";
+
+import { cn } from "@/lib/utils";
+
+
+import { countryQueryOptions } from "@/features/modules/country/data/queryOptions";
+import { Suspense } from "react";
+import type { ClientRegistrationForm } from "../data/schema";
+import type { Country } from "@/features/modules/country/data/schema";
+
+
+type Props = {
+    form: UseFormReturn<ClientRegistrationForm>;
+    gapClass?: string;
+    rtl?: boolean;
+
+}
+
+const CountryDropdown = (props: Props) => {
+    const { form, gapClass, rtl } = props
+
+    const { data: countryList, isLoading } = useSuspenseQuery(countryQueryOptions());
+
+    //const countryId = form.watch('countryId') as string | number | undefined;; // Watch form value for reactivity
+    const handleValueChange = (value: string) => {
+        form.setValue('countryCd', value, { shouldValidate: true });
+
+    };
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <FormField
+                control={form.control}
+                name='countryCd'
+                render={({ field }) => (
+                    <FormItem
+                        className={cn(
+                            'grid grid-cols-[100px_1fr] items-center space-y-0 gap-x-4 gap-y-1',
+                            gapClass
+                        )}   >
+                        <FormLabel className={rtl ? 'order-last' : ''}>
+                            Country
+                        </FormLabel>
+                        <SelectDropdown
+                            defaultValue={field.value ? field.value.toString() : ''}
+                            onValueChange={(value) => handleValueChange(value)}
+                            placeholder='Select a country'
+                            className='w-full placeholder'
+                            items={countryList?.data.map((country: Country) => ({
+                                label: capitalizeAllWords(country.name),
+                                value: String(country.id),
+                            }))}
+                        />
+                        <FormMessage className='col-span-4 col-start-3' />
+                    </FormItem>
+                )}
+            />
+        </Suspense>
+    )
+}
+
+export default CountryDropdown
