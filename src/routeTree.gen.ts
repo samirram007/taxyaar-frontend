@@ -11,6 +11,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ImportCgSharesRouteImport } from './routes/import-cg-shares'
 import { Route as ProtectedRouteImport } from './routes/_protected'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProtectedSignOutRouteImport } from './routes/_protected/sign-out'
@@ -27,6 +28,7 @@ import { Route as ProtectedFilerTdsIndexRouteImport } from './routes/_protected/
 import { Route as ProtectedFilerTax_paidIndexRouteImport } from './routes/_protected/_filer/tax_paid/index'
 import { Route as ProtectedFilerStartIndexRouteImport } from './routes/_protected/_filer/start/index'
 import { Route as ProtectedFilerSeventh_provisoIndexRouteImport } from './routes/_protected/_filer/seventh_proviso/index'
+import { Route as ProtectedFilerForm16IndexRouteImport } from './routes/_protected/_filer/form16/index'
 import { Route as ProtectedFilerDepartment_add_clientIndexRouteImport } from './routes/_protected/_filer/department_add_client/index'
 import { Route as ProtectedFilerDashboard_filerIndexRouteImport } from './routes/_protected/_filer/dashboard_filer/index'
 import { Route as ProtectedFilerDashboardIndexRouteImport } from './routes/_protected/_filer/dashboard/index'
@@ -81,6 +83,11 @@ const authForgotPasswordLazyRouteImport = createFileRoute(
   '/(auth)/forgot-password',
 )()
 
+const ImportCgSharesRoute = ImportCgSharesRouteImport.update({
+  id: '/import-cg-shares',
+  path: '/import-cg-shares',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProtectedRoute = ProtectedRouteImport.update({
   id: '/_protected',
   getParentRoute: () => rootRouteImport,
@@ -225,6 +232,12 @@ const ProtectedFilerSeventh_provisoIndexRoute =
   ProtectedFilerSeventh_provisoIndexRouteImport.update({
     id: '/seventh_proviso/',
     path: '/seventh_proviso/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerForm16IndexRoute =
+  ProtectedFilerForm16IndexRouteImport.update({
+    id: '/form16/',
+    path: '/form16/',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
 const ProtectedFilerDepartment_add_clientIndexRoute =
@@ -484,6 +497,7 @@ const ProtectedAdministrationLayoutRoleLayoutIdModuleModuleidRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/import-cg-shares': typeof ImportCgSharesRoute
   '/otp': typeof authOtpRoute
   '/sign-in': typeof authSignInRoute
   '/sign-up': typeof authSignUpRoute
@@ -512,6 +526,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/': typeof ProtectedFilerDashboardIndexRoute
   '/dashboard_filer/': typeof ProtectedFilerDashboard_filerIndexRoute
   '/department_add_client/': typeof ProtectedFilerDepartment_add_clientIndexRoute
+  '/form16/': typeof ProtectedFilerForm16IndexRoute
   '/seventh_proviso/': typeof ProtectedFilerSeventh_provisoIndexRoute
   '/start/': typeof ProtectedFilerStartIndexRoute
   '/tax_paid/': typeof ProtectedFilerTax_paidIndexRoute
@@ -550,6 +565,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/import-cg-shares': typeof ImportCgSharesRoute
   '/otp': typeof authOtpRoute
   '/sign-in': typeof authSignInRoute
   '/sign-up': typeof authSignUpRoute
@@ -577,6 +593,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof ProtectedFilerDashboardIndexRoute
   '/dashboard_filer': typeof ProtectedFilerDashboard_filerIndexRoute
   '/department_add_client': typeof ProtectedFilerDepartment_add_clientIndexRoute
+  '/form16': typeof ProtectedFilerForm16IndexRoute
   '/seventh_proviso': typeof ProtectedFilerSeventh_provisoIndexRoute
   '/start': typeof ProtectedFilerStartIndexRoute
   '/tax_paid': typeof ProtectedFilerTax_paidIndexRoute
@@ -609,6 +626,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_protected': typeof ProtectedRouteWithChildren
+  '/import-cg-shares': typeof ImportCgSharesRoute
   '/(auth)/otp': typeof authOtpRoute
   '/(auth)/sign-in': typeof authSignInRoute
   '/(auth)/sign-up': typeof authSignUpRoute
@@ -638,6 +656,7 @@ export interface FileRoutesById {
   '/_protected/_filer/dashboard/': typeof ProtectedFilerDashboardIndexRoute
   '/_protected/_filer/dashboard_filer/': typeof ProtectedFilerDashboard_filerIndexRoute
   '/_protected/_filer/department_add_client/': typeof ProtectedFilerDepartment_add_clientIndexRoute
+  '/_protected/_filer/form16/': typeof ProtectedFilerForm16IndexRoute
   '/_protected/_filer/seventh_proviso/': typeof ProtectedFilerSeventh_provisoIndexRoute
   '/_protected/_filer/start/': typeof ProtectedFilerStartIndexRoute
   '/_protected/_filer/tax_paid/': typeof ProtectedFilerTax_paidIndexRoute
@@ -678,6 +697,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/import-cg-shares'
     | '/otp'
     | '/sign-in'
     | '/sign-up'
@@ -706,6 +726,7 @@ export interface FileRouteTypes {
     | '/dashboard/'
     | '/dashboard_filer/'
     | '/department_add_client/'
+    | '/form16/'
     | '/seventh_proviso/'
     | '/start/'
     | '/tax_paid/'
@@ -744,6 +765,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/import-cg-shares'
     | '/otp'
     | '/sign-in'
     | '/sign-up'
@@ -771,6 +793,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/dashboard_filer'
     | '/department_add_client'
+    | '/form16'
     | '/seventh_proviso'
     | '/start'
     | '/tax_paid'
@@ -802,6 +825,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/_protected'
+    | '/import-cg-shares'
     | '/(auth)/otp'
     | '/(auth)/sign-in'
     | '/(auth)/sign-up'
@@ -831,6 +855,7 @@ export interface FileRouteTypes {
     | '/_protected/_filer/dashboard/'
     | '/_protected/_filer/dashboard_filer/'
     | '/_protected/_filer/department_add_client/'
+    | '/_protected/_filer/form16/'
     | '/_protected/_filer/seventh_proviso/'
     | '/_protected/_filer/start/'
     | '/_protected/_filer/tax_paid/'
@@ -871,6 +896,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ProtectedRoute: typeof ProtectedRouteWithChildren
+  ImportCgSharesRoute: typeof ImportCgSharesRoute
   authOtpRoute: typeof authOtpRoute
   authSignInRoute: typeof authSignInRoute
   authSignUpRoute: typeof authSignUpRoute
@@ -886,6 +912,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/import-cg-shares': {
+      id: '/import-cg-shares'
+      path: '/import-cg-shares'
+      fullPath: '/import-cg-shares'
+      preLoaderRoute: typeof ImportCgSharesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/_protected': {
       id: '/_protected'
       path: ''
@@ -1052,6 +1085,13 @@ declare module '@tanstack/react-router' {
       path: '/seventh_proviso'
       fullPath: '/seventh_proviso/'
       preLoaderRoute: typeof ProtectedFilerSeventh_provisoIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/form16/': {
+      id: '/_protected/_filer/form16/'
+      path: '/form16'
+      fullPath: '/form16/'
+      preLoaderRoute: typeof ProtectedFilerForm16IndexRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
     '/_protected/_filer/department_add_client/': {
@@ -1360,6 +1400,7 @@ interface ProtectedFilerRouteChildren {
   ProtectedFilerDashboardIndexRoute: typeof ProtectedFilerDashboardIndexRoute
   ProtectedFilerDashboard_filerIndexRoute: typeof ProtectedFilerDashboard_filerIndexRoute
   ProtectedFilerDepartment_add_clientIndexRoute: typeof ProtectedFilerDepartment_add_clientIndexRoute
+  ProtectedFilerForm16IndexRoute: typeof ProtectedFilerForm16IndexRoute
   ProtectedFilerSeventh_provisoIndexRoute: typeof ProtectedFilerSeventh_provisoIndexRoute
   ProtectedFilerStartIndexRoute: typeof ProtectedFilerStartIndexRoute
   ProtectedFilerTax_paidIndexRoute: typeof ProtectedFilerTax_paidIndexRoute
@@ -1380,6 +1421,7 @@ const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
     ProtectedFilerDashboard_filerIndexRoute,
   ProtectedFilerDepartment_add_clientIndexRoute:
     ProtectedFilerDepartment_add_clientIndexRoute,
+  ProtectedFilerForm16IndexRoute: ProtectedFilerForm16IndexRoute,
   ProtectedFilerSeventh_provisoIndexRoute:
     ProtectedFilerSeventh_provisoIndexRoute,
   ProtectedFilerStartIndexRoute: ProtectedFilerStartIndexRoute,
@@ -1648,6 +1690,7 @@ const ProtectedRouteWithChildren = ProtectedRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProtectedRoute: ProtectedRouteWithChildren,
+  ImportCgSharesRoute: ImportCgSharesRoute,
   authOtpRoute: authOtpRoute,
   authSignInRoute: authSignInRoute,
   authSignUpRoute: authSignUpRoute,
