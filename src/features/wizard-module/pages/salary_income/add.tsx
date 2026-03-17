@@ -14,7 +14,7 @@ import {
     AlertDialog,
     AlertDialogContent,
 } from "@/components/ui/alert-dialog"
-import { Check, Info } from "lucide-react"
+import { Info } from "lucide-react"
 import { useState } from 'react'
 
 

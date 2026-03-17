@@ -17,7 +17,7 @@ import {
 import { Info } from "lucide-react"
 import { useState } from 'react'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { InterestHomeLoanDialog } from './interest-home-loan-dialog'
+
 
 
 export function AlertDialogComponent({
@@ -80,7 +80,7 @@ const natureOfHousePropertyOptions = [
 ]
 
 const helpUrl = import.meta.env.VITE_HELP_URL || "https://help.taxyaar.com"
-const HousePropertyAdd = () => {
+const TdsTaxAdd = () => {
     const [showAlert, setShowAlert] = useState<string | null>(null)
     const [clickEvent, setClickEvent] = useState<boolean>(false)
     const [natureOfHouseProperty, setNatureOfHouseProperty] = useState<string>("")
@@ -114,8 +114,8 @@ const HousePropertyAdd = () => {
                         >
                             <div className={cardClassName}>
                                 <div className='border-b-2 p-6 text-2xl'>
-                                    <div>House Property Income details</div>
-                                    <div className='text-sm'>Enter details of your housing loan and rental income from house</div>
+                                    <div>Tax Deducted at Source (Other than Salary)</div>
+                                    <div className='text-sm'>Enter details of your TDS (Other than Salary)</div>
                                 </div>
                                 <div className="space-y-1 px-6 flex flex-col items-start gap-8">
                                     <div className='w-6/12'>
@@ -355,7 +355,7 @@ const HousePropertyAdd = () => {
                                                                         defaultValue={0}
                                                                         readOnly={true}
                                                                     />
-                                                                    <InterestHomeLoanDialog />
+
 
                                                                 </div>
                                                                 <div className='text-xs flex flex-row justify-between px-1'>
@@ -415,44 +415,44 @@ const HousePropertyAdd = () => {
                                                                     />
                                                                     <div className='text-xs flex flex-row justify-between px-1'>
                                                                         <div className='text-gray-400'>A person residing in your property on rent</div>
-                                                                    <div>
+                                                                        <div>
 
+                                                                        </div>
                                                                     </div>
+
                                                                 </div>
+                                                                <div className='w-full'>
 
-                                                            </div>
-                                                            <div className='w-full'>
+                                                                    <Input
+                                                                        id="tenant_pan"
+                                                                        placeholder="Pan of Tenant"
 
-                                                                <Input
-                                                                    id="tenant_pan"
-                                                                    placeholder="Pan of Tenant"
+                                                                        className="mt-1 w-full "
+                                                                    />
+                                                                    <div className='text-xs flex flex-row justify-between px-1'>
+                                                                        <div className='text-gray-400'>Permanent Account Number of the tenant</div>
+                                                                        <div>
 
-                                                                    className="mt-1 w-full "
-                                                                />
-                                                                <div className='text-xs flex flex-row justify-between px-1'>
-                                                                    <div className='text-gray-400'>Permanent Account Number of the tenant</div>
-                                                                    <div>
-
+                                                                        </div>
                                                                     </div>
-                                                                </div>
 
+                                                                </div>
+                                                                <div className='pt-1'>
+                                                                    <Button className='bg-red-500 hover:bg-red-600 cursor-pointer'>
+                                                                        Remove
+                                                                    </Button>
+                                                                </div>
                                                             </div>
-                                                            <div className='pt-1'>
-                                                                <Button className='bg-red-500 hover:bg-red-600 cursor-pointer'>
-                                                                    Remove
-                                                                </Button>
-                                                            </div>
+
+                                                        </div>
+                                                        <div>
+                                                            <div></div>
+                                                            <Button className='bg-blue-500 hover:bg-blue-600 cursor-pointer'>
+                                                                + ADD TENANT
+                                                            </Button>
                                                         </div>
 
                                                     </div>
-                                                    <div>
-                                                        <div></div>
-                                                        <Button className='bg-blue-500 hover:bg-blue-600 cursor-pointer'>
-                                                            + ADD TENANT
-                                                        </Button>
-                                                    </div>
-
-                                                </div>
                                                 </div>
                                             </>
                                         )
@@ -561,4 +561,4 @@ const HousePropertyAdd = () => {
     )
 }
 
-export default HousePropertyAdd
+export default TdsTaxAdd

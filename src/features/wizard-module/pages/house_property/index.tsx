@@ -1,4 +1,4 @@
-import { useState } from 'react'
+
 import HelpSidebar from '../../components/HelpSidebar'
 
 import WizardHeader from '../../components/wizard_header'
@@ -6,36 +6,37 @@ import WizardFooter from '../../components/wizard_footer'
 
 import { Link } from '@tanstack/react-router'
 import { Button } from '@/components/ui/button'
+import { IconHome } from '@tabler/icons-react'
 
-const questions = [
-    {
-        id: 8,
-        attributeName: 'regime_type',
-        question:
-            'Under which regime you want to file?',
-        description: 'Under which regime you want to file?',
-        answer: [
-            {
-                key: 'new',
-                value: "New Regime",
-                disabled: false,
-            },
-            {
-                key: 'old',
-                value: 'Old Regime',
-                disabled: true,
-            },
+// const questions = [
+//     {
+//         id: 8,
+//         attributeName: 'regime_type',
+//         question:
+//             'Under which regime you want to file?',
+//         description: 'Under which regime you want to file?',
+//         answer: [
+//             {
+//                 key: 'new',
+//                 value: "New Regime",
+//                 disabled: false,
+//             },
+//             {
+//                 key: 'old',
+//                 value: 'Old Regime',
+//                 disabled: true,
+//             },
 
-        ],
-    },
-]
-const helpUrl = import.meta.env.VITE_HELP_URL || "https://help.taxyaar.com"
+//         ],
+//     },
+// ]
+// const helpUrl = import.meta.env.VITE_HELP_URL || "https://help.taxyaar.com"
 const SalaryIncome = () => {
-    const [questionsState /*, setQuestionsState */] = useState(questions)
-    const [answer, setAnswer] = useState(questions[0].answer[0].key)
-    const handleChange = (value: string) => {
-        setAnswer(value)
-    }
+    // const [questionsState /*, setQuestionsState */] = useState(questions)
+    // const [answer, setAnswer] = useState(questions[0].answer[0].key)
+    // const handleChange = (value: string) => {
+    //     setAnswer(value)
+    // }
 
     return (
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8  ">
@@ -73,7 +74,17 @@ const SalaryIncome = () => {
                                         </Link>
                                     </Button>
                                 </p>
-                                <p>OR</p>
+                                <p><IconHome
+                                    size={96}
+                                    className="
+    text-white
+    p-4
+    rounded-full
+    bg-linear-to-br from-blue-300 via-indigo-300 to-purple-300
+    shadow-xl
+    ring-4 ring-blue-100
+  "
+                                /></p>
 
                             </div>
 
@@ -83,8 +94,8 @@ const SalaryIncome = () => {
                         <WizardFooter
                             previousPageLink="/salary_income"
                             previousPageName="Salary / Pension Income"
-                            nextPageLink="/general_business"
-                            nextPageName="General Business"
+                            nextPageLink="/deduction_start"
+                            nextPageName="Deductions Start"
                             progress={{ percentage: '9%', remaining: '16 min more' }}
 
                         />

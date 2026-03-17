@@ -49,6 +49,7 @@ import { Route as ProtectedauthVerifyPanIndexRouteImport } from './routes/_prote
 import { Route as ProtectedauthMemberIndexRouteImport } from './routes/_protected/(auth)/member/index'
 import { Route as ProtectedauthAddtaxformIndexRouteImport } from './routes/_protected/(auth)/addtaxform/index'
 import { Route as ProtectedMastersOrganizationLayoutRouteImport } from './routes/_protected/masters/organization/_layout'
+import { Route as ProtectedFilerTds_taxAddRouteImport } from './routes/_protected/_filer/tds_tax/add'
 import { Route as ProtectedFilerSalary_incomeAddRouteImport } from './routes/_protected/_filer/salary_income/add'
 import { Route as ProtectedFilerHouse_propertyAddRouteImport } from './routes/_protected/_filer/house_property/add'
 import { Route as ProtectedFilerAssesseeHeyassesseeRouteImport } from './routes/_protected/_filer/assessee/heyassessee'
@@ -371,6 +372,12 @@ const ProtectedMastersOrganizationLayoutRoute =
     path: '/masters/organization',
     getParentRoute: () => ProtectedRoute,
   } as any)
+const ProtectedFilerTds_taxAddRoute =
+  ProtectedFilerTds_taxAddRouteImport.update({
+    id: '/tds_tax/add',
+    path: '/tds_tax/add',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
 const ProtectedFilerSalary_incomeAddRoute =
   ProtectedFilerSalary_incomeAddRouteImport.update({
     id: '/salary_income/add',
@@ -610,6 +617,7 @@ export interface FileRoutesByFullPath {
   '/assessee/heyassessee': typeof ProtectedFilerAssesseeHeyassesseeRoute
   '/house_property/add': typeof ProtectedFilerHouse_propertyAddRoute
   '/salary_income/add': typeof ProtectedFilerSalary_incomeAddRoute
+  '/tds_tax/add': typeof ProtectedFilerTds_taxAddRoute
   '/masters/organization': typeof ProtectedMastersOrganizationLayoutRouteWithChildren
   '/addtaxform/': typeof ProtectedauthAddtaxformIndexRoute
   '/member/': typeof ProtectedauthMemberIndexRoute
@@ -690,6 +698,7 @@ export interface FileRoutesByTo {
   '/assessee/heyassessee': typeof ProtectedFilerAssesseeHeyassesseeRoute
   '/house_property/add': typeof ProtectedFilerHouse_propertyAddRoute
   '/salary_income/add': typeof ProtectedFilerSalary_incomeAddRoute
+  '/tds_tax/add': typeof ProtectedFilerTds_taxAddRoute
   '/masters/organization': typeof ProtectedMastersOrganizationLayoutRouteWithChildren
   '/addtaxform': typeof ProtectedauthAddtaxformIndexRoute
   '/member': typeof ProtectedauthMemberIndexRoute
@@ -766,6 +775,7 @@ export interface FileRoutesById {
   '/_protected/_filer/assessee/heyassessee': typeof ProtectedFilerAssesseeHeyassesseeRoute
   '/_protected/_filer/house_property/add': typeof ProtectedFilerHouse_propertyAddRoute
   '/_protected/_filer/salary_income/add': typeof ProtectedFilerSalary_incomeAddRoute
+  '/_protected/_filer/tds_tax/add': typeof ProtectedFilerTds_taxAddRoute
   '/_protected/masters/organization/_layout': typeof ProtectedMastersOrganizationLayoutRouteWithChildren
   '/_protected/(auth)/addtaxform/': typeof ProtectedauthAddtaxformIndexRoute
   '/_protected/(auth)/member/': typeof ProtectedauthMemberIndexRoute
@@ -849,6 +859,7 @@ export interface FileRouteTypes {
     | '/assessee/heyassessee'
     | '/house_property/add'
     | '/salary_income/add'
+    | '/tds_tax/add'
     | '/masters/organization'
     | '/addtaxform/'
     | '/member/'
@@ -929,6 +940,7 @@ export interface FileRouteTypes {
     | '/assessee/heyassessee'
     | '/house_property/add'
     | '/salary_income/add'
+    | '/tds_tax/add'
     | '/masters/organization'
     | '/addtaxform'
     | '/member'
@@ -1004,6 +1016,7 @@ export interface FileRouteTypes {
     | '/_protected/_filer/assessee/heyassessee'
     | '/_protected/_filer/house_property/add'
     | '/_protected/_filer/salary_income/add'
+    | '/_protected/_filer/tds_tax/add'
     | '/_protected/masters/organization/_layout'
     | '/_protected/(auth)/addtaxform/'
     | '/_protected/(auth)/member/'
@@ -1403,6 +1416,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedMastersOrganizationLayoutRouteImport
       parentRoute: typeof ProtectedRoute
     }
+    '/_protected/_filer/tds_tax/add': {
+      id: '/_protected/_filer/tds_tax/add'
+      path: '/tds_tax/add'
+      fullPath: '/tds_tax/add'
+      preLoaderRoute: typeof ProtectedFilerTds_taxAddRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
     '/_protected/_filer/salary_income/add': {
       id: '/_protected/_filer/salary_income/add'
       path: '/salary_income/add'
@@ -1657,6 +1677,7 @@ interface ProtectedFilerRouteChildren {
   ProtectedFilerAssesseeHeyassesseeRoute: typeof ProtectedFilerAssesseeHeyassesseeRoute
   ProtectedFilerHouse_propertyAddRoute: typeof ProtectedFilerHouse_propertyAddRoute
   ProtectedFilerSalary_incomeAddRoute: typeof ProtectedFilerSalary_incomeAddRoute
+  ProtectedFilerTds_taxAddRoute: typeof ProtectedFilerTds_taxAddRoute
   ProtectedFilerBank_detailsIndexRoute: typeof ProtectedFilerBank_detailsIndexRoute
   ProtectedFilerChoose_regimeIndexRoute: typeof ProtectedFilerChoose_regimeIndexRoute
   ProtectedFilerChoose_return_typeIndexRoute: typeof ProtectedFilerChoose_return_typeIndexRoute
@@ -1686,6 +1707,7 @@ const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
     ProtectedFilerAssesseeHeyassesseeRoute,
   ProtectedFilerHouse_propertyAddRoute: ProtectedFilerHouse_propertyAddRoute,
   ProtectedFilerSalary_incomeAddRoute: ProtectedFilerSalary_incomeAddRoute,
+  ProtectedFilerTds_taxAddRoute: ProtectedFilerTds_taxAddRoute,
   ProtectedFilerBank_detailsIndexRoute: ProtectedFilerBank_detailsIndexRoute,
   ProtectedFilerChoose_regimeIndexRoute: ProtectedFilerChoose_regimeIndexRoute,
   ProtectedFilerChoose_return_typeIndexRoute:

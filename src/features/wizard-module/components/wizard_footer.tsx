@@ -8,6 +8,8 @@ import { Link } from '@tanstack/react-router'
 import { IconClock } from '@tabler/icons-react'
 
 type WizardFooterProps = {
+  indicatorTextLeft?: string
+  indicatorTextRight?: string
   previousPageLink: string
   previousPageName?: string
   nextPageLink: string
@@ -27,7 +29,7 @@ const WizardFooter = (props: WizardFooterProps) => {
 
       <div className="flex justify-between items-center gap-4">
       <div>
-        <div>Previous</div>
+          <div>{props.indicatorTextLeft || 'Previous'}</div>
         <div className="flex flex-row gap-2 items-center">
           <Link
             to={previousPageLink}
@@ -38,7 +40,7 @@ const WizardFooter = (props: WizardFooterProps) => {
         </div>
       </div>
       <div className="flex flex-col items-end">
-        <div>Next</div>
+          <div>{props.indicatorTextRight || 'Next'}</div>
         <div className="flex flex-row text-xl text-sky-600 cursor-pointer ">
           <Link to={nextPageLink} className="flex flex-row gap-1 items-center">
             {nextPageName || 'Next Page'} <MoveRight />

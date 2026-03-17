@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from "react"
+
 import { MoreVertical } from "lucide-react"
 import { Link, useRouter } from "@tanstack/react-router"
 import Breadcrumb from '../../components/CustomBreadCrumb';
@@ -10,7 +10,7 @@ import { DropdownMenuItem } from "@radix-ui/react-dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { IconArrowRight, IconEdit, IconRecycle } from "@tabler/icons-react";
 import { useAuthenticationUser } from "../../data/queryOptions";
-import { useWizardModule } from "../../contexts/wizard_module-context";
+
 import type { TaxFilerData } from "../../data/schema";
 
 
