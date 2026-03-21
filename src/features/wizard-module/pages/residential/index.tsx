@@ -1,194 +1,417 @@
-import { YesNoToggle } from "@/components/yes-no-toggle"
-import { useState } from "react"
-import HelpSidebar from "../../components/HelpSidebar"
-import { MoveLeft, MoveRight } from "lucide-react"
-import { useWizardModule } from "../../contexts/wizard_module-context"
+import React, { useEffect, useState } from 'react'
+import HelpSidebar from '../../components/HelpSidebar'
 
+import WizardHeader from '../../components/wizard_header'
+import WizardFooter from '../../components/wizard_footer'
+
+import { Input } from '@/components/ui/input'
+
+
+
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
+import { cn } from '@/lib/utils'
+import { countryQueryOptions } from '@/features/modules/country/data/queryOptions'
+import { useQuery } from '@tanstack/react-query'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import type { Country } from '@/features/modules/country/data/schema'
+import { Label } from '@/components/ui/label'
+
+import { Button } from '@/components/ui/button'
+import { IconRowRemove } from '@tabler/icons-react'
+import HelpMeDecide from './help-me-decide'
+
+
+
+import {
+    AlertDialog,
+    AlertDialogContent,
+} from "@/components/ui/alert-dialog"
+import { Check } from "lucide-react"
+
+export function AlertDialogComponent({
+    showAlert,
+    setShowAlert,
+}: {
+    showAlert: string | null
+    setShowAlert: React.Dispatch<React.SetStateAction<string | null>>
+}) {
+    return (
+        <AlertDialog
+            open={!!showAlert}
+            onOpenChange={(open) => {
+                if (!open) setShowAlert(null)
+            }}
+        >
+            <AlertDialogContent className="sm:max-w-md text-center animate-[dialog-appear_0.25s_ease-out]">
+
+                <div className="flex flex-col items-center gap-4 py-6">
+
+                    {/* Circle animation with delay */}
+                    <div className="flex h-24 w-24 items-center justify-center rounded-full border-4 border-green-300 bg-green-50 animate-[scale-in_0.4s_ease-out_0.15s]">
+
+                        {/* Check animation with more delay */}
+                        <Check className="h-12 w-12 text-green-600 animate-[check-pop_0.45s_ease-out_0.35s]" />
+
+                    </div>
+
+                    <h2 className="text-lg font-semibold text-gray-900">
+                        Good job!
+                    </h2>
+
+                    <p className="text-sm text-muted-foreground">
+                        Your status:{" "}
+                        <span className="font-medium text-gray-900">
+                            {showAlert}
+                        </span>
+                    </p>
+
+                    <Button
+                        className=" mt-4
+  bg-blue-500 hover:bg-blue-600
+  transition-all duration-200 ease-out
+  hover:shadow-lg hover:-translate-y-px
+  active:scale-[0.97] cursor-pointer"
+                        onClick={() => setShowAlert(null)}
+                    >
+                        OK
+                    </Button>
+
+                </div>
+
+            </AlertDialogContent>
+        </AlertDialog>
+    )
+}
 const questions = [
     {
-        id: 1,
-        question: "Did you earn salary / pension?",
-        description: "Salary includes income earned from employment, salary pension, salary arrears",
-        answer: undefined as "yes" | "no" | undefined
-    },
-    {
-        id: 2,
-        question: "Do you Own House Property?",
-        description: "House Property includes flat, House, Bungalow, etc.",
-        answer: undefined as "yes" | "no" | undefined
-    },
-    {
-        id: 3,
-        question: "Did you earn any Interest / Dividend Income?",
-        description: "Interest received from Banks, Post office or others",
-        answer: undefined as "yes" | "no" | undefined
-    },
-    {
-        id: 4,
-        question: "Income from Crypto Currency?",
-        description: "If you have transferred or sold any crypto currency like BitCoin, Ether, DodgeCoin, Arthur, etc.",
-        answer: undefined as "yes" | "no" | undefined
-    },
-    {
-        id: 5,
-        question: "Income from Business, Profession or Freelancing, etc.",
-        description: "Income from sale of goods, share trading business, Transport business, freelancing, architect, medical profession, consultancy or any other business or Profession",
-        answer: undefined as "yes" | "no" | undefined
-    },
-    {
-        id: 6,
-        question: "Do you hold Directorship position?",
-        description: "If you are a director in a private or public limited company",
-        answer: undefined as "yes" | "no" | undefined
-    },
-    {
-        id: 7,
-        question: "Do you own unlisted shares?",
-        description: "If you have shareholding in any company which is not listed on any stock exchange",
-        answer: undefined as "yes" | "no" | undefined
-    },
-    {
-        id: 8,
-        question: "Any other Income",
-        description: "Other Income like Family Pension, Agricultural Income, Rent on letting-out of machinery, etc.",
-        answer: undefined as "yes" | "no" | undefined,
-        optionalQuestions: [
+        id: '1',
+        level: 1,
+        question: 'Click on your Residential Status',
+        description: 'Click on your Residential Status',
+        answer: [
             {
-                id: 8.1,
-                question: "Family Pension",
-                description: "Pension received on behalf of a deceased pensioner, being his legal heir",
-                answer: undefined as "yes" | "no" | undefined
+                key: 'RES',
+                value: "Indian Resident",
+                isDefault: true
             },
             {
-                id: 8.2,
-                question: "Tax Free Income",
-                description: "PPF Interest, Dividend Income is taxable from F.Y 2021-22, etc are not taxable",
-                answer: undefined as "yes" | "no" | undefined
+                key: 'NRI',
+                value: 'Non-Resident Indian (NRI)',
+                isDefault: false
             },
             {
-                id: 8.3,
-                question: "Income from Lottery winnings, etc.",
-                description: "Lottery or winning from other games, commission Income, etc.",
-                answer: undefined as "yes" | "no" | undefined
+                key: 'NOR',
+                value: "Not Ordinary Resident (NOR)",
+                isDefault: false
             },
-
-        ]
+            {
+                key: 'HELP_ME_DECIDE',
+                value: "Help me decide",
+                isDefault: false,
+                label: "Or we can help you decide."
+            }
+        ],
     },
 ]
 
+export type question = {
+    id: string
+    level: number
+    question: string
+    description: string
+    answer: {
+        key: string
+        value: string
+        isDefault: boolean
+        label?: string
+    }[]
+}
+// const helpUrl = import.meta.env.VITE_HELP_URL || "https://help.taxyaar.com"
 const Residential = () => {
-    const { member } = useWizardModule()
-    const [questionsState, setQuestionsState] = useState(questions)
-    const assessmentYear = "2025-26"
+    const [questionsState,/* setQuestionsState*/] = useState<question[]>(questions)
+    const [answer, setAnswer] = useState<string>(questions[0].answer[0].key)
+    const [showAlert, setShowAlert] = useState<string | null>(null)
+    const [clickEvent, setClickEvent] = useState<boolean>(false)
+    const handleChange = (value: string) => {
+        setAnswer(value)
+        setShowAlert(null)
+        setClickEvent(true)
+
+
+    }
+    useEffect(() => {
+        if (clickEvent) {
+            setClickEvent(false)
+            return
+        }
+        if (["HELP_ME_DECIDE", 'RES'].includes(answer)) {
+            return
+        }
+        setShowAlert(`You selected ${answer === 'RES' ? 'Indian Resident' : answer === 'NRI' ? 'Non-Resident Indian (NRI)' : answer === 'NOR' ? "Not Ordinary Resident (NOR)" : "Help me decide"}`)
+    }, [answer])
+
+
     return (
+        <>
+            {showAlert && (
+                <AlertDialogComponent showAlert={showAlert} setShowAlert={setShowAlert} />
+            )}
+
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8  ">
-            <div className="space-x-2 text-sm">
-                <span>A. Y. {assessmentYear}</span>
-                <span>{member?.firstName + " " + member?.lastName}</span>
-                <span>{member?.pan}</span>
-
-            </div>
+            <WizardHeader />
             <div className="grid lg:grid-cols-3 gap-8 mb-24">
+
                 <div className="grid grid-rows-1   lg:col-span-2">
-                    <div className="lg:col-span-2 grid grid-cols-[150px_1fr] bg-white
-                    shadow rounded-lg p-6  gap-6">
-                        <div className="grid w-full">
-                            <img src="/images/income.png" alt="Income" className="w-full" />
-                        </div>
-                        <div className="grid grid-cols-1 justify-center items-start gap-6 px-2">
-                            <div className="space-y-1">
-                                <div className="text-2xl">Tell us about your Income between 1st April 2024 to 31st March 2025.</div>
-                                <div className="text-sm">Help us identify the heads under which you have earned Income</div>
+
+                    <div
+                        className="lg:col-span-2    grid-cols-1 bg-white
+                    shadow rounded-lg   gap-6"
+                    >
+                        <div className="grid grid-cols-1 justify-center items-start gap-6 pb-6">
+                                <div className='border-b-2 p-6 text-2xl'>Residential Status for F.Y. 2024-25</div>
+
+                            <div className="space-y-1 px-6">
                                 <div className="mt-5 space-y-8 ">
-
-
                                     {questionsState.map((q) => (
                                         <div key={q.id}>
-                                            <div className="grid grid-cols-[1fr_auto] justify-center items-start gap-6">
+                                            <div className="grid grid-rows-1 grid-cols-1 justify-center items-start gap-2">
                                                 <div key={q.id} className="space-y-1">
-                                                    <p className="text-lg font-medium">
-                                                        {q.question}
-                                                    </p>
-                                                    <p className="text-sm text-slate-700">
-                                                        {q.description}
-                                                    </p>
+                                                    <p className="text-md ">{q.question}</p>
                                                 </div>
                                                 <div>
+                                                    {/* Button Group */}
+                                                    <ToggleGroup
+                                                        value={answer}
+                                                        onValueChange={(val) => handleChange(val)}
+                                                        type="single"
+                                                        className=" grid grid-cols-3  w-auto mt-1 space-y-4 space-x-4 "
+                                                    >
+                                                        {q.answer.map((option) => (
+                                                            <React.Fragment key={option.key}>
+                                                                {option.label && (
+                                                                    <div className="col-span-3 text-sm text-muted-foreground block">
+                                                                        {option.label}
+                                                                    </div>
+                                                                )}
+                                                                <ToggleGroupItem
+                                                                    key={option.key}
+                                                                    value={option.key}
+
+                                                                    className={cn("px-4 cursor-pointer bg-gray-100 data-[state=on]:bg-sky-500  text-gray-800 data-[state=on]:text-white border border-gray-300 data-[state=on]:border-sky-600 rounded-md!")}
+                                                                >
+                                                                    {option.value}
+
+                                                                </ToggleGroupItem>
+                                                            </React.Fragment>
+                                                        ))}
 
 
-                                                    <YesNoToggle
-                                                        value={q.answer}
-                                                        onChange={(value) => {
-                                                            const updatedQuestions = questionsState.map((question) =>
-                                                                question.id === q.id ? { ...question, answer: value } : question
-                                                            )
-                                                            setQuestionsState(updatedQuestions)
-                                                        }}
-                                                    />
-                                                    {/* {q.optionalQuestions ? 'yes' : ''}
-                                                {q.answer === "yes" ? "yes" : "no"} */}
+
+
+                                                    </ToggleGroup>
                                                 </div>
                                             </div>
-
-                                            {q.optionalQuestions && q.answer === "yes" && (
-                                                <div className="ml-2 mt-6 space-y-6 bg-gray-300/10">
-                                                    {q.optionalQuestions.map((oq) => (
-                                                        <div key={oq.id} className="grid grid-cols-[1fr_auto] justify-center items-start gap-6">
-                                                            <div key={oq.id} className="space-y-1">
-                                                                <p className="text-lg font-medium">
-                                                                    {oq.question}
-                                                                </p>
-                                                                <p className="text-sm text-slate-700">
-                                                                    {oq.description}
-                                                                </p>
-                                                            </div>
-                                                            <YesNoToggle
-                                                                value={oq.answer}
-                                                                onChange={(value) => {
-                                                                    const updatedQuestions = questionsState.map((question) => {
-                                                                        if (question.id === q.id) {
-                                                                            const updatedOptionalQuestions = question.optionalQuestions?.map((optionalQuestion) =>
-                                                                                optionalQuestion.id === oq.id ? { ...optionalQuestion, answer: value } : optionalQuestion
-                                                                            )
-                                                                            return { ...question, optionalQuestions: updatedOptionalQuestions }
-                                                                        }
-                                                                        return question
-                                                                    })
-                                                                    setQuestionsState(updatedQuestions)
-                                                                }}
-                                                            />
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            )}
                                         </div>
                                     ))}
 
+                                        {answer === 'NOR' && (
+                                            <>
+                                                <div>
+                                                    <div className="p-4 bg-yellow-50 border border-yellow-200 rounded">
+                                                        <p className="text-sm text-yellow-800">
+                                                            In case you are a Citizen of India or a Person of Indian Origin (POI), please specify :
+                                                        </p>
+                                                    </div>
+                                                    <div className="mt-5 mb-8 space-y-8 ">
+                                                        <div className="grid  grid-cols-2 gap-4">
+                                                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                                                                Total period of stay in India during the previous year (in days)
+                                                            </label>
+                                                            <Input
+                                                                type="number"
+                                                                className="block w-10/12 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                                placeholder=""
+                                                            />
+                                                        </div>
+                                                        <div className="grid  grid-cols-2 gap-4">
+                                                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                                                                Total period of stay in India during the 4 preceding years (in days)
+                                                            </label>
+                                                            <Input
+                                                                type="number"
+                                                                className=" block w-10/12 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                                placeholder=""
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr />
+                                                <div>
+                                                    <p className="text-sm text-muted-foreground">
+                                                        Please specify the jurisdiction(s) of residence during the previous year :
+                                                    </p>
+                                                    <JurisdictionList />
+                                                </div>
+                                            </>
+
+                                        )}
+                                        {answer === 'HELP_ME_DECIDE' && (
+                                            <>
+                                                <HelpMeDecide answer={answer} setAnswer={setAnswer} />
+                                            </>
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
-
                         </div>
-                    </div>
-
-                    <div className="bg-gray-400/20 p-4 w-full lg:col-span-2 flex justify-between items-center gap-4">
-                        <div >
-                            <div>Previous</div>
-                            <div className="flex flex-row gap-2 items-center"><MoveLeft /> Previous Page</div>
-                        </div>
-                        <div className="flex flex-col items-end">
-                            <div>Next</div>
-                            <div className="flex flex-row text-xl text-sky-600 cursor-pointer ">
-                                <span className="flex flex-row gap-1 items-center">Choose Return Type <MoveRight /></span>
-                            </div>
-                        </div>
+                        <WizardFooter
+                            previousPageLink="/choose_regime"
+                            previousPageName="Choose Regime"
+                            nextPageLink="/salary_income"
+                            nextPageName="Salary"
+                            progress={{ percentage: '3%', remaining: '17 min more' }}
+                        />
                     </div>
                 </div>
                 <HelpSidebar />
             </div>
+        </div>
+        </>
+    )
+}
+
+export default Residential
+
+const JurisdictionList = () => {
+
+    const { data: country } = useQuery(countryQueryOptions())
+    if (!country) {
+        return <div className="flex items-center justify-center min-h-screen">Loading...</div>
+    }
+    return (
+        <div className="grid grid-cols-1  gap-4 mt-4">
+            <JurisdictionCardList country={country?.data ?? []} />
         </div>
     )
 }
 
 
 
-export default Residential
+
+const JurisdictionCardList = ({ country }: { country: Country[] }) => {
+    const [nriJuridictionData, setNriJuridictionData] = useState([
+        {
+            index: 0,
+            juridiction: "",
+            tin: "",
+            isDefault: true,
+            isError: false
+        },
+    ])
+
+
+    return (
+        <>
+            <div className="w-full grid grid-cols-[50px_1fr_1fr_50px] gap-4">
+                <div></div>
+                <Label htmlFor="country" className="block text-sm font-medium text-foreground ">
+                    Juridiction(s) of Residence <span className="text-red-500">*</span>
+                </Label>
+                <Label htmlFor="tin" className="block text-sm font-medium text-foreground  ">
+                    Tax Identification Number (TIN) <span className="text-red-500">*</span>
+                </Label>
+                <div></div>
+            </div>
+            {!nriJuridictionData ? (
+
+                <div className="space-y-3">
+                    <div className="h-20 rounded-md bg-muted animate-pulse"></div>
+                    <div className="h-20 rounded-md bg-muted animate-pulse"></div>
+                </div>
+
+            ) : (
+                nriJuridictionData.map((c, index) => (
+                    <JurisdictionCard
+                        key={index}
+                        arrayIndex={index}
+                        country={country}
+                        data={c}
+                        nriJuridictionData={nriJuridictionData}
+                        setNriJuridictionData={setNriJuridictionData}
+                    />
+                ))
+            )}
+
+
+            <div>
+                <AddJuridictionCard nriJuridictionData={nriJuridictionData} setNriJuridictionData={setNriJuridictionData} />
+            </div>
+        </>
+    )
+}
+
+const JurisdictionCard = ({ arrayIndex, country, data, nriJuridictionData, setNriJuridictionData }: { arrayIndex: number, country: Country[], data: any, nriJuridictionData: any[], setNriJuridictionData: React.Dispatch<React.SetStateAction<any[]>> }) => {
+
+    const handleValueChange = (value: string) => {
+        const dataItem = nriJuridictionData.find((item) => item.index === data.index)
+        if (!dataItem) return
+        dataItem.juridiction = value
+        setNriJuridictionData((prev) => prev.map((item) => item.index === data.index ? dataItem : item))
+    }
+    const handleDelete = () => {
+        const dataItemIndex = nriJuridictionData.findIndex((item) => item.index === data.index)
+        if (dataItemIndex === -1) return
+        setNriJuridictionData((prev) => prev.filter((_, index) => index !== dataItemIndex))
+    }
+    return (
+        <div key={data.index} className='w-full grid grid-cols-1 gap-6'
+        >
+            <div className="w-full grid grid-cols-[50px_1fr_1fr_50px] items-center gap-4">
+                <div className="w-10 h-10 rounded-md bg-sky-50 flex items-center justify-center text-sky-600 font-bold">{arrayIndex + 1}</div>
+
+                <Select onValueChange={handleValueChange} defaultValue={data.juridiction}  >
+                    <SelectTrigger className="w-full cursor-pointer">
+                        <SelectValue placeholder="--Select--" />
+                    </SelectTrigger>
+
+                    <SelectContent>
+                        {country.map((c) => (
+                            <SelectItem key={c.id} value={c.name}>
+                                {c.name}
+                            </SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
+                <Input id="tin" placeholder="Enter your TIN" name='tin' onChange={(e) => handleValueChange(e.target.value)} />
+                <div>
+                    {!data.isDefault && (
+                        <Button type='button' variant={'outline'} className="text-red-500 cursor-pointer" onClick={handleDelete}>
+                            <IconRowRemove size={16} className="h-4 w-4" />
+                        </Button>
+                    )}
+                </div>
+            </div>
+
+        </div >
+    )
+}
+
+const AddJuridictionCard = ({ nriJuridictionData, setNriJuridictionData }: { nriJuridictionData: any[], setNriJuridictionData: React.Dispatch<React.SetStateAction<any[]>> }) => {
+    const handleClick = () => {
+        setNriJuridictionData([
+            ...nriJuridictionData,
+            {
+                id: nriJuridictionData.length + 1,
+                juridiction: "",
+                tin: "",
+                isDefault: false,
+                isError: false
+            }
+        ])
+    }
+    return (<Button type="button" variant={'outline'}
+        className="cursor-pointer bg-blue-400 hover:bg-blue-400/20 text-blue-50" onClick={handleClick}>
+        + Add Jurisdiction
+    </Button>)
+}
+
+

@@ -15,7 +15,7 @@ const WizardHeader = () => {
     const assessmentYear = "2025-26"
 
     if (!member) {
-        router.navigate({ to: DashboardRoute.path, replace: true });
+        //router.navigate({ to: DashboardRoute.path, replace: true });
         return null;
     }
     return (

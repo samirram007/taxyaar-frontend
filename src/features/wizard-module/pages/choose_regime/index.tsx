@@ -1,186 +1,145 @@
-import { YesNoToggle } from "@/components/yes-no-toggle"
-import { useState } from "react"
-import HelpSidebar from "../../components/HelpSidebar"
-import { MoveLeft, MoveRight } from "lucide-react"
-import { useWizardModule } from "../../contexts/wizard_module-context"
+import { useState } from 'react'
+import HelpSidebar from '../../components/HelpSidebar'
+
+import WizardHeader from '../../components/wizard_header'
+import WizardFooter from '../../components/wizard_footer'
+
+import { Input } from '@/components/ui/input'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import { Field, FieldContent, FieldDescription, FieldLabel } from '@/components/ui/field'
+import { Link } from '@tanstack/react-router'
 
 const questions = [
     {
-        id: 1,
-        question: "Did you earn salary / pension?",
-        description: "Salary includes income earned from employment, salary pension, salary arrears",
-        answer: undefined as "yes" | "no" | undefined
-    },
-    {
-        id: 2,
-        question: "Do you Own House Property?",
-        description: "House Property includes flat, House, Bungalow, etc.",
-        answer: undefined as "yes" | "no" | undefined
-    },
-    {
-        id: 3,
-        question: "Did you earn any Interest / Dividend Income?",
-        description: "Interest received from Banks, Post office or others",
-        answer: undefined as "yes" | "no" | undefined
-    },
-    {
-        id: 4,
-        question: "Income from Crypto Currency?",
-        description: "If you have transferred or sold any crypto currency like BitCoin, Ether, DodgeCoin, Arthur, etc.",
-        answer: undefined as "yes" | "no" | undefined
-    },
-    {
-        id: 5,
-        question: "Income from Business, Profession or Freelancing, etc.",
-        description: "Income from sale of goods, share trading business, Transport business, freelancing, architect, medical profession, consultancy or any other business or Profession",
-        answer: undefined as "yes" | "no" | undefined
-    },
-    {
-        id: 6,
-        question: "Do you hold Directorship position?",
-        description: "If you are a director in a private or public limited company",
-        answer: undefined as "yes" | "no" | undefined
-    },
-    {
-        id: 7,
-        question: "Do you own unlisted shares?",
-        description: "If you have shareholding in any company which is not listed on any stock exchange",
-        answer: undefined as "yes" | "no" | undefined
-    },
-    {
         id: 8,
-        question: "Any other Income",
-        description: "Other Income like Family Pension, Agricultural Income, Rent on letting-out of machinery, etc.",
-        answer: undefined as "yes" | "no" | undefined,
-        optionalQuestions: [
+        attributeName: 'regime_type',
+        question:
+            'Under which regime you want to file?',
+        description: 'Under which regime you want to file?',
+        answer: [
             {
-                id: 8.1,
-                question: "Family Pension",
-                description: "Pension received on behalf of a deceased pensioner, being his legal heir",
-                answer: undefined as "yes" | "no" | undefined
+                key: 'new',
+                value: "New Regime",
+                disabled: false,
             },
             {
-                id: 8.2,
-                question: "Tax Free Income",
-                description: "PPF Interest, Dividend Income is taxable from F.Y 2021-22, etc are not taxable",
-                answer: undefined as "yes" | "no" | undefined
-            },
-            {
-                id: 8.3,
-                question: "Income from Lottery winnings, etc.",
-                description: "Lottery or winning from other games, commission Income, etc.",
-                answer: undefined as "yes" | "no" | undefined
+                key: 'old',
+                value: 'Old Regime',
+                disabled: true,
             },
 
-        ]
+        ],
     },
 ]
-
+const helpUrl = import.meta.env.VITE_HELP_URL || "https://help.taxyaar.com"
 const ChooseRegime = () => {
-    const { member } = useWizardModule()
-    const [questionsState, setQuestionsState] = useState(questions)
-    const assessmentYear = "2025-26"
+    const [questionsState /*, setQuestionsState */] = useState(questions)
+    const [answer, setAnswer] = useState(questions[0].answer[0].key)
+    const handleChange = (value: string) => {
+        setAnswer(value)
+    }
+
     return (
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8  ">
-            <div className="space-x-2 text-sm">
-                <span>A. Y. {assessmentYear}</span>
-                <span>{member?.firstName + " " + member?.lastName}</span>
-                <span>{member?.pan}</span>
-
-            </div>
+            <WizardHeader />
             <div className="grid lg:grid-cols-3 gap-8 mb-24">
+
                 <div className="grid grid-rows-1   lg:col-span-2">
-                    <div className="lg:col-span-2 grid grid-cols-[150px_1fr] bg-white
-                    shadow rounded-lg p-6  gap-6">
-                        <div className="grid w-full">
-                            <img src="/images/income.png" alt="Income" className="w-full" />
-                        </div>
-                        <div className="grid grid-cols-1 justify-center items-start gap-6 px-2">
-                            <div className="space-y-1">
-                                <div className="text-2xl">Tell us about your Income between 1st April 2024 to 31st March 2025.</div>
-                                <div className="text-sm">Help us identify the heads under which you have earned Income</div>
+
+                    <div
+                        className="lg:col-span-2    grid-cols-1 bg-white
+                    shadow rounded-lg   gap-6"
+                    >
+                        <div className="grid grid-cols-1 justify-center items-start gap-6 pb-6">
+                            <div className='border-b-2 p-6 text-2xl'>Which tax regime have you opted for?</div>
+                            <div className="space-y-1 px-6">
                                 <div className="mt-5 space-y-8 ">
-
-
                                     {questionsState.map((q) => (
                                         <div key={q.id}>
-                                            <div className="grid grid-cols-[1fr_auto] justify-center items-start gap-6">
+                                            <div className="grid grid-cols-[1fr_1fr] justify-center items-start gap-6">
                                                 <div key={q.id} className="space-y-1">
-                                                    <p className="text-lg font-medium">
-                                                        {q.question}
-                                                    </p>
-                                                    <p className="text-sm text-slate-700">
-                                                        {q.description}
-                                                    </p>
+                                                    <p className="text-md ">{q.question}</p>
                                                 </div>
                                                 <div>
+                                                    <RadioGroup value={answer} onValueChange={handleChange} className="w-fit">
+                                                        {q.answer.map((a) => (
+                                                            <Field key={a.key} orientation="horizontal" className='border p-2 rounded-md shadow-sm'>
+                                                                <RadioGroupItem value={a.key} id={`desc-${a.key}`} disabled={a.disabled} />
+                                                                <FieldContent>
+                                                                    <FieldLabel htmlFor={`desc-${a.key}`} className='flex flex-col items-start'>
+                                                                        {a.value}
+                                                                        <FieldDescription>
+                                                                            Standard spacing for most use cases.
+                                                                        </FieldDescription>
+                                                                    </FieldLabel>
 
+                                                                </FieldContent>
+                                                            </Field>
+                                                        ))}
 
-                                                    <YesNoToggle
-                                                        value={q.answer}
-                                                        onChange={(value) => {
-                                                            const updatedQuestions = questionsState.map((question) =>
-                                                                question.id === q.id ? { ...question, answer: value } : question
-                                                            )
-                                                            setQuestionsState(updatedQuestions)
-                                                        }}
-                                                    />
-                                                    {/* {q.optionalQuestions ? 'yes' : ''}
-                                                {q.answer === "yes" ? "yes" : "no"} */}
+                                                    </RadioGroup>
                                                 </div>
                                             </div>
-
-                                            {q.optionalQuestions && q.answer === "yes" && (
-                                                <div className="ml-2 mt-6 space-y-6 bg-gray-300/10">
-                                                    {q.optionalQuestions.map((oq) => (
-                                                        <div key={oq.id} className="grid grid-cols-[1fr_auto] justify-center items-start gap-6">
-                                                            <div key={oq.id} className="space-y-1">
-                                                                <p className="text-lg font-medium">
-                                                                    {oq.question}
-                                                                </p>
-                                                                <p className="text-sm text-slate-700">
-                                                                    {oq.description}
-                                                                </p>
-                                                            </div>
-                                                            <YesNoToggle
-                                                                value={oq.answer}
-                                                                onChange={(value) => {
-                                                                    const updatedQuestions = questionsState.map((question) => {
-                                                                        if (question.id === q.id) {
-                                                                            const updatedOptionalQuestions = question.optionalQuestions?.map((optionalQuestion) =>
-                                                                                optionalQuestion.id === oq.id ? { ...optionalQuestion, answer: value } : optionalQuestion
-                                                                            )
-                                                                            return { ...question, optionalQuestions: updatedOptionalQuestions }
-                                                                        }
-                                                                        return question
-                                                                    })
-                                                                    setQuestionsState(updatedQuestions)
-                                                                }}
-                                                            />
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            )}
                                         </div>
                                     ))}
 
+                                    {answer === 'no' && (
+                                        <div>
+                                            <div className="p-4 bg-yellow-50 border border-yellow-200 rounded">
+                                                <p className="text-sm text-yellow-800">
+                                                    If revised, then enter following details of Original
+                                                    Return filed.:
+                                                </p>
+                                            </div>
+                                            <div className="mt-5 mb-8 space-y-8 ">
+                                                <div className="grid  grid-cols-2 gap-4">
+                                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                                        E-filing Acknowledgement No./Receipt No. *
+                                                    </label>
+                                                    <Input
+                                                        type="text"
+                                                        className="block w-10/12 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                        placeholder=""
+                                                    />
+                                                </div>
+                                                <div className="grid  grid-cols-2 gap-4">
+                                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                                        Date of Original Return *
+                                                    </label>
+                                                    <Input
+                                                        disabled
+                                                        type="date"
+                                                        className=" block w-10/12 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                        placeholder=""
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
-
-                        </div>
-                    </div>
-
-                    <div className="bg-gray-400/20 p-4 w-full lg:col-span-2 flex justify-between items-center gap-4">
-                        <div >
-                            <div>Previous</div>
-                            <div className="flex flex-row gap-2 items-center"><MoveLeft /> Previous Page</div>
-                        </div>
-                        <div className="flex flex-col items-end">
-                            <div>Next</div>
-                            <div className="flex flex-row text-xl text-sky-600 cursor-pointer ">
-                                <span className="flex flex-row gap-1 items-center">Choose Return Type <MoveRight /></span>
+                            <div className="mx-6 mt-6 py-4 px-8 bg-blue-50 border border-blue-200 rounded-md">
+                                <p className="text-sm text-blue-900">
+                                    <ul className="list-disc list-inside space-y-2">
+                                        <li>New tax regime allows fewer deduction and have lower tax rates.</li>
+                                        <li>Old tax regime allows all deductions and have higher tax rates.</li>
+                                        <li className=' gap-2'>To read more about the two regimes please read  <Link to={helpUrl} target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="  text-blue-500 hover:underline text-sm " >this article</Link>.
+                                        </li>
+                                    </ul>
+                                </p>
                             </div>
+
+
                         </div>
+                        <WizardFooter
+                            previousPageLink="/choose_return_type"
+                            previousPageName="Choose Return Type"
+                            nextPageLink="/residential"
+                            nextPageName="Residential Status"
+                            progress={{ percentage: '1%', remaining: '17 min more' }}
+                        />
                     </div>
                 </div>
                 <HelpSidebar />
@@ -188,7 +147,5 @@ const ChooseRegime = () => {
         </div>
     )
 }
-
-
 
 export default ChooseRegime
