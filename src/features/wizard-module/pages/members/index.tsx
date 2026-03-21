@@ -12,6 +12,7 @@ import { IconArrowRight, IconEdit, IconRecycle } from "@tabler/icons-react";
 import { useAuthenticationUser } from "../../data/queryOptions";
 
 import type { TaxFilerData } from "../../data/schema";
+import { useWizardModule } from "../../contexts/wizard_module-context";
 
 
 
@@ -33,7 +34,7 @@ const memberData: TaxFilerData[] = [
 export default function MembersPage() {
 
   const router = useRouter();
-  // const { member, setMember } = useWizardModule();
+  const { setMember } = useWizardModule();
   const authMutation = useAuthenticationUser();
 
   // useEffect(() => {
@@ -63,11 +64,13 @@ export default function MembersPage() {
 
   const onHandleAddClient = (member: TaxFilerData) => {
 
-    if (isPanVerified(member.pan)) {
-      sessionStorage.setItem("taxFilerData", JSON.stringify(member));
-      router.navigate({ to: "/dashboard_filer" });
-      return;
-    }
+    setMember(member)
+
+    // if (isPanVerified(member.pan)) {
+    //   sessionStorage.setItem("taxFilerData", JSON.stringify(member));
+    //   router.navigate({ to: "/dashboard_filer" });
+    //   return;
+    // }
 
     authMutation.mutate(undefined, {
       onSuccess: (res) => {

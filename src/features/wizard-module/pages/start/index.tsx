@@ -5,6 +5,7 @@ import HelpSidebar from "../../components/HelpSidebar"
 import { useWizardModule } from "../../contexts/wizard_module-context"
 
 import WizardFooter from "../../components/wizard_footer"
+import WizardHeader from "../../components/wizard_header"
 
 const questions = [
     {
@@ -79,17 +80,12 @@ const questions = [
 ]
 
 const Start = () => {
-    const { member } = useWizardModule()
+
     const [questionsState, setQuestionsState] = useState(questions)
-    const assessmentYear = "2025-26"
+
     return (
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8  ">
-            <div className="space-x-2 text-sm">
-                <span>A. Y. {assessmentYear}</span>
-                <span>{member?.firstName + " " + member?.lastName}</span>
-                <span>{member?.pan}</span>
-
-            </div>
+            <WizardHeader />
             <div className="grid lg:grid-cols-3 gap-8 mb-24">
                 <div className="grid grid-rows-1   lg:col-span-2">
                     <div className="lg:col-span-2 grid grid-cols-[150px_1fr] bg-gray-50 rounded-lg p-6  gap-6">

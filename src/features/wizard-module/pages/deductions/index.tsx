@@ -38,7 +38,9 @@ const Deductions = () => {
     // const handleChange = (value: string) => {
     //     setAnswer(value)
     // }
+    const routeOptions = ['salary_arrears', , 'foreign_tax_relief', 'taxes_paid']
 
+    const chosenOption = 'taxes_paid'
     return (
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8  ">
             <WizardHeader />
@@ -127,16 +129,42 @@ const Deductions = () => {
 
 
                         </div>
-                        <WizardFooter
-                            indicatorTextLeft="Previous"
-                            indicatorTextRight="Save & Next"
-                            previousPageLink="/deduction_start"
-                            previousPageName="Deductions Start"
-                            nextPageLink="/taxes_start"
-                            nextPageName="Taxes Paid"
-                            progress={{ percentage: '51%', remaining: '8 min more' }}
+                        {chosenOption === 'taxes_paid' ? (
+                            <WizardFooter
+                                indicatorTextLeft="Previous"
+                                indicatorTextRight="Save & Next"
+                                previousPageLink="/deduction_start"
+                                previousPageName="Deductions Start"
+                                nextPageLink="/taxes_start"
+                                nextPageName="Taxes Paid"
+                                progress={{ percentage: '51%', remaining: '8 min more' }}
 
-                        />
+                            />
+                        ) : (chosenOption === 'foreign_tax_relief' ? (
+                            <WizardFooter
+                                indicatorTextLeft="Previous"
+                                indicatorTextRight="Save & Next"
+                                previousPageLink="/deduction_start"
+                                previousPageName="Deductions Start"
+                                nextPageLink="/foreign_tax_relief"
+                                nextPageName="Foreign Tax Relief"
+                                progress={{ percentage: '51%', remaining: '8 min more' }}
+
+                            />
+                        ) : (chosenOption === 'salary_arrears' ?
+                            <WizardFooter
+                                indicatorTextLeft="Previous"
+                                indicatorTextRight="Save & Next"
+                                previousPageLink="/deduction_start"
+                                previousPageName="Deductions Start"
+                                nextPageLink="/tax_relief"
+                                nextPageName="Relief on Salary Arrears"
+                                progress={{ percentage: '51%', remaining: '8 min more' }}
+                            />
+                            : null
+                        )
+
+                        )}
                     </div>
                 </div>
                 <HelpSidebar />

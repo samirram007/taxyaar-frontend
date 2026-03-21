@@ -5,6 +5,7 @@ import { useRouter } from "@tanstack/react-router"
 import Breadcrumb from "../../components/CustomBreadCrumb"
 import { Button } from "@/components/ui/button"
 import { Form16Modal } from "./components/Form16Modal"
+import WizardHeader from "../../components/wizard_header"
 
 
 type TaxFiler = {
@@ -57,6 +58,7 @@ export default function DashboardFiler() {
 
 
       <main className="max-w-7xl mx-auto px-6 py-10">
+        <WizardHeader />
         <div className="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden">
           <div className="flex items-start justify-between gap-4 p-6">
             <div>

@@ -5,6 +5,8 @@ import HelpSidebar from "../../components/HelpSidebar"
 import { useWizardModule } from "../../contexts/wizard_module-context"
 
 import WizardFooter from "../../components/wizard_footer"
+import { id } from "zod/v4/locales"
+import WizardHeader from "../../components/wizard_header"
 
 
 const questions = [
@@ -20,21 +22,31 @@ const questions = [
         description: "Tax Relief u/s 89 is applicable if you have received arrears of Salary. Select “Yes” if you have received any portion of salary(including pension and gratuity) pertaining to earlier years in 2024-25 and tax relief u/s 89 is to be claimed on it.",
         answer: undefined as "yes" | "no" | undefined
     },
+    {
+        id: 3,
+        question: "Tax Relief on Taxes paid outside India",
+        description: "Select \"Yes\" if you have earned any Income outside India.",
+        answer: undefined as "yes" | "no" | undefined
+    }
 
 ]
-
+// y y n Relief on Salary Arrears
+// y y y Relief on Salary Arrears
+// n y y Relief on Salary Arrears
+// y n y Foreign Tax Relief
+// n n y Foreign Tax Relief
+// n n n Taxes Paid
 const DeductionStart = () => {
-    const { member } = useWizardModule()
+
     const [questionsState, setQuestionsState] = useState(questions)
-    const assessmentYear = "2025-26"
+
+    const routeOptions = ['salary_arrears', , 'foreign_tax_relief', 'taxes_paid']
+
+    const chosenOption = 'taxes_paid'
+
     return (
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8  ">
-            <div className="space-x-2 text-sm">
-                <span>A. Y. {assessmentYear}</span>
-                <span>{member?.firstName + " " + member?.lastName}</span>
-                <span>{member?.pan}</span>
-
-            </div>
+            <WizardHeader />
             <div className="grid lg:grid-cols-3 gap-8 mb-24">
                 <div className="grid grid-rows-1   lg:col-span-2">
                     <div className="lg:col-span-2 grid grid-cols-[150px_1fr] bg-white rounded-lg p-6  gap-6">
