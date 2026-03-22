@@ -30,17 +30,13 @@ import { Route as ProtectedFilerTdsIndexRouteImport } from './routes/_protected/
 import { Route as ProtectedFilerTaxes_startIndexRouteImport } from './routes/_protected/_filer/taxes_start/index'
 import { Route as ProtectedFilerSummaryIndexRouteImport } from './routes/_protected/_filer/summary/index'
 import { Route as ProtectedFilerStartIndexRouteImport } from './routes/_protected/_filer/start/index'
-<<<<<<< HEAD
-import { Route as ProtectedFilerSeventh_provisoIndexRouteImport } from './routes/_protected/_filer/seventh_proviso/index'
-import { Route as ProtectedFilerForm16IndexRouteImport } from './routes/_protected/_filer/form16/index'
-=======
 import { Route as ProtectedFilerSeventh_provisionIndexRouteImport } from './routes/_protected/_filer/seventh_provision/index'
 import { Route as ProtectedFilerSalary_incomeIndexRouteImport } from './routes/_protected/_filer/salary_income/index'
 import { Route as ProtectedFilerResidentialIndexRouteImport } from './routes/_protected/_filer/residential/index'
 import { Route as ProtectedFilerOther_details_startIndexRouteImport } from './routes/_protected/_filer/other_details_start/index'
 import { Route as ProtectedFilerHouse_propertyIndexRouteImport } from './routes/_protected/_filer/house_property/index'
 import { Route as ProtectedFilerGeneral_businessIndexRouteImport } from './routes/_protected/_filer/general_business/index'
->>>>>>> 4831447d086ca83d0495ea09623d3f46fd951031
+import { Route as ProtectedFilerForm16IndexRouteImport } from './routes/_protected/_filer/form16/index'
 import { Route as ProtectedFilerDepartment_add_clientIndexRouteImport } from './routes/_protected/_filer/department_add_client/index'
 import { Route as ProtectedFilerDeductionsIndexRouteImport } from './routes/_protected/_filer/deductions/index'
 import { Route as ProtectedFilerDeduction_startIndexRouteImport } from './routes/_protected/_filer/deduction_start/index'
@@ -642,17 +638,13 @@ export interface FileRoutesByFullPath {
   '/deduction_start/': typeof ProtectedFilerDeduction_startIndexRoute
   '/deductions/': typeof ProtectedFilerDeductionsIndexRoute
   '/department_add_client/': typeof ProtectedFilerDepartment_add_clientIndexRoute
-<<<<<<< HEAD
   '/form16/': typeof ProtectedFilerForm16IndexRoute
-  '/seventh_proviso/': typeof ProtectedFilerSeventh_provisoIndexRoute
-=======
   '/general_business/': typeof ProtectedFilerGeneral_businessIndexRoute
   '/house_property/': typeof ProtectedFilerHouse_propertyIndexRoute
   '/other_details_start/': typeof ProtectedFilerOther_details_startIndexRoute
   '/residential/': typeof ProtectedFilerResidentialIndexRoute
   '/salary_income/': typeof ProtectedFilerSalary_incomeIndexRoute
   '/seventh_provision/': typeof ProtectedFilerSeventh_provisionIndexRoute
->>>>>>> 4831447d086ca83d0495ea09623d3f46fd951031
   '/start/': typeof ProtectedFilerStartIndexRoute
   '/summary/': typeof ProtectedFilerSummaryIndexRoute
   '/taxes_start/': typeof ProtectedFilerTaxes_startIndexRoute
@@ -728,17 +720,13 @@ export interface FileRoutesByTo {
   '/deduction_start': typeof ProtectedFilerDeduction_startIndexRoute
   '/deductions': typeof ProtectedFilerDeductionsIndexRoute
   '/department_add_client': typeof ProtectedFilerDepartment_add_clientIndexRoute
-<<<<<<< HEAD
   '/form16': typeof ProtectedFilerForm16IndexRoute
-  '/seventh_proviso': typeof ProtectedFilerSeventh_provisoIndexRoute
-=======
   '/general_business': typeof ProtectedFilerGeneral_businessIndexRoute
   '/house_property': typeof ProtectedFilerHouse_propertyIndexRoute
   '/other_details_start': typeof ProtectedFilerOther_details_startIndexRoute
   '/residential': typeof ProtectedFilerResidentialIndexRoute
   '/salary_income': typeof ProtectedFilerSalary_incomeIndexRoute
   '/seventh_provision': typeof ProtectedFilerSeventh_provisionIndexRoute
->>>>>>> 4831447d086ca83d0495ea09623d3f46fd951031
   '/start': typeof ProtectedFilerStartIndexRoute
   '/summary': typeof ProtectedFilerSummaryIndexRoute
   '/taxes_start': typeof ProtectedFilerTaxes_startIndexRoute
@@ -810,17 +798,13 @@ export interface FileRoutesById {
   '/_protected/_filer/deduction_start/': typeof ProtectedFilerDeduction_startIndexRoute
   '/_protected/_filer/deductions/': typeof ProtectedFilerDeductionsIndexRoute
   '/_protected/_filer/department_add_client/': typeof ProtectedFilerDepartment_add_clientIndexRoute
-<<<<<<< HEAD
   '/_protected/_filer/form16/': typeof ProtectedFilerForm16IndexRoute
-  '/_protected/_filer/seventh_proviso/': typeof ProtectedFilerSeventh_provisoIndexRoute
-=======
   '/_protected/_filer/general_business/': typeof ProtectedFilerGeneral_businessIndexRoute
   '/_protected/_filer/house_property/': typeof ProtectedFilerHouse_propertyIndexRoute
   '/_protected/_filer/other_details_start/': typeof ProtectedFilerOther_details_startIndexRoute
   '/_protected/_filer/residential/': typeof ProtectedFilerResidentialIndexRoute
   '/_protected/_filer/salary_income/': typeof ProtectedFilerSalary_incomeIndexRoute
   '/_protected/_filer/seventh_provision/': typeof ProtectedFilerSeventh_provisionIndexRoute
->>>>>>> 4831447d086ca83d0495ea09623d3f46fd951031
   '/_protected/_filer/start/': typeof ProtectedFilerStartIndexRoute
   '/_protected/_filer/summary/': typeof ProtectedFilerSummaryIndexRoute
   '/_protected/_filer/taxes_start/': typeof ProtectedFilerTaxes_startIndexRoute
@@ -899,17 +883,13 @@ export interface FileRouteTypes {
     | '/deduction_start/'
     | '/deductions/'
     | '/department_add_client/'
-<<<<<<< HEAD
     | '/form16/'
-    | '/seventh_proviso/'
-=======
     | '/general_business/'
     | '/house_property/'
     | '/other_details_start/'
     | '/residential/'
     | '/salary_income/'
     | '/seventh_provision/'
->>>>>>> 4831447d086ca83d0495ea09623d3f46fd951031
     | '/start/'
     | '/summary/'
     | '/taxes_start/'
@@ -985,17 +965,13 @@ export interface FileRouteTypes {
     | '/deduction_start'
     | '/deductions'
     | '/department_add_client'
-<<<<<<< HEAD
     | '/form16'
-    | '/seventh_proviso'
-=======
     | '/general_business'
     | '/house_property'
     | '/other_details_start'
     | '/residential'
     | '/salary_income'
     | '/seventh_provision'
->>>>>>> 4831447d086ca83d0495ea09623d3f46fd951031
     | '/start'
     | '/summary'
     | '/taxes_start'
@@ -1066,17 +1042,13 @@ export interface FileRouteTypes {
     | '/_protected/_filer/deduction_start/'
     | '/_protected/_filer/deductions/'
     | '/_protected/_filer/department_add_client/'
-<<<<<<< HEAD
     | '/_protected/_filer/form16/'
-    | '/_protected/_filer/seventh_proviso/'
-=======
     | '/_protected/_filer/general_business/'
     | '/_protected/_filer/house_property/'
     | '/_protected/_filer/other_details_start/'
     | '/_protected/_filer/residential/'
     | '/_protected/_filer/salary_income/'
     | '/_protected/_filer/seventh_provision/'
->>>>>>> 4831447d086ca83d0495ea09623d3f46fd951031
     | '/_protected/_filer/start/'
     | '/_protected/_filer/summary/'
     | '/_protected/_filer/taxes_start/'
@@ -1735,17 +1707,13 @@ interface ProtectedFilerRouteChildren {
   ProtectedFilerDeduction_startIndexRoute: typeof ProtectedFilerDeduction_startIndexRoute
   ProtectedFilerDeductionsIndexRoute: typeof ProtectedFilerDeductionsIndexRoute
   ProtectedFilerDepartment_add_clientIndexRoute: typeof ProtectedFilerDepartment_add_clientIndexRoute
-<<<<<<< HEAD
   ProtectedFilerForm16IndexRoute: typeof ProtectedFilerForm16IndexRoute
-  ProtectedFilerSeventh_provisoIndexRoute: typeof ProtectedFilerSeventh_provisoIndexRoute
-=======
   ProtectedFilerGeneral_businessIndexRoute: typeof ProtectedFilerGeneral_businessIndexRoute
   ProtectedFilerHouse_propertyIndexRoute: typeof ProtectedFilerHouse_propertyIndexRoute
   ProtectedFilerOther_details_startIndexRoute: typeof ProtectedFilerOther_details_startIndexRoute
   ProtectedFilerResidentialIndexRoute: typeof ProtectedFilerResidentialIndexRoute
   ProtectedFilerSalary_incomeIndexRoute: typeof ProtectedFilerSalary_incomeIndexRoute
   ProtectedFilerSeventh_provisionIndexRoute: typeof ProtectedFilerSeventh_provisionIndexRoute
->>>>>>> 4831447d086ca83d0495ea09623d3f46fd951031
   ProtectedFilerStartIndexRoute: typeof ProtectedFilerStartIndexRoute
   ProtectedFilerSummaryIndexRoute: typeof ProtectedFilerSummaryIndexRoute
   ProtectedFilerTaxes_startIndexRoute: typeof ProtectedFilerTaxes_startIndexRoute
@@ -1775,11 +1743,7 @@ const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
   ProtectedFilerDeductionsIndexRoute: ProtectedFilerDeductionsIndexRoute,
   ProtectedFilerDepartment_add_clientIndexRoute:
     ProtectedFilerDepartment_add_clientIndexRoute,
-<<<<<<< HEAD
   ProtectedFilerForm16IndexRoute: ProtectedFilerForm16IndexRoute,
-  ProtectedFilerSeventh_provisoIndexRoute:
-    ProtectedFilerSeventh_provisoIndexRoute,
-=======
   ProtectedFilerGeneral_businessIndexRoute:
     ProtectedFilerGeneral_businessIndexRoute,
   ProtectedFilerHouse_propertyIndexRoute:
@@ -1790,7 +1754,6 @@ const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
   ProtectedFilerSalary_incomeIndexRoute: ProtectedFilerSalary_incomeIndexRoute,
   ProtectedFilerSeventh_provisionIndexRoute:
     ProtectedFilerSeventh_provisionIndexRoute,
->>>>>>> 4831447d086ca83d0495ea09623d3f46fd951031
   ProtectedFilerStartIndexRoute: ProtectedFilerStartIndexRoute,
   ProtectedFilerSummaryIndexRoute: ProtectedFilerSummaryIndexRoute,
   ProtectedFilerTaxes_startIndexRoute: ProtectedFilerTaxes_startIndexRoute,

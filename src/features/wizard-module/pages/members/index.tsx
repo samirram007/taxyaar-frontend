@@ -17,13 +17,13 @@ import { useWizardModule } from "../../contexts/wizard_module-context";
 
 
 
-const isPanVerified = (pan: string): boolean => {
-  const stored = localStorage.getItem("verifiedPans");
-  if (!stored) return false;
+// const isPanVerified = (pan: string): boolean => {
+//   const stored = localStorage.getItem("verifiedPans");
+//   if (!stored) return false;
 
-  const verifiedMap = JSON.parse(stored);
-  return !!verifiedMap[pan];
-};
+//   const verifiedMap = JSON.parse(stored);
+//   return !!verifiedMap[pan];
+// };
 const memberData: TaxFilerData[] = [
   { firstName: "Sourav", lastName: "Gupta", pan: "LWAPT2025A", dateOfBirth: "1995-01-01", isVerified: true },
   { firstName: "Sourav", lastName: "Gupta", pan: "LWAPT2025C", dateOfBirth: "1995-01-01", isVerified: true },

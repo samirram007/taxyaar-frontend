@@ -2,10 +2,10 @@ import { YesNoToggle } from "@/components/yes-no-toggle"
 import { useState } from "react"
 import HelpSidebar from "../../components/HelpSidebar"
 
-import { useWizardModule } from "../../contexts/wizard_module-context"
+
 
 import WizardFooter from "../../components/wizard_footer"
-import { id } from "zod/v4/locales"
+
 import WizardHeader from "../../components/wizard_header"
 
 
@@ -40,9 +40,9 @@ const DeductionStart = () => {
 
     const [questionsState, setQuestionsState] = useState(questions)
 
-    const routeOptions = ['salary_arrears', , 'foreign_tax_relief', 'taxes_paid']
+    // const routeOptions = ['salary_arrears', , 'foreign_tax_relief', 'taxes_paid']
 
-    const chosenOption = 'taxes_paid'
+    // const chosenOption = 'taxes_paid'
 
     return (
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8  ">

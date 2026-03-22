@@ -38,7 +38,7 @@ const Deductions = () => {
     // const handleChange = (value: string) => {
     //     setAnswer(value)
     // }
-    const routeOptions = ['salary_arrears', , 'foreign_tax_relief', 'taxes_paid']
+    // const routeOptions = ['salary_arrears', , 'foreign_tax_relief', 'taxes_paid']
 
     const chosenOption = 'taxes_paid'
     return (
