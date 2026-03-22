@@ -72,18 +72,24 @@ export function SignUpForm({ className, ...props }: SignUpFormProps) {
   }
 
   return (
-    <div className={cn('grid gap-3', className)} {...props}>
+    <div className={cn('grid! gap-4!', className)} {...props}>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
-          <div className="grid gap-2">
+          <div className="grid! gap-4!">
             <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
-                <FormItem className="space-y-1">
-                  <FormLabel>Full Name</FormLabel>
+                <FormItem className="space-y-1!">
+                  <FormLabel className="text-sm! font-medium! text-slate-600!">
+                    Full Name
+                  </FormLabel>
                   <FormControl>
-                    <Input placeholder="John Doe" {...field} />
+                    <Input
+                      placeholder=""
+                      className="h-11! rounded-sm! border-slate-300! bg-white! text-sm!"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -93,10 +99,16 @@ export function SignUpForm({ className, ...props }: SignUpFormProps) {
               control={form.control}
               name="email"
               render={({ field }) => (
-                <FormItem className="space-y-1">
-                  <FormLabel>Email</FormLabel>
+                <FormItem className="space-y-1!">
+                  <FormLabel className="text-sm! font-medium! text-slate-600!">
+                    Your email
+                  </FormLabel>
                   <FormControl>
-                    <Input placeholder="name@example.com" {...field} />
+                    <Input
+                      placeholder=""
+                      className="h-11! rounded-sm! border-slate-300! bg-white! text-sm!"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -106,10 +118,16 @@ export function SignUpForm({ className, ...props }: SignUpFormProps) {
               control={form.control}
               name="password"
               render={({ field }) => (
-                <FormItem className="space-y-1">
-                  <FormLabel>Password</FormLabel>
+                <FormItem className="space-y-1!">
+                  <FormLabel className="text-sm! font-medium! text-slate-600!">
+                    Password
+                  </FormLabel>
                   <FormControl>
-                    <PasswordInput placeholder="********" {...field} />
+                    <PasswordInput
+                      placeholder=""
+                      className="h-11!"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -119,29 +137,27 @@ export function SignUpForm({ className, ...props }: SignUpFormProps) {
               control={form.control}
               name="confirmPassword"
               render={({ field }) => (
-                <FormItem className="space-y-1">
-                  <FormLabel>Confirm Password</FormLabel>
+                <FormItem className="space-y-1!">
+                  <FormLabel className="text-sm! font-medium! text-slate-600!">
+                    Confirm Password
+                  </FormLabel>
                   <FormControl>
-                    <PasswordInput placeholder="********" {...field} />
+                    <PasswordInput
+                      placeholder=""
+                      className="h-11!"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button className="mt-1 py-1 text-sm" disabled={isLoading}>
+            <Button
+              className="mt-2! h-11! w-full! rounded-sm! bg-blue-600! text-base! font-semibold! text-white! hover:bg-blue-700!"
+              disabled={isLoading}
+            >
               Create Account
             </Button>
-
-            <div className="relative my-0">
-              <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t" />
-              </div>
-              <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-background px-2 text-muted-foreground text-xs">
-                  Or continue with
-                </span>
-              </div>
-            </div>
           </div>
         </form>
       </Form>
