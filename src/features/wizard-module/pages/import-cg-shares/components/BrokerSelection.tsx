@@ -34,20 +34,20 @@ export default function BrokerSelection({
 
   return (
     <div className="flex-1 bg-white rounded-lg shadow-md overflow-hidden">
-      <div className="bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300 px-8! py-3">
+      <div className="bg-gradient-to-r from-blue-100 via-blue-200 to-blue-300 px-4! md:px-8! py-3">
         <h2 className="!text-lg font-bold text-gray-800">
           {brokerData.header}
         </h2>
       </div>
 
-      <div className="bg-white px-8! py-6!">
+      <div className="bg-white px-4! md:px-8! py-5! md:py-6!">
         <p className="text-gray-600 text-xs! mb-5 leading-relaxed font-normal">
           {brokerData.description}
         </p>
         <h3 className="text-xs! font-bold text-gray-800 mb-5 uppercase tracking-wider">
           {brokerData.sectionTitle}
         </h3>
-        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-5">
           {brokers.map((broker) => {
             const imageSrc = resolveImageSrc(broker.image)
 
