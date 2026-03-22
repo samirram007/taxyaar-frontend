@@ -18,9 +18,9 @@ const Footer = () => {
           <div className="col-lg-3 col-md-12">
             <div className="c-footer-left">
               <div className="c-footer-logo">
-                <a href="#">
+                <Link to={'/'}>
                   <img src="img/logo.png" alt="" />
-                </a>
+                </Link>
               </div>
               <ul>
                 <li>
@@ -29,16 +29,18 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <a href="#">
+                  <Link to={'/'}>
+                    <i className="fa fa-twitter" aria-hidden="true"></i>
+                  </Link>
                     {' '}
-                    <i className="fa fa-twitter" aria-hidden="true"></i>{' '}
-                  </a>
+                  <Link to={'/'}>
+                    <i className="fa fa-twitter" aria-hidden="true"></i>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">
-                    {' '}
-                    <i className="fa fa-instagram" aria-hidden="true"></i>{' '}
-                  </a>
+                  <Link to={'/'}>
+                    <i className="fa fa-instagram" aria-hidden="true"></i>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -51,7 +53,7 @@ const Footer = () => {
                   <ul>
                     {taxyaar.links.map((link) => (
                       <li key={link}>
-                        <a href="#">{link}</a>
+                        <Link to={'/'}>{link}</Link>
                       </li>
                     ))}
                   </ul>
@@ -63,7 +65,7 @@ const Footer = () => {
                   <ul>
                     {importantTools.links.map((link) => (
                       <li key={link}>
-                        <a href="#">{link}</a>
+                        <Link to={'/'}>{link}</Link>
                       </li>
                     ))}
                   </ul>
@@ -75,7 +77,7 @@ const Footer = () => {
                   <ul>
                     {corporate.links.map((link) => (
                       <li key={link}>
-                        <a href="#">{link}</a>
+                        <Link to={'/'}>{link}</Link>
                       </li>
                     ))}
                   </ul>
@@ -87,7 +89,7 @@ const Footer = () => {
                   <ul>
                     {otherLinks.links.map((link) => (
                       <li key={link}>
-                        <a href="#">{link}</a>
+                        <Link to={'/'}>{link}</Link>
                       </li>
                     ))}
                   </ul>

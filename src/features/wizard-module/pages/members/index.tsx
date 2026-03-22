@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from "react"
+
 import { MoreVertical } from "lucide-react"
 import { Link, useRouter } from "@tanstack/react-router"
 import Breadcrumb from '../../components/CustomBreadCrumb';
@@ -10,19 +10,20 @@ import { DropdownMenuItem } from "@radix-ui/react-dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { IconArrowRight, IconEdit, IconRecycle } from "@tabler/icons-react";
 import { useAuthenticationUser } from "../../data/queryOptions";
-import { useWizardModule } from "../../contexts/wizard_module-context";
+
 import type { TaxFilerData } from "../../data/schema";
+import { useWizardModule } from "../../contexts/wizard_module-context";
 
 
 
 
-const isPanVerified = (pan: string): boolean => {
-  const stored = localStorage.getItem("verifiedPans");
-  if (!stored) return false;
+// const isPanVerified = (pan: string): boolean => {
+//   const stored = localStorage.getItem("verifiedPans");
+//   if (!stored) return false;
 
-  const verifiedMap = JSON.parse(stored);
-  return !!verifiedMap[pan];
-};
+//   const verifiedMap = JSON.parse(stored);
+//   return !!verifiedMap[pan];
+// };
 const memberData: TaxFilerData[] = [
   { firstName: "Sourav", lastName: "Gupta", pan: "LWAPT2025A", dateOfBirth: "1995-01-01", isVerified: true },
   { firstName: "Sourav", lastName: "Gupta", pan: "LWAPT2025C", dateOfBirth: "1995-01-01", isVerified: true },
@@ -33,41 +34,43 @@ const memberData: TaxFilerData[] = [
 export default function MembersPage() {
 
   const router = useRouter();
-  const { member, setMember } = useWizardModule();
+  const { setMember } = useWizardModule();
   const authMutation = useAuthenticationUser();
 
-  useEffect(() => {
-    const data = sessionStorage.getItem("taxFilerData") ?? JSON.stringify(memberData[0]) ?? null;
-    console.log("parsed: ", data)
-    if (data) {
-      const parsed = JSON.parse(data)
-      setMember({
-        firstName: parsed.firstName,
-        lastName: parsed.lastName,
-        pan: parsed.pan || "EMPG3394H",
-        dateOfBirth: parsed.dateOfBirth,
-        isVerified: parsed.isVerified || isPanVerified(parsed.pan)
-        // isVerified: isPanVerified(parsed.pan)
-      })
-    }
+  // useEffect(() => {
+  //   const data = sessionStorage.getItem("taxFilerData") ?? JSON.stringify(memberData[0]) ?? null;
+  //   console.log("parsed: ", data)
+  //   if (data) {
+  //     const parsed = JSON.parse(data)
+  //     setMember({
+  //       firstName: parsed.firstName,
+  //       lastName: parsed.lastName,
+  //       pan: parsed.pan || "EMPG3394H",
+  //       dateOfBirth: parsed.dateOfBirth,
+  //       isVerified: parsed.isVerified || isPanVerified(parsed.pan)
+  //       // isVerified: isPanVerified(parsed.pan)
+  //     })
+  //   }
 
-  }, [])
-
-
+  // }, [])
 
 
-  if (!member) {
-    return <div className="flex items-center justify-center min-h-screen">Loading...</div>
-  }
+
+
+  // if (!member) {
+  //   return <div className="flex items-center justify-center min-h-screen">Loading...</div>
+  // }
 
 
   const onHandleAddClient = (member: TaxFilerData) => {
 
-    if (isPanVerified(member.pan)) {
-      sessionStorage.setItem("taxFilerData", JSON.stringify(member));
-      router.navigate({ to: "/dashboard_filer" });
-      return;
-    }
+    setMember(member)
+
+    // if (isPanVerified(member.pan)) {
+    //   sessionStorage.setItem("taxFilerData", JSON.stringify(member));
+    //   router.navigate({ to: "/dashboard_filer" });
+    //   return;
+    // }
 
     authMutation.mutate(undefined, {
       onSuccess: (res) => {
@@ -79,7 +82,7 @@ export default function MembersPage() {
         }
 
         localStorage.setItem("autkn", token);
-        sessionStorage.setItem("taxFillerData", JSON.stringify(member));
+        sessionStorage.setItem("taxFilerData", JSON.stringify(member));
 
         router.navigate({ to: "/department_add_client" });
       },

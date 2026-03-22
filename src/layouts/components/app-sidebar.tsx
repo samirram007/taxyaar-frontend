@@ -18,7 +18,7 @@ import { NavUser } from './nav-user';
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const sidebar = useSidebar()
   return (
-    <Sidebar collapsible='icon' variant='floating' {...props}>
+    <Sidebar collapsible='icon' variant="inset" className="top-(--header-height) h-[calc(100svh-var(--header-height))]!" {...props}>
       <SidebarHeader>
         <div className='flex flex-col items-center justify-between'>
           <div className="grid grid-cols-[40px_1fr] justify-center w-full items-center ">

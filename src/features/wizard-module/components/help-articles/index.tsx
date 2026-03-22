@@ -15,6 +15,7 @@ import { useQuery } from '@tanstack/react-query'
 import './render.css'
 
 const helpUrl = import.meta.env.VITE_HELP_URL || "https://help.taxyaar.com"
+
 const helpArticles = [
     {
         page: "dashboard",
