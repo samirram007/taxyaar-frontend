@@ -7,29 +7,10 @@ import HelpSidebar from "../../components/HelpSidebar"
 import WizardFooter from "../../components/wizard_footer"
 
 import WizardHeader from "../../components/wizard_header"
+import { useWizardModule } from "../../contexts/wizard_module-context"
 
 
-const questions = [
-    {
-        id: 1,
-        question: "Deductions",
-        description: "Only pension funds (NPS)",
-        answer: undefined as "yes" | "no" | undefined
-    },
-    {
-        id: 2,
-        question: "Tax Relief on Salary arrears received",
-        description: "Tax Relief u/s 89 is applicable if you have received arrears of Salary. Select “Yes” if you have received any portion of salary(including pension and gratuity) pertaining to earlier years in 2024-25 and tax relief u/s 89 is to be claimed on it.",
-        answer: undefined as "yes" | "no" | undefined
-    },
-    {
-        id: 3,
-        question: "Tax Relief on Taxes paid outside India",
-        description: "Select \"Yes\" if you have earned any Income outside India.",
-        answer: undefined as "yes" | "no" | undefined
-    }
 
-]
 // y y n Relief on Salary Arrears
 // y y y Relief on Salary Arrears
 // n y y Relief on Salary Arrears
@@ -38,11 +19,27 @@ const questions = [
 // n n n Taxes Paid
 const DeductionStart = () => {
 
-    const [questionsState, setQuestionsState] = useState(questions)
+    // const [deductionQuestionsState, setDeductionQuestionsState] = useState(deductionQuestions)
+    const { setDeductionType, deductionQuestionsState, setDeductionQuestionsState } = useWizardModule()
 
     // const routeOptions = ['salary_arrears', , 'foreign_tax_relief', 'taxes_paid']
 
     // const chosenOption = 'taxes_paid'
+    const handleValueChange = (id: number) => (value: "yes" | "no") => {
+        setDeductionQuestionsState((prev) => {
+            const nextValue = prev.map((q) => {
+                if (q.id === id) {
+                    return { ...q, answer: value }
+                }
+                return q
+            })
+            // if three questions are answered then only set the deduction type
+            if (nextValue.every((q) => q.answer !== undefined)) {
+                setDeductionType(nextValue[0].answer!, nextValue[1].answer!, nextValue[2].answer!)
+            }
+            return nextValue
+        })
+    }
 
     return (
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8  ">
@@ -61,7 +58,7 @@ const DeductionStart = () => {
                                 <div className="my-12 space-y-8 ">
 
 
-                                    {questionsState.map((q) => (
+                                    {deductionQuestionsState.map((q) => (
                                         <div key={q.id}>
                                             <div className="grid grid-cols-[1fr_auto] justify-center items-start gap-6 border-b pb-6">
                                                 <div key={q.id} className="space-y-1">
@@ -77,12 +74,7 @@ const DeductionStart = () => {
 
                                                     <YesNoToggle
                                                         value={q.answer}
-                                                        onChange={(value) => {
-                                                            const updatedQuestions = questionsState.map((question) =>
-                                                                question.id === q.id ? { ...question, answer: value } : question
-                                                            )
-                                                            setQuestionsState(updatedQuestions)
-                                                        }}
+                                                        onChange={handleValueChange(q.id)}
                                                     />
                                                     {/* {q.optionalQuestions ? 'yes' : ''}
                                                 {q.answer === "yes" ? "yes" : "no"} */}
