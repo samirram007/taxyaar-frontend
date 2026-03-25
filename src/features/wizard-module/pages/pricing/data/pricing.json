@@ -1,0 +1,280 @@
+{
+  "hero": {
+    "heading": "Our pricing is the best in the industry",
+    "sectionTitle": "Self Filing Plans",
+    "mobileOfferText": "Prefer mobile app? File for ₹49 only",
+    "mobileOfferCta": "Download now"
+  },
+  "plans": [
+    {
+      "name": "Salary Income Plan",
+      "price": "199",
+      "subtitle": "Inclusive of taxes. No hidden cost",
+      "description": "For tax payers earning salary and interest only",
+      "features": ["Salary", "Bank Interest", "Pension", "House Property"],
+      "emphasized": true
+    },
+    {
+      "name": "All Income Plan",
+      "price": "499",
+      "subtitle": "Inclusive of taxes. No hidden cost",
+      "description": "For tax payers with complex return",
+      "features": [
+        "Salary, Interest, Pension",
+        "Capital Gains",
+        "Foreign Income",
+        "Everything else"
+      ],
+      "emphasized": false
+    }
+  ],
+  "trustedSection": {
+    "heading": "Trusted by employees from over 2000 companies",
+    "subheading": "We are India's oldest income tax e-filing service provider registered with incometax.gov.in",
+    "logos": [
+      "BLUE DART",
+      "ICICI Bank",
+      "Cipla",
+      "Cognizant",
+      "EY",
+      "Tech Mahindra",
+      "Mindtree",
+      "Mastek",
+      "LARSEN & TOUBRO",
+      "ERICSSON",
+      "AXIS BANK"
+    ]
+  },
+  "comparison": {
+    "heading": "Detailed Plan description",
+    "tabs": ["Self", "Assisted"],
+    "self": [
+      {
+        "feature": "Salary",
+        "columns": [
+          { "label": "Mobile", "included": true },
+          { "label": "Salary Income Plan", "included": true },
+          { "label": "All Income Plan", "included": true }
+        ]
+      },
+      {
+        "feature": "Pension",
+        "columns": [
+          { "label": "Mobile", "included": true },
+          { "label": "Salary Income Plan", "included": true },
+          { "label": "All Income Plan", "included": true }
+        ]
+      },
+      {
+        "feature": "Claim Rent Paid",
+        "columns": [
+          { "label": "Mobile", "included": true },
+          { "label": "Salary Income Plan", "included": true },
+          { "label": "All Income Plan", "included": true }
+        ]
+      },
+      {
+        "feature": "Interest Income",
+        "columns": [
+          { "label": "Mobile", "included": true },
+          { "label": "Salary Income Plan", "included": true },
+          { "label": "All Income Plan", "included": true }
+        ]
+      },
+      {
+        "feature": "Housing Loan",
+        "columns": [
+          { "label": "Mobile", "included": false },
+          { "label": "Salary Income Plan", "included": true },
+          { "label": "All Income Plan", "included": true }
+        ]
+      },
+      {
+        "feature": "Rental Income",
+        "columns": [
+          { "label": "Mobile", "included": false },
+          { "label": "Salary Income Plan", "included": false },
+          { "label": "All Income Plan", "included": true }
+        ]
+      },
+      {
+        "feature": "Business & Profession",
+        "columns": [
+          { "label": "Mobile", "included": false },
+          { "label": "Salary Income Plan", "included": false },
+          { "label": "All Income Plan", "included": true }
+        ]
+      },
+      {
+        "feature": "Freelancing & Consulting Income",
+        "columns": [
+          { "label": "Mobile", "included": false },
+          { "label": "Salary Income Plan", "included": false },
+          { "label": "All Income Plan", "included": true }
+        ]
+      },
+      {
+        "feature": "Seventh Proviso",
+        "columns": [
+          { "label": "Mobile", "included": true },
+          { "label": "Salary Income Plan", "included": false },
+          { "label": "All Income Plan", "included": true }
+        ]
+      },
+      {
+        "feature": "Dividend Income",
+        "columns": [
+          { "label": "Mobile", "included": false },
+          { "label": "Salary Income Plan", "included": false },
+          { "label": "All Income Plan", "included": true }
+        ]
+      },
+      {
+        "feature": "Income from Mutual Funds",
+        "columns": [
+          { "label": "Mobile", "included": false },
+          { "label": "Salary Income Plan", "included": false },
+          { "label": "All Income Plan", "included": true }
+        ]
+      },
+      {
+        "feature": "Income from Sale of Property",
+        "columns": [
+          { "label": "Mobile", "included": false },
+          { "label": "Salary Income Plan", "included": false },
+          { "label": "All Income Plan", "included": true }
+        ]
+      },
+      {
+        "feature": "Income from Shares",
+        "columns": [
+          { "label": "Mobile", "included": false },
+          { "label": "Salary Income Plan", "included": false },
+          { "label": "All Income Plan", "included": true }
+        ]
+      },
+      {
+        "feature": "Crypto Income",
+        "columns": [
+          { "label": "Mobile", "included": false },
+          { "label": "Salary Income Plan", "included": false },
+          { "label": "All Income Plan", "included": true }
+        ]
+      },
+      {
+        "feature": "Foreign Assets",
+        "columns": [
+          { "label": "Mobile", "included": false },
+          { "label": "Salary Income Plan", "included": false },
+          { "label": "All Income Plan", "included": true }
+        ]
+      },
+      {
+        "feature": "Online Gaming & Lottery Income",
+        "columns": [
+          { "label": "Mobile", "included": false },
+          { "label": "Salary Income Plan", "included": false },
+          { "label": "All Income Plan", "included": true }
+        ]
+      },
+      {
+        "feature": "Director Details",
+        "columns": [
+          { "label": "Mobile", "included": false },
+          { "label": "Salary Income Plan", "included": false },
+          { "label": "All Income Plan", "included": true }
+        ]
+      },
+      {
+        "feature": "Exempt Income",
+        "columns": [
+          { "label": "Mobile", "included": false },
+          { "label": "Salary Income Plan", "included": false },
+          { "label": "All Income Plan", "included": true }
+        ]
+      },
+      {
+        "feature": "Income from Agriculture",
+        "columns": [
+          { "label": "Mobile", "included": false },
+          { "label": "Salary Income Plan", "included": false },
+          { "label": "All Income Plan", "included": true }
+        ]
+      },
+      {
+        "feature": "Losses",
+        "columns": [
+          { "label": "Mobile", "included": false },
+          { "label": "Salary Income Plan", "included": false },
+          { "label": "All Income Plan", "included": true }
+        ]
+      },
+      {
+        "feature": "Relief 89 / Arrear",
+        "columns": [
+          { "label": "Mobile", "included": false },
+          { "label": "Salary Income Plan", "included": false },
+          { "label": "All Income Plan", "included": true }
+        ]
+      },
+      {
+        "feature": "Relief Foreign",
+        "columns": [
+          { "label": "Mobile", "included": false },
+          { "label": "Salary Income Plan", "included": false },
+          { "label": "All Income Plan", "included": true }
+        ]
+      },
+      {
+        "feature": "Unlisted Shares",
+        "columns": [
+          { "label": "Mobile", "included": false },
+          { "label": "Salary Income Plan", "included": false },
+          { "label": "All Income Plan", "included": true }
+        ]
+      }
+    ],
+    "assisted": [
+      {
+        "feature": "Plan Type",
+        "columns": [
+          { "label": "Assisted Basic", "included": true },
+          { "label": "Assisted Plus", "included": true },
+          { "label": "Expert Assisted", "included": true }
+        ]
+      },
+      {
+        "feature": "Salary & Pension Filing",
+        "columns": [
+          { "label": "Assisted Basic", "included": true },
+          { "label": "Assisted Plus", "included": true },
+          { "label": "Expert Assisted", "included": true }
+        ]
+      },
+      {
+        "feature": "Capital Gains",
+        "columns": [
+          { "label": "Assisted Basic", "included": false },
+          { "label": "Assisted Plus", "included": true },
+          { "label": "Expert Assisted", "included": true }
+        ]
+      },
+      {
+        "feature": "Notice Support",
+        "columns": [
+          { "label": "Assisted Basic", "included": false },
+          { "label": "Assisted Plus", "included": true },
+          { "label": "Expert Assisted", "included": true }
+        ]
+      },
+      {
+        "feature": "Dedicated Tax Expert",
+        "columns": [
+          { "label": "Assisted Basic", "included": false },
+          { "label": "Assisted Plus", "included": false },
+          { "label": "Expert Assisted", "included": true }
+        ]
+      }
+    ]
+  }
+}

@@ -47,7 +47,7 @@ const ImportCGShares = () => {
       <div className="body">
         <HeroSection onStartNowClick={handleScrollToBrokerSection} />
         <section ref={brokerSectionRef} className="bg-gray-50 py-10! px-8!">
-          <div className="max-w-6xl mx-auto flex gap-8">
+          <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8">
             <StepSidebar currentStep={currentStep} />
             {brokerId ? (
               <BrokerFileSelection

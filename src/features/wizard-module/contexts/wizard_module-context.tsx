@@ -25,7 +25,7 @@ interface Props {
 export default function WizardModuleProvider({ children }: Props) {
     const [open, setOpen] = useDialogState<WizardModuleDialogType>(null)
     const [currentRow, setCurrentRow] = useState<Article | null>(null)
-    const [member, _setMember] = useState<TaxFilerData | null>(null);
+    const [member, _setMember] = useState<TaxFilerData | null>(sessionStorage.getItem("taxFilerData") ? JSON.parse(sessionStorage.getItem("taxFilerData")!) : null);
     const setMember: React.Dispatch<React.SetStateAction<TaxFilerData | null>> = (value) => {
         _setMember((prev) => {
             const nextValue = typeof value === 'function' ? value(prev) : value

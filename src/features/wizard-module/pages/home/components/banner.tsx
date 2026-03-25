@@ -11,8 +11,8 @@ const Banner: React.FC = () => {
     cssEase: 'linear',
     infinite: true,
     autoplay: true,
-    speed: 3000,
-    autoplaySpeed: 5000,
+    speed: 5000,
+    autoplaySpeed: 8000,
     slidesToShow: 1,
     adaptiveHeight: true,
     prevArrow: (

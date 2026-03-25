@@ -1,149 +1,204 @@
-"use client";
+'use client'
 
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import BreadCrumb from "../../components/CustomBreadCrumb";
-import { Button } from "@/components/ui/button";
-import SupportDropDown from "../../components/support/support";
-import { useRouter } from "@tanstack/react-router";
-import { useState } from "react";
-import { Input } from "@/components/ui/input";
-import { useAddClient, useValidateAddClient } from "../../data/queryOptions";
-import { toast } from "sonner";
-import OTPCard from "./components/OTPCard";
-import VerificationCard from "./components/VerificationCard";
-import RegistrationCard from "./components/RegistrationCard";
+// build err
 
-function getValidUpto(monthsToAdd: number) {
+// import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import BreadCrumb from '../../components/CustomBreadCrumb'
+// build err
 
-    const date = new Date();
+// import { Button } from "@/components/ui/button";
+import SupportDropDown from '../../components/support/support'
+import { useRouter } from '@tanstack/react-router'
+import { useState } from 'react'
+// build err
 
-    date.setMonth(date.getMonth() + monthsToAdd);
+// import { Input } from "@/components/ui/input";
+// build err
 
-    // Manually format the new Date object back to 'YYYY-MM-DD'
-    const year = date.getFullYear();
-    // getMonth() is 0-based, so add 1 and pad with a leading '0' if necessary.
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    // getDate() returns the day of the month (1-31).
-    const day = String(date.getDate()).padStart(2, '0');
+// import { useAddClient, useValidateAddClient } from "../../data/queryOptions";
+import { useAddClient, useValidateAddClient } from '../../data/queryOptions'
+// build err
 
-    return `${year}-${month}-${day}`;
-}
+// import { toast } from "sonner";
+import OTPCard from './components/OTPCard'
+import VerificationCard from './components/VerificationCard'
+import RegistrationCard from './components/RegistrationCard'
 
+// build err : for commenting other imports had to comment this
+
+// function getValidUpto(monthsToAdd: number) {
+//
+//     const date = new Date();
+//
+//     date.setMonth(date.getMonth() + monthsToAdd);
+//
+//     // Manually format the new Date object back to 'YYYY-MM-DD'
+//     const year = date.getFullYear();
+//     // getMonth() is 0-based, so add 1 and pad with a leading '0' if necessary.
+//     const month = String(date.getMonth() + 1).padStart(2, '0');
+//     // getDate() returns the day of the month (1-31).
+//     const day = String(date.getDate()).padStart(2, '0');
+//
+//     return `${year}-${month}-${day}`;
+// }
 
 export function DepartmentAddClientPage() {
-    const [requestOtp, setRequestOtp] = useState(false);
-    const router = useRouter();
-    const validateClientMutation = useValidateAddClient();
-    const addClientMutation = useAddClient();
-    const [clientVerified, setClientVerified] = useState<boolean | null>(null);
+  const [requestOtp, setRequestOtp] = useState(false)
+  const router = useRouter()
+  // build err
 
-    const handleRequestOtp = () => {
-        setClientVerified(true);
+  // const validateClientMutation = useValidateAddClient();
+  const addClientMutation = useAddClient()
 
-        // const memberData = sessionStorage.getItem("taxFillerData");
-        // const token = localStorage.getItem("autkn");
+  const [clientVerified /*, setClientVerified */] = useState<boolean | null>(
+    null,
+  )
 
-        // if (!memberData || !token) {
-        //     alert("Session expired. Please login again.");
-        //     router.navigate({ to: "/dashboard" });
-        //     return;
-        // }
+  const handleRequestOtp = () => {
+    const memberData = sessionStorage.getItem('taxFillerData')
+    const token = localStorage.getItem('autkn')
 
-        // const parsed = JSON.parse(memberData);
+    if (!memberData || !token) {
+      alert('Session expired. Please login again.')
+      router.navigate({ to: '/dashboard' })
+      return
+    }
 
-        // addClientMutation.mutate(
-        //     {
-        //         pan: parsed.pan,
-        //         dateOfBirth: parsed.dateOfBirth,
-        //         authToken: token
-        //     },
-        //     {
-        //         onSuccess: (data) => {
-        //             setRequestOtp(true);
-        //             localStorage.setItem("transactionId", data.data.data.result.transactionId)
-        //         },
-        //         onError: (error) => {
-        //             alert(error.message);
-        //         }
-        //     }
-        // );
-    };
+    const parsed = JSON.parse(memberData)
 
-    const handleVerifyOtp = () => {
+    addClientMutation.mutate(
+      {
+        pan: parsed.pan,
+        dateOfBirth: parsed.dateOfBirth,
+        authToken: token,
+      },
+      {
+        onSuccess: (data) => {
+          setRequestOtp(true)
+          localStorage.setItem(
+            'transactionId',
+            data.data.data.result.transactionId,
+          )
+        },
+        onError: (error) => {
+          alert(error.message)
+        },
+      },
+    )
+  }
 
-        const memberData = sessionStorage.getItem("taxFillerData");
-        const token = localStorage.getItem("autkn");
-        const transactionId = localStorage.getItem("transactionId");
+  // build err
 
-        console.log("", transactionId, token, memberData);
+  // const handleVerifyOtp = () => {
+  //
+  //     const memberData = sessionStorage.getItem("taxFillerData");
+  //     const token = localStorage.getItem("autkn");
+  //     const transactionId = localStorage.getItem("transactionId");
+  //
+  //     console.log("", transactionId, token, memberData);
+  //
+  //     if (!memberData || !token || !transactionId) {
+  //         alert("Session expired. Please try again.");
+  //         return;
+  //     }
+  //
+  //     const parsed = JSON.parse(memberData);
+  //
+  //     validateClientMutation.mutate(
+  //         {
+  //             Pan: parsed.pan,
+  //             transactionId: transactionId,
+  //             Otp: "otp",
+  //             validUpto: getValidUpto(3),
+  //             authToken: token
+  //         },
+  //         {
+  //             onSuccess: (data) => {
+  //                 if (data.data.data.result.httpStatus == "REJECTED") {
+  //                     toast.error(data.data.data.result.errors[0].desc);
+  //                     return;
+  //                 }
+  //                 const memberData = sessionStorage.getItem("taxFillerData");
+  //                 if (memberData) {
+  //                     const { pan } = JSON.parse(memberData);
+  //
+  //                     const stored = localStorage.getItem("verifiedPans");
+  //                     const verifiedMap = stored ? JSON.parse(stored) : {};
+  //
+  //                     verifiedMap[pan] = true;
+  //
+  //                     localStorage.setItem("verifiedPans", JSON.stringify(verifiedMap));
+  //                 }
+  //
+  //                 router.navigate({ to: "/dashboard_filer" });
+  //             },
+  //             onError: (error) => {
+  //                 alert(error.message);
+  //             }
+  //         }
+  //     );
+  // };
 
-        if (!memberData || !token || !transactionId) {
-            alert("Session expired. Please try again.");
-            return;
-        }
+  // validateClientMutation.mutate(
+  //   {
+  //     Pan: parsed.pan,
+  //     transactionId: transactionId,
+  //     Otp: "otp",
+  //     validUpto: getValidUpto(3),
+  //     authToken: token
+  //   },
+  //   {
+  //     onSuccess: (data) => {
+  //       if (data.data.data.result.httpStatus == "REJECTED") {
+  //         toast.error(data.data.data.result.errors[0].desc);
+  //         return;
+  //       }
+  //       const memberData = sessionStorage.getItem("taxFillerData");
+  //       if (memberData) {
+  //         const { pan } = JSON.parse(memberData);
 
-        const parsed = JSON.parse(memberData);
+  //         const stored = localStorage.getItem("verifiedPans");
+  //         const verifiedMap = stored ? JSON.parse(stored) : {};
 
-        validateClientMutation.mutate(
+  //         verifiedMap[pan] = true;
+
+  //         localStorage.setItem("verifiedPans", JSON.stringify(verifiedMap));
+  //       }
+
+  //       router.navigate({ to: "/dashboard_filer" });
+  //     },
+  //     onError: (error) => {
+  //       alert(error.message);
+  //     }
+  //   }
+  // );
+
+
+  return (
+    <div className="min-h-screen">
+      <BreadCrumb title="Verify User" />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid lg:grid-cols-3 gap-8">
+
+          <div className="lg:col-span-2 space-y-6">
             {
-                Pan: parsed.pan,
-                transactionId: transactionId,
-                Otp: "otp",
-                validUpto: getValidUpto(3),
-                authToken: token
-            },
-            {
-                onSuccess: (data) => {
-                    if (data.data.data.result.httpStatus == "REJECTED") {
-                        toast.error(data.data.data.result.errors[0].desc);
-                        return;
-                    }
-                    const memberData = sessionStorage.getItem("taxFillerData");
-                    if (memberData) {
-                        const { pan } = JSON.parse(memberData);
-
-                        const stored = localStorage.getItem("verifiedPans");
-                        const verifiedMap = stored ? JSON.parse(stored) : {};
-
-                        verifiedMap[pan] = true;
-
-                        localStorage.setItem("verifiedPans", JSON.stringify(verifiedMap));
-                    }
-
-                    router.navigate({ to: "/dashboard_filer" });
-                },
-                onError: (error) => {
-                    alert(error.message);
-                }
+              clientVerified == true ?
+                <RegistrationCard />
+                :
+                requestOtp ?
+                  <OTPCard />
+                  :
+                  <VerificationCard onHandleRequestOtp={handleRequestOtp} />
             }
-        );
-    };
+          </div>
 
-    return (
-        <div className="min-h-screen">
-            <BreadCrumb title="Verify User" />
+          <div className="lg:col-span-1">
+            <SupportDropDown />
+          </div>
 
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-                <div className="grid lg:grid-cols-3 gap-8">
-
-                    <div className="lg:col-span-2 space-y-6">
-                        {
-                            clientVerified == true ?
-                                <RegistrationCard />
-                                :
-                                requestOtp ?
-                                    <OTPCard />
-                                    :
-                                    <VerificationCard onHandleRequestOtp={handleRequestOtp} />
-                        }
-                    </div>
-
-                    <div className="lg:col-span-1">
-                        <SupportDropDown />
-                    </div>
-
-                </div>
-            </div>
         </div>
-    );
+      </div>
+    </div>
+  )
 }

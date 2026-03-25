@@ -69,18 +69,24 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   }
 
   return (
-    <div className={cn('grid gap-6', className)} {...props}>
+    <div className={cn('grid! gap-4!', className)} {...props}>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
-          <div className="grid gap-2">
+          <div className="grid! gap-4!">
             <FormField
               control={form.control}
               name="email"
               render={({ field }) => (
-                <FormItem className="space-y-1">
-                  <FormLabel>Email</FormLabel>
+                <FormItem className="space-y-1!">
+                  <FormLabel className="text-sm! font-medium! text-slate-600!">
+                    Your email
+                  </FormLabel>
                   <FormControl>
-                    <Input placeholder="name@example.com" {...field} />
+                    <Input
+                      placeholder=""
+                      className="h-11! rounded-sm! border-slate-300! bg-white! text-sm!"
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -90,25 +96,34 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               control={form.control}
               name="password"
               render={({ field }) => (
-                <FormItem className="space-y-1">
-                  <div className="flex items-center justify-between">
-                    <FormLabel>Password</FormLabel>
+                <FormItem className="space-y-1!">
+                  <div className="flex! items-center! justify-between!">
+                    <FormLabel className="text-sm! font-medium! text-slate-600!">
+                      Password
+                    </FormLabel>
                     <Link
                       to="/forgot-password"
-                      className="text-sm font-medium text-muted-foreground hover:opacity-75"
+                      className="text-sm! font-medium! text-sky-600! hover:opacity-80!"
                     >
-                      Forgot password?
+                      Forgot Password?
                     </Link>
                   </div>
                   <FormControl>
-                    <PasswordInput placeholder="********" {...field} />
+                    <PasswordInput
+                      placeholder=""
+                      className="h-11!  "
+                      {...field}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button className="mt-2" disabled={isLoading}>
-              Login
+            <Button
+              className="mt-2! h-11! w-full! rounded-sm! bg-blue-600! text-base! font-semibold! text-white! hover:bg-blue-700!"
+              disabled={isLoading}
+            >
+              Continue
             </Button>
           </div>
         </form>

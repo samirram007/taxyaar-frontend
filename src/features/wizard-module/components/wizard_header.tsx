@@ -2,20 +2,20 @@
 
 import { useWizardModule } from '../contexts/wizard_module-context'
 
-import { useRouter } from '@tanstack/react-router';
+// import { useRouter } from '@tanstack/react-router';
 
 
-import { Route as DashboardRoute } from '@/routes/_protected/_filer/dashboard'
+// import { Route as DashboardRoute } from '@/routes/_protected/_filer/dashboard'
 
 
 
 const WizardHeader = () => {
-    const router = useRouter()
+    // const router = useRouter()
     const { member } = useWizardModule()
     const assessmentYear = "2025-26"
 
     if (!member) {
-        router.navigate({ to: DashboardRoute.path, replace: true });
+        //router.navigate({ to: DashboardRoute.path, replace: true });
         return null;
     }
     return (
