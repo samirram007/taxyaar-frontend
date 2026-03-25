@@ -11,25 +11,26 @@ export default function CustomBreadcrumb({ title = "Page" }: { title?: string })
   const { mutate } = useLogout()
 
   const onHandleHome = () => {
+    router.navigate({ to: "/dashboard" })
 
-    const pan = sessionStorage.getItem("pan");
-    if (pan == null) {
-      return;
-    }
+    // const pan = sessionStorage.getItem("pan");
+    // if (pan == null) {
+    //   return;
+    // }
 
-    mutate(
-      {
-        pan: pan,
-      },
-      {
-        onSuccess: () => {
-          router.navigate({ to: "/dashboard" })
-        },
-        onError: () => {
-          router.navigate({ to: "/dashboard" })
-        }
-      }
-    )
+    // mutate(
+    //   {
+    //     pan: pan,
+    //   },
+    //   {
+    //     onSuccess: () => {
+    //       router.navigate({ to: "/dashboard" })
+    //     },
+    //     onError: () => {
+    //       router.navigate({ to: "/dashboard" })
+    //     }
+    //   }
+    // )
   }
 
   return (
