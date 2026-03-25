@@ -1,6 +1,7 @@
 import tailwindcss from '@tailwindcss/vite'
 import viteReact from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
+import basicSsl from "@vitejs/plugin-basic-ssl";
 
 import tanstackRouter from '@tanstack/router-plugin/vite'
 import { resolve } from 'node:path'
@@ -14,6 +15,7 @@ export default defineConfig({
     }),
     viteReact(),
     tailwindcss(),
+    basicSsl()
   ],
   build: {
     // ssr: 'src/entry-server.tsx', // for server rendering

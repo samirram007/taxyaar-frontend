@@ -11,12 +11,12 @@ interface RetryableRequestConfig extends InternalAxiosRequestConfig {
 
 // Create Axios instance
 const springClient: AxiosInstance = axios.create({
-    baseURL: import.meta.env.VITE_API_SPRING_URL,
+    baseURL: import.meta.env.VITE_API_ERI_BASE_URL,
     // baseURL: '/api',
-    withCredentials: false,
-    // headers: {
-    //     'Content-Type': 'application/json',
-    // },
+    withCredentials: true,
+    headers: {
+        'Content-Type': 'application/json',
+    },
 })
 
 
@@ -37,9 +37,6 @@ async function refreshToken(): Promise<void> {
 // Request interceptor (optional if you want to attach tokens manually)
 springClient.interceptors.request.use(
     (config) => {
-        // Optional: attach tokens manually from cookies/localStorage/context
-        // const token = getToken()
-        // if (token) config.headers.Authorization = `Bearer ${token}`
         return config
     },
     (error) => Promise.reject(error)

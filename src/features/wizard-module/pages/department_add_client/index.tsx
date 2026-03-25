@@ -38,34 +38,35 @@ export function DepartmentAddClientPage() {
     const [clientVerified, setClientVerified] = useState<boolean | null>(null);
 
     const handleRequestOtp = () => {
+        setClientVerified(true);
 
-        const memberData = sessionStorage.getItem("taxFillerData");
-        const token = localStorage.getItem("autkn");
+        // const memberData = sessionStorage.getItem("taxFillerData");
+        // const token = localStorage.getItem("autkn");
 
-        if (!memberData || !token) {
-            alert("Session expired. Please login again.");
-            router.navigate({ to: "/dashboard" });
-            return;
-        }
+        // if (!memberData || !token) {
+        //     alert("Session expired. Please login again.");
+        //     router.navigate({ to: "/dashboard" });
+        //     return;
+        // }
 
-        const parsed = JSON.parse(memberData);
+        // const parsed = JSON.parse(memberData);
 
-        addClientMutation.mutate(
-            {
-                pan: parsed.pan,
-                dateOfBirth: parsed.dateOfBirth,
-                authToken: token
-            },
-            {
-                onSuccess: (data) => {
-                    setRequestOtp(true);
-                    localStorage.setItem("transactionId", data.data.data.result.transactionId)
-                },
-                onError: (error) => {
-                    alert(error.message);
-                }
-            }
-        );
+        // addClientMutation.mutate(
+        //     {
+        //         pan: parsed.pan,
+        //         dateOfBirth: parsed.dateOfBirth,
+        //         authToken: token
+        //     },
+        //     {
+        //         onSuccess: (data) => {
+        //             setRequestOtp(true);
+        //             localStorage.setItem("transactionId", data.data.data.result.transactionId)
+        //         },
+        //         onError: (error) => {
+        //             alert(error.message);
+        //         }
+        //     }
+        // );
     };
 
     const handleVerifyOtp = () => {
@@ -127,7 +128,7 @@ export function DepartmentAddClientPage() {
 
                     <div className="lg:col-span-2 space-y-6">
                         {
-                            clientVerified == false ?
+                            clientVerified == true ?
                                 <RegistrationCard />
                                 :
                                 requestOtp ?

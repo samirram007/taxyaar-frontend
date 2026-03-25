@@ -1,9 +1,11 @@
-import { Link, useRouter } from "@tanstack/react-router";
-import type { ClientList } from "../../taxfiler/data/schema";
+import { useRouter } from "@tanstack/react-router";
+import type { Client, ClientList } from "../../taxfiler/data/schema";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { MoreVertical } from "lucide-react";
 import { IconArrowRight, IconEdit, IconRecycle } from "@tabler/icons-react";
+import { useAuthenticationUser } from "@/features/wizard-module/data/queryOptions";
+import { toast } from "sonner";
 
 
 
@@ -12,6 +14,20 @@ import { IconArrowRight, IconEdit, IconRecycle } from "@tabler/icons-react";
 export default function MemeberList({ clientList }: { clientList: ClientList }) {
 
     const router = useRouter();
+    const { mutate } = useAuthenticationUser();
+
+    const onClientAuthentication = (client: Client) => {
+        mutate(client.pan, {
+            onError(error) {
+                toast.error(error.message);
+            },
+            onSuccess(data) {
+                sessionStorage.setItem("pan", data.data.data.result.pan);
+                router.navigate({ to: "/department_add_client" });
+            }
+        });
+    }
+
 
     return (
         <>
@@ -21,7 +37,7 @@ export default function MemeberList({ clientList }: { clientList: ClientList }) 
                     clientList.map((member, index) => (
                         <div key={index} className="bg-muted mb-3 rounded-lg p-4 flex items-center justify-between hover:bg-muted/80 transition cursor-pointer">
 
-                            <Link to={'/department_add_client'} className="flex gap-5" >
+                            <div onClick={() => onClientAuthentication(member)} className="flex gap-5" >
                                 <div className="flex items-center gap-4">
                                     <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center shrink-0">
                                         <span className="text-primary-foreground font-bold text-lg">{member.firstName?.charAt(0)}</span>
@@ -43,7 +59,7 @@ export default function MemeberList({ clientList }: { clientList: ClientList }) 
                                         </span>
                                     )}
                                 </div>
-                            </Link>
+                            </div>
 
 
 

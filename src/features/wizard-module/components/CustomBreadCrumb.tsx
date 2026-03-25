@@ -8,31 +8,21 @@ export default function CustomBreadcrumb({ title = "Page" }: { title?: string })
 
 
   const router = useRouter();
-  const logoutMutation = useLogout()
+  const { mutate } = useLogout()
 
   const onHandleHome = () => {
 
-    const token = localStorage.getItem("autkn")
-
-    const memberData = sessionStorage.getItem("taxFillerData")
-    const parsed = memberData ? JSON.parse(memberData) : null
-    const pan = parsed?.pan
-
-    if (!pan || !token) {
-      router.navigate({ to: "/dashboard" })
-      return
+    const pan = sessionStorage.getItem("pan");
+    if (pan == null) {
+      return;
     }
 
-    logoutMutation.mutate(
+    mutate(
       {
         pan: pan,
-        authToken: token
       },
       {
         onSuccess: () => {
-          localStorage.removeItem("autkn");
-          localStorage.removeItem("transactionId");
-          sessionStorage.clear()
           router.navigate({ to: "/dashboard" })
         },
         onError: () => {

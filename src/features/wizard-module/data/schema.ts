@@ -29,7 +29,7 @@ export const eriLoginSchema = z.object({
             ),
             entity: z.string(),
             transactionId: z.string(),
-            autkn: z.string(),
+            pan: z.string(),
         }),
     }),
 });

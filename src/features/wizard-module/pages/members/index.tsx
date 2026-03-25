@@ -69,7 +69,7 @@ export default function MembersPage() {
       return;
     }
 
-    authMutation.mutate(undefined, {
+    authMutation.mutate("undefined", {
       onSuccess: (res) => {
         const token = res?.data?.data?.result?.autkn;
 
@@ -148,14 +148,14 @@ export default function MembersPage() {
                               Verified
                             </span>
                           ) : (
-                              <span className="inline-block 
+                            <span className="inline-block 
                               bg-yellow-200/50 
                               text-yellow-800 
                               border border-yellow-400
                               text-xs font-semibold px-3 py-1 rounded-2xl shadow-md">
-                                <Link
-                                  to={'/department_add_client'}
-                                  className="px-"> Continue</Link>
+                              <Link
+                                to={'/department_add_client'}
+                                className="px-"> Continue</Link>
                             </span>
                           )}
                         </div>

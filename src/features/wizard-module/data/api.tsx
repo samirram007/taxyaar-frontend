@@ -17,11 +17,12 @@ export async function fetchArticleBySlug(slug: string) {
 
 
 
-export async function authenticationUser(): Promise<AxiosResponse<AuthResponse>> {
+export async function authenticationUser({ pan }: { pan: string }): Promise<AxiosResponse<AuthResponse>> {
     try {
-        const response = await axios.post<AuthResponse>(
-            'https://sign-api.taxyaar.com/api/auth/authenticate'
-        );
+        const response = await springClient.post<AuthResponse>(
+            '/auth/authenticate', {
+            "pan": pan
+        });
 
         return response;
     } catch (error: unknown) {
@@ -34,12 +35,9 @@ export async function authenticationUser(): Promise<AxiosResponse<AuthResponse>>
     }
 }
 
-export async function logout(pan: string, authToken: string): Promise<AxiosResponse<AuthResponse>> {
+export async function logout(): Promise<AxiosResponse<AuthResponse>> {
     try {
-        const response = await springClient.post<AuthResponse>('https://sign-api.taxyaar.com/api/auth/logout', {
-            pan: pan,
-            authToken: authToken
-        });
+        const response = await springClient.post<AuthResponse>('/auth/logout');
 
         return response;
     } catch (error: unknown) {

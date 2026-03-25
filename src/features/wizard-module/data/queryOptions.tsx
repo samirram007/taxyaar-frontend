@@ -14,8 +14,10 @@ export const articleSlugQueryOptions = (slug: string) => {
 }
 
 export function useAuthenticationUser() {
-    return useMutation<AxiosResponse<AuthResponse>, Error>({
-        mutationFn: authenticationUser,
+    return useMutation<AxiosResponse<AuthResponse>, Error, string>({
+        mutationFn: (pan: string) => {
+            return authenticationUser({ pan });
+        },
     });
 }
 
@@ -36,12 +38,11 @@ export function useValidateAddClient() {
 
 type LogoutPayload = {
     pan: string;
-    authToken: string;
 };
 
 export function useLogout() {
     return useMutation<AxiosResponse<AuthResponse>, Error, LogoutPayload>({
-        mutationFn: ({ pan, authToken }) => logout(pan, authToken),
+        mutationFn: ({ pan }) => logout(pan),
 
         onSuccess: () => {
             localStorage.removeItem("autkn");
