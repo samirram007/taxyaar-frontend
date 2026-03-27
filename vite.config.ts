@@ -17,6 +17,10 @@ export default defineConfig({
     tailwindcss(),
     // basicSsl()
   ],
+  server: {
+    port: 5173,
+    strictPort: true
+  },
   build: {
     // ssr: 'src/entry-server.tsx', // for server rendering
     // outDir: 'dist-ssr',

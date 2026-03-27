@@ -20,17 +20,17 @@ export default function MemeberList({ clientList }: { clientList: ClientList }) 
     const [selectedClient, setSelectedClient] = useState<Client | null>(null)
     const [open, setOpen] = useState<boolean>(false);
 
-    const onClientAuthentication = (client: Client) => {
-        mutate(client.pan, {
-            onError(error) {
-                toast.error(error.message);
-            },
-            onSuccess(data) {
-                sessionStorage.setItem("pan", data.data.data.result.pan);
-                router.navigate({ to: "/department_add_client" });
-            }
-        });
-    }
+    // const onClientAuthentication = (client: Client) => {
+    //     mutate(client.pan, {
+    //         onError(error) {
+    //             toast.error(error.message);
+    //         },
+    //         onSuccess(data) {
+    //             sessionStorage.setItem("pan", data.data.data.result.pan);
+    //             router.navigate({ to: "/department_add_client" });
+    //         }
+    //     });
+    // }
 
 
 
@@ -43,7 +43,7 @@ export default function MemeberList({ clientList }: { clientList: ClientList }) 
                     clientList.map((member, index) => (
                         <div key={index} className="bg-muted mb-3 rounded-lg p-4 flex items-center justify-between hover:bg-muted/80 transition cursor-pointer">
 
-                            <div onClick={() => onClientAuthentication(member)} className="flex gap-5" >
+                            <div onClick={() => router.navigate({ to: "/department_add_client" })} className="flex gap-5" >
                                 <div className="flex items-center gap-4">
                                     <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center shrink-0">
                                         <span className="text-primary-foreground font-bold text-lg">{member.firstName?.charAt(0)}</span>
