@@ -25,14 +25,13 @@ export function useClientMutation() {
     return useMutation({
         mutationFn: async (data: ClientForm & { id?: number }) => {
             if (data.id) {
-                // Update if id exists
                 return await updateClientService(data)
             }
-            // Otherwise create
             return await storeClientService(data)
         },
         onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: [BASE_KEY] })
+            queryClient.invalidateQueries({ queryKey: [BASE_KEY] });
+            queryClient.refetchQueries({ queryKey: [BASE_KEY] });
         },
         onError: (error) => {
             console.error("Client mutation failed:", error)

@@ -2,10 +2,12 @@ import { useRouter } from "@tanstack/react-router";
 import type { Client, ClientList } from "../../taxfiler/data/schema";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { MoreVertical } from "lucide-react";
-import { IconArrowRight, IconEdit, IconRecycle } from "@tabler/icons-react";
+import { MoreVertical, Trash2 } from "lucide-react";
+import { IconArrowRight, IconEdit } from "@tabler/icons-react";
 import { useAuthenticationUser } from "@/features/wizard-module/data/queryOptions";
 import { toast } from "sonner";
+import { DeleteModal } from "./DeleteModal";
+import { useState } from "react";
 
 
 
@@ -15,6 +17,8 @@ export default function MemeberList({ clientList }: { clientList: ClientList }) 
 
     const router = useRouter();
     const { mutate } = useAuthenticationUser();
+    const [selectedClient, setSelectedClient] = useState<Client | null>(null)
+    const [open, setOpen] = useState<boolean>(false);
 
     const onClientAuthentication = (client: Client) => {
         mutate(client.pan, {
@@ -27,6 +31,8 @@ export default function MemeberList({ clientList }: { clientList: ClientList }) 
             }
         });
     }
+
+
 
 
     return (
@@ -89,8 +95,14 @@ export default function MemeberList({ clientList }: { clientList: ClientList }) 
                                             Edit
                                         </div>
                                     </DropdownMenuItem>
-                                    <DropdownMenuItem className="grid grid-cols-[10px_1fr] justify-start items-center gap-4" onSelect={() => router.navigate({ to: "/assessee/edit" })}>
-                                        <IconRecycle size={16} className="ml-auto" />
+                                    <DropdownMenuItem
+                                        onSelect={(e) => {
+                                            e.preventDefault()
+                                            setSelectedClient(member)
+                                            setOpen(true)
+                                        }}
+                                    >
+                                        <Trash2 />
                                         Delete
                                     </DropdownMenuItem>
 
@@ -112,6 +124,14 @@ export default function MemeberList({ clientList }: { clientList: ClientList }) 
                   </Link> */}
                 </div>
             </div>
+
+            {selectedClient && (
+                <DeleteModal
+                    open={open}
+                    setOpen={setOpen}
+                    client={selectedClient}
+                />
+            )}
         </>
     )
 }
