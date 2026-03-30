@@ -1,4 +1,4 @@
-import Home from '@/features/wizard-module/pages/home'
+import Home from '@/features/home'
 import { createFileRoute } from '@tanstack/react-router'
 import { useEffect } from 'react'
 

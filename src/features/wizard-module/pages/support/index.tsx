@@ -1,5 +1,5 @@
-import Header from '../home/components/header'
-import Footer from '../home/components/footer'
+import Header from '../../../home/components/header'
+import Footer from '../../../home/components/footer'
 import SupportHero from './components/SupportHero'
 import SupportOptions from './components/SupportOptions'
 import WorkingHours from './components/WorkingHours'

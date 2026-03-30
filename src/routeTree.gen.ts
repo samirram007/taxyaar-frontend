@@ -28,12 +28,16 @@ import { Route as ProtectedSupportHelpIndexRouteImport } from './routes/_protect
 import { Route as ProtectedFilerTds_taxIndexRouteImport } from './routes/_protected/_filer/tds_tax/index'
 import { Route as ProtectedFilerTdsIndexRouteImport } from './routes/_protected/_filer/tds/index'
 import { Route as ProtectedFilerTaxes_startIndexRouteImport } from './routes/_protected/_filer/taxes_start/index'
+import { Route as ProtectedFilerTax_reliefIndexRouteImport } from './routes/_protected/_filer/tax_relief/index'
 import { Route as ProtectedFilerSummaryIndexRouteImport } from './routes/_protected/_filer/summary/index'
 import { Route as ProtectedFilerStartIndexRouteImport } from './routes/_protected/_filer/start/index'
 import { Route as ProtectedFilerSeventh_provisionIndexRouteImport } from './routes/_protected/_filer/seventh_provision/index'
 import { Route as ProtectedFilerSalary_incomeIndexRouteImport } from './routes/_protected/_filer/salary_income/index'
 import { Route as ProtectedFilerResidentialIndexRouteImport } from './routes/_protected/_filer/residential/index'
+import { Route as ProtectedFilerRelief_foreignIndexRouteImport } from './routes/_protected/_filer/relief_foreign/index'
+import { Route as ProtectedFilerOther_incomeIndexRouteImport } from './routes/_protected/_filer/other_income/index'
 import { Route as ProtectedFilerOther_details_startIndexRouteImport } from './routes/_protected/_filer/other_details_start/index'
+import { Route as ProtectedFilerLossesIndexRouteImport } from './routes/_protected/_filer/losses/index'
 import { Route as ProtectedFilerHouse_propertyIndexRouteImport } from './routes/_protected/_filer/house_property/index'
 import { Route as ProtectedFilerGeneral_businessIndexRouteImport } from './routes/_protected/_filer/general_business/index'
 import { Route as ProtectedFilerForm16IndexRouteImport } from './routes/_protected/_filer/form16/index'
@@ -45,16 +49,29 @@ import { Route as ProtectedFilerDashboardIndexRouteImport } from './routes/_prot
 import { Route as ProtectedFilerContact_detailsIndexRouteImport } from './routes/_protected/_filer/contact_details/index'
 import { Route as ProtectedFilerChoose_return_typeIndexRouteImport } from './routes/_protected/_filer/choose_return_type/index'
 import { Route as ProtectedFilerChoose_regimeIndexRouteImport } from './routes/_protected/_filer/choose_regime/index'
+import { Route as ProtectedFilerBusiness_profession_natureIndexRouteImport } from './routes/_protected/_filer/business_profession_nature/index'
 import { Route as ProtectedFilerBank_detailsIndexRouteImport } from './routes/_protected/_filer/bank_details/index'
+import { Route as ProtectedFilerBalance_sheetIndexRouteImport } from './routes/_protected/_filer/balance_sheet/index'
+import { Route as ProtectedFilerAsset_liabilityIndexRouteImport } from './routes/_protected/_filer/asset_liability/index'
+import { Route as ProtectedFilerAllowance_breakupIndexRouteImport } from './routes/_protected/_filer/allowance_breakup/index'
+import { Route as ProtectedFilerAgriculture_incomeIndexRouteImport } from './routes/_protected/_filer/agriculture_income/index'
 import { Route as ProtectedauthVerifyPanIndexRouteImport } from './routes/_protected/(auth)/verify-pan/index'
 import { Route as ProtectedauthMemberIndexRouteImport } from './routes/_protected/(auth)/member/index'
 import { Route as ProtectedauthAddtaxformIndexRouteImport } from './routes/_protected/(auth)/addtaxform/index'
 import { Route as ProtectedMastersOrganizationLayoutRouteImport } from './routes/_protected/masters/organization/_layout'
 import { Route as ProtectedFilerTds_taxAddRouteImport } from './routes/_protected/_filer/tds_tax/add'
+import { Route as ProtectedFilerTax_reliefAddRouteImport } from './routes/_protected/_filer/tax_relief/add'
 import { Route as ProtectedFilerSalary_incomeAddRouteImport } from './routes/_protected/_filer/salary_income/add'
+import { Route as ProtectedFilerRelief_foreignAddRouteImport } from './routes/_protected/_filer/relief_foreign/add'
+import { Route as ProtectedFilerOther_incomeAddRouteImport } from './routes/_protected/_filer/other_income/add'
+import { Route as ProtectedFilerLossesAddRouteImport } from './routes/_protected/_filer/losses/add'
 import { Route as ProtectedFilerHouse_propertyAddRouteImport } from './routes/_protected/_filer/house_property/add'
+import { Route as ProtectedFilerBank_detailsAddRouteImport } from './routes/_protected/_filer/bank_details/add'
 import { Route as ProtectedFilerAssesseeHeyassesseeRouteImport } from './routes/_protected/_filer/assessee/heyassessee'
 import { Route as ProtectedFilerAssesseeEditRouteImport } from './routes/_protected/_filer/assessee/edit'
+import { Route as ProtectedFilerAssesseeAddRouteImport } from './routes/_protected/_filer/assessee/add'
+import { Route as ProtectedFilerAllowance_breakupAddRouteImport } from './routes/_protected/_filer/allowance_breakup/add'
+import { Route as ProtectedFilerAgriculture_incomeAddRouteImport } from './routes/_protected/_filer/agriculture_income/add'
 import { Route as ProtectedauthUserFiscalYearLayoutRouteImport } from './routes/_protected/(auth)/user-fiscal-year/_layout'
 import { Route as ProtectedauthProfileIndexRouteImport } from './routes/_protected/(auth)/profile/index.'
 import { Route as ProtectedAdministrationLayoutPermissionIndexRouteImport } from './routes/_protected/administration/_layout/permission/index'
@@ -248,6 +265,12 @@ const ProtectedFilerTaxes_startIndexRoute =
     path: '/taxes_start/',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
+const ProtectedFilerTax_reliefIndexRoute =
+  ProtectedFilerTax_reliefIndexRouteImport.update({
+    id: '/tax_relief/',
+    path: '/tax_relief/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
 const ProtectedFilerSummaryIndexRoute =
   ProtectedFilerSummaryIndexRouteImport.update({
     id: '/summary/',
@@ -278,10 +301,28 @@ const ProtectedFilerResidentialIndexRoute =
     path: '/residential/',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
+const ProtectedFilerRelief_foreignIndexRoute =
+  ProtectedFilerRelief_foreignIndexRouteImport.update({
+    id: '/relief_foreign/',
+    path: '/relief_foreign/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerOther_incomeIndexRoute =
+  ProtectedFilerOther_incomeIndexRouteImport.update({
+    id: '/other_income/',
+    path: '/other_income/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
 const ProtectedFilerOther_details_startIndexRoute =
   ProtectedFilerOther_details_startIndexRouteImport.update({
     id: '/other_details_start/',
     path: '/other_details_start/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerLossesIndexRoute =
+  ProtectedFilerLossesIndexRouteImport.update({
+    id: '/losses/',
+    path: '/losses/',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
 const ProtectedFilerHouse_propertyIndexRoute =
@@ -350,10 +391,40 @@ const ProtectedFilerChoose_regimeIndexRoute =
     path: '/choose_regime/',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
+const ProtectedFilerBusiness_profession_natureIndexRoute =
+  ProtectedFilerBusiness_profession_natureIndexRouteImport.update({
+    id: '/business_profession_nature/',
+    path: '/business_profession_nature/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
 const ProtectedFilerBank_detailsIndexRoute =
   ProtectedFilerBank_detailsIndexRouteImport.update({
     id: '/bank_details/',
     path: '/bank_details/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerBalance_sheetIndexRoute =
+  ProtectedFilerBalance_sheetIndexRouteImport.update({
+    id: '/balance_sheet/',
+    path: '/balance_sheet/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerAsset_liabilityIndexRoute =
+  ProtectedFilerAsset_liabilityIndexRouteImport.update({
+    id: '/asset_liability/',
+    path: '/asset_liability/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerAllowance_breakupIndexRoute =
+  ProtectedFilerAllowance_breakupIndexRouteImport.update({
+    id: '/allowance_breakup/',
+    path: '/allowance_breakup/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerAgriculture_incomeIndexRoute =
+  ProtectedFilerAgriculture_incomeIndexRouteImport.update({
+    id: '/agriculture_income/',
+    path: '/agriculture_income/',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
 const ProtectedauthVerifyPanIndexRoute =
@@ -386,16 +457,45 @@ const ProtectedFilerTds_taxAddRoute =
     path: '/tds_tax/add',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
+const ProtectedFilerTax_reliefAddRoute =
+  ProtectedFilerTax_reliefAddRouteImport.update({
+    id: '/tax_relief/add',
+    path: '/tax_relief/add',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
 const ProtectedFilerSalary_incomeAddRoute =
   ProtectedFilerSalary_incomeAddRouteImport.update({
     id: '/salary_income/add',
     path: '/salary_income/add',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
+const ProtectedFilerRelief_foreignAddRoute =
+  ProtectedFilerRelief_foreignAddRouteImport.update({
+    id: '/relief_foreign/add',
+    path: '/relief_foreign/add',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerOther_incomeAddRoute =
+  ProtectedFilerOther_incomeAddRouteImport.update({
+    id: '/other_income/add',
+    path: '/other_income/add',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerLossesAddRoute = ProtectedFilerLossesAddRouteImport.update({
+  id: '/losses/add',
+  path: '/losses/add',
+  getParentRoute: () => ProtectedFilerRoute,
+} as any)
 const ProtectedFilerHouse_propertyAddRoute =
   ProtectedFilerHouse_propertyAddRouteImport.update({
     id: '/house_property/add',
     path: '/house_property/add',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerBank_detailsAddRoute =
+  ProtectedFilerBank_detailsAddRouteImport.update({
+    id: '/bank_details/add',
+    path: '/bank_details/add',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
 const ProtectedFilerAssesseeHeyassesseeRoute =
@@ -408,6 +508,24 @@ const ProtectedFilerAssesseeEditRoute =
   ProtectedFilerAssesseeEditRouteImport.update({
     id: '/assessee/edit',
     path: '/assessee/edit',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerAssesseeAddRoute =
+  ProtectedFilerAssesseeAddRouteImport.update({
+    id: '/assessee/add',
+    path: '/assessee/add',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerAllowance_breakupAddRoute =
+  ProtectedFilerAllowance_breakupAddRouteImport.update({
+    id: '/allowance_breakup/add',
+    path: '/allowance_breakup/add',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerAgriculture_incomeAddRoute =
+  ProtectedFilerAgriculture_incomeAddRouteImport.update({
+    id: '/agriculture_income/add',
+    path: '/agriculture_income/add',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
 const ProtectedauthUserFiscalYearLayoutRoute =
@@ -626,16 +744,29 @@ export interface FileRoutesByFullPath {
   '/change-password': typeof ProtectedauthChangePasswordRoute
   '/administration': typeof ProtectedAdministrationLayoutRouteWithChildren
   '/user-fiscal-year': typeof ProtectedauthUserFiscalYearLayoutRouteWithChildren
+  '/agriculture_income/add': typeof ProtectedFilerAgriculture_incomeAddRoute
+  '/allowance_breakup/add': typeof ProtectedFilerAllowance_breakupAddRoute
+  '/assessee/add': typeof ProtectedFilerAssesseeAddRoute
   '/assessee/edit': typeof ProtectedFilerAssesseeEditRoute
   '/assessee/heyassessee': typeof ProtectedFilerAssesseeHeyassesseeRoute
+  '/bank_details/add': typeof ProtectedFilerBank_detailsAddRoute
   '/house_property/add': typeof ProtectedFilerHouse_propertyAddRoute
+  '/losses/add': typeof ProtectedFilerLossesAddRoute
+  '/other_income/add': typeof ProtectedFilerOther_incomeAddRoute
+  '/relief_foreign/add': typeof ProtectedFilerRelief_foreignAddRoute
   '/salary_income/add': typeof ProtectedFilerSalary_incomeAddRoute
+  '/tax_relief/add': typeof ProtectedFilerTax_reliefAddRoute
   '/tds_tax/add': typeof ProtectedFilerTds_taxAddRoute
   '/masters/organization': typeof ProtectedMastersOrganizationLayoutRouteWithChildren
   '/addtaxform/': typeof ProtectedauthAddtaxformIndexRoute
   '/member/': typeof ProtectedauthMemberIndexRoute
   '/verify-pan/': typeof ProtectedauthVerifyPanIndexRoute
+  '/agriculture_income/': typeof ProtectedFilerAgriculture_incomeIndexRoute
+  '/allowance_breakup/': typeof ProtectedFilerAllowance_breakupIndexRoute
+  '/asset_liability/': typeof ProtectedFilerAsset_liabilityIndexRoute
+  '/balance_sheet/': typeof ProtectedFilerBalance_sheetIndexRoute
   '/bank_details/': typeof ProtectedFilerBank_detailsIndexRoute
+  '/business_profession_nature/': typeof ProtectedFilerBusiness_profession_natureIndexRoute
   '/choose_regime/': typeof ProtectedFilerChoose_regimeIndexRoute
   '/choose_return_type/': typeof ProtectedFilerChoose_return_typeIndexRoute
   '/contact_details/': typeof ProtectedFilerContact_detailsIndexRoute
@@ -647,12 +778,16 @@ export interface FileRoutesByFullPath {
   '/form16/': typeof ProtectedFilerForm16IndexRoute
   '/general_business/': typeof ProtectedFilerGeneral_businessIndexRoute
   '/house_property/': typeof ProtectedFilerHouse_propertyIndexRoute
+  '/losses/': typeof ProtectedFilerLossesIndexRoute
   '/other_details_start/': typeof ProtectedFilerOther_details_startIndexRoute
+  '/other_income/': typeof ProtectedFilerOther_incomeIndexRoute
+  '/relief_foreign/': typeof ProtectedFilerRelief_foreignIndexRoute
   '/residential/': typeof ProtectedFilerResidentialIndexRoute
   '/salary_income/': typeof ProtectedFilerSalary_incomeIndexRoute
   '/seventh_provision/': typeof ProtectedFilerSeventh_provisionIndexRoute
   '/start/': typeof ProtectedFilerStartIndexRoute
   '/summary/': typeof ProtectedFilerSummaryIndexRoute
+  '/tax_relief/': typeof ProtectedFilerTax_reliefIndexRoute
   '/taxes_start/': typeof ProtectedFilerTaxes_startIndexRoute
   '/tds/': typeof ProtectedFilerTdsIndexRoute
   '/tds_tax/': typeof ProtectedFilerTds_taxIndexRoute
@@ -709,16 +844,29 @@ export interface FileRoutesByTo {
   '/503': typeof errors503LazyRoute
   '/change-password': typeof ProtectedauthChangePasswordRoute
   '/administration': typeof ProtectedAdministrationLayoutRouteWithChildren
+  '/agriculture_income/add': typeof ProtectedFilerAgriculture_incomeAddRoute
+  '/allowance_breakup/add': typeof ProtectedFilerAllowance_breakupAddRoute
+  '/assessee/add': typeof ProtectedFilerAssesseeAddRoute
   '/assessee/edit': typeof ProtectedFilerAssesseeEditRoute
   '/assessee/heyassessee': typeof ProtectedFilerAssesseeHeyassesseeRoute
+  '/bank_details/add': typeof ProtectedFilerBank_detailsAddRoute
   '/house_property/add': typeof ProtectedFilerHouse_propertyAddRoute
+  '/losses/add': typeof ProtectedFilerLossesAddRoute
+  '/other_income/add': typeof ProtectedFilerOther_incomeAddRoute
+  '/relief_foreign/add': typeof ProtectedFilerRelief_foreignAddRoute
   '/salary_income/add': typeof ProtectedFilerSalary_incomeAddRoute
+  '/tax_relief/add': typeof ProtectedFilerTax_reliefAddRoute
   '/tds_tax/add': typeof ProtectedFilerTds_taxAddRoute
   '/masters/organization': typeof ProtectedMastersOrganizationLayoutRouteWithChildren
   '/addtaxform': typeof ProtectedauthAddtaxformIndexRoute
   '/member': typeof ProtectedauthMemberIndexRoute
   '/verify-pan': typeof ProtectedauthVerifyPanIndexRoute
+  '/agriculture_income': typeof ProtectedFilerAgriculture_incomeIndexRoute
+  '/allowance_breakup': typeof ProtectedFilerAllowance_breakupIndexRoute
+  '/asset_liability': typeof ProtectedFilerAsset_liabilityIndexRoute
+  '/balance_sheet': typeof ProtectedFilerBalance_sheetIndexRoute
   '/bank_details': typeof ProtectedFilerBank_detailsIndexRoute
+  '/business_profession_nature': typeof ProtectedFilerBusiness_profession_natureIndexRoute
   '/choose_regime': typeof ProtectedFilerChoose_regimeIndexRoute
   '/choose_return_type': typeof ProtectedFilerChoose_return_typeIndexRoute
   '/contact_details': typeof ProtectedFilerContact_detailsIndexRoute
@@ -730,12 +878,16 @@ export interface FileRoutesByTo {
   '/form16': typeof ProtectedFilerForm16IndexRoute
   '/general_business': typeof ProtectedFilerGeneral_businessIndexRoute
   '/house_property': typeof ProtectedFilerHouse_propertyIndexRoute
+  '/losses': typeof ProtectedFilerLossesIndexRoute
   '/other_details_start': typeof ProtectedFilerOther_details_startIndexRoute
+  '/other_income': typeof ProtectedFilerOther_incomeIndexRoute
+  '/relief_foreign': typeof ProtectedFilerRelief_foreignIndexRoute
   '/residential': typeof ProtectedFilerResidentialIndexRoute
   '/salary_income': typeof ProtectedFilerSalary_incomeIndexRoute
   '/seventh_provision': typeof ProtectedFilerSeventh_provisionIndexRoute
   '/start': typeof ProtectedFilerStartIndexRoute
   '/summary': typeof ProtectedFilerSummaryIndexRoute
+  '/tax_relief': typeof ProtectedFilerTax_reliefIndexRoute
   '/taxes_start': typeof ProtectedFilerTaxes_startIndexRoute
   '/tds': typeof ProtectedFilerTdsIndexRoute
   '/tds_tax': typeof ProtectedFilerTds_taxIndexRoute
@@ -787,16 +939,29 @@ export interface FileRoutesById {
   '/_protected/(auth)/change-password': typeof ProtectedauthChangePasswordRoute
   '/_protected/administration/_layout': typeof ProtectedAdministrationLayoutRouteWithChildren
   '/_protected/(auth)/user-fiscal-year/_layout': typeof ProtectedauthUserFiscalYearLayoutRouteWithChildren
+  '/_protected/_filer/agriculture_income/add': typeof ProtectedFilerAgriculture_incomeAddRoute
+  '/_protected/_filer/allowance_breakup/add': typeof ProtectedFilerAllowance_breakupAddRoute
+  '/_protected/_filer/assessee/add': typeof ProtectedFilerAssesseeAddRoute
   '/_protected/_filer/assessee/edit': typeof ProtectedFilerAssesseeEditRoute
   '/_protected/_filer/assessee/heyassessee': typeof ProtectedFilerAssesseeHeyassesseeRoute
+  '/_protected/_filer/bank_details/add': typeof ProtectedFilerBank_detailsAddRoute
   '/_protected/_filer/house_property/add': typeof ProtectedFilerHouse_propertyAddRoute
+  '/_protected/_filer/losses/add': typeof ProtectedFilerLossesAddRoute
+  '/_protected/_filer/other_income/add': typeof ProtectedFilerOther_incomeAddRoute
+  '/_protected/_filer/relief_foreign/add': typeof ProtectedFilerRelief_foreignAddRoute
   '/_protected/_filer/salary_income/add': typeof ProtectedFilerSalary_incomeAddRoute
+  '/_protected/_filer/tax_relief/add': typeof ProtectedFilerTax_reliefAddRoute
   '/_protected/_filer/tds_tax/add': typeof ProtectedFilerTds_taxAddRoute
   '/_protected/masters/organization/_layout': typeof ProtectedMastersOrganizationLayoutRouteWithChildren
   '/_protected/(auth)/addtaxform/': typeof ProtectedauthAddtaxformIndexRoute
   '/_protected/(auth)/member/': typeof ProtectedauthMemberIndexRoute
   '/_protected/(auth)/verify-pan/': typeof ProtectedauthVerifyPanIndexRoute
+  '/_protected/_filer/agriculture_income/': typeof ProtectedFilerAgriculture_incomeIndexRoute
+  '/_protected/_filer/allowance_breakup/': typeof ProtectedFilerAllowance_breakupIndexRoute
+  '/_protected/_filer/asset_liability/': typeof ProtectedFilerAsset_liabilityIndexRoute
+  '/_protected/_filer/balance_sheet/': typeof ProtectedFilerBalance_sheetIndexRoute
   '/_protected/_filer/bank_details/': typeof ProtectedFilerBank_detailsIndexRoute
+  '/_protected/_filer/business_profession_nature/': typeof ProtectedFilerBusiness_profession_natureIndexRoute
   '/_protected/_filer/choose_regime/': typeof ProtectedFilerChoose_regimeIndexRoute
   '/_protected/_filer/choose_return_type/': typeof ProtectedFilerChoose_return_typeIndexRoute
   '/_protected/_filer/contact_details/': typeof ProtectedFilerContact_detailsIndexRoute
@@ -808,12 +973,16 @@ export interface FileRoutesById {
   '/_protected/_filer/form16/': typeof ProtectedFilerForm16IndexRoute
   '/_protected/_filer/general_business/': typeof ProtectedFilerGeneral_businessIndexRoute
   '/_protected/_filer/house_property/': typeof ProtectedFilerHouse_propertyIndexRoute
+  '/_protected/_filer/losses/': typeof ProtectedFilerLossesIndexRoute
   '/_protected/_filer/other_details_start/': typeof ProtectedFilerOther_details_startIndexRoute
+  '/_protected/_filer/other_income/': typeof ProtectedFilerOther_incomeIndexRoute
+  '/_protected/_filer/relief_foreign/': typeof ProtectedFilerRelief_foreignIndexRoute
   '/_protected/_filer/residential/': typeof ProtectedFilerResidentialIndexRoute
   '/_protected/_filer/salary_income/': typeof ProtectedFilerSalary_incomeIndexRoute
   '/_protected/_filer/seventh_provision/': typeof ProtectedFilerSeventh_provisionIndexRoute
   '/_protected/_filer/start/': typeof ProtectedFilerStartIndexRoute
   '/_protected/_filer/summary/': typeof ProtectedFilerSummaryIndexRoute
+  '/_protected/_filer/tax_relief/': typeof ProtectedFilerTax_reliefIndexRoute
   '/_protected/_filer/taxes_start/': typeof ProtectedFilerTaxes_startIndexRoute
   '/_protected/_filer/tds/': typeof ProtectedFilerTdsIndexRoute
   '/_protected/_filer/tds_tax/': typeof ProtectedFilerTds_taxIndexRoute
@@ -873,16 +1042,29 @@ export interface FileRouteTypes {
     | '/change-password'
     | '/administration'
     | '/user-fiscal-year'
+    | '/agriculture_income/add'
+    | '/allowance_breakup/add'
+    | '/assessee/add'
     | '/assessee/edit'
     | '/assessee/heyassessee'
+    | '/bank_details/add'
     | '/house_property/add'
+    | '/losses/add'
+    | '/other_income/add'
+    | '/relief_foreign/add'
     | '/salary_income/add'
+    | '/tax_relief/add'
     | '/tds_tax/add'
     | '/masters/organization'
     | '/addtaxform/'
     | '/member/'
     | '/verify-pan/'
+    | '/agriculture_income/'
+    | '/allowance_breakup/'
+    | '/asset_liability/'
+    | '/balance_sheet/'
     | '/bank_details/'
+    | '/business_profession_nature/'
     | '/choose_regime/'
     | '/choose_return_type/'
     | '/contact_details/'
@@ -894,12 +1076,16 @@ export interface FileRouteTypes {
     | '/form16/'
     | '/general_business/'
     | '/house_property/'
+    | '/losses/'
     | '/other_details_start/'
+    | '/other_income/'
+    | '/relief_foreign/'
     | '/residential/'
     | '/salary_income/'
     | '/seventh_provision/'
     | '/start/'
     | '/summary/'
+    | '/tax_relief/'
     | '/taxes_start/'
     | '/tds/'
     | '/tds_tax/'
@@ -956,16 +1142,29 @@ export interface FileRouteTypes {
     | '/503'
     | '/change-password'
     | '/administration'
+    | '/agriculture_income/add'
+    | '/allowance_breakup/add'
+    | '/assessee/add'
     | '/assessee/edit'
     | '/assessee/heyassessee'
+    | '/bank_details/add'
     | '/house_property/add'
+    | '/losses/add'
+    | '/other_income/add'
+    | '/relief_foreign/add'
     | '/salary_income/add'
+    | '/tax_relief/add'
     | '/tds_tax/add'
     | '/masters/organization'
     | '/addtaxform'
     | '/member'
     | '/verify-pan'
+    | '/agriculture_income'
+    | '/allowance_breakup'
+    | '/asset_liability'
+    | '/balance_sheet'
     | '/bank_details'
+    | '/business_profession_nature'
     | '/choose_regime'
     | '/choose_return_type'
     | '/contact_details'
@@ -977,12 +1176,16 @@ export interface FileRouteTypes {
     | '/form16'
     | '/general_business'
     | '/house_property'
+    | '/losses'
     | '/other_details_start'
+    | '/other_income'
+    | '/relief_foreign'
     | '/residential'
     | '/salary_income'
     | '/seventh_provision'
     | '/start'
     | '/summary'
+    | '/tax_relief'
     | '/taxes_start'
     | '/tds'
     | '/tds_tax'
@@ -1033,16 +1236,29 @@ export interface FileRouteTypes {
     | '/_protected/(auth)/change-password'
     | '/_protected/administration/_layout'
     | '/_protected/(auth)/user-fiscal-year/_layout'
+    | '/_protected/_filer/agriculture_income/add'
+    | '/_protected/_filer/allowance_breakup/add'
+    | '/_protected/_filer/assessee/add'
     | '/_protected/_filer/assessee/edit'
     | '/_protected/_filer/assessee/heyassessee'
+    | '/_protected/_filer/bank_details/add'
     | '/_protected/_filer/house_property/add'
+    | '/_protected/_filer/losses/add'
+    | '/_protected/_filer/other_income/add'
+    | '/_protected/_filer/relief_foreign/add'
     | '/_protected/_filer/salary_income/add'
+    | '/_protected/_filer/tax_relief/add'
     | '/_protected/_filer/tds_tax/add'
     | '/_protected/masters/organization/_layout'
     | '/_protected/(auth)/addtaxform/'
     | '/_protected/(auth)/member/'
     | '/_protected/(auth)/verify-pan/'
+    | '/_protected/_filer/agriculture_income/'
+    | '/_protected/_filer/allowance_breakup/'
+    | '/_protected/_filer/asset_liability/'
+    | '/_protected/_filer/balance_sheet/'
     | '/_protected/_filer/bank_details/'
+    | '/_protected/_filer/business_profession_nature/'
     | '/_protected/_filer/choose_regime/'
     | '/_protected/_filer/choose_return_type/'
     | '/_protected/_filer/contact_details/'
@@ -1054,12 +1270,16 @@ export interface FileRouteTypes {
     | '/_protected/_filer/form16/'
     | '/_protected/_filer/general_business/'
     | '/_protected/_filer/house_property/'
+    | '/_protected/_filer/losses/'
     | '/_protected/_filer/other_details_start/'
+    | '/_protected/_filer/other_income/'
+    | '/_protected/_filer/relief_foreign/'
     | '/_protected/_filer/residential/'
     | '/_protected/_filer/salary_income/'
     | '/_protected/_filer/seventh_provision/'
     | '/_protected/_filer/start/'
     | '/_protected/_filer/summary/'
+    | '/_protected/_filer/tax_relief/'
     | '/_protected/_filer/taxes_start/'
     | '/_protected/_filer/tds/'
     | '/_protected/_filer/tds_tax/'
@@ -1293,6 +1513,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedFilerTaxes_startIndexRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
+    '/_protected/_filer/tax_relief/': {
+      id: '/_protected/_filer/tax_relief/'
+      path: '/tax_relief'
+      fullPath: '/tax_relief/'
+      preLoaderRoute: typeof ProtectedFilerTax_reliefIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
     '/_protected/_filer/summary/': {
       id: '/_protected/_filer/summary/'
       path: '/summary'
@@ -1328,11 +1555,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedFilerResidentialIndexRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
+    '/_protected/_filer/relief_foreign/': {
+      id: '/_protected/_filer/relief_foreign/'
+      path: '/relief_foreign'
+      fullPath: '/relief_foreign/'
+      preLoaderRoute: typeof ProtectedFilerRelief_foreignIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/other_income/': {
+      id: '/_protected/_filer/other_income/'
+      path: '/other_income'
+      fullPath: '/other_income/'
+      preLoaderRoute: typeof ProtectedFilerOther_incomeIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
     '/_protected/_filer/other_details_start/': {
       id: '/_protected/_filer/other_details_start/'
       path: '/other_details_start'
       fullPath: '/other_details_start/'
       preLoaderRoute: typeof ProtectedFilerOther_details_startIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/losses/': {
+      id: '/_protected/_filer/losses/'
+      path: '/losses'
+      fullPath: '/losses/'
+      preLoaderRoute: typeof ProtectedFilerLossesIndexRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
     '/_protected/_filer/house_property/': {
@@ -1412,11 +1660,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedFilerChoose_regimeIndexRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
+    '/_protected/_filer/business_profession_nature/': {
+      id: '/_protected/_filer/business_profession_nature/'
+      path: '/business_profession_nature'
+      fullPath: '/business_profession_nature/'
+      preLoaderRoute: typeof ProtectedFilerBusiness_profession_natureIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
     '/_protected/_filer/bank_details/': {
       id: '/_protected/_filer/bank_details/'
       path: '/bank_details'
       fullPath: '/bank_details/'
       preLoaderRoute: typeof ProtectedFilerBank_detailsIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/balance_sheet/': {
+      id: '/_protected/_filer/balance_sheet/'
+      path: '/balance_sheet'
+      fullPath: '/balance_sheet/'
+      preLoaderRoute: typeof ProtectedFilerBalance_sheetIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/asset_liability/': {
+      id: '/_protected/_filer/asset_liability/'
+      path: '/asset_liability'
+      fullPath: '/asset_liability/'
+      preLoaderRoute: typeof ProtectedFilerAsset_liabilityIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/allowance_breakup/': {
+      id: '/_protected/_filer/allowance_breakup/'
+      path: '/allowance_breakup'
+      fullPath: '/allowance_breakup/'
+      preLoaderRoute: typeof ProtectedFilerAllowance_breakupIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/agriculture_income/': {
+      id: '/_protected/_filer/agriculture_income/'
+      path: '/agriculture_income'
+      fullPath: '/agriculture_income/'
+      preLoaderRoute: typeof ProtectedFilerAgriculture_incomeIndexRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
     '/_protected/(auth)/verify-pan/': {
@@ -1454,6 +1737,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedFilerTds_taxAddRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
+    '/_protected/_filer/tax_relief/add': {
+      id: '/_protected/_filer/tax_relief/add'
+      path: '/tax_relief/add'
+      fullPath: '/tax_relief/add'
+      preLoaderRoute: typeof ProtectedFilerTax_reliefAddRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
     '/_protected/_filer/salary_income/add': {
       id: '/_protected/_filer/salary_income/add'
       path: '/salary_income/add'
@@ -1461,11 +1751,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedFilerSalary_incomeAddRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
+    '/_protected/_filer/relief_foreign/add': {
+      id: '/_protected/_filer/relief_foreign/add'
+      path: '/relief_foreign/add'
+      fullPath: '/relief_foreign/add'
+      preLoaderRoute: typeof ProtectedFilerRelief_foreignAddRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/other_income/add': {
+      id: '/_protected/_filer/other_income/add'
+      path: '/other_income/add'
+      fullPath: '/other_income/add'
+      preLoaderRoute: typeof ProtectedFilerOther_incomeAddRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/losses/add': {
+      id: '/_protected/_filer/losses/add'
+      path: '/losses/add'
+      fullPath: '/losses/add'
+      preLoaderRoute: typeof ProtectedFilerLossesAddRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
     '/_protected/_filer/house_property/add': {
       id: '/_protected/_filer/house_property/add'
       path: '/house_property/add'
       fullPath: '/house_property/add'
       preLoaderRoute: typeof ProtectedFilerHouse_propertyAddRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/bank_details/add': {
+      id: '/_protected/_filer/bank_details/add'
+      path: '/bank_details/add'
+      fullPath: '/bank_details/add'
+      preLoaderRoute: typeof ProtectedFilerBank_detailsAddRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
     '/_protected/_filer/assessee/heyassessee': {
@@ -1480,6 +1798,27 @@ declare module '@tanstack/react-router' {
       path: '/assessee/edit'
       fullPath: '/assessee/edit'
       preLoaderRoute: typeof ProtectedFilerAssesseeEditRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/assessee/add': {
+      id: '/_protected/_filer/assessee/add'
+      path: '/assessee/add'
+      fullPath: '/assessee/add'
+      preLoaderRoute: typeof ProtectedFilerAssesseeAddRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/allowance_breakup/add': {
+      id: '/_protected/_filer/allowance_breakup/add'
+      path: '/allowance_breakup/add'
+      fullPath: '/allowance_breakup/add'
+      preLoaderRoute: typeof ProtectedFilerAllowance_breakupAddRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/agriculture_income/add': {
+      id: '/_protected/_filer/agriculture_income/add'
+      path: '/agriculture_income/add'
+      fullPath: '/agriculture_income/add'
+      preLoaderRoute: typeof ProtectedFilerAgriculture_incomeAddRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
     '/_protected/(auth)/user-fiscal-year/_layout': {
@@ -1725,12 +2064,25 @@ const ProtectedFilerAssesseeAddLayoutRouteWithChildren =
   )
 
 interface ProtectedFilerRouteChildren {
+  ProtectedFilerAgriculture_incomeAddRoute: typeof ProtectedFilerAgriculture_incomeAddRoute
+  ProtectedFilerAllowance_breakupAddRoute: typeof ProtectedFilerAllowance_breakupAddRoute
+  ProtectedFilerAssesseeAddRoute: typeof ProtectedFilerAssesseeAddRoute
   ProtectedFilerAssesseeEditRoute: typeof ProtectedFilerAssesseeEditRoute
   ProtectedFilerAssesseeHeyassesseeRoute: typeof ProtectedFilerAssesseeHeyassesseeRoute
+  ProtectedFilerBank_detailsAddRoute: typeof ProtectedFilerBank_detailsAddRoute
   ProtectedFilerHouse_propertyAddRoute: typeof ProtectedFilerHouse_propertyAddRoute
+  ProtectedFilerLossesAddRoute: typeof ProtectedFilerLossesAddRoute
+  ProtectedFilerOther_incomeAddRoute: typeof ProtectedFilerOther_incomeAddRoute
+  ProtectedFilerRelief_foreignAddRoute: typeof ProtectedFilerRelief_foreignAddRoute
   ProtectedFilerSalary_incomeAddRoute: typeof ProtectedFilerSalary_incomeAddRoute
+  ProtectedFilerTax_reliefAddRoute: typeof ProtectedFilerTax_reliefAddRoute
   ProtectedFilerTds_taxAddRoute: typeof ProtectedFilerTds_taxAddRoute
+  ProtectedFilerAgriculture_incomeIndexRoute: typeof ProtectedFilerAgriculture_incomeIndexRoute
+  ProtectedFilerAllowance_breakupIndexRoute: typeof ProtectedFilerAllowance_breakupIndexRoute
+  ProtectedFilerAsset_liabilityIndexRoute: typeof ProtectedFilerAsset_liabilityIndexRoute
+  ProtectedFilerBalance_sheetIndexRoute: typeof ProtectedFilerBalance_sheetIndexRoute
   ProtectedFilerBank_detailsIndexRoute: typeof ProtectedFilerBank_detailsIndexRoute
+  ProtectedFilerBusiness_profession_natureIndexRoute: typeof ProtectedFilerBusiness_profession_natureIndexRoute
   ProtectedFilerChoose_regimeIndexRoute: typeof ProtectedFilerChoose_regimeIndexRoute
   ProtectedFilerChoose_return_typeIndexRoute: typeof ProtectedFilerChoose_return_typeIndexRoute
   ProtectedFilerContact_detailsIndexRoute: typeof ProtectedFilerContact_detailsIndexRoute
@@ -1742,12 +2094,16 @@ interface ProtectedFilerRouteChildren {
   ProtectedFilerForm16IndexRoute: typeof ProtectedFilerForm16IndexRoute
   ProtectedFilerGeneral_businessIndexRoute: typeof ProtectedFilerGeneral_businessIndexRoute
   ProtectedFilerHouse_propertyIndexRoute: typeof ProtectedFilerHouse_propertyIndexRoute
+  ProtectedFilerLossesIndexRoute: typeof ProtectedFilerLossesIndexRoute
   ProtectedFilerOther_details_startIndexRoute: typeof ProtectedFilerOther_details_startIndexRoute
+  ProtectedFilerOther_incomeIndexRoute: typeof ProtectedFilerOther_incomeIndexRoute
+  ProtectedFilerRelief_foreignIndexRoute: typeof ProtectedFilerRelief_foreignIndexRoute
   ProtectedFilerResidentialIndexRoute: typeof ProtectedFilerResidentialIndexRoute
   ProtectedFilerSalary_incomeIndexRoute: typeof ProtectedFilerSalary_incomeIndexRoute
   ProtectedFilerSeventh_provisionIndexRoute: typeof ProtectedFilerSeventh_provisionIndexRoute
   ProtectedFilerStartIndexRoute: typeof ProtectedFilerStartIndexRoute
   ProtectedFilerSummaryIndexRoute: typeof ProtectedFilerSummaryIndexRoute
+  ProtectedFilerTax_reliefIndexRoute: typeof ProtectedFilerTax_reliefIndexRoute
   ProtectedFilerTaxes_startIndexRoute: typeof ProtectedFilerTaxes_startIndexRoute
   ProtectedFilerTdsIndexRoute: typeof ProtectedFilerTdsIndexRoute
   ProtectedFilerTds_taxIndexRoute: typeof ProtectedFilerTds_taxIndexRoute
@@ -1755,13 +2111,32 @@ interface ProtectedFilerRouteChildren {
 }
 
 const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
+  ProtectedFilerAgriculture_incomeAddRoute:
+    ProtectedFilerAgriculture_incomeAddRoute,
+  ProtectedFilerAllowance_breakupAddRoute:
+    ProtectedFilerAllowance_breakupAddRoute,
+  ProtectedFilerAssesseeAddRoute: ProtectedFilerAssesseeAddRoute,
   ProtectedFilerAssesseeEditRoute: ProtectedFilerAssesseeEditRoute,
   ProtectedFilerAssesseeHeyassesseeRoute:
     ProtectedFilerAssesseeHeyassesseeRoute,
+  ProtectedFilerBank_detailsAddRoute: ProtectedFilerBank_detailsAddRoute,
   ProtectedFilerHouse_propertyAddRoute: ProtectedFilerHouse_propertyAddRoute,
+  ProtectedFilerLossesAddRoute: ProtectedFilerLossesAddRoute,
+  ProtectedFilerOther_incomeAddRoute: ProtectedFilerOther_incomeAddRoute,
+  ProtectedFilerRelief_foreignAddRoute: ProtectedFilerRelief_foreignAddRoute,
   ProtectedFilerSalary_incomeAddRoute: ProtectedFilerSalary_incomeAddRoute,
+  ProtectedFilerTax_reliefAddRoute: ProtectedFilerTax_reliefAddRoute,
   ProtectedFilerTds_taxAddRoute: ProtectedFilerTds_taxAddRoute,
+  ProtectedFilerAgriculture_incomeIndexRoute:
+    ProtectedFilerAgriculture_incomeIndexRoute,
+  ProtectedFilerAllowance_breakupIndexRoute:
+    ProtectedFilerAllowance_breakupIndexRoute,
+  ProtectedFilerAsset_liabilityIndexRoute:
+    ProtectedFilerAsset_liabilityIndexRoute,
+  ProtectedFilerBalance_sheetIndexRoute: ProtectedFilerBalance_sheetIndexRoute,
   ProtectedFilerBank_detailsIndexRoute: ProtectedFilerBank_detailsIndexRoute,
+  ProtectedFilerBusiness_profession_natureIndexRoute:
+    ProtectedFilerBusiness_profession_natureIndexRoute,
   ProtectedFilerChoose_regimeIndexRoute: ProtectedFilerChoose_regimeIndexRoute,
   ProtectedFilerChoose_return_typeIndexRoute:
     ProtectedFilerChoose_return_typeIndexRoute,
@@ -1780,14 +2155,19 @@ const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
     ProtectedFilerGeneral_businessIndexRoute,
   ProtectedFilerHouse_propertyIndexRoute:
     ProtectedFilerHouse_propertyIndexRoute,
+  ProtectedFilerLossesIndexRoute: ProtectedFilerLossesIndexRoute,
   ProtectedFilerOther_details_startIndexRoute:
     ProtectedFilerOther_details_startIndexRoute,
+  ProtectedFilerOther_incomeIndexRoute: ProtectedFilerOther_incomeIndexRoute,
+  ProtectedFilerRelief_foreignIndexRoute:
+    ProtectedFilerRelief_foreignIndexRoute,
   ProtectedFilerResidentialIndexRoute: ProtectedFilerResidentialIndexRoute,
   ProtectedFilerSalary_incomeIndexRoute: ProtectedFilerSalary_incomeIndexRoute,
   ProtectedFilerSeventh_provisionIndexRoute:
     ProtectedFilerSeventh_provisionIndexRoute,
   ProtectedFilerStartIndexRoute: ProtectedFilerStartIndexRoute,
   ProtectedFilerSummaryIndexRoute: ProtectedFilerSummaryIndexRoute,
+  ProtectedFilerTax_reliefIndexRoute: ProtectedFilerTax_reliefIndexRoute,
   ProtectedFilerTaxes_startIndexRoute: ProtectedFilerTaxes_startIndexRoute,
   ProtectedFilerTdsIndexRoute: ProtectedFilerTdsIndexRoute,
   ProtectedFilerTds_taxIndexRoute: ProtectedFilerTds_taxIndexRoute,

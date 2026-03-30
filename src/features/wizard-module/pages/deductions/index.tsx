@@ -8,8 +8,9 @@ import { Input } from '@/components/ui/input'
 
 import { Card, CardHeader } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
+import { useWizardModule } from '../../contexts/wizard_module-context'
 
-// const questions = [
+
 //     {
 //         id: 8,
 //         attributeName: 'regime_type',
@@ -33,14 +34,7 @@ import { Label } from '@/components/ui/label'
 // ]
 // const helpUrl = import.meta.env.VITE_HELP_URL || "https://help.taxyaar.com"
 const Deductions = () => {
-    // const [questionsState /*, setQuestionsState */] = useState(questions)
-    // const [answer, setAnswer] = useState(questions[0].answer[0].key)
-    // const handleChange = (value: string) => {
-    //     setAnswer(value)
-    // }
-    // const routeOptions = ['salary_arrears', , 'foreign_tax_relief', 'taxes_paid']
 
-    const chosenOption = 'taxes_paid'
     return (
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8  ">
             <WizardHeader />
@@ -129,42 +123,7 @@ const Deductions = () => {
 
 
                         </div>
-                        {chosenOption === 'taxes_paid' ? (
-                            <WizardFooter
-                                indicatorTextLeft="Previous"
-                                indicatorTextRight="Save & Next"
-                                previousPageLink="/deduction_start"
-                                previousPageName="Deductions Start"
-                                nextPageLink="/taxes_start"
-                                nextPageName="Taxes Paid"
-                                progress={{ percentage: '51%', remaining: '8 min more' }}
-
-                            />
-                        ) : (chosenOption === 'foreign_tax_relief' ? (
-                            <WizardFooter
-                                indicatorTextLeft="Previous"
-                                indicatorTextRight="Save & Next"
-                                previousPageLink="/deduction_start"
-                                previousPageName="Deductions Start"
-                                nextPageLink="/foreign_tax_relief"
-                                nextPageName="Foreign Tax Relief"
-                                progress={{ percentage: '51%', remaining: '8 min more' }}
-
-                            />
-                        ) : (chosenOption === 'salary_arrears' ?
-                            <WizardFooter
-                                indicatorTextLeft="Previous"
-                                indicatorTextRight="Save & Next"
-                                previousPageLink="/deduction_start"
-                                previousPageName="Deductions Start"
-                                nextPageLink="/tax_relief"
-                                nextPageName="Relief on Salary Arrears"
-                                progress={{ percentage: '51%', remaining: '8 min more' }}
-                            />
-                            : null
-                        )
-
-                        )}
+                        <WizardLinkComponent />
                     </div>
                 </div>
                 <HelpSidebar />
@@ -174,3 +133,66 @@ const Deductions = () => {
 }
 
 export default Deductions
+
+const WizardLinkComponent = () => {
+    const { deductionType } = useWizardModule()
+
+    const validated = () => {
+        if (!deductionType) {
+            alert("Please answer all the questions to proceed")
+            return false
+        }
+        return true
+    }
+
+
+    return (
+        <div className="px-6 py-4">
+            {
+                deductionType === 'taxes_paid' ? (
+                    <WizardFooter
+                        indicatorTextLeft="Previous"
+                        indicatorTextRight="Save & Next"
+                        previousPageLink="/deduction_start"
+                        previousPageName="Deductions Start"
+                        nextPageLink="/taxes_start"
+                        nextPageName="Taxes Paid"
+                        progress={{ percentage: '51%', remaining: '8 min more' }}
+                        validated={validated}
+                    />
+                ) : (deductionType === 'foreign_tax_relief' ? (
+                    <WizardFooter
+                        indicatorTextLeft="Previous"
+                        indicatorTextRight="Save & Next"
+                        previousPageLink="/deduction_start"
+                        previousPageName="Deductions Start"
+                        nextPageLink="/foreign_tax_relief"
+                        nextPageName="Foreign Tax Relief"
+                        progress={{ percentage: '51%', remaining: '8 min more' }}
+                            validated={validated}
+
+
+                        />
+                    ) : (deductionType === 'salary_arrears' ?
+                        <WizardFooter
+                            indicatorTextLeft="Previous"
+                            indicatorTextRight="Save & Next"
+                            previousPageLink="/deduction_start"
+                            previousPageName="Deductions Start"
+                            nextPageLink="/tax_relief"
+                            nextPageName="Relief on Salary Arrears"
+                            progress={{ percentage: '51%', remaining: '8 min more' }}
+                                validated={validated}
+
+                            />
+                            : null
+                        )
+
+
+                )
+
+            }
+        </div>
+    )
+
+}

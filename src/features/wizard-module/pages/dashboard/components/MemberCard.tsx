@@ -12,9 +12,9 @@ import HelpArticles from "@/features/wizard-module/components/help-articles";
 export default function MemberCard({ clientList }: { clientList: ClientList }) {
     const router = useRouter();
     return (
-        <div className="min-h-screen ">
+        <div className="min-h-screen   max-w-max mx-auto">
             <CustomBreadcrumb title="Members" />
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+            <div className="mx-auto max-w-7xl  py-8">
                 <div className="grid lg:grid-cols-3 gap-8">
 
                     <div className="lg:col-span-2">

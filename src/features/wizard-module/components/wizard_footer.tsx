@@ -18,11 +18,21 @@ type WizardFooterProps = {
     percentage: string
     remaining: string
   }
+  validated?: () => boolean
 }
 
 const WizardFooter = (props: WizardFooterProps) => {
-  const { previousPageLink, nextPageLink, previousPageName, nextPageName, progress } =
+  const { previousPageLink, nextPageLink, previousPageName, nextPageName, progress, validated } =
     props
+
+  const handleLinkClick = (link: string) => {
+    if (validated && !validated()) {
+      return
+    }
+
+    // You can add any additional logic here if needed before navigation
+    // For example, you could log the navigation or perform some checks
+  }
   return (
     <div className="bg-slate-300/20 px-4 py-2 w-full lg:col-span-2 ">
 
@@ -34,6 +44,7 @@ const WizardFooter = (props: WizardFooterProps) => {
           <Link
             to={previousPageLink}
             className="flex flex-row gap-1 items-center"
+              onClick={() => handleLinkClick(previousPageLink)}
           >
             <MoveLeft /> {previousPageName || 'Previous Page'}
           </Link>
@@ -42,7 +53,8 @@ const WizardFooter = (props: WizardFooterProps) => {
       <div className="flex flex-col items-end">
           <div>{props.indicatorTextRight || 'Next'}</div>
         <div className="flex flex-row text-xl text-sky-600 cursor-pointer ">
-          <Link to={nextPageLink} className="flex flex-row gap-1 items-center">
+            <Link to={nextPageLink} className="flex flex-row gap-1 items-center"
+              onClick={() => handleLinkClick(nextPageLink)}>
             {nextPageName || 'Next Page'} <MoveRight />
           </Link>
         </div>

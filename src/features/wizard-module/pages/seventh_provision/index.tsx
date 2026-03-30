@@ -51,7 +51,8 @@ const SeventhProvision = () => {
                     shadow rounded-lg   gap-6"
                     >
                         <div className="grid grid-cols-1 justify-center items-start gap-6 pb-6">
-                            <div className='border-b-2 p-6 text-2xl'>Which tax regime have you opted for?</div>
+                            <div className='border-b-2 p-6 text-2xl'>Any high value transactions?</div>
+                            <div className='border-b-2 p-6 text-sm'>For certain high value transactions, it is mandatory to file Income Tax Return even if the income falls below the basic exemption limit.</div>
                             <div className="space-y-1 px-6">
                                 <div className="mt-5 space-y-8 ">
                                     {questionsState.map((q) => (

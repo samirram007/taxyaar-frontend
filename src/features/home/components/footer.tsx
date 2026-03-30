@@ -32,10 +32,7 @@ const Footer = () => {
                   <Link to={'/'}>
                     <i className="fa fa-twitter" aria-hidden="true"></i>
                   </Link>
-                    {' '}
-                  <Link to={'/'}>
-                    <i className="fa fa-twitter" aria-hidden="true"></i>
-                  </Link>
+
                 </li>
                 <li>
                   <Link to={'/'}>

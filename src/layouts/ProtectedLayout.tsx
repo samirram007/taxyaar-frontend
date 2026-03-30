@@ -26,7 +26,7 @@ const ProtectedLayout = () => {
             <SearchProvider>
                 <SkipToMain />
 
-                <div className="flex">
+                <div className="flex sticky top-[200px] z-50">
                     {/* <!-- ===== Page Wrapper Start ===== --> */}
                     <div className="max-w-screen w-full relative flex  h-screen overflow-hidden ">
 
@@ -42,7 +42,7 @@ const ProtectedLayout = () => {
                                 {/* <!-- ===== Main Content Start ===== --> */}
                                 <main className="max-w-screen 
                            bg-linear-to-b
-from-slate-100 from-20%  to-white to-20% flex-1  ">
+from-slate-100 from-10%  to-slate-300 to-20% flex-1  ">
                                     <div className="container mx-auto h-full w-full pt-12">
 
 
