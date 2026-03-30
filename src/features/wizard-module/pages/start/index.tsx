@@ -6,7 +6,7 @@ import HelpSidebar from "../../components/HelpSidebar"
 
 import WizardFooter from "../../components/wizard_footer"
 import WizardHeader from "../../components/wizard_header"
-import { startQuestions } from "../../contexts/wizard-data"
+// import { startQuestions } from "../../contexts/wizard-data"
 import { useWizardModule } from "../../contexts/wizard_module-context"
 
 
@@ -14,18 +14,18 @@ import { useWizardModule } from "../../contexts/wizard_module-context"
 const Start = () => {
 
     const { setStartQuestionsState, startQuestionsState } = useWizardModule()
-    const handleValueChange = (id: number) => (value: "yes" | "no") => {
-        setStartQuestionsState((prev) => {
-            const nextValue = prev.map((q) => {
-                if (q.id === id) {
-                    return { ...q, answer: value }
-                }
-                return q
-            })
+    // const handleValueChange = (id: number) => (value: "yes" | "no") => {
+    //     setStartQuestionsState((prev) => {
+    //         const nextValue = prev.map((q) => {
+    //             if (q.id === id) {
+    //                 return { ...q, answer: value }
+    //             }
+    //             return q
+    //         })
 
-            return nextValue
-        })
-    }
+    //         return nextValue
+    //     })
+    // }
 
     return (
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8  ">

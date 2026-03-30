@@ -80,7 +80,7 @@ export const deductionQuestions = [
     {
         id: 2,
         question: "Tax Relief on Salary arrears received",
-        description: "Tax Relief u/s 89 is applicable if you have received arrears of Salary. Select “Yes” if you have received any portion of salary(including pension and gratuity) pertaining to earlier years in 2024-25 and tax relief u/s 89 is to be claimed on it.",
+        description: "Tax Relief u/s 89 is applicable if you have received arrears of Salary. Select \"Yes\" if you have received any portion of salary(including pension and gratuity) pertaining to earlier years in 2024-25 and tax relief u/s 89 is to be claimed on it.",
         answer: undefined as "yes" | "no" | undefined
     },
     {
