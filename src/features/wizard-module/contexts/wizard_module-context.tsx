@@ -2,10 +2,23 @@ import useDialogState from '@/core/hooks/use-dialog-state'
 import React, { useState } from 'react'
 import type { Article, TaxFilerData } from '../data/schema'
 import { _set } from 'zod/v4/core'
+import { deductionQuestions, startQuestions } from './wizard-data'
 
 
 
 type WizardModuleDialogType = 'article' | 'add' | 'edit' | 'delete'
+type StartQuestionType = {
+    id: number
+    question: string
+    description: string
+    answer: "yes" | "no" | undefined
+    optionalQuestions?: {
+        id: number
+        question: string
+        description: string
+        answer: "yes" | "no" | undefined
+    }[]
+}[]
 type DeductionQuestionType = {
     id: number
     question: string
@@ -21,6 +34,10 @@ interface WizardModuleContextType {
     keyName: string 
     member: TaxFilerData | null
     setMember: React.Dispatch<React.SetStateAction<TaxFilerData | null>>
+
+    startQuestionsState: StartQuestionType
+    setStartQuestionsState: React.Dispatch<React.SetStateAction<StartQuestionType>>
+
     deductionType: "salary_arrears" | "foreign_tax_relief" | "taxes_paid" | null
 
     deductionQuestionsState: DeductionQuestionType[]
@@ -31,27 +48,7 @@ interface WizardModuleContextType {
 }
 
 const WizardModuleContext = React.createContext<WizardModuleContextType | null>(null)
-const deductionQuestions = [
-    {
-        id: 1,
-        question: "Deductions",
-        description: "Only pension funds (NPS)",
-        answer: undefined as "yes" | "no" | undefined
-    },
-    {
-        id: 2,
-        question: "Tax Relief on Salary arrears received",
-        description: "Tax Relief u/s 89 is applicable if you have received arrears of Salary. Select “Yes” if you have received any portion of salary(including pension and gratuity) pertaining to earlier years in 2024-25 and tax relief u/s 89 is to be claimed on it.",
-        answer: undefined as "yes" | "no" | undefined
-    },
-    {
-        id: 3,
-        question: "Tax Relief on Taxes paid outside India",
-        description: "Select \"Yes\" if you have earned any Income outside India.",
-        answer: undefined as "yes" | "no" | undefined
-    }
 
-]
 interface Props {
     children: React.ReactNode
 }
@@ -67,18 +64,39 @@ export default function WizardModuleProvider({ children }: Props) {
             return nextValue
         })
     }
+    const [startQuestionsState, _setStartQuestionsState] = useState<StartQuestionType>(localStorage.getItem("startQuestions") ? JSON.parse(atob(localStorage.getItem("startQuestions")!)) : startQuestions)
 
-    const [deductionQuestionsState, setDeductionQuestionsState] = useState(deductionQuestions)
+
+    const [deductionQuestionsState, _setDeductionQuestionsState] = useState<DeductionQuestionType[]>(localStorage.getItem("deductionQuestions") ? JSON.parse(atob(localStorage.getItem("deductionQuestions")!)) : deductionQuestions)
+
+    const setStartQuestionsState: React.Dispatch<React.SetStateAction<StartQuestionType>> = (value) => {
+        _setStartQuestionsState((prev) => {
+            const nextValue = typeof value === 'function' ? value(prev) : value
+            localStorage.setItem("startQuestions", btoa(JSON.stringify(nextValue)));
+            return nextValue
+        })
+    }
+    const setDeductionQuestionsState: React.Dispatch<React.SetStateAction<DeductionQuestionType[]>> = (value) => {
+        _setDeductionQuestionsState((prev) => {
+            const nextValue = typeof value === 'function' ? value(prev) : value
+            localStorage.setItem("deductionQuestions", btoa(JSON.stringify(nextValue)));
+            return nextValue
+        })
+    }
     const [deductionType, _setDeductionType] = useState<"salary_arrears" | "foreign_tax_relief" | "taxes_paid" | null>('taxes_paid');
 
+
+
     const setDeductionType = (optionOne: 'yes' | 'no', optionTwo: 'yes' | 'no', optionThree: 'yes' | 'no') => {
+
+
         // y y y Relief on Salary Arrears
         //         y y n Relief on Salary Arrears
         // n y y Relief on Salary Arrears
         // y n y Foreign Tax Relief
         // n n y Foreign Tax Relief
         // n n n Taxes Paid
-        console.log(optionOne, optionTwo, optionThree)
+        //console.log(optionOne, optionTwo, optionThree)
         if (optionOne === 'yes' && optionTwo === 'yes' && optionThree === 'yes') {
             _setDeductionType('salary_arrears')
         } else if (optionOne === 'yes' && optionTwo === 'yes' && optionThree === 'no') {
@@ -95,11 +113,12 @@ export default function WizardModuleProvider({ children }: Props) {
         } else if (optionOne === 'no' && optionTwo === 'no' && optionThree === 'no') {
             _setDeductionType('taxes_paid')
         }
+        localStorage.setItem("deductionQuestionState", JSON.stringify(deductionQuestionsState))
 
 
     }
     return (
-        <WizardModuleContext.Provider value={{ open, setOpen, member, setMember, currentRow, setCurrentRow, keyName: "Wizard_modules", deductionType, _setDeductionType, setDeductionType, deductionQuestionsState, setDeductionQuestionsState }}>
+        <WizardModuleContext.Provider value={{ open, setOpen, member, setMember, currentRow, setCurrentRow, keyName: "Wizard_modules", deductionType, _setDeductionType, setDeductionType, deductionQuestionsState, setDeductionQuestionsState, startQuestionsState, setStartQuestionsState }}>
             {children}
         </WizardModuleContext.Provider>
     )

@@ -11,8 +11,6 @@ interface DashboardProps {
 
 export default function Dashboard({ data }: DashboardProps) {
 
-    console.log("data: ", data);
-
     return (
         <>
             <Main className='min-w-full'>

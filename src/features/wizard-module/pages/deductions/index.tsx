@@ -10,7 +10,7 @@ import { Card, CardHeader } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
 import { useWizardModule } from '../../contexts/wizard_module-context'
 
-// const questions = [
+
 //     {
 //         id: 8,
 //         attributeName: 'regime_type',
