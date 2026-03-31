@@ -66,13 +66,25 @@ export function ProfileDropdown() {
               Profile
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
-              <Link to="/support">Help</Link>
+              <a
+                href="https://help.taxyaar.com/help-center"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Help
+              </a>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
               <Link to="/help-tickets/">Your Help Tickets</Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
-              <Link to="/support">Request a Feature</Link>
+              <a
+                href="https://help.taxyaar.com/request-feature"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Request a Feature
+              </a>
             </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
