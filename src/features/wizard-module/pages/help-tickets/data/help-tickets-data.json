@@ -1,0 +1,88 @@
+{
+  "header": {
+    "title": "Help Tickets",
+    "subtitle": "If your support tickets are not resolved to your satisfaction or if there is a delay in resolution, we will take it up on priority."
+  },
+  "faqItems": [
+    {
+      "id": "1",
+      "question": "What is Income Tax refund?",
+      "answer": "When income Tax paid is more than Income Tax payable, then the amount paid in excess is known as an Income Tax refund. This excess payment is refunded by the Income Tax Department after processing of Income Tax Return.\n\nFor example, Mr. A paid Income Tax of Rs. 15,000/- but the amount of Income Tax payable was only Rs. 10,000/-. Thus, Mr Ramesh will get income Tax refund of Rs. 5,000/-."
+    },
+    {
+      "id": "2",
+      "question": "Do I need to file Income Tax return to get refund of Income Tax?",
+      "answer": "Yes, filing an Income Tax return is necessary to claim a refund. The refund can be processed only after the ITR has been filed and processed by the Income Tax Department."
+    },
+    {
+      "id": "3",
+      "question": "When is interest paid by Income Tax Department on Income Tax refund?",
+      "answer": "Interest on refunds is typically paid by the Income Tax Department when there is a delay in processing your refund. The rate and quantum of interest are determined as per the Income Tax Act."
+    },
+    {
+      "id": "4",
+      "question": "How to check Income Tax refund status from government's website?",
+      "answer": "You can check your Income Tax refund status by visiting the official Income Tax Department website and using the refund status portal with your PAN and Assessment Year."
+    },
+    {
+      "id": "5",
+      "question": "What are the different Income Tax refund status?",
+      "answer": "The different Income Tax refund statuses include: Pending, Under Process, Processed, and Refunded. Each status indicates a different stage in the refund processing cycle."
+    },
+    {
+      "id": "6",
+      "question": "How will I receive my Income Tax refund? Whether Income Tax refund will be directly credited to my bank account?",
+      "answer": "Yes, Income Tax refunds are directly credited to the bank account associated with your PAN. The refund is typically transferred through electronic means to the account."
+    },
+    {
+      "id": "7",
+      "question": "My Income Tax refund went to my old address and got returned. How to get Income Tax refund now?",
+      "answer": "If your refund could not be delivered to your old address, you need to file an updated return with your current address details and contact the Income Tax Department for reissuance of the refund."
+    },
+    {
+      "id": "8",
+      "question": "I got an Email from Income Tax Department that my refund is adjusted against an earlier demand. What should I do?",
+      "answer": "If your refund has been adjusted against an earlier demand, check if you have any outstanding tax dues. If you believe this is incorrect, you can file an appeal or contact the Income Tax Department for clarification."
+    },
+    {
+      "id": "9",
+      "question": "Is Income Tax refund taxable?",
+      "answer": "No, Income Tax refunds are generally not taxable as they represent a return of taxes already paid."
+    },
+    {
+      "id": "10",
+      "question": "I have submitted a 'Refund Reissue request'. How do I know the status of this request?",
+      "answer": "You can track the status of your refund reissue request through the Income Tax Department's portal or by contacting their customer service."
+    },
+    {
+      "id": "11",
+      "question": "What is the helpline number of Income Tax Department for refund related queries?",
+      "answer": "You can find the specific helpline numbers on the official Income Tax Department website. The customer care details vary by region and are available on their portal."
+    },
+    {
+      "id": "12",
+      "question": "How to check refund status through myITReturn portal?",
+      "answer": "You can log in to the myITReturn portal with your credentials and check the refund status in the 'My Returns' or 'Transactions' section."
+    },
+    {
+      "id": "13",
+      "question": "What is an Income Tax Refund reissue request and how to raise/submit it?",
+      "answer": "A refund reissue request is filed when your original refund could not be delivered or was lost in transit. You can file this request through the Income Tax Department's portal."
+    },
+    {
+      "id": "14",
+      "question": "My Income Tax refund is still not processed. How do I escalate this?",
+      "answer": "If your refund is pending, you can escalate the issue through the Income Tax Department's grievance portal or write to the relevant Assessment Officer."
+    },
+    {
+      "id": "15",
+      "question": "My Income Tax return has been processed by CPC raising a demand or with less Income Tax refund. Whom do I need to approach for rectification?",
+      "answer": "You can file a rectification request with the CPC (Centralized Processing Centre) or approach the Assessment Officer of your circle for further assistance."
+    },
+    {
+      "id": "16",
+      "question": "Tax is deducted from my salary, but tax payable at the end of year is NIL or less than TDS amount. What should I do?",
+      "answer": "If your actual tax payable is less than or NIL, you are eligible for a refund of the TDS deducted from your salary. You need to file an Income Tax Return to claim this refund."
+    }
+  ]
+}

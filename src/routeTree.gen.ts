@@ -22,6 +22,7 @@ import { Route as ProtectedFilerRouteImport } from './routes/_protected/_filer'
 import { Route as authSignUpRouteImport } from './routes/(auth)/sign-up'
 import { Route as authSignInRouteImport } from './routes/(auth)/sign-in'
 import { Route as authOtpRouteImport } from './routes/(auth)/otp'
+import { Route as ProtectedHelpTicketsIndexRouteImport } from './routes/_protected/help-tickets/index'
 import { Route as ProtectedAdministrationLayoutRouteImport } from './routes/_protected/administration/_layout'
 import { Route as ProtectedauthChangePasswordRouteImport } from './routes/_protected/(auth)/change-password'
 import { Route as ProtectedSupportHelpIndexRouteImport } from './routes/_protected/support/help/index'
@@ -69,7 +70,6 @@ import { Route as ProtectedFilerHouse_propertyAddRouteImport } from './routes/_p
 import { Route as ProtectedFilerBank_detailsAddRouteImport } from './routes/_protected/_filer/bank_details/add'
 import { Route as ProtectedFilerAssesseeHeyassesseeRouteImport } from './routes/_protected/_filer/assessee/heyassessee'
 import { Route as ProtectedFilerAssesseeEditRouteImport } from './routes/_protected/_filer/assessee/edit'
-import { Route as ProtectedFilerAssesseeAddRouteImport } from './routes/_protected/_filer/assessee/add'
 import { Route as ProtectedFilerAllowance_breakupAddRouteImport } from './routes/_protected/_filer/allowance_breakup/add'
 import { Route as ProtectedFilerAgriculture_incomeAddRouteImport } from './routes/_protected/_filer/agriculture_income/add'
 import { Route as ProtectedauthUserFiscalYearLayoutRouteImport } from './routes/_protected/(auth)/user-fiscal-year/_layout'
@@ -230,6 +230,12 @@ const authOtpRoute = authOtpRouteImport.update({
   path: '/otp',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProtectedHelpTicketsIndexRoute =
+  ProtectedHelpTicketsIndexRouteImport.update({
+    id: '/help-tickets/',
+    path: '/help-tickets/',
+    getParentRoute: () => ProtectedRoute,
+  } as any)
 const ProtectedAdministrationLayoutRoute =
   ProtectedAdministrationLayoutRouteImport.update({
     id: '/administration/_layout',
@@ -510,12 +516,6 @@ const ProtectedFilerAssesseeEditRoute =
     path: '/assessee/edit',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
-const ProtectedFilerAssesseeAddRoute =
-  ProtectedFilerAssesseeAddRouteImport.update({
-    id: '/assessee/add',
-    path: '/assessee/add',
-    getParentRoute: () => ProtectedFilerRoute,
-  } as any)
 const ProtectedFilerAllowance_breakupAddRoute =
   ProtectedFilerAllowance_breakupAddRouteImport.update({
     id: '/allowance_breakup/add',
@@ -743,10 +743,10 @@ export interface FileRoutesByFullPath {
   '/503': typeof errors503LazyRoute
   '/change-password': typeof ProtectedauthChangePasswordRoute
   '/administration': typeof ProtectedAdministrationLayoutRouteWithChildren
+  '/help-tickets/': typeof ProtectedHelpTicketsIndexRoute
   '/user-fiscal-year': typeof ProtectedauthUserFiscalYearLayoutRouteWithChildren
   '/agriculture_income/add': typeof ProtectedFilerAgriculture_incomeAddRoute
   '/allowance_breakup/add': typeof ProtectedFilerAllowance_breakupAddRoute
-  '/assessee/add': typeof ProtectedFilerAssesseeAddRoute
   '/assessee/edit': typeof ProtectedFilerAssesseeEditRoute
   '/assessee/heyassessee': typeof ProtectedFilerAssesseeHeyassesseeRoute
   '/bank_details/add': typeof ProtectedFilerBank_detailsAddRoute
@@ -844,9 +844,9 @@ export interface FileRoutesByTo {
   '/503': typeof errors503LazyRoute
   '/change-password': typeof ProtectedauthChangePasswordRoute
   '/administration': typeof ProtectedAdministrationLayoutRouteWithChildren
+  '/help-tickets': typeof ProtectedHelpTicketsIndexRoute
   '/agriculture_income/add': typeof ProtectedFilerAgriculture_incomeAddRoute
   '/allowance_breakup/add': typeof ProtectedFilerAllowance_breakupAddRoute
-  '/assessee/add': typeof ProtectedFilerAssesseeAddRoute
   '/assessee/edit': typeof ProtectedFilerAssesseeEditRoute
   '/assessee/heyassessee': typeof ProtectedFilerAssesseeHeyassesseeRoute
   '/bank_details/add': typeof ProtectedFilerBank_detailsAddRoute
@@ -938,10 +938,10 @@ export interface FileRoutesById {
   '/(errors)/503': typeof errors503LazyRoute
   '/_protected/(auth)/change-password': typeof ProtectedauthChangePasswordRoute
   '/_protected/administration/_layout': typeof ProtectedAdministrationLayoutRouteWithChildren
+  '/_protected/help-tickets/': typeof ProtectedHelpTicketsIndexRoute
   '/_protected/(auth)/user-fiscal-year/_layout': typeof ProtectedauthUserFiscalYearLayoutRouteWithChildren
   '/_protected/_filer/agriculture_income/add': typeof ProtectedFilerAgriculture_incomeAddRoute
   '/_protected/_filer/allowance_breakup/add': typeof ProtectedFilerAllowance_breakupAddRoute
-  '/_protected/_filer/assessee/add': typeof ProtectedFilerAssesseeAddRoute
   '/_protected/_filer/assessee/edit': typeof ProtectedFilerAssesseeEditRoute
   '/_protected/_filer/assessee/heyassessee': typeof ProtectedFilerAssesseeHeyassesseeRoute
   '/_protected/_filer/bank_details/add': typeof ProtectedFilerBank_detailsAddRoute
@@ -1041,10 +1041,10 @@ export interface FileRouteTypes {
     | '/503'
     | '/change-password'
     | '/administration'
+    | '/help-tickets/'
     | '/user-fiscal-year'
     | '/agriculture_income/add'
     | '/allowance_breakup/add'
-    | '/assessee/add'
     | '/assessee/edit'
     | '/assessee/heyassessee'
     | '/bank_details/add'
@@ -1142,9 +1142,9 @@ export interface FileRouteTypes {
     | '/503'
     | '/change-password'
     | '/administration'
+    | '/help-tickets'
     | '/agriculture_income/add'
     | '/allowance_breakup/add'
-    | '/assessee/add'
     | '/assessee/edit'
     | '/assessee/heyassessee'
     | '/bank_details/add'
@@ -1235,10 +1235,10 @@ export interface FileRouteTypes {
     | '/(errors)/503'
     | '/_protected/(auth)/change-password'
     | '/_protected/administration/_layout'
+    | '/_protected/help-tickets/'
     | '/_protected/(auth)/user-fiscal-year/_layout'
     | '/_protected/_filer/agriculture_income/add'
     | '/_protected/_filer/allowance_breakup/add'
-    | '/_protected/_filer/assessee/add'
     | '/_protected/_filer/assessee/edit'
     | '/_protected/_filer/assessee/heyassessee'
     | '/_protected/_filer/bank_details/add'
@@ -1470,6 +1470,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/otp'
       preLoaderRoute: typeof authOtpRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/_protected/help-tickets/': {
+      id: '/_protected/help-tickets/'
+      path: '/help-tickets'
+      fullPath: '/help-tickets/'
+      preLoaderRoute: typeof ProtectedHelpTicketsIndexRouteImport
+      parentRoute: typeof ProtectedRoute
     }
     '/_protected/administration/_layout': {
       id: '/_protected/administration/_layout'
@@ -1800,13 +1807,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedFilerAssesseeEditRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
-    '/_protected/_filer/assessee/add': {
-      id: '/_protected/_filer/assessee/add'
-      path: '/assessee/add'
-      fullPath: '/assessee/add'
-      preLoaderRoute: typeof ProtectedFilerAssesseeAddRouteImport
-      parentRoute: typeof ProtectedFilerRoute
-    }
     '/_protected/_filer/allowance_breakup/add': {
       id: '/_protected/_filer/allowance_breakup/add'
       path: '/allowance_breakup/add'
@@ -2066,7 +2066,6 @@ const ProtectedFilerAssesseeAddLayoutRouteWithChildren =
 interface ProtectedFilerRouteChildren {
   ProtectedFilerAgriculture_incomeAddRoute: typeof ProtectedFilerAgriculture_incomeAddRoute
   ProtectedFilerAllowance_breakupAddRoute: typeof ProtectedFilerAllowance_breakupAddRoute
-  ProtectedFilerAssesseeAddRoute: typeof ProtectedFilerAssesseeAddRoute
   ProtectedFilerAssesseeEditRoute: typeof ProtectedFilerAssesseeEditRoute
   ProtectedFilerAssesseeHeyassesseeRoute: typeof ProtectedFilerAssesseeHeyassesseeRoute
   ProtectedFilerBank_detailsAddRoute: typeof ProtectedFilerBank_detailsAddRoute
@@ -2115,7 +2114,6 @@ const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
     ProtectedFilerAgriculture_incomeAddRoute,
   ProtectedFilerAllowance_breakupAddRoute:
     ProtectedFilerAllowance_breakupAddRoute,
-  ProtectedFilerAssesseeAddRoute: ProtectedFilerAssesseeAddRoute,
   ProtectedFilerAssesseeEditRoute: ProtectedFilerAssesseeEditRoute,
   ProtectedFilerAssesseeHeyassesseeRoute:
     ProtectedFilerAssesseeHeyassesseeRoute,
@@ -2401,6 +2399,7 @@ interface ProtectedRouteChildren {
   ProtectedSignOutRoute: typeof ProtectedSignOutRoute
   ProtectedauthChangePasswordRoute: typeof ProtectedauthChangePasswordRoute
   ProtectedAdministrationLayoutRoute: typeof ProtectedAdministrationLayoutRouteWithChildren
+  ProtectedHelpTicketsIndexRoute: typeof ProtectedHelpTicketsIndexRoute
   ProtectedauthUserFiscalYearLayoutRoute: typeof ProtectedauthUserFiscalYearLayoutRouteWithChildren
   ProtectedMastersOrganizationLayoutRoute: typeof ProtectedMastersOrganizationLayoutRouteWithChildren
   ProtectedauthAddtaxformIndexRoute: typeof ProtectedauthAddtaxformIndexRoute
@@ -2417,6 +2416,7 @@ const ProtectedRouteChildren: ProtectedRouteChildren = {
   ProtectedauthChangePasswordRoute: ProtectedauthChangePasswordRoute,
   ProtectedAdministrationLayoutRoute:
     ProtectedAdministrationLayoutRouteWithChildren,
+  ProtectedHelpTicketsIndexRoute: ProtectedHelpTicketsIndexRoute,
   ProtectedauthUserFiscalYearLayoutRoute:
     ProtectedauthUserFiscalYearLayoutRouteWithChildren,
   ProtectedMastersOrganizationLayoutRoute:
