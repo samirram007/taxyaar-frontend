@@ -10,7 +10,6 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { useAuth } from '@/features/auth/contexts/AuthContext'
@@ -65,27 +64,31 @@ export function ProfileDropdown() {
               }}
             >
               Profile
-              <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
-              <Link to="/">
-                Billing
-                <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-              </Link>
+              <a
+                href="https://help.taxyaar.com/help-center"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Help
+              </a>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
-              <Link to="/">
-                Settings
-                <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-              </Link>
+              <Link to="/help-tickets/">Your Help Tickets</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem>New Team</DropdownMenuItem>
+            <DropdownMenuItem asChild>
+              <a
+                href="https://help.taxyaar.com/request-feature"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Request a Feature
+              </a>
+            </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={handleLogout}>
-            <div>Log out</div>
-            <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
-          </DropdownMenuItem>
+          <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
       <ProfileEditModal
