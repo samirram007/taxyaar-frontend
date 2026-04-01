@@ -4,8 +4,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Button } from "@/components/ui/button";
 import { MoreVertical, Trash2 } from "lucide-react";
 import { IconArrowRight, IconEdit } from "@tabler/icons-react";
-import { useAuthenticationUser } from "@/features/wizard-module/data/queryOptions";
-import { toast } from "sonner";
+// import { useAuthenticationUser } from "@/features/wizard-module/data/queryOptions";
 import { DeleteModal } from "./DeleteModal";
 import { useState } from "react";
 
@@ -16,7 +15,7 @@ import { useState } from "react";
 export default function MemeberList({ clientList }: { clientList: ClientList }) {
 
     const router = useRouter();
-    const { mutate } = useAuthenticationUser();
+    // const { mutate } = useAuthenticationUser();
     const [selectedClient, setSelectedClient] = useState<Client | null>(null)
     const [open, setOpen] = useState<boolean>(false);
 

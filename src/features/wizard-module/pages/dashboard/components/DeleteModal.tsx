@@ -1,6 +1,6 @@
 "use client"
 
-import { Loader2, Trash2 } from "lucide-react"
+import { Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
     Dialog,
@@ -9,8 +9,6 @@ import {
     DialogTitle,
     DialogDescription,
     DialogFooter,
-    DialogTrigger,
-    DialogClose, // ✅ import this
 } from "@/components/ui/dialog"
 
 import type { Client } from "../../taxfiler/data/schema"

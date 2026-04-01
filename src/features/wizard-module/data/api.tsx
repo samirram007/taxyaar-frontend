@@ -35,9 +35,11 @@ export async function authenticationUser({ pan }: { pan: string }): Promise<Axio
     }
 }
 
-export async function logout(): Promise<AxiosResponse<AuthResponse>> {
+export async function logout(pan: string): Promise<AxiosResponse<AuthResponse>> {
     try {
-        const response = await springClient.post<AuthResponse>('/auth/logout');
+        const response = await springClient.post<AuthResponse>('/auth/logout', {
+            'pan': pan
+        });
 
         return response;
     } catch (error: unknown) {

@@ -16,7 +16,7 @@ import { useState } from 'react'
 // build err
 
 // import { useAddClient, useValidateAddClient } from "../../data/queryOptions";
-import { useAddClient, useValidateAddClient } from '../../data/queryOptions'
+import { useAddClient } from '../../data/queryOptions'
 // build err
 
 // import { toast } from "sonner";
