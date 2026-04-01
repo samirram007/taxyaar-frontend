@@ -38,13 +38,10 @@ interface WizardModuleContextType {
     startQuestionsState: StartQuestionType
     setStartQuestionsState: React.Dispatch<React.SetStateAction<StartQuestionType>>
 
-    deductionType: "salary_arrears" | "foreign_tax_relief" | "taxes_paid" | null
-
     deductionQuestionsState: DeductionQuestionType[]
     setDeductionQuestionsState: React.Dispatch<React.SetStateAction<DeductionQuestionType[]>>
 
-    _setDeductionType: React.Dispatch<React.SetStateAction<"salary_arrears" | "foreign_tax_relief" | "taxes_paid" | null>>
-    setDeductionType: (optionOne: 'yes' | 'no', optionTwo: 'yes' | 'no', optionThree: 'yes' | 'no') => void
+
 }
 
 const WizardModuleContext = React.createContext<WizardModuleContextType | null>(null)
@@ -66,12 +63,14 @@ export default function WizardModuleProvider({ children }: Props) {
     }
     const [startQuestionsState, _setStartQuestionsState] = useState<StartQuestionType>(localStorage.getItem("startQuestions") ? JSON.parse(atob(localStorage.getItem("startQuestions")!)) : startQuestions)
 
-
     const [deductionQuestionsState, _setDeductionQuestionsState] = useState<DeductionQuestionType[]>(localStorage.getItem("deductionQuestions") ? JSON.parse(atob(localStorage.getItem("deductionQuestions")!)) : deductionQuestions)
+
+
 
     const setStartQuestionsState: React.Dispatch<React.SetStateAction<StartQuestionType>> = (value) => {
         _setStartQuestionsState((prev) => {
             const nextValue = typeof value === 'function' ? value(prev) : value
+            console.log(JSON.stringify(nextValue));
             localStorage.setItem("startQuestions", btoa(JSON.stringify(nextValue)));
             return nextValue
         })
@@ -79,46 +78,23 @@ export default function WizardModuleProvider({ children }: Props) {
     const setDeductionQuestionsState: React.Dispatch<React.SetStateAction<DeductionQuestionType[]>> = (value) => {
         _setDeductionQuestionsState((prev) => {
             const nextValue = typeof value === 'function' ? value(prev) : value
+            console.log(JSON.stringify(nextValue));
+
             localStorage.setItem("deductionQuestions", btoa(JSON.stringify(nextValue)));
             return nextValue
         })
     }
-    const [deductionType, _setDeductionType] = useState<"salary_arrears" | "foreign_tax_relief" | "taxes_paid" | null>('taxes_paid');
 
-
-
-    const setDeductionType = (optionOne: 'yes' | 'no', optionTwo: 'yes' | 'no', optionThree: 'yes' | 'no') => {
-
-
-        // y y y Relief on Salary Arrears
-        //         y y n Relief on Salary Arrears
-        // n y y Relief on Salary Arrears
-        // y n y Foreign Tax Relief
-        // n n y Foreign Tax Relief
-        // n n n Taxes Paid
-        //console.log(optionOne, optionTwo, optionThree)
-        if (optionOne === 'yes' && optionTwo === 'yes' && optionThree === 'yes') {
-            _setDeductionType('salary_arrears')
-        } else if (optionOne === 'yes' && optionTwo === 'yes' && optionThree === 'no') {
-            _setDeductionType('salary_arrears')
-        } else if (optionOne === 'no' && optionTwo === 'yes' && optionThree === 'yes') {
-            _setDeductionType('salary_arrears')
-        } else if (optionOne === 'yes' && optionTwo === 'no' && optionThree === 'yes') {
-            _setDeductionType('foreign_tax_relief')
-        } else if (optionOne === 'no' && optionTwo === 'no' && optionThree === 'yes') {
-            _setDeductionType('foreign_tax_relief')
-        } else if(optionOne === 'no' && optionTwo === 'yes' && optionThree === 'no') {
-            _setDeductionType('salary_arrears')
-
-        } else if (optionOne === 'no' && optionTwo === 'no' && optionThree === 'no') {
-            _setDeductionType('taxes_paid')
-        }
-        localStorage.setItem("deductionQuestionState", JSON.stringify(deductionQuestionsState))
-
-
-    }
     return (
-        <WizardModuleContext.Provider value={{ open, setOpen, member, setMember, currentRow, setCurrentRow, keyName: "Wizard_modules", deductionType, _setDeductionType, setDeductionType, deductionQuestionsState, setDeductionQuestionsState, startQuestionsState, setStartQuestionsState }}>
+        <WizardModuleContext.Provider value={{
+            open, setOpen,
+            member, setMember,
+            currentRow, setCurrentRow,
+            keyName: "Wizard_modules",
+
+            deductionQuestionsState, setDeductionQuestionsState,
+            startQuestionsState, setStartQuestionsState,
+        }}>
             {children}
         </WizardModuleContext.Provider>
     )

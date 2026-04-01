@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input'
 
 import { Card, CardHeader } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
-import { useWizardModule } from '../../contexts/wizard_module-context'
+// import { useWizardModule } from '../../contexts/wizard_module-context'
 
 
 //     {
@@ -135,8 +135,8 @@ const Deductions = () => {
 export default Deductions
 
 const WizardLinkComponent = () => {
-    const { deductionType } = useWizardModule()
-
+    //   const { deductionType } = useWizardModule()
+    const deductionType = "taxes_paid"
     const validated = () => {
         if (!deductionType) {
             alert("Please answer all the questions to proceed")

@@ -20,26 +20,28 @@ import { useWizardModule } from "../../contexts/wizard_module-context"
 const DeductionStart = () => {
 
     // const [deductionQuestionsState, setDeductionQuestionsState] = useState(deductionQuestions)
-    const { setDeductionType, deductionQuestionsState, setDeductionQuestionsState } = useWizardModule()
+    const { deductionQuestionsState, setDeductionQuestionsState } = useWizardModule()
 
     // const routeOptions = ['salary_arrears', , 'foreign_tax_relief', 'taxes_paid']
 
     // const chosenOption = 'taxes_paid'
-    const handleValueChange = (id: number) => (value: "yes" | "no") => {
-        setDeductionQuestionsState((prev) => {
-            const nextValue = prev.map((q) => {
-                if (q.id === id) {
-                    return { ...q, answer: value }
-                }
-                return q
-            })
-            // if three questions are answered then only set the deduction type
-            if (nextValue.every((q) => q.answer !== undefined)) {
-                setDeductionType(nextValue[0].answer!, nextValue[1].answer!, nextValue[2].answer!)
-            }
-            return nextValue
-        })
-    }
+    // const handleValueChange = (id: number) => (value: "yes" | "no") => {
+    //     setDeductionQuestionsState((prev) => {
+    //         console.log("this", prev);
+
+    //         const nextValue = prev.map((q) => {
+    //             if (q.id === id) {
+    //                 return { ...q, answer: value }
+    //             }
+    //             return q
+    //         })
+    //         // if three questions are answered then only set the deduction type
+    //         if (nextValue.every((q) => q.answer !== undefined)) {
+    //             setDeductionType(nextValue[0].answer!, nextValue[1].answer!, nextValue[2].answer!)
+    //         }
+    //         return nextValue
+    //     })
+    // }
 
     return (
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8  ">
@@ -74,7 +76,13 @@ const DeductionStart = () => {
 
                                                     <YesNoToggle
                                                         value={q.answer}
-                                                        onChange={handleValueChange(q.id)}
+                                                        // onChange={handleValueChange(q.id)}
+                                                        onChange={(value) => {
+                                                            const updatedQuestions = deductionQuestionsState.map((question) =>
+                                                                question.id === q.id ? { ...question, answer: value } : question
+                                                            )
+                                                            setDeductionQuestionsState(updatedQuestions)
+                                                        }}
                                                     />
                                                     {/* {q.optionalQuestions ? 'yes' : ''}
                                                 {q.answer === "yes" ? "yes" : "no"} */}
