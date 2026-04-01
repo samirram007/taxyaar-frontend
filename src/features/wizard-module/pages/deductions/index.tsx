@@ -135,15 +135,15 @@ const Deductions = () => {
 export default Deductions
 
 const WizardLinkComponent = () => {
-    const { deductionType } = useWizardModule()
+    // const { deductionType } = useWizardModule()
 
-    const validated = () => {
-        if (!deductionType) {
-            alert("Please answer all the questions to proceed")
-            return false
-        }
-        return true
-    }
+    // const validated = () => {
+    //     if (!deductionType) {
+    //         alert("Please answer all the questions to proceed")
+    //         return false
+    //     }
+    //     return true
+    // }
 
 
     return (

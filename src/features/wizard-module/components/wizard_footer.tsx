@@ -26,6 +26,7 @@ const WizardFooter = (props: WizardFooterProps) => {
     props
 
   const handleLinkClick = (link: string) => {
+    console.log(`Navigating to: ${link}`)
     if (validated && !validated()) {
       return
     }
