@@ -189,6 +189,23 @@ code {
     @apply bg-background text-foreground;
   }
 }
+ 
+@layer utilities {
+  .scroll-container {
+    overflow-y: auto;
+
+    /* 🔥 Critical: removes gutter behavior */
+    scrollbar-gutter: auto;
+
+    /* Firefox */
+    scrollbar-width: none;
+  }
+
+  /* Chrome / Safari */
+  .scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+}
 .grid-footer {
   @apply grid grid-rows-[1fr_120px_150px] md:grid-rows-[1fr_100px_120px];
 }

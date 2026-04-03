@@ -1,3 +1,4 @@
+import { LayoutProvider } from '@/core/contexts/layout-context';
 import ProtectedLayout from '@/layouts/ProtectedLayout';
 import { createFileRoute, redirect } from '@tanstack/react-router';
 
@@ -18,7 +19,10 @@ export const Route = createFileRoute('/_protected')({
 
   //   throw error
   // },
-  component: ProtectedLayout,
+  component: () =>
+    <LayoutProvider defaultLayout="protected" storageKey="app-ui-layout">
+      <ProtectedLayout />
+    </LayoutProvider>,
   notFoundComponent: () => <div>Authenticated Not Found</div>,
 })
 

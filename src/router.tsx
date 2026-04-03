@@ -7,6 +7,7 @@ export function createAppRouter(opts?: { history?: any }) {
         routeTree,
         context: {
             auth: undefined!,
+            layout: undefined!,
             queryClient: undefined!
         },
         defaultPreload: 'intent',

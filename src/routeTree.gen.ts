@@ -23,6 +23,7 @@ import { Route as authSignUpRouteImport } from './routes/(auth)/sign-up'
 import { Route as authSignInRouteImport } from './routes/(auth)/sign-in'
 import { Route as authOtpRouteImport } from './routes/(auth)/otp'
 import { Route as ProtectedHelpTicketsIndexRouteImport } from './routes/_protected/help-tickets/index'
+import { Route as ProtectedDocumentsIndexRouteImport } from './routes/_protected/documents/index'
 import { Route as ProtectedAdministrationLayoutRouteImport } from './routes/_protected/administration/_layout'
 import { Route as ProtectedauthChangePasswordRouteImport } from './routes/_protected/(auth)/change-password'
 import { Route as ProtectedSupportHelpIndexRouteImport } from './routes/_protected/support/help/index'
@@ -236,6 +237,11 @@ const ProtectedHelpTicketsIndexRoute =
     path: '/help-tickets/',
     getParentRoute: () => ProtectedRoute,
   } as any)
+const ProtectedDocumentsIndexRoute = ProtectedDocumentsIndexRouteImport.update({
+  id: '/documents/',
+  path: '/documents/',
+  getParentRoute: () => ProtectedRoute,
+} as any)
 const ProtectedAdministrationLayoutRoute =
   ProtectedAdministrationLayoutRouteImport.update({
     id: '/administration/_layout',
@@ -743,6 +749,7 @@ export interface FileRoutesByFullPath {
   '/503': typeof errors503LazyRoute
   '/change-password': typeof ProtectedauthChangePasswordRoute
   '/administration': typeof ProtectedAdministrationLayoutRouteWithChildren
+  '/documents/': typeof ProtectedDocumentsIndexRoute
   '/help-tickets/': typeof ProtectedHelpTicketsIndexRoute
   '/user-fiscal-year': typeof ProtectedauthUserFiscalYearLayoutRouteWithChildren
   '/agriculture_income/add': typeof ProtectedFilerAgriculture_incomeAddRoute
@@ -844,6 +851,7 @@ export interface FileRoutesByTo {
   '/503': typeof errors503LazyRoute
   '/change-password': typeof ProtectedauthChangePasswordRoute
   '/administration': typeof ProtectedAdministrationLayoutRouteWithChildren
+  '/documents': typeof ProtectedDocumentsIndexRoute
   '/help-tickets': typeof ProtectedHelpTicketsIndexRoute
   '/agriculture_income/add': typeof ProtectedFilerAgriculture_incomeAddRoute
   '/allowance_breakup/add': typeof ProtectedFilerAllowance_breakupAddRoute
@@ -938,6 +946,7 @@ export interface FileRoutesById {
   '/(errors)/503': typeof errors503LazyRoute
   '/_protected/(auth)/change-password': typeof ProtectedauthChangePasswordRoute
   '/_protected/administration/_layout': typeof ProtectedAdministrationLayoutRouteWithChildren
+  '/_protected/documents/': typeof ProtectedDocumentsIndexRoute
   '/_protected/help-tickets/': typeof ProtectedHelpTicketsIndexRoute
   '/_protected/(auth)/user-fiscal-year/_layout': typeof ProtectedauthUserFiscalYearLayoutRouteWithChildren
   '/_protected/_filer/agriculture_income/add': typeof ProtectedFilerAgriculture_incomeAddRoute
@@ -1041,6 +1050,7 @@ export interface FileRouteTypes {
     | '/503'
     | '/change-password'
     | '/administration'
+    | '/documents/'
     | '/help-tickets/'
     | '/user-fiscal-year'
     | '/agriculture_income/add'
@@ -1142,6 +1152,7 @@ export interface FileRouteTypes {
     | '/503'
     | '/change-password'
     | '/administration'
+    | '/documents'
     | '/help-tickets'
     | '/agriculture_income/add'
     | '/allowance_breakup/add'
@@ -1235,6 +1246,7 @@ export interface FileRouteTypes {
     | '/(errors)/503'
     | '/_protected/(auth)/change-password'
     | '/_protected/administration/_layout'
+    | '/_protected/documents/'
     | '/_protected/help-tickets/'
     | '/_protected/(auth)/user-fiscal-year/_layout'
     | '/_protected/_filer/agriculture_income/add'
@@ -1476,6 +1488,13 @@ declare module '@tanstack/react-router' {
       path: '/help-tickets'
       fullPath: '/help-tickets/'
       preLoaderRoute: typeof ProtectedHelpTicketsIndexRouteImport
+      parentRoute: typeof ProtectedRoute
+    }
+    '/_protected/documents/': {
+      id: '/_protected/documents/'
+      path: '/documents'
+      fullPath: '/documents/'
+      preLoaderRoute: typeof ProtectedDocumentsIndexRouteImport
       parentRoute: typeof ProtectedRoute
     }
     '/_protected/administration/_layout': {
@@ -2399,6 +2418,7 @@ interface ProtectedRouteChildren {
   ProtectedSignOutRoute: typeof ProtectedSignOutRoute
   ProtectedauthChangePasswordRoute: typeof ProtectedauthChangePasswordRoute
   ProtectedAdministrationLayoutRoute: typeof ProtectedAdministrationLayoutRouteWithChildren
+  ProtectedDocumentsIndexRoute: typeof ProtectedDocumentsIndexRoute
   ProtectedHelpTicketsIndexRoute: typeof ProtectedHelpTicketsIndexRoute
   ProtectedauthUserFiscalYearLayoutRoute: typeof ProtectedauthUserFiscalYearLayoutRouteWithChildren
   ProtectedMastersOrganizationLayoutRoute: typeof ProtectedMastersOrganizationLayoutRouteWithChildren
@@ -2416,6 +2436,7 @@ const ProtectedRouteChildren: ProtectedRouteChildren = {
   ProtectedauthChangePasswordRoute: ProtectedauthChangePasswordRoute,
   ProtectedAdministrationLayoutRoute:
     ProtectedAdministrationLayoutRouteWithChildren,
+  ProtectedDocumentsIndexRoute: ProtectedDocumentsIndexRoute,
   ProtectedHelpTicketsIndexRoute: ProtectedHelpTicketsIndexRoute,
   ProtectedauthUserFiscalYearLayoutRoute:
     ProtectedauthUserFiscalYearLayoutRouteWithChildren,
