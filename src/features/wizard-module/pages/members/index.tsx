@@ -74,16 +74,14 @@ export default function MembersPage() {
 
     authMutation.mutate("undefined", {
       onSuccess: (res) => {
-        console.log(res);
+        // const token = res?.data?.data?.result?.autkn;
 
-        const token = "";//res?.data?.data?.result?.autkn;
+        // if (!token) {
+        //   alert("Authentication failed. Token not received.");
+        //   return;
+        // }
 
-        if (!token) {
-          alert("Authentication failed. Token not received.");
-          return;
-        }
-
-        localStorage.setItem("autkn", token);
+        // localStorage.setItem("autkn", token);
         sessionStorage.setItem("taxFilerData", JSON.stringify(member));
 
         router.navigate({ to: "/department_add_client" });
