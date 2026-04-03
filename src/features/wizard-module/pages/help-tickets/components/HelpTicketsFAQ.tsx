@@ -18,8 +18,8 @@ type HelpTicketsFAQProps = {
 
 const HelpTicketsFAQ = ({ items, title }: HelpTicketsFAQProps) => {
   return (
-    <section className="px-4! py-10! sm:px-6 lg:px-8 lg:py-14">
-      <div className="mx-auto max-w-6xl">
+    <section className="px-8! py-10! sm:px-6 lg:px-8 lg:py-14">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <h2 className="text-3xl! font-bold! text-slate-900 mb-10">{title}</h2>
         <Accordion type="single" collapsible className="space-y-2">
           {items.map((item, index) => (

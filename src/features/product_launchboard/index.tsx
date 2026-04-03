@@ -11,25 +11,16 @@ import {
   IconUserCircle,
 } from '@tabler/icons-react'
 import { Link } from '@tanstack/react-router'
+import CustomBreadcrumb from '../wizard-module/components/CustomBreadCrumb'
 
 const ProductLaunchboard = () => {
   const title = 'Tax Filing Services'
   const title2 = 'More Services'
   return (
     <Main className="min-w-full">
-      <Breadcrumb className="mt-2! text-sm flex flex-row items-center gap-2 mb-4">
-        <Link to="/product_launchboard" className="text-blue-500">
-          Home
-        </Link>
-        <span>/</span>
-        <Link
-          to={'/'}
-          className="text-gray-600"
-          activeProps={{ className: 'text-blue-600 font-semibold underline' }}
-        >
-          Services
-        </Link>
-      </Breadcrumb>
+      <div className="min-h-screen   max-w-max mx-auto">
+        <CustomBreadcrumb title="Services" />
+
       <div className="mx-auto grid max-w-5xl grid-rows-1 gap-16 place-items-center">
         <div className="grid grid-rows-1 gap-16 place-items-center">
           <div className="text-center text-xl font-bold">{title}</div>
@@ -142,6 +133,7 @@ const ProductLaunchboard = () => {
             </Card>
           </div>
         </div>
+      </div>
       </div>
     </Main>
   )

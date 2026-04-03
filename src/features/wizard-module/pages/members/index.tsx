@@ -74,7 +74,9 @@ export default function MembersPage() {
 
     authMutation.mutate("undefined", {
       onSuccess: (res) => {
-        const token = res?.data?.data?.result?.autkn;
+        console.log(res);
+
+        const token = "";//res?.data?.data?.result?.autkn;
 
         if (!token) {
           alert("Authentication failed. Token not received.");

@@ -11,7 +11,7 @@ const HelpTicketsHero = ({ title, subtitle }: HelpTicketsHeroProps) => {
   }
 
   return (
-    <section className="px-4! pt-14! pb-8! sm:px-6 lg:px-8 lg:pt-20 lg:pb-10">
+    <section className="px-4! pt-6! pb-8! sm:px-6 lg:px-8 lg:pt-20 lg:pb-10 border-b-2">
       <div className="mx-auto max-w-6xl">
         <div className="flex items-start justify-between gap-6">
           <div className="flex-1">
