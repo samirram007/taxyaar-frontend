@@ -3,7 +3,10 @@ import React from 'react'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
+import { useIsMobile } from '@/hooks/use-mobile'
+
 const Banner: React.FC = () => {
+  const isMobile = useIsMobile()
   const settings = {
     dots: true,
     arrows: false,
@@ -101,9 +104,11 @@ const Banner: React.FC = () => {
                   </div>
                 </div>
               </div>
-              <div className="c-banner-img-new">
-                <img src={slide.img} alt="" />
-              </div>
+              {!isMobile && (
+                <div className="c-banner-img-new">
+                  <img src={slide.img} alt="" />
+                </div>
+              )}
             </div>
           </div>
         ))}
