@@ -73,7 +73,7 @@ export default function MembersPage() {
     // }
 
     authMutation.mutate("undefined", {
-      onSuccess: (res) => {
+      onSuccess: () => {
         // const token = res?.data?.data?.result?.autkn;
 
         // if (!token) {

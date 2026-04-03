@@ -1,8 +1,8 @@
 // import { useWizardModule } from '../contexts/wizard_module-context'
 
-import { routeTree } from "@/routeTree.gen"
+
 import { IconClock } from "@tabler/icons-react"
-import { Link, useNavigate, useRouter } from "@tanstack/react-router"
+import { Link, useNavigate } from "@tanstack/react-router"
 import { MoveLeft, MoveRight } from "lucide-react"
 
 // import { useRouter } from '@tanstack/react-router';
