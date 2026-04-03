@@ -21,7 +21,7 @@ const loadCSSFiles = () => {
 }
 
 // Load CSS before rendering
-loadCSSFiles()
+// loadCSSFiles()
 
 export const Route = createFileRoute('/_protected/help-tickets/')({
   component: RouteComponent,

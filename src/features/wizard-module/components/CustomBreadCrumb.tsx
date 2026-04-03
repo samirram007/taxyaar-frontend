@@ -11,7 +11,7 @@ export default function CustomBreadcrumb({ title = "Page" }: { title?: string })
   // const { mutate } = useLogout();
 
   const onHandleHome = () => {
-    router.navigate({ to: "/dashboard" })
+    router.navigate({ to: "/product_launchboard" })
 
     // const pan = sessionStorage.getItem("pan");
     // if (pan == null) {

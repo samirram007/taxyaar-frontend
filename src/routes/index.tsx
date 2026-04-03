@@ -1,11 +1,11 @@
 import Home from '@/features/home'
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, redirect } from '@tanstack/react-router'
 import { useEffect } from 'react'
 
 export const Route = createFileRoute('/')({
   beforeLoad: async ({ context }) => {
-    if (!context.auth?.isAuthenticated) {
-      // HeadCSS()
+    if (context.auth?.isAuthenticated) {
+      throw redirect({ to: '/product_launchboard' })
     }
   },
   component: RouteComponent,
