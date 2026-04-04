@@ -19,7 +19,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const sidebar = useSidebar()
   return (
     <Sidebar collapsible='icon' variant="inset" className="top-(--header-height) h-[calc(100svh-var(--header-height))]!" {...props}>
-      <SidebarHeader>
+      <SidebarHeader className='hidden'>
         <div className='flex flex-col items-center justify-between'>
           <div className="grid grid-cols-[40px_1fr] justify-center w-full items-center ">
 
@@ -55,11 +55,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         {/* <TeamSwitcher teams={sidebarData.teams} /> */}
       </SidebarHeader>
       <SidebarContent>
-        {sidebarData.navGroups.map((props) => (
+        {sidebarData.wizardGroups?.map((props) => (
           props.visible && <NavGroup key={props.title} {...props} />
         ))}
+        {/* {sidebarData.navGroups.map((props) => (
+          props.visible && <NavGroup key={props.title} {...props} />
+        ))} */}
       </SidebarContent>
-      <SidebarFooter>
+      <SidebarFooter className='hidden'>
         <NavUser user={sidebarData.user} />
       </SidebarFooter>
       <SidebarRail />

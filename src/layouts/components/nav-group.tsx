@@ -26,7 +26,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { Link, useLocation } from '@tanstack/react-router'
+import { Link, useLocation, useNavigate } from '@tanstack/react-router'
 import type { ReactNode } from 'react'
 import { type NavCollapsible, type NavGroup, type NavItem, type NavLink } from './types'
 
@@ -73,7 +73,7 @@ const SidebarMenuLink = ({ item, href }: { item: NavLink; href: string }) => {
         tooltip={item.title}
       >
         <Link to={item.url} onClick={() => setOpenMobile(false)}>
-          {item.icon && <item.icon />}
+          {/* {item.icon && <item.icon />} */}
           <span>{item.title}</span>
           {item.badge && <NavBadge>{item.badge}</NavBadge>}
         </Link>
@@ -99,7 +99,7 @@ const SidebarMenuCollapsible = ({
       <SidebarMenuItem>
         <CollapsibleTrigger asChild>
           <SidebarMenuButton tooltip={item.title}>
-            {item.icon && <item.icon />}
+            {/* {item.icon && <item.icon />} */}
             <span>{item.title}</span>
             {item.badge && <NavBadge>{item.badge}</NavBadge>}
             <ChevronRight className='ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90' />
@@ -108,24 +108,30 @@ const SidebarMenuCollapsible = ({
         <CollapsibleContent className='CollapsibleContent'>
           <SidebarMenuSub>
             {item.items.map((subItem: NavItem) => (
-              <SidebarMenuSubItem key={subItem.title}>
-                <SidebarMenuSubButton
-                  asChild
-                  isActive={checkIsActive(href, subItem)}
-                >
-                  {/* <Link to={subItem.url} onClick={() => setOpenMobile(false)}>
-                    {subItem.icon && <subItem.icon />}
-                    <span>{subItem.title}</span>
-                    {subItem.badge && <NavBadge>{subItem.badge}</NavBadge>}
-                  </Link> */}
-                </SidebarMenuSubButton>
-              </SidebarMenuSubItem>
+              <SidebarMenuSubItemComponent key={subItem.title} subItem={subItem} />
             ))}
           </SidebarMenuSub>
         </CollapsibleContent>
       </SidebarMenuItem>
     </Collapsible>
   )
+}
+
+const SidebarMenuSubItemComponent = ({ subItem }: { subItem: NavItem; }) => {
+
+  return (
+    <SidebarMenuSubItem key={subItem.title}>
+      <SidebarMenuSubButton
+        asChild 
+        isActive={checkIsActive('', subItem)}
+      >
+        <Link to={subItem.url as string}>
+          {/* {subItem.icon && <subItem.icon />} */}
+          <span>{subItem.title}</span>
+          {subItem.badge && <NavBadge>{subItem.badge}</NavBadge>}
+        </Link>
+      </SidebarMenuSubButton>
+    </SidebarMenuSubItem>)
 }
 
 const SidebarMenuCollapsedDropdown = ({
@@ -135,6 +141,10 @@ const SidebarMenuCollapsedDropdown = ({
   item: NavCollapsible
   href: string
 }) => {
+
+  console.log("item:", item);
+
+
   return (
     <SidebarMenuItem>
       <DropdownMenu>
@@ -143,10 +153,10 @@ const SidebarMenuCollapsedDropdown = ({
             tooltip={item.title}
             isActive={checkIsActive(href, item)}
           >
-            {item.icon && <item.icon />}
+            {/* {item.icon && <item.icon />} */}
             <span>{item.title}</span>
             {item.badge && <NavBadge>{item.badge}</NavBadge>}
-            <ChevronRight className='ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90' />
+            {/* <ChevronRight className='ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90' /> */}
           </SidebarMenuButton>
         </DropdownMenuTrigger>
         <DropdownMenuContent side='right' align='start' sideOffset={4}>

@@ -1,5 +1,6 @@
-import { LayoutProvider } from '@/core/contexts/layout-context';
+
 import ProtectedLayout from '@/layouts/ProtectedLayout';
+import ProtectedWebLayout from '@/layouts/ProtectedWebLayout';
 import { createFileRoute, redirect } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/_protected')({
@@ -10,6 +11,8 @@ export const Route = createFileRoute('/_protected')({
       //return <SignIn />
       // throw new Error('Not authenticated')
     }
+
+
   },
   // errorComponent: ({ error }) => {
   //   console.log(error, "validation")
@@ -19,11 +22,22 @@ export const Route = createFileRoute('/_protected')({
 
   //   throw error
   // },
-  component: () =>
-    <LayoutProvider defaultLayout="protected" storageKey="app-ui-layout">
-      <ProtectedLayout />
-    </LayoutProvider>,
+  component: ProtectedRouteComponent,
+
   notFoundComponent: () => <div>Authenticated Not Found</div>,
 })
+function ProtectedRouteComponent() {
+  const { layout } = Route.useRouteContext()
+
+  switch (layout?.layoutType) {
+    case 'protected':
+      return <ProtectedLayout />
+
+    case 'protectedWeb':
+      return <ProtectedWebLayout />
+    default:
+      return <ProtectedLayout /> // fallback
+  }
+}
 
 

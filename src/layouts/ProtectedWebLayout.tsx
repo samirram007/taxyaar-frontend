@@ -2,13 +2,19 @@ import SkipToMain from '@/components/skip-to-main'
 import { Toaster } from '@/components/ui/sonner'
 import { SearchProvider } from '@/core/contexts/search-context'
 import { Outlet } from '@tanstack/react-router'
-import { Suspense, useEffect } from 'react'
+import { Suspense, useEffect, type CSSProperties } from 'react'
 import HeaderComponent from './components/HeaderComponent'
+import { AppSidebar } from './components/app-sidebar'
+import { SidebarProvider } from '@/components/ui/sidebar'
 
 
 
 
 const ProtectedWebLayout = () => {
+    const layoutStyle = {
+        '--header-height': '3.5rem',
+    } as CSSProperties
+
     useEffect(() => {
 
         document.querySelectorAll('link').forEach((styleTag) => {
@@ -24,43 +30,26 @@ const ProtectedWebLayout = () => {
     return (
         <Suspense fallback={<Toaster />}>
             <SearchProvider>
-                <SkipToMain />
-
-                <div className="flex">
-                    {/* <!-- ===== Page Wrapper Start ===== --> */}
-                    <div className="max-w-screen w-full relative flex  h-screen overflow-hidden ">
-
-                        {/* <AppSidebar />  */}
-                        <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden ">
-
-                            <div className="min-h-dvh grid grid-rows-[auto_1fr_auto]">
-
-
-                                <HeaderComponent />
-                                {/* <!-- ===== Header End ===== --> */}
-
-                                {/* <!-- ===== Main Content Start ===== --> */}
-                                <main className="max-w-screen 
-                           bg-linear-to-b
-from-slate-100 from-20%  to-white to-20% flex-1  ">
-                                    <div className="container mx-auto h-full w-full pt-12">
-
-
+                <SidebarProvider defaultOpen={true}>
+                    <SkipToMain />
+                    <div className="flex h-svh w-full flex-col overflow-hidden" style={layoutStyle}>
+                        <div className="shrink-0">
+                            <HeaderComponent />
+                        </div>
+                        <div className="flex min-h-0 flex-1 overflow-hidden">
+                            <AppSidebar />
+                            <div className="flex min-w-0 flex-1 flex-col">
+                                <main className="bg-linear-to-b from-slate-100 from-20% to-white to-20% flex-1 min-h-0 overflow-y-auto">
+                                    <div className="container mx-auto h-full w-full px-4 py-8 sm:px-6 lg:px-8">
                                         <Suspense fallback={<Toaster />}>
                                             <Outlet />
                                         </Suspense>
-
-
                                     </div>
                                 </main>
-
                             </div>
                         </div>
-
                     </div>
-                    {/* <!-- ===== Page Wrapper End ===== --> */}
-                </div>
-
+                </SidebarProvider>
             </SearchProvider>
         </Suspense>
     )

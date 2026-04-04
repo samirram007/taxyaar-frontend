@@ -27,7 +27,7 @@ if (rootElement && !rootElement.innerHTML) {
           <ThemeContextProvider defaultTheme="light" storageKey="vite-ui-theme">
             <FontProvider>
               <AuthProvider>
-                <LayoutProvider defaultLayout="protected" storageKey="app-ui-layout">
+                <LayoutProvider storageKey="app-ui-layout">
                   <Form16Provider>
                     <Toaster position="top-center" richColors />
                     <AppRouter />

@@ -40,7 +40,7 @@ export function ProfileDropdown() {
             variant="ghost"
             className="relative h-8 w-8 rounded-full shadow-md"
           >
-            <Avatar className="h-8 w-8">
+            <Avatar className="h-8 w-8  text-black cursor-pointer">
               <AvatarImage src="/avatars/01.png" alt={displayName} />
               <AvatarFallback>{avatarFallback || 'U'}</AvatarFallback>
             </Avatar>

@@ -1,6 +1,6 @@
 import React, { createContext, use, useContext, useEffect, type ReactNode } from 'react';
 
-type LayoutType = 'protected' | 'protectedWeb' | 'mobile';
+type LayoutType = 'protected' | 'protectedWeb' | 'admin' | 'mobile';
 
 
 export interface LayoutContextType {
@@ -17,8 +17,8 @@ interface LayoutProviderProps {
 }
 
 export const LayoutProvider: React.FC<LayoutProviderProps> = ({ children, defaultLayout = "protected",
-    storageKey = "app-ui-lauout" }) => {
-    const [layoutType, setLayoutType] = React.useState<LayoutType>(defaultLayout);
+    storageKey = "app-ui-layout" }) => {
+    const [layoutType, setLayoutType] = React.useState<LayoutType>((localStorage.getItem(storageKey) as LayoutType) || defaultLayout);
     useEffect(() => {
         const storedLayout = localStorage.getItem(storageKey) as LayoutType;
         if (storedLayout) {

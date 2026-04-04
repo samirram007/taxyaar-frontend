@@ -17,6 +17,7 @@ import {
   IconPalette,
   IconServerOff,
   IconSettings,
+  IconStar,
   IconTool,
   IconUserCog,
   IconUserOff
@@ -58,6 +59,53 @@ export const sidebarData: SidebarData = {
       logo: AudioWaveform,
       plan: 'Startup',
     },
+  ],
+  wizardGroups: [
+    {
+      title: 'General',
+      visible: true,
+      items: [
+        {
+          title: 'Dashboard',
+          visible: true,
+          url: '/',
+          icon: IconLayoutDashboard,
+        },
+        {
+          title: 'Income',
+          visible: true,
+          icon: IconLayoutDashboard,
+          items: [
+            {
+              title: 'Start Income',
+              visible: true,
+              url: '/start',
+              icon: IconStar,
+            },
+            {
+              title: 'Salary',
+              visible: true,
+              url: '/salary_income',
+              icon: IconStar,
+            },
+            {
+              title: 'House Property',
+              visible: true,
+              url: '/house_property',
+              icon: IconStar,
+            },
+            {
+              title: 'Income Tax From Bank Interest',
+              visible: true,
+              url: '/other_income',
+              icon: IconStar,
+            }
+
+
+          ]
+        },
+      ]
+    }
   ],
 
   navGroups: [

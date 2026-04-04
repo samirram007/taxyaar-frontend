@@ -52,6 +52,7 @@ interface SidebarData {
   user: User
   header: Header
   teams: Team[]
+  wizardGroups: NavGroup[]
   navGroups: NavGroup[]
 }
 
