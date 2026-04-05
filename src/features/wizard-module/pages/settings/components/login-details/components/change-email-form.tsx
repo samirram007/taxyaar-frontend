@@ -1,0 +1,63 @@
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+
+interface ChangeEmailFormProps {
+  newEmail: string
+  confirmEmail: string
+  onNewEmailChange: (value: string) => void
+  onConfirmEmailChange: (value: string) => void
+  onSubmit: () => void
+  onCancel: () => void
+}
+
+export default function ChangeEmailForm({
+  newEmail,
+  confirmEmail,
+  onNewEmailChange,
+  onConfirmEmailChange,
+  onSubmit,
+  onCancel,
+}: ChangeEmailFormProps) {
+  return (
+    <div className="border rounded-lg p-6 bg-slate-50 space-y-4">
+      <h3 className="font-semibold text-slate-900 mb-4">Change Email</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label className="block text-sm font-medium text-slate-700 mb-2">
+            Enter New Email ID
+          </label>
+          <Input
+            type="email"
+            placeholder="Your New Email ID"
+            value={newEmail}
+            onChange={(e) => onNewEmailChange(e.target.value)}
+            className="border-slate-300 focus:border-blue-500 focus:ring-blue-500 rounded-lg"
+          />
+        </div>
+        <div>
+          <label className="block text-sm font-medium text-slate-700 mb-2">
+            Re-confirm New Email ID
+          </label>
+          <Input
+            type="email"
+            placeholder="Re-enter New Email ID"
+            value={confirmEmail}
+            onChange={(e) => onConfirmEmailChange(e.target.value)}
+            className="border-slate-300 focus:border-blue-500 focus:ring-blue-500 rounded-lg"
+          />
+        </div>
+      </div>
+      <div className="flex gap-3 pt-4 justify-end">
+        <Button variant="outline" onClick={onCancel} className="rounded-lg">
+          Cancel
+        </Button>
+        <Button
+          onClick={onSubmit}
+          className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg"
+        >
+          Submit
+        </Button>
+      </div>
+    </div>
+  )
+}
