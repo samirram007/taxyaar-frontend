@@ -33,7 +33,7 @@ import { Route as ProtectedFilerTaxes_startIndexRouteImport } from './routes/_pr
 import { Route as ProtectedFilerTax_reliefIndexRouteImport } from './routes/_protected/_filer/tax_relief/index'
 import { Route as ProtectedFilerSummaryIndexRouteImport } from './routes/_protected/_filer/summary/index'
 import { Route as ProtectedFilerStartIndexRouteImport } from './routes/_protected/_filer/start/index'
-import { Route as ProtectedFilerSeventh_provisionIndexRouteImport } from './routes/_protected/_filer/seventh_provision/index'
+import { Route as ProtectedFilerSeventh_provisoIndexRouteImport } from './routes/_protected/_filer/seventh_proviso/index'
 import { Route as ProtectedFilerSalary_incomeIndexRouteImport } from './routes/_protected/_filer/salary_income/index'
 import { Route as ProtectedFilerResidentialIndexRouteImport } from './routes/_protected/_filer/residential/index'
 import { Route as ProtectedFilerRelief_foreignIndexRouteImport } from './routes/_protected/_filer/relief_foreign/index'
@@ -295,10 +295,10 @@ const ProtectedFilerStartIndexRoute =
     path: '/start/',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
-const ProtectedFilerSeventh_provisionIndexRoute =
-  ProtectedFilerSeventh_provisionIndexRouteImport.update({
-    id: '/seventh_provision/',
-    path: '/seventh_provision/',
+const ProtectedFilerSeventh_provisoIndexRoute =
+  ProtectedFilerSeventh_provisoIndexRouteImport.update({
+    id: '/seventh_proviso/',
+    path: '/seventh_proviso/',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
 const ProtectedFilerSalary_incomeIndexRoute =
@@ -791,7 +791,7 @@ export interface FileRoutesByFullPath {
   '/relief_foreign/': typeof ProtectedFilerRelief_foreignIndexRoute
   '/residential/': typeof ProtectedFilerResidentialIndexRoute
   '/salary_income/': typeof ProtectedFilerSalary_incomeIndexRoute
-  '/seventh_provision/': typeof ProtectedFilerSeventh_provisionIndexRoute
+  '/seventh_proviso/': typeof ProtectedFilerSeventh_provisoIndexRoute
   '/start/': typeof ProtectedFilerStartIndexRoute
   '/summary/': typeof ProtectedFilerSummaryIndexRoute
   '/tax_relief/': typeof ProtectedFilerTax_reliefIndexRoute
@@ -892,7 +892,7 @@ export interface FileRoutesByTo {
   '/relief_foreign': typeof ProtectedFilerRelief_foreignIndexRoute
   '/residential': typeof ProtectedFilerResidentialIndexRoute
   '/salary_income': typeof ProtectedFilerSalary_incomeIndexRoute
-  '/seventh_provision': typeof ProtectedFilerSeventh_provisionIndexRoute
+  '/seventh_proviso': typeof ProtectedFilerSeventh_provisoIndexRoute
   '/start': typeof ProtectedFilerStartIndexRoute
   '/summary': typeof ProtectedFilerSummaryIndexRoute
   '/tax_relief': typeof ProtectedFilerTax_reliefIndexRoute
@@ -988,7 +988,7 @@ export interface FileRoutesById {
   '/_protected/_filer/relief_foreign/': typeof ProtectedFilerRelief_foreignIndexRoute
   '/_protected/_filer/residential/': typeof ProtectedFilerResidentialIndexRoute
   '/_protected/_filer/salary_income/': typeof ProtectedFilerSalary_incomeIndexRoute
-  '/_protected/_filer/seventh_provision/': typeof ProtectedFilerSeventh_provisionIndexRoute
+  '/_protected/_filer/seventh_proviso/': typeof ProtectedFilerSeventh_provisoIndexRoute
   '/_protected/_filer/start/': typeof ProtectedFilerStartIndexRoute
   '/_protected/_filer/summary/': typeof ProtectedFilerSummaryIndexRoute
   '/_protected/_filer/tax_relief/': typeof ProtectedFilerTax_reliefIndexRoute
@@ -1092,7 +1092,7 @@ export interface FileRouteTypes {
     | '/relief_foreign/'
     | '/residential/'
     | '/salary_income/'
-    | '/seventh_provision/'
+    | '/seventh_proviso/'
     | '/start/'
     | '/summary/'
     | '/tax_relief/'
@@ -1193,7 +1193,7 @@ export interface FileRouteTypes {
     | '/relief_foreign'
     | '/residential'
     | '/salary_income'
-    | '/seventh_provision'
+    | '/seventh_proviso'
     | '/start'
     | '/summary'
     | '/tax_relief'
@@ -1288,7 +1288,7 @@ export interface FileRouteTypes {
     | '/_protected/_filer/relief_foreign/'
     | '/_protected/_filer/residential/'
     | '/_protected/_filer/salary_income/'
-    | '/_protected/_filer/seventh_provision/'
+    | '/_protected/_filer/seventh_proviso/'
     | '/_protected/_filer/start/'
     | '/_protected/_filer/summary/'
     | '/_protected/_filer/tax_relief/'
@@ -1560,11 +1560,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedFilerStartIndexRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
-    '/_protected/_filer/seventh_provision/': {
-      id: '/_protected/_filer/seventh_provision/'
-      path: '/seventh_provision'
-      fullPath: '/seventh_provision/'
-      preLoaderRoute: typeof ProtectedFilerSeventh_provisionIndexRouteImport
+    '/_protected/_filer/seventh_proviso/': {
+      id: '/_protected/_filer/seventh_proviso/'
+      path: '/seventh_proviso'
+      fullPath: '/seventh_proviso/'
+      preLoaderRoute: typeof ProtectedFilerSeventh_provisoIndexRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
     '/_protected/_filer/salary_income/': {
@@ -2118,7 +2118,7 @@ interface ProtectedFilerRouteChildren {
   ProtectedFilerRelief_foreignIndexRoute: typeof ProtectedFilerRelief_foreignIndexRoute
   ProtectedFilerResidentialIndexRoute: typeof ProtectedFilerResidentialIndexRoute
   ProtectedFilerSalary_incomeIndexRoute: typeof ProtectedFilerSalary_incomeIndexRoute
-  ProtectedFilerSeventh_provisionIndexRoute: typeof ProtectedFilerSeventh_provisionIndexRoute
+  ProtectedFilerSeventh_provisoIndexRoute: typeof ProtectedFilerSeventh_provisoIndexRoute
   ProtectedFilerStartIndexRoute: typeof ProtectedFilerStartIndexRoute
   ProtectedFilerSummaryIndexRoute: typeof ProtectedFilerSummaryIndexRoute
   ProtectedFilerTax_reliefIndexRoute: typeof ProtectedFilerTax_reliefIndexRoute
@@ -2180,8 +2180,8 @@ const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
     ProtectedFilerRelief_foreignIndexRoute,
   ProtectedFilerResidentialIndexRoute: ProtectedFilerResidentialIndexRoute,
   ProtectedFilerSalary_incomeIndexRoute: ProtectedFilerSalary_incomeIndexRoute,
-  ProtectedFilerSeventh_provisionIndexRoute:
-    ProtectedFilerSeventh_provisionIndexRoute,
+  ProtectedFilerSeventh_provisoIndexRoute:
+    ProtectedFilerSeventh_provisoIndexRoute,
   ProtectedFilerStartIndexRoute: ProtectedFilerStartIndexRoute,
   ProtectedFilerSummaryIndexRoute: ProtectedFilerSummaryIndexRoute,
   ProtectedFilerTax_reliefIndexRoute: ProtectedFilerTax_reliefIndexRoute,

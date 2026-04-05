@@ -136,7 +136,7 @@ const OtherDetailsStart = () => {
                         <WizardFooter
                             previousPageLink="/tds"
                             previousPageName="TDS"
-                            nextPageLink="/seventh_provision"
+                            nextPageLink="/seventh_proviso"
                             nextPageName="Other Details"
                             progress={{ percentage: '70%', remaining: '5 min more' }}
 

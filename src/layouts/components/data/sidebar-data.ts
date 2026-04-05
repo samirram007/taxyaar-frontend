@@ -99,11 +99,345 @@ export const sidebarData: SidebarData = {
               visible: true,
               url: '/other_income',
               icon: IconStar,
+            },
+            {
+              title: 'More Income',
+              visible: true,
+              icon: IconStar,
+              items: [
+                {
+                  title: ' Other income - Casual Income ',
+                  visible: true,
+                  url: '/other_casual',
+                  icon: IconStar,
+                },
+                {
+                  title: ' Other Source - Family Pension ',
+                  visible: true,
+                  url: '/other_family_pension',
+                  icon: IconStar,
+                },
+                {
+                  title: ' Business of owning and maintaining race horses ',
+                  visible: true,
+                  url: '/other_horse',
+                  icon: IconStar,
+                },
+                {
+                  title: ' Capital Gain - Security ',
+                  visible: true,
+                  url: '/capital_gain_security',
+                  icon: IconStar,
+                },
+                {
+                  title: ' Capital Gain - Land and Building ',
+                  visible: true,
+                  url: '/capital_gain_asset',
+                  icon: IconStar,
+                },
+                {
+                  title: ' Capital Gain - Deemed Capital Gain ',
+                  visible: true,
+                  url: '/capital_gain_deemed',
+                  icon: IconStar,
+                },
+                {
+                  title: ' Agriculture Income ',
+                  visible: true,
+                  url: '/agriculture_income',
+                  icon: IconStar,
+                },
+                {
+                  title: ' Exempt Income ',
+                  visible: true,
+                  url: '/exempt_income',
+                  icon: IconStar,
+                },
+                {
+                  title: ' Business Profession ',
+                  visible: true,
+                  url: '/business_profession',
+                  icon: IconStar,
+                },
+                {
+                  title: ' Business Income ',
+                  visible: true,
+                  url: '/business_income',
+                  icon: IconStar,
+                },
+                {
+                  title: ' Business / Professional / Freelancer Income ',
+                  visible: true,
+                  url: '/general_business',
+                  icon: IconStar,
+                }
+              ]
             }
+          ]
+        },
+        {
+          title: 'Deductions',
+          visible: true,
+          icon: IconStar,
+          items: [
+            {
+              title: 'Start Deductions',
+              visible: true,
+              url: '/start_deductions',
+              icon: IconStar,
+            },
+            {
+              title: 'Deductions',
+              visible: true,
+              url: '/deductions',
+              icon: IconStar,
+            },
+            {
+              title: 'Relief 89',
+              visible: true,
+              url: '/relief_89',
+              icon: IconStar,
+            },
+            {
+              title: 'Foreign Source Income Tax Relief',
+              visible: true,
+              url: '/foreign_source_income_tax_relief',
+              icon: IconStar,
+            },
+            {
+              title: 'Losses',
+              visible: true,
+              url: '/losses',
+              icon: IconStar,
+            }
+
+          ]
+        },
+        {
+          title: 'Taxes Paid',
+          visible: true,
+          icon: IconStar,
+          items: [
+            {
+              title: 'Start Taxes',
+              visible: true,
+              url: '/start_taxes',
+              icon: IconStar,
+            },
+            {
+              title: 'TDS Tax',
+              visible: true,
+              url: '/tds_tax',
+              icon: IconStar,
+            },
+            {
+              title: 'Tax Paid',
+              visible: true,
+              url: '/tax_paid',
+              icon: IconStar,
+            },
+            {
+              title: 'TCS Tax',
+              visible: true,
+              url: '/tcs_tax',
+              icon: IconStar,
+            }
+          ]
+        },
+        {
+          title: 'Other Details',
+          visible: true,
+          icon: IconStar,
+          items: [
+            {
+              title: 'Start Other Details',
+              visible: true,
+              url: '/start_other_details',
+              icon: IconStar,
+            },
+            {
+              title: 'Residential Status',
+              visible: true,
+              url: '/residential',
+              icon: IconStar,
+            },
+            {
+              title: 'Regime Type',
+              visible: true,
+              url: '/choose_regime',
+              icon: IconStar,
+            },
+            {
+              title: 'Foreign Assets',
+              visible: true,
+              icon: IconStar,
+              items: [
+                {
+                  title: 'Foreign Bank Accounts',
+                  visible: true,
+                  url: '/foreign_bank_account',
+                  icon: IconStar,
+                },
+                {
+                  title: 'Financial Interest in any Entity',
+                  visible: true,
+                  url: '/foreign_financial_entity',
+                  icon: IconStar,
+                },
+                {
+                  title: 'Foreign Immovable Property',
+                  visible: true,
+                  url: '/foreign_immovable_property',
+                  icon: IconStar,
+                },
+                {
+                  title: 'Foreign Asset Details',
+                  visible: true,
+                  url: '/foreign_other_assets',
+                  icon: IconStar,
+                },
+                {
+                  title: 'Foreign Signing Authority Account',
+                  visible: true,
+                  url: '/foreign_signing_authority_account',
+                  icon: IconStar,
+                },
+                {
+                  title: 'Foreign Trusts as a Trustee',
+                  visible: true,
+                  url: '/foreign_trust',
+                  icon: IconStar,
+                },
+                {
+                  title: 'Foreign Other Income',
+                  visible: true,
+                  url: '/foreign_other_income',
+                  icon: IconStar,
+                },
+                {
+                  title: 'Foreign Custodial Accounts',
+                  visible: true,
+                  url: '/foreign_custodial_accounts',
+                  icon: IconStar,
+
+                },
+                {
+                  title: 'Foreign Equity and Debt Interest',
+                  visible: true,
+                  url: '/foreign_equity_debt_interest',
+                  icon: IconStar,
+                },
+                {
+                  title: 'Foreign Cash Value Insurance',
+                  visible: true,
+                  url: '/foreign_cash_value_insurance',
+                  icon: IconStar,
+                }
+
+              ]
+            },
+            {
+              title: 'Net Worth',
+              visible: true,
+              url: '/net_worth',
+              icon: IconStar,
+            },
+            {
+              title: 'Income of family member',
+              visible: true,
+              url: '/family_income',
+              icon: IconStar,
+            },
+            {
+              title: 'Contact Details',
+              visible: true,
+              url: '/contact_details',
+              icon: IconStar,
+            },
+            {
+              title: 'Bank Details',
+              visible: true,
+              url: '/bank_details',
+              icon: IconStar,
+            },
+            {
+              title: 'Salary Allowances',
+              visible: true,
+              url: '/allowance_breakup',
+              icon: IconStar,
+            },
+            {
+              title: 'Unlisted Share',
+              visible: true,
+              url: '/unlisted_share',
+              icon: IconStar,
+            },
+            {
+              title: 'Salary Breakup 17(1)',
+              visible: true,
+              url: '/salary_breakup_17_1',
+              icon: IconStar,
+            },
+            {
+              title: 'Salary Breakup 17(2)',
+              visible: true,
+              url: '/salary_breakup_17_2',
+              icon: IconStar,
+            },
+            {
+              title: 'Salary Breakup 17(3)',
+              visible: true,
+              url: '/salary_breakup_17_3',
+              icon: IconStar,
+            },
+            {
+              title: 'Seventh Proviso',
+              visible: true,
+              url: '/seventh_proviso',
+              icon: IconStar,
+            },
+            {
+              title: 'Directorship Position',
+              visible: true,
+              url: '/directorship_position',
+              icon: IconStar,
+            },
+            {
+              title: 'Nature of Business/Profession',
+              visible: true,
+              url: '/nature_of_business',
+              icon: IconStar,
+            },
+            {
+              title: 'Form 10IEA Details',
+              visible: true,
+              url: '/form_10iea_details',
+              icon: IconStar,
+            }
+
 
 
           ]
         },
+        {
+          title: 'Your Income-tax Return',
+          visible: true,
+          icon: IconStar,
+          items: [
+            {
+              title: 'Summary',
+              url: '/your_income_tax_return/summary',
+              icon: IconStar,
+              visible: true,
+            },
+            {
+              title: 'e-file',
+              url: '/your_income_tax_return/e_file',
+              icon: IconStar,
+              visible: true,
+            }
+          ]
+        }
       ]
     }
   ],
@@ -489,3 +823,42 @@ export const sidebarData: SidebarData = {
     },
   ],
 }
+
+// < li class="sub-menu left_menu toggled" id = "li_others" >
+//   <a href="" > Other Details </a>
+//     < ul id = "ul_sub_others" class="left_sub_menu" style = "display: block;" >
+//       <li id="li_sub_other_details_start" > <a href="/other_details_start" > Start Other Details < /a></li >
+//         <li id="li_sub_other_residential" > <a href="/residential" > Residential Status < /a></li >
+//           <li id="li_sub_other_regime" > <a href="/choose_regime" > Regime Type < /a></li >
+//             <li class="sub-menu toggled" >
+//               <a href="javascript:void(0)" > Foreign Assets </a>
+//                 < ul style = "display: block;" >
+//                   <li id="li_sub_foreign_bank_account" > <a href="/foreign_bank_account" > Foreign Bank Accounts < /a></li >
+//                     <li id="li_sub_foreign_financial_entity" > <a href="/foreign_financial_entity" > Financial Interest in any Entity < /a></li >
+//                       <li id="li_sub_foreign_immovable_property" > <a href="/foreign_immovable_property" > Foreign Immovable Property < /a></li >
+//                         <li id="li_sub_foreign_other_assets" > <a href="/foreign_other_assets" > Foreign Asset Details < /a></li >
+//                           <li id="li_sub_foreign_signing_authority" > <a href="/foreign_signing_authority" > Foreign Signing Authority Account < /a></li >
+//                             <li id="li_sub_foreign_trust" > <a href="/foreign_trust" > Foreign Trusts as a Trustee < /a></li >
+//                               <li id="li_sub_foreign_other_income" > <a href="/foreign_other_income" > Foreign Other Income < /a></li >
+
+//                                 <li id="li_sub_foreign_custodial_accounts" > <a href="/foreign_custodial_accounts" > Foreign Custodial Accounts < /a></li >
+//                                   <li id="li_sub_foreign_equity_debt_interest" > <a href="/foreign_equity_debt_interest" > Foreign Equity and Debt Interest < /a></li >
+//                                     <li id="li_sub_foreign_cash_value_insurance" > <a href="/foreign_cash_value_insurance" > Foreign Cash Value Insurance < /a></li >
+
+//                                       </ul>
+//                                       </li>
+//                                       < li id = "li_sub_asset_liability" > <a href="/asset_liability" > Net Worth < /a></li >
+//                                         <li id="li_sub_family_income" > <a href="/family_income" > Income of family member < /a></li >
+//                                           <li id="li_sub_contact_details" > <a href="/contact_details" > Contact Details < /a></li >
+//                                             <li id="li_sub_bank_details" > <a href="/bank_details" > Bank Details < /a></li >
+//                                               <li id="li_sub_allowance_breakup" > <a href="/allowance_breakup" > Salary Allowances < /a></li >
+//                                                 <li id="li_sub_unlisted_share" > <a href="/unlisted_share" > Unlisted Share < /a></li >
+//                                                   <li id="li_sub_salary_17_1" > <a href="/salary_breakup_17_1" > Salary Breakup 17(1) < /a></li >
+//                                                     <li id="li_sub_salary_17_2" > <a href="/salary_breakup_17_2" > Salary Breakup 17(2) < /a></li >
+//                                                       <li id="li_sub_salary_17_3" > <a href="/salary_breakup_17_3" > Salary Breakup 17(3) < /a></li >
+//                                                         <li id="li_sub_seventh_proviso" > <a href="/seventh_proviso" > Seventh Proviso < /a></li >
+//                                                           <li id="li_sub_directiorship_position" > <a href="/directiorship_position" > Directiorship Position < /a></li >
+//                                                             <li id="li_nature_bp" > <a href="/business_profession_nature" > Nature of Business / Profession < /a></li >
+//                                                               <li id="li_form10ie" > <a href="/form10ie_details" > Form 10IEA Details < /a></li >
+//                                                                 </ul>
+//                                                                 </li>

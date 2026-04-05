@@ -24,14 +24,12 @@ interface BaseNavItem {
 }
 
 type NavLink = BaseNavItem & {
-  url: LinkProps['to'],
-  icon?: React.ElementType,
-  items?: []
+  url: string | LinkProps['to']
 }
 
 type NavCollapsible = BaseNavItem & {
-  items: (BaseNavItem & { url: String | LinkProps['to'] })[]
-  url?: String
+  items: NavItem[]
+  url?: string | LinkProps['to']
 }
 
 type NavItem = NavCollapsible | NavLink
@@ -39,6 +37,7 @@ type NavItem = NavCollapsible | NavLink
 interface NavGroup {
   title: string
   visible: boolean
+  url?: string
   items: NavItem[]
 }
 interface Header {

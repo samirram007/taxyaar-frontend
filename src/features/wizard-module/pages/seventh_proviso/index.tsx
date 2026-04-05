@@ -32,7 +32,7 @@ const questions = [
     },
 ]
 const helpUrl = import.meta.env.VITE_HELP_URL || "https://help.taxyaar.com"
-const SeventhProvision = () => {
+const SeventhProviso = () => {
     const [questionsState /*, setQuestionsState */] = useState(questions)
     const [answer, setAnswer] = useState(questions[0].answer[0].key)
     const handleChange = (value: string) => {
@@ -150,4 +150,4 @@ const SeventhProvision = () => {
     )
 }
 
-export default SeventhProvision
+export default SeventhProviso
