@@ -4,9 +4,17 @@
 import BreadCrumb from '../../components/CustomBreadCrumb'
 import HelpSidebar from "../../components/HelpSidebar"
 import FormFields from "./components/FormFields"
+import type { Client } from './data/schema'
 
 
-export default function TaxFiler() {
+interface TaxFilerProps {
+    data?: Client
+}
+
+
+
+
+export default function TaxFiler({ data }: TaxFilerProps) {
     return (
         <div className="min-h-screen  max-w-max mx-auto">
             {/* <div className=" bg-transparent">
@@ -18,7 +26,7 @@ export default function TaxFiler() {
             <div className="mx-auto max-w-7xl  py-8">
                 <div className="grid lg:grid-cols-3 gap-8">
                     <div className="lg:col-span-2">
-                        <FormFields />
+                        <FormFields data={data} />
                     </div>
 
                     <div className="lg:col-span-1">

@@ -96,6 +96,7 @@ import { Route as ProtectedMastersOrganizationLayoutRouteImport } from './routes
 import { Route as ProtectedFilerUnlisted_shareAddRouteImport } from './routes/_protected/_filer/unlisted_share/add'
 import { Route as ProtectedFilerTds_taxAddRouteImport } from './routes/_protected/_filer/tds_tax/add'
 import { Route as ProtectedFilerTax_reliefAddRouteImport } from './routes/_protected/_filer/tax_relief/add'
+import { Route as ProtectedFilerSettingsLayoutRouteImport } from './routes/_protected/_filer/settings/_layout'
 import { Route as ProtectedFilerSalary_incomeAddRouteImport } from './routes/_protected/_filer/salary_income/add'
 import { Route as ProtectedFilerRelief_foreignAddRouteImport } from './routes/_protected/_filer/relief_foreign/add'
 import { Route as ProtectedFilerOther_incomeAddRouteImport } from './routes/_protected/_filer/other_income/add'
@@ -120,8 +121,7 @@ import { Route as ProtectedFilerCapital_gain_securityAddRouteImport } from './ro
 import { Route as ProtectedFilerCapital_gain_deemedAddRouteImport } from './routes/_protected/_filer/capital_gain_deemed/add'
 import { Route as ProtectedFilerCapital_gain_assetAddRouteImport } from './routes/_protected/_filer/capital_gain_asset/add'
 import { Route as ProtectedFilerBank_detailsAddRouteImport } from './routes/_protected/_filer/bank_details/add'
-import { Route as ProtectedFilerAssesseeHeyassesseeRouteImport } from './routes/_protected/_filer/assessee/heyassessee'
-import { Route as ProtectedFilerAssesseeEditRouteImport } from './routes/_protected/_filer/assessee/edit'
+import { Route as ProtectedFilerAssesseeLayoutRouteImport } from './routes/_protected/_filer/assessee/_layout'
 import { Route as ProtectedFilerAllowance_breakupAddRouteImport } from './routes/_protected/_filer/allowance_breakup/add'
 import { Route as ProtectedFilerAgriculture_incomeAddRouteImport } from './routes/_protected/_filer/agriculture_income/add'
 import { Route as ProtectedauthUserFiscalYearLayoutRouteImport } from './routes/_protected/(auth)/user-fiscal-year/_layout'
@@ -129,14 +129,15 @@ import { Route as ProtectedauthProfileIndexRouteImport } from './routes/_protect
 import { Route as ProtectedAdministrationLayoutPermissionIndexRouteImport } from './routes/_protected/administration/_layout/permission/index'
 import { Route as ProtectedAdministrationLayoutApp_module_featureIndexRouteImport } from './routes/_protected/administration/_layout/app_module_feature/index'
 import { Route as ProtectedAdministrationLayoutApp_moduleIndexRouteImport } from './routes/_protected/administration/_layout/app_module/index'
+import { Route as ProtectedFilerSettingsLayoutIndexRouteImport } from './routes/_protected/_filer/settings/_layout/index'
+import { Route as ProtectedFilerAssesseeEditIndexRouteImport } from './routes/_protected/_filer/assessee/edit/index'
+import { Route as ProtectedFilerAssesseeAddIndexRouteImport } from './routes/_protected/_filer/assessee/add/index'
 import { Route as ProtectedauthUserFiscalYearLayoutIndexRouteImport } from './routes/_protected/(auth)/user-fiscal-year/_layout/index'
 import { Route as ProtectedAdministrationLayoutUserLayoutRouteImport } from './routes/_protected/administration/_layout/user/_layout'
 import { Route as ProtectedAdministrationLayoutRoleLayoutRouteImport } from './routes/_protected/administration/_layout/role/_layout'
-import { Route as ProtectedFilerAssesseeAddLayoutRouteImport } from './routes/_protected/_filer/assessee/add/_layout'
 import { Route as ProtectedMastersOrganizationLayoutBranchIndexRouteImport } from './routes/_protected/masters/organization/_layout/branch/index'
 import { Route as ProtectedAdministrationLayoutUserLayoutIndexRouteImport } from './routes/_protected/administration/_layout/user/_layout/index'
 import { Route as ProtectedAdministrationLayoutRoleLayoutIndexRouteImport } from './routes/_protected/administration/_layout/role/_layout/index'
-import { Route as ProtectedFilerAssesseeAddLayoutIndexRouteImport } from './routes/_protected/_filer/assessee/add/_layout/index'
 import { Route as ProtectedMastersOrganizationLayoutStateLayoutRouteImport } from './routes/_protected/masters/organization/_layout/state/_layout'
 import { Route as ProtectedMastersOrganizationLayoutFiscal_yearLayoutRouteImport } from './routes/_protected/masters/organization/_layout/fiscal_year/_layout'
 import { Route as ProtectedMastersOrganizationLayoutCurrencyLayoutRouteImport } from './routes/_protected/masters/organization/_layout/currency/_layout'
@@ -724,6 +725,12 @@ const ProtectedFilerTax_reliefAddRoute =
     path: '/tax_relief/add',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
+const ProtectedFilerSettingsLayoutRoute =
+  ProtectedFilerSettingsLayoutRouteImport.update({
+    id: '/settings/_layout',
+    path: '/settings',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
 const ProtectedFilerSalary_incomeAddRoute =
   ProtectedFilerSalary_incomeAddRouteImport.update({
     id: '/salary_income/add',
@@ -869,16 +876,10 @@ const ProtectedFilerBank_detailsAddRoute =
     path: '/bank_details/add',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
-const ProtectedFilerAssesseeHeyassesseeRoute =
-  ProtectedFilerAssesseeHeyassesseeRouteImport.update({
-    id: '/assessee/heyassessee',
-    path: '/assessee/heyassessee',
-    getParentRoute: () => ProtectedFilerRoute,
-  } as any)
-const ProtectedFilerAssesseeEditRoute =
-  ProtectedFilerAssesseeEditRouteImport.update({
-    id: '/assessee/edit',
-    path: '/assessee/edit',
+const ProtectedFilerAssesseeLayoutRoute =
+  ProtectedFilerAssesseeLayoutRouteImport.update({
+    id: '/assessee/_layout',
+    path: '/assessee',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
 const ProtectedFilerAllowance_breakupAddRoute =
@@ -923,6 +924,24 @@ const ProtectedAdministrationLayoutApp_moduleIndexRoute =
     path: '/app_module/',
     getParentRoute: () => ProtectedAdministrationLayoutRoute,
   } as any)
+const ProtectedFilerSettingsLayoutIndexRoute =
+  ProtectedFilerSettingsLayoutIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => ProtectedFilerSettingsLayoutRoute,
+  } as any)
+const ProtectedFilerAssesseeEditIndexRoute =
+  ProtectedFilerAssesseeEditIndexRouteImport.update({
+    id: '/assessee/edit/',
+    path: '/assessee/edit/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerAssesseeAddIndexRoute =
+  ProtectedFilerAssesseeAddIndexRouteImport.update({
+    id: '/assessee/add/',
+    path: '/assessee/add/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
 const ProtectedauthUserFiscalYearLayoutIndexRoute =
   ProtectedauthUserFiscalYearLayoutIndexRouteImport.update({
     id: '/',
@@ -941,12 +960,6 @@ const ProtectedAdministrationLayoutRoleLayoutRoute =
     path: '/role',
     getParentRoute: () => ProtectedAdministrationLayoutRoute,
   } as any)
-const ProtectedFilerAssesseeAddLayoutRoute =
-  ProtectedFilerAssesseeAddLayoutRouteImport.update({
-    id: '/assessee/add/_layout',
-    path: '/assessee/add',
-    getParentRoute: () => ProtectedFilerRoute,
-  } as any)
 const ProtectedMastersOrganizationLayoutBranchIndexRoute =
   ProtectedMastersOrganizationLayoutBranchIndexRouteImport.update({
     id: '/branch/',
@@ -964,12 +977,6 @@ const ProtectedAdministrationLayoutRoleLayoutIndexRoute =
     id: '/',
     path: '/',
     getParentRoute: () => ProtectedAdministrationLayoutRoleLayoutRoute,
-  } as any)
-const ProtectedFilerAssesseeAddLayoutIndexRoute =
-  ProtectedFilerAssesseeAddLayoutIndexRouteImport.update({
-    id: '/',
-    path: '/',
-    getParentRoute: () => ProtectedFilerAssesseeAddLayoutRoute,
   } as any)
 const ProtectedMastersOrganizationLayoutStateLayoutRoute =
   ProtectedMastersOrganizationLayoutStateLayoutRouteImport.update({
@@ -1113,8 +1120,7 @@ export interface FileRoutesByFullPath {
   '/user-fiscal-year': typeof ProtectedauthUserFiscalYearLayoutRouteWithChildren
   '/agriculture_income/add': typeof ProtectedFilerAgriculture_incomeAddRoute
   '/allowance_breakup/add': typeof ProtectedFilerAllowance_breakupAddRoute
-  '/assessee/edit': typeof ProtectedFilerAssesseeEditRoute
-  '/assessee/heyassessee': typeof ProtectedFilerAssesseeHeyassesseeRoute
+  '/assessee': typeof ProtectedFilerAssesseeLayoutRoute
   '/bank_details/add': typeof ProtectedFilerBank_detailsAddRoute
   '/capital_gain_asset/add': typeof ProtectedFilerCapital_gain_assetAddRoute
   '/capital_gain_deemed/add': typeof ProtectedFilerCapital_gain_deemedAddRoute
@@ -1139,6 +1145,7 @@ export interface FileRoutesByFullPath {
   '/other_income/add': typeof ProtectedFilerOther_incomeAddRoute
   '/relief_foreign/add': typeof ProtectedFilerRelief_foreignAddRoute
   '/salary_income/add': typeof ProtectedFilerSalary_incomeAddRoute
+  '/settings': typeof ProtectedFilerSettingsLayoutRouteWithChildren
   '/tax_relief/add': typeof ProtectedFilerTax_reliefAddRoute
   '/tds_tax/add': typeof ProtectedFilerTds_taxAddRoute
   '/unlisted_share/add': typeof ProtectedFilerUnlisted_shareAddRoute
@@ -1209,11 +1216,13 @@ export interface FileRoutesByFullPath {
   '/trading_details/': typeof ProtectedFilerTrading_detailsIndexRoute
   '/unlisted_share/': typeof ProtectedFilerUnlisted_shareIndexRoute
   '/support/help/': typeof ProtectedSupportHelpIndexRoute
-  '/assessee/add': typeof ProtectedFilerAssesseeAddLayoutRouteWithChildren
   '/administration/role': typeof ProtectedAdministrationLayoutRoleLayoutRouteWithChildren
   '/administration/user': typeof ProtectedAdministrationLayoutUserLayoutRouteWithChildren
   '/profile/index/': typeof ProtectedauthProfileIndexRoute
   '/user-fiscal-year/': typeof ProtectedauthUserFiscalYearLayoutIndexRoute
+  '/assessee/add/': typeof ProtectedFilerAssesseeAddIndexRoute
+  '/assessee/edit/': typeof ProtectedFilerAssesseeEditIndexRoute
+  '/settings/': typeof ProtectedFilerSettingsLayoutIndexRoute
   '/administration/app_module/': typeof ProtectedAdministrationLayoutApp_moduleIndexRoute
   '/administration/app_module_feature/': typeof ProtectedAdministrationLayoutApp_module_featureIndexRoute
   '/administration/permission/': typeof ProtectedAdministrationLayoutPermissionIndexRoute
@@ -1223,7 +1232,6 @@ export interface FileRoutesByFullPath {
   '/masters/organization/currency': typeof ProtectedMastersOrganizationLayoutCurrencyLayoutRouteWithChildren
   '/masters/organization/fiscal_year': typeof ProtectedMastersOrganizationLayoutFiscal_yearLayoutRouteWithChildren
   '/masters/organization/state': typeof ProtectedMastersOrganizationLayoutStateLayoutRouteWithChildren
-  '/assessee/add/': typeof ProtectedFilerAssesseeAddLayoutIndexRoute
   '/administration/role/': typeof ProtectedAdministrationLayoutRoleLayoutIndexRoute
   '/administration/user/': typeof ProtectedAdministrationLayoutUserLayoutIndexRoute
   '/masters/organization/branch/': typeof ProtectedMastersOrganizationLayoutBranchIndexRoute
@@ -1265,8 +1273,7 @@ export interface FileRoutesByTo {
   '/help-tickets': typeof ProtectedHelpTicketsIndexRoute
   '/agriculture_income/add': typeof ProtectedFilerAgriculture_incomeAddRoute
   '/allowance_breakup/add': typeof ProtectedFilerAllowance_breakupAddRoute
-  '/assessee/edit': typeof ProtectedFilerAssesseeEditRoute
-  '/assessee/heyassessee': typeof ProtectedFilerAssesseeHeyassesseeRoute
+  '/assessee': typeof ProtectedFilerAssesseeLayoutRoute
   '/bank_details/add': typeof ProtectedFilerBank_detailsAddRoute
   '/capital_gain_asset/add': typeof ProtectedFilerCapital_gain_assetAddRoute
   '/capital_gain_deemed/add': typeof ProtectedFilerCapital_gain_deemedAddRoute
@@ -1360,11 +1367,13 @@ export interface FileRoutesByTo {
   '/support/help': typeof ProtectedSupportHelpIndexRoute
   '/profile/index': typeof ProtectedauthProfileIndexRoute
   '/user-fiscal-year': typeof ProtectedauthUserFiscalYearLayoutIndexRoute
+  '/assessee/add': typeof ProtectedFilerAssesseeAddIndexRoute
+  '/assessee/edit': typeof ProtectedFilerAssesseeEditIndexRoute
+  '/settings': typeof ProtectedFilerSettingsLayoutIndexRoute
   '/administration/app_module': typeof ProtectedAdministrationLayoutApp_moduleIndexRoute
   '/administration/app_module_feature': typeof ProtectedAdministrationLayoutApp_module_featureIndexRoute
   '/administration/permission': typeof ProtectedAdministrationLayoutPermissionIndexRoute
   '/administration/user/$id': typeof ProtectedAdministrationLayoutUserLayoutIdRoute
-  '/assessee/add': typeof ProtectedFilerAssesseeAddLayoutIndexRoute
   '/administration/role': typeof ProtectedAdministrationLayoutRoleLayoutIndexRoute
   '/administration/user': typeof ProtectedAdministrationLayoutUserLayoutIndexRoute
   '/masters/organization/branch': typeof ProtectedMastersOrganizationLayoutBranchIndexRoute
@@ -1409,8 +1418,7 @@ export interface FileRoutesById {
   '/_protected/(auth)/user-fiscal-year/_layout': typeof ProtectedauthUserFiscalYearLayoutRouteWithChildren
   '/_protected/_filer/agriculture_income/add': typeof ProtectedFilerAgriculture_incomeAddRoute
   '/_protected/_filer/allowance_breakup/add': typeof ProtectedFilerAllowance_breakupAddRoute
-  '/_protected/_filer/assessee/edit': typeof ProtectedFilerAssesseeEditRoute
-  '/_protected/_filer/assessee/heyassessee': typeof ProtectedFilerAssesseeHeyassesseeRoute
+  '/_protected/_filer/assessee/_layout': typeof ProtectedFilerAssesseeLayoutRoute
   '/_protected/_filer/bank_details/add': typeof ProtectedFilerBank_detailsAddRoute
   '/_protected/_filer/capital_gain_asset/add': typeof ProtectedFilerCapital_gain_assetAddRoute
   '/_protected/_filer/capital_gain_deemed/add': typeof ProtectedFilerCapital_gain_deemedAddRoute
@@ -1435,6 +1443,7 @@ export interface FileRoutesById {
   '/_protected/_filer/other_income/add': typeof ProtectedFilerOther_incomeAddRoute
   '/_protected/_filer/relief_foreign/add': typeof ProtectedFilerRelief_foreignAddRoute
   '/_protected/_filer/salary_income/add': typeof ProtectedFilerSalary_incomeAddRoute
+  '/_protected/_filer/settings/_layout': typeof ProtectedFilerSettingsLayoutRouteWithChildren
   '/_protected/_filer/tax_relief/add': typeof ProtectedFilerTax_reliefAddRoute
   '/_protected/_filer/tds_tax/add': typeof ProtectedFilerTds_taxAddRoute
   '/_protected/_filer/unlisted_share/add': typeof ProtectedFilerUnlisted_shareAddRoute
@@ -1505,11 +1514,13 @@ export interface FileRoutesById {
   '/_protected/_filer/trading_details/': typeof ProtectedFilerTrading_detailsIndexRoute
   '/_protected/_filer/unlisted_share/': typeof ProtectedFilerUnlisted_shareIndexRoute
   '/_protected/support/help/': typeof ProtectedSupportHelpIndexRoute
-  '/_protected/_filer/assessee/add/_layout': typeof ProtectedFilerAssesseeAddLayoutRouteWithChildren
   '/_protected/administration/_layout/role/_layout': typeof ProtectedAdministrationLayoutRoleLayoutRouteWithChildren
   '/_protected/administration/_layout/user/_layout': typeof ProtectedAdministrationLayoutUserLayoutRouteWithChildren
   '/_protected/(auth)/profile/index/': typeof ProtectedauthProfileIndexRoute
   '/_protected/(auth)/user-fiscal-year/_layout/': typeof ProtectedauthUserFiscalYearLayoutIndexRoute
+  '/_protected/_filer/assessee/add/': typeof ProtectedFilerAssesseeAddIndexRoute
+  '/_protected/_filer/assessee/edit/': typeof ProtectedFilerAssesseeEditIndexRoute
+  '/_protected/_filer/settings/_layout/': typeof ProtectedFilerSettingsLayoutIndexRoute
   '/_protected/administration/_layout/app_module/': typeof ProtectedAdministrationLayoutApp_moduleIndexRoute
   '/_protected/administration/_layout/app_module_feature/': typeof ProtectedAdministrationLayoutApp_module_featureIndexRoute
   '/_protected/administration/_layout/permission/': typeof ProtectedAdministrationLayoutPermissionIndexRoute
@@ -1519,7 +1530,6 @@ export interface FileRoutesById {
   '/_protected/masters/organization/_layout/currency/_layout': typeof ProtectedMastersOrganizationLayoutCurrencyLayoutRouteWithChildren
   '/_protected/masters/organization/_layout/fiscal_year/_layout': typeof ProtectedMastersOrganizationLayoutFiscal_yearLayoutRouteWithChildren
   '/_protected/masters/organization/_layout/state/_layout': typeof ProtectedMastersOrganizationLayoutStateLayoutRouteWithChildren
-  '/_protected/_filer/assessee/add/_layout/': typeof ProtectedFilerAssesseeAddLayoutIndexRoute
   '/_protected/administration/_layout/role/_layout/': typeof ProtectedAdministrationLayoutRoleLayoutIndexRoute
   '/_protected/administration/_layout/user/_layout/': typeof ProtectedAdministrationLayoutUserLayoutIndexRoute
   '/_protected/masters/organization/_layout/branch/': typeof ProtectedMastersOrganizationLayoutBranchIndexRoute
@@ -1564,8 +1574,7 @@ export interface FileRouteTypes {
     | '/user-fiscal-year'
     | '/agriculture_income/add'
     | '/allowance_breakup/add'
-    | '/assessee/edit'
-    | '/assessee/heyassessee'
+    | '/assessee'
     | '/bank_details/add'
     | '/capital_gain_asset/add'
     | '/capital_gain_deemed/add'
@@ -1590,6 +1599,7 @@ export interface FileRouteTypes {
     | '/other_income/add'
     | '/relief_foreign/add'
     | '/salary_income/add'
+    | '/settings'
     | '/tax_relief/add'
     | '/tds_tax/add'
     | '/unlisted_share/add'
@@ -1660,11 +1670,13 @@ export interface FileRouteTypes {
     | '/trading_details/'
     | '/unlisted_share/'
     | '/support/help/'
-    | '/assessee/add'
     | '/administration/role'
     | '/administration/user'
     | '/profile/index/'
     | '/user-fiscal-year/'
+    | '/assessee/add/'
+    | '/assessee/edit/'
+    | '/settings/'
     | '/administration/app_module/'
     | '/administration/app_module_feature/'
     | '/administration/permission/'
@@ -1674,7 +1686,6 @@ export interface FileRouteTypes {
     | '/masters/organization/currency'
     | '/masters/organization/fiscal_year'
     | '/masters/organization/state'
-    | '/assessee/add/'
     | '/administration/role/'
     | '/administration/user/'
     | '/masters/organization/branch/'
@@ -1716,8 +1727,7 @@ export interface FileRouteTypes {
     | '/help-tickets'
     | '/agriculture_income/add'
     | '/allowance_breakup/add'
-    | '/assessee/edit'
-    | '/assessee/heyassessee'
+    | '/assessee'
     | '/bank_details/add'
     | '/capital_gain_asset/add'
     | '/capital_gain_deemed/add'
@@ -1811,11 +1821,13 @@ export interface FileRouteTypes {
     | '/support/help'
     | '/profile/index'
     | '/user-fiscal-year'
+    | '/assessee/add'
+    | '/assessee/edit'
+    | '/settings'
     | '/administration/app_module'
     | '/administration/app_module_feature'
     | '/administration/permission'
     | '/administration/user/$id'
-    | '/assessee/add'
     | '/administration/role'
     | '/administration/user'
     | '/masters/organization/branch'
@@ -1859,8 +1871,7 @@ export interface FileRouteTypes {
     | '/_protected/(auth)/user-fiscal-year/_layout'
     | '/_protected/_filer/agriculture_income/add'
     | '/_protected/_filer/allowance_breakup/add'
-    | '/_protected/_filer/assessee/edit'
-    | '/_protected/_filer/assessee/heyassessee'
+    | '/_protected/_filer/assessee/_layout'
     | '/_protected/_filer/bank_details/add'
     | '/_protected/_filer/capital_gain_asset/add'
     | '/_protected/_filer/capital_gain_deemed/add'
@@ -1885,6 +1896,7 @@ export interface FileRouteTypes {
     | '/_protected/_filer/other_income/add'
     | '/_protected/_filer/relief_foreign/add'
     | '/_protected/_filer/salary_income/add'
+    | '/_protected/_filer/settings/_layout'
     | '/_protected/_filer/tax_relief/add'
     | '/_protected/_filer/tds_tax/add'
     | '/_protected/_filer/unlisted_share/add'
@@ -1955,11 +1967,13 @@ export interface FileRouteTypes {
     | '/_protected/_filer/trading_details/'
     | '/_protected/_filer/unlisted_share/'
     | '/_protected/support/help/'
-    | '/_protected/_filer/assessee/add/_layout'
     | '/_protected/administration/_layout/role/_layout'
     | '/_protected/administration/_layout/user/_layout'
     | '/_protected/(auth)/profile/index/'
     | '/_protected/(auth)/user-fiscal-year/_layout/'
+    | '/_protected/_filer/assessee/add/'
+    | '/_protected/_filer/assessee/edit/'
+    | '/_protected/_filer/settings/_layout/'
     | '/_protected/administration/_layout/app_module/'
     | '/_protected/administration/_layout/app_module_feature/'
     | '/_protected/administration/_layout/permission/'
@@ -1969,7 +1983,6 @@ export interface FileRouteTypes {
     | '/_protected/masters/organization/_layout/currency/_layout'
     | '/_protected/masters/organization/_layout/fiscal_year/_layout'
     | '/_protected/masters/organization/_layout/state/_layout'
-    | '/_protected/_filer/assessee/add/_layout/'
     | '/_protected/administration/_layout/role/_layout/'
     | '/_protected/administration/_layout/user/_layout/'
     | '/_protected/masters/organization/_layout/branch/'
@@ -2660,6 +2673,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedFilerTax_reliefAddRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
+    '/_protected/_filer/settings/_layout': {
+      id: '/_protected/_filer/settings/_layout'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof ProtectedFilerSettingsLayoutRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
     '/_protected/_filer/salary_income/add': {
       id: '/_protected/_filer/salary_income/add'
       path: '/salary_income/add'
@@ -2828,18 +2848,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedFilerBank_detailsAddRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
-    '/_protected/_filer/assessee/heyassessee': {
-      id: '/_protected/_filer/assessee/heyassessee'
-      path: '/assessee/heyassessee'
-      fullPath: '/assessee/heyassessee'
-      preLoaderRoute: typeof ProtectedFilerAssesseeHeyassesseeRouteImport
-      parentRoute: typeof ProtectedFilerRoute
-    }
-    '/_protected/_filer/assessee/edit': {
-      id: '/_protected/_filer/assessee/edit'
-      path: '/assessee/edit'
-      fullPath: '/assessee/edit'
-      preLoaderRoute: typeof ProtectedFilerAssesseeEditRouteImport
+    '/_protected/_filer/assessee/_layout': {
+      id: '/_protected/_filer/assessee/_layout'
+      path: '/assessee'
+      fullPath: '/assessee'
+      preLoaderRoute: typeof ProtectedFilerAssesseeLayoutRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
     '/_protected/_filer/allowance_breakup/add': {
@@ -2891,6 +2904,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedAdministrationLayoutApp_moduleIndexRouteImport
       parentRoute: typeof ProtectedAdministrationLayoutRoute
     }
+    '/_protected/_filer/settings/_layout/': {
+      id: '/_protected/_filer/settings/_layout/'
+      path: '/'
+      fullPath: '/settings/'
+      preLoaderRoute: typeof ProtectedFilerSettingsLayoutIndexRouteImport
+      parentRoute: typeof ProtectedFilerSettingsLayoutRoute
+    }
+    '/_protected/_filer/assessee/edit/': {
+      id: '/_protected/_filer/assessee/edit/'
+      path: '/assessee/edit'
+      fullPath: '/assessee/edit/'
+      preLoaderRoute: typeof ProtectedFilerAssesseeEditIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/assessee/add/': {
+      id: '/_protected/_filer/assessee/add/'
+      path: '/assessee/add'
+      fullPath: '/assessee/add/'
+      preLoaderRoute: typeof ProtectedFilerAssesseeAddIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
     '/_protected/(auth)/user-fiscal-year/_layout/': {
       id: '/_protected/(auth)/user-fiscal-year/_layout/'
       path: '/'
@@ -2912,13 +2946,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedAdministrationLayoutRoleLayoutRouteImport
       parentRoute: typeof ProtectedAdministrationLayoutRoute
     }
-    '/_protected/_filer/assessee/add/_layout': {
-      id: '/_protected/_filer/assessee/add/_layout'
-      path: '/assessee/add'
-      fullPath: '/assessee/add'
-      preLoaderRoute: typeof ProtectedFilerAssesseeAddLayoutRouteImport
-      parentRoute: typeof ProtectedFilerRoute
-    }
     '/_protected/masters/organization/_layout/branch/': {
       id: '/_protected/masters/organization/_layout/branch/'
       path: '/branch'
@@ -2939,13 +2966,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/administration/role/'
       preLoaderRoute: typeof ProtectedAdministrationLayoutRoleLayoutIndexRouteImport
       parentRoute: typeof ProtectedAdministrationLayoutRoleLayoutRoute
-    }
-    '/_protected/_filer/assessee/add/_layout/': {
-      id: '/_protected/_filer/assessee/add/_layout/'
-      path: '/'
-      fullPath: '/assessee/add/'
-      preLoaderRoute: typeof ProtectedFilerAssesseeAddLayoutIndexRouteImport
-      parentRoute: typeof ProtectedFilerAssesseeAddLayoutRoute
     }
     '/_protected/masters/organization/_layout/state/_layout': {
       id: '/_protected/masters/organization/_layout/state/_layout'
@@ -3083,26 +3103,25 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface ProtectedFilerAssesseeAddLayoutRouteChildren {
-  ProtectedFilerAssesseeAddLayoutIndexRoute: typeof ProtectedFilerAssesseeAddLayoutIndexRoute
+interface ProtectedFilerSettingsLayoutRouteChildren {
+  ProtectedFilerSettingsLayoutIndexRoute: typeof ProtectedFilerSettingsLayoutIndexRoute
 }
 
-const ProtectedFilerAssesseeAddLayoutRouteChildren: ProtectedFilerAssesseeAddLayoutRouteChildren =
+const ProtectedFilerSettingsLayoutRouteChildren: ProtectedFilerSettingsLayoutRouteChildren =
   {
-    ProtectedFilerAssesseeAddLayoutIndexRoute:
-      ProtectedFilerAssesseeAddLayoutIndexRoute,
+    ProtectedFilerSettingsLayoutIndexRoute:
+      ProtectedFilerSettingsLayoutIndexRoute,
   }
 
-const ProtectedFilerAssesseeAddLayoutRouteWithChildren =
-  ProtectedFilerAssesseeAddLayoutRoute._addFileChildren(
-    ProtectedFilerAssesseeAddLayoutRouteChildren,
+const ProtectedFilerSettingsLayoutRouteWithChildren =
+  ProtectedFilerSettingsLayoutRoute._addFileChildren(
+    ProtectedFilerSettingsLayoutRouteChildren,
   )
 
 interface ProtectedFilerRouteChildren {
   ProtectedFilerAgriculture_incomeAddRoute: typeof ProtectedFilerAgriculture_incomeAddRoute
   ProtectedFilerAllowance_breakupAddRoute: typeof ProtectedFilerAllowance_breakupAddRoute
-  ProtectedFilerAssesseeEditRoute: typeof ProtectedFilerAssesseeEditRoute
-  ProtectedFilerAssesseeHeyassesseeRoute: typeof ProtectedFilerAssesseeHeyassesseeRoute
+  ProtectedFilerAssesseeLayoutRoute: typeof ProtectedFilerAssesseeLayoutRoute
   ProtectedFilerBank_detailsAddRoute: typeof ProtectedFilerBank_detailsAddRoute
   ProtectedFilerCapital_gain_assetAddRoute: typeof ProtectedFilerCapital_gain_assetAddRoute
   ProtectedFilerCapital_gain_deemedAddRoute: typeof ProtectedFilerCapital_gain_deemedAddRoute
@@ -3127,6 +3146,7 @@ interface ProtectedFilerRouteChildren {
   ProtectedFilerOther_incomeAddRoute: typeof ProtectedFilerOther_incomeAddRoute
   ProtectedFilerRelief_foreignAddRoute: typeof ProtectedFilerRelief_foreignAddRoute
   ProtectedFilerSalary_incomeAddRoute: typeof ProtectedFilerSalary_incomeAddRoute
+  ProtectedFilerSettingsLayoutRoute: typeof ProtectedFilerSettingsLayoutRouteWithChildren
   ProtectedFilerTax_reliefAddRoute: typeof ProtectedFilerTax_reliefAddRoute
   ProtectedFilerTds_taxAddRoute: typeof ProtectedFilerTds_taxAddRoute
   ProtectedFilerUnlisted_shareAddRoute: typeof ProtectedFilerUnlisted_shareAddRoute
@@ -3192,7 +3212,8 @@ interface ProtectedFilerRouteChildren {
   ProtectedFilerTds_taxIndexRoute: typeof ProtectedFilerTds_taxIndexRoute
   ProtectedFilerTrading_detailsIndexRoute: typeof ProtectedFilerTrading_detailsIndexRoute
   ProtectedFilerUnlisted_shareIndexRoute: typeof ProtectedFilerUnlisted_shareIndexRoute
-  ProtectedFilerAssesseeAddLayoutRoute: typeof ProtectedFilerAssesseeAddLayoutRouteWithChildren
+  ProtectedFilerAssesseeAddIndexRoute: typeof ProtectedFilerAssesseeAddIndexRoute
+  ProtectedFilerAssesseeEditIndexRoute: typeof ProtectedFilerAssesseeEditIndexRoute
 }
 
 const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
@@ -3200,9 +3221,7 @@ const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
     ProtectedFilerAgriculture_incomeAddRoute,
   ProtectedFilerAllowance_breakupAddRoute:
     ProtectedFilerAllowance_breakupAddRoute,
-  ProtectedFilerAssesseeEditRoute: ProtectedFilerAssesseeEditRoute,
-  ProtectedFilerAssesseeHeyassesseeRoute:
-    ProtectedFilerAssesseeHeyassesseeRoute,
+  ProtectedFilerAssesseeLayoutRoute: ProtectedFilerAssesseeLayoutRoute,
   ProtectedFilerBank_detailsAddRoute: ProtectedFilerBank_detailsAddRoute,
   ProtectedFilerCapital_gain_assetAddRoute:
     ProtectedFilerCapital_gain_assetAddRoute,
@@ -3240,6 +3259,8 @@ const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
   ProtectedFilerOther_incomeAddRoute: ProtectedFilerOther_incomeAddRoute,
   ProtectedFilerRelief_foreignAddRoute: ProtectedFilerRelief_foreignAddRoute,
   ProtectedFilerSalary_incomeAddRoute: ProtectedFilerSalary_incomeAddRoute,
+  ProtectedFilerSettingsLayoutRoute:
+    ProtectedFilerSettingsLayoutRouteWithChildren,
   ProtectedFilerTax_reliefAddRoute: ProtectedFilerTax_reliefAddRoute,
   ProtectedFilerTds_taxAddRoute: ProtectedFilerTds_taxAddRoute,
   ProtectedFilerUnlisted_shareAddRoute: ProtectedFilerUnlisted_shareAddRoute,
@@ -3341,8 +3362,8 @@ const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
     ProtectedFilerTrading_detailsIndexRoute,
   ProtectedFilerUnlisted_shareIndexRoute:
     ProtectedFilerUnlisted_shareIndexRoute,
-  ProtectedFilerAssesseeAddLayoutRoute:
-    ProtectedFilerAssesseeAddLayoutRouteWithChildren,
+  ProtectedFilerAssesseeAddIndexRoute: ProtectedFilerAssesseeAddIndexRoute,
+  ProtectedFilerAssesseeEditIndexRoute: ProtectedFilerAssesseeEditIndexRoute,
 }
 
 const ProtectedFilerRouteWithChildren = ProtectedFilerRoute._addFileChildren(

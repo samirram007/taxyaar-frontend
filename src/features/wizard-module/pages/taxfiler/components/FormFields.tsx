@@ -10,13 +10,21 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { useRouter } from "@tanstack/react-router"
-import { useState } from "react"
-import { clientFormSchema, type ClientForm } from "../data/schema"
+import { useEffect, useState } from "react"
+import { clientFormSchema, type Client, type ClientForm } from "../data/schema"
 import { Button } from "@/components/ui/button"
 import { useClientMutation } from "../data/queryOptions"
 import { useQueryClient } from "@tanstack/react-query"
 
-export default function FormFields() {
+
+
+interface FormFieldProps {
+  data?: Client
+}
+
+
+
+export default function FormFields({ data }: FormFieldProps) {
   const router = useRouter();
   const { mutate } = useClientMutation();
   const queryClient = useQueryClient();
@@ -31,7 +39,24 @@ export default function FormFields() {
     gender: "M",
     fatherName: "",
     mobileNumber: "",
-  })
+  });
+
+
+  useEffect(() => {
+    if (!data) return;
+
+    setForm({
+      pan: data.pan ?? "",
+      dob: data.dob ? data.dob.split("T")[0] : "",
+      email: data.email ?? "",
+      firstName: data.firstName ?? "",
+      middleName: data.middleName ?? "",
+      lastName: data.lastName ?? "",
+      gender: (data.gender as "M" | "F" | "O") ?? "M",
+      fatherName: data.fatherName ?? "",
+      mobileNumber: data.mobileNumber ?? "",
+    });
+  }, [data]);
 
   const handleChange =
     (key: keyof ClientForm) =>
@@ -39,25 +64,41 @@ export default function FormFields() {
         setForm((s) => ({ ...s, [key]: e.target.value }))
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const result = clientFormSchema.safeParse(form)
+    const result = clientFormSchema.safeParse(form);
 
     if (!result.success) {
-      console.log(result.error)
-      return
+      console.log(result.error);
+      return;
     }
 
-    mutate(result.data, {
-      onSuccess() {
-        queryClient.invalidateQueries({ queryKey: ["clientKey"] });
-        setTimeout(() => {
-          router.navigate({ to: "/dashboard" });
-        }, 200);
-      },
-    })
+    console.log("here upto");
 
-  }
+    if (data?.pan) {
+      /// update api call
+      mutate(
+        {
+          ...result.data,
+          id: data.pan,
+        },
+        {
+          onSuccess() {
+            queryClient.invalidateQueries({ queryKey: ["clientKey"] });
+            router.navigate({ to: "/dashboard" });
+          },
+        }
+      );
+    } else {
+      /// create api call
+      mutate(result.data, {
+        onSuccess() {
+          queryClient.invalidateQueries({ queryKey: ["clientKey"] });
+          router.navigate({ to: "/dashboard" });
+        },
+      });
+    }
+  };
 
   return (
     <div className="bg-background border border-border rounded-lg p-8 shadow shadow-gray-400">
@@ -73,6 +114,7 @@ export default function FormFields() {
               placeholder="ABCDE1234F"
               value={form.pan}
               onChange={handleChange("pan")}
+              disabled={!!data}
               required
             />
           </div>
