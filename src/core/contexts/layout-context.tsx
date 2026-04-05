@@ -1,4 +1,4 @@
-import React, { createContext, use, useContext, useEffect, type ReactNode } from 'react';
+import React, { createContext, useContext, useEffect, type ReactNode } from 'react';
 
 type LayoutType = 'protected' | 'protectedWeb' | 'admin' | 'mobile';
 
