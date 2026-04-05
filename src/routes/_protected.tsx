@@ -2,6 +2,7 @@
 import ProtectedLayout from '@/layouts/ProtectedLayout';
 import ProtectedWebLayout from '@/layouts/ProtectedWebLayout';
 import { createFileRoute, redirect } from '@tanstack/react-router';
+import { useLayout } from '@/core/contexts/layout-context';
 
 export const Route = createFileRoute('/_protected')({
   beforeLoad: async ({ context }) => {
@@ -27,9 +28,9 @@ export const Route = createFileRoute('/_protected')({
   notFoundComponent: () => <div>Authenticated Not Found</div>,
 })
 function ProtectedRouteComponent() {
-  const { layout } = Route.useRouteContext()
+  const { layoutType } = useLayout()
 
-  switch (layout?.layoutType) {
+  switch (layoutType) {
     case 'protected':
       return <ProtectedLayout />
 
