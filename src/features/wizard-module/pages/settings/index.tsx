@@ -276,23 +276,27 @@ export default function Settings(): ReactNode {
                 <p className="text-muted-foreground mt-2 text-base">Manage your account and preferences</p>
             </div>
 
-            <nav className="flex flex-wrap gap-1 border-b border-border">
+            <nav className="flex flex-wrap gap-3 border-b-2 border-border pb-0">
                 {sections.map((section) => {
                     const Icon = section.icon;
+                    const isActive = activeSection === section.id;
                     return (
-                        <Button
+                        <button
                             key={section.id}
-                            variant={activeSection === section.id ? 'default' : 'ghost'}
                             onClick={() => setActiveSection(section.id)}
-                            className={`rounded-t-lg rounded-b-none gap-2 transition-all ${activeSection === section.id
-                                    ? 'border-b-2 border-primary'
-                                    : 'hover:bg-muted'
-                                }`}
+                            className={`flex items-center gap-2 px-4 py-3 text-sm font-medium transition-all duration-200 relative group
+                                ${isActive
+                                    ? 'text-primary'
+                                    : 'text-muted-foreground hover:text-foreground'
+                                }
+                            `}
                         >
-                            <Icon className="h-4 w-4" />
-                            <span className="hidden sm:inline">{section.label}</span>
-                            <span className="sm:hidden">{section.label.split(' ')[0]}</span>
-                        </Button>
+                            <Icon className={`h-4 w-4 transition-colors ${isActive ? 'text-primary' : 'group-hover:text-foreground'}`} />
+                            <span>{section.label}</span>
+                            {isActive && (
+                                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-primary to-primary rounded-full" />
+                            )}
+                        </button>
                     );
                 })}
             </nav>
