@@ -3,7 +3,6 @@ import {
     SidebarContent,
     SidebarFooter,
     SidebarHeader,
-    SidebarRail,
 } from '@/components/ui/sidebar'
 import { Link } from '@tanstack/react-router'
 import { sidebarData } from './data/sidebar-data'
@@ -14,7 +13,7 @@ export default function WizardSidebar({ ...props }: React.ComponentProps<typeof 
     return (
         <Sidebar
             collapsible='icon'
-            variant='inset'
+            variant='sidebar'
             className='w-75 top-(--header-height) h-[calc(100svh-var(--header-height))]!'
             {...props}
         >
@@ -33,7 +32,6 @@ export default function WizardSidebar({ ...props }: React.ComponentProps<typeof 
             <SidebarFooter className='hidden'>
                 <NavUser user={sidebarData.user} />
             </SidebarFooter>
-            <SidebarRail />
         </Sidebar>
     )
 }

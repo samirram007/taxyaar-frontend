@@ -81,6 +81,8 @@ import { Route as ProtectedFilerCapital_gain_intradayIndexRouteImport } from './
 import { Route as ProtectedFilerCapital_gain_deemedIndexRouteImport } from './routes/_protected/_filer/capital_gain_deemed/index'
 import { Route as ProtectedFilerCapital_gain_assetIndexRouteImport } from './routes/_protected/_filer/capital_gain_asset/index'
 import { Route as ProtectedFilerBusiness_profession_natureIndexRouteImport } from './routes/_protected/_filer/business_profession_nature/index'
+import { Route as ProtectedFilerBusiness_professionIndexRouteImport } from './routes/_protected/_filer/business_profession/index'
+import { Route as ProtectedFilerBusiness_incomeIndexRouteImport } from './routes/_protected/_filer/business_income/index'
 import { Route as ProtectedFilerBank_detailsIndexRouteImport } from './routes/_protected/_filer/bank_details/index'
 import { Route as ProtectedFilerBalance_sheetIndexRouteImport } from './routes/_protected/_filer/balance_sheet/index'
 import { Route as ProtectedFilerAssistance_serviceIndexRouteImport } from './routes/_protected/_filer/assistance_service/index'
@@ -632,6 +634,18 @@ const ProtectedFilerBusiness_profession_natureIndexRoute =
     path: '/business_profession_nature/',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
+const ProtectedFilerBusiness_professionIndexRoute =
+  ProtectedFilerBusiness_professionIndexRouteImport.update({
+    id: '/business_profession/',
+    path: '/business_profession/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerBusiness_incomeIndexRoute =
+  ProtectedFilerBusiness_incomeIndexRouteImport.update({
+    id: '/business_income/',
+    path: '/business_income/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
 const ProtectedFilerBank_detailsIndexRoute =
   ProtectedFilerBank_detailsIndexRouteImport.update({
     id: '/bank_details/',
@@ -1138,6 +1152,8 @@ export interface FileRoutesByFullPath {
   '/assistance_service/': typeof ProtectedFilerAssistance_serviceIndexRoute
   '/balance_sheet/': typeof ProtectedFilerBalance_sheetIndexRoute
   '/bank_details/': typeof ProtectedFilerBank_detailsIndexRoute
+  '/business_income/': typeof ProtectedFilerBusiness_incomeIndexRoute
+  '/business_profession/': typeof ProtectedFilerBusiness_professionIndexRoute
   '/business_profession_nature/': typeof ProtectedFilerBusiness_profession_natureIndexRoute
   '/capital_gain_asset/': typeof ProtectedFilerCapital_gain_assetIndexRoute
   '/capital_gain_deemed/': typeof ProtectedFilerCapital_gain_deemedIndexRoute
@@ -1288,6 +1304,8 @@ export interface FileRoutesByTo {
   '/assistance_service': typeof ProtectedFilerAssistance_serviceIndexRoute
   '/balance_sheet': typeof ProtectedFilerBalance_sheetIndexRoute
   '/bank_details': typeof ProtectedFilerBank_detailsIndexRoute
+  '/business_income': typeof ProtectedFilerBusiness_incomeIndexRoute
+  '/business_profession': typeof ProtectedFilerBusiness_professionIndexRoute
   '/business_profession_nature': typeof ProtectedFilerBusiness_profession_natureIndexRoute
   '/capital_gain_asset': typeof ProtectedFilerCapital_gain_assetIndexRoute
   '/capital_gain_deemed': typeof ProtectedFilerCapital_gain_deemedIndexRoute
@@ -1430,6 +1448,8 @@ export interface FileRoutesById {
   '/_protected/_filer/assistance_service/': typeof ProtectedFilerAssistance_serviceIndexRoute
   '/_protected/_filer/balance_sheet/': typeof ProtectedFilerBalance_sheetIndexRoute
   '/_protected/_filer/bank_details/': typeof ProtectedFilerBank_detailsIndexRoute
+  '/_protected/_filer/business_income/': typeof ProtectedFilerBusiness_incomeIndexRoute
+  '/_protected/_filer/business_profession/': typeof ProtectedFilerBusiness_professionIndexRoute
   '/_protected/_filer/business_profession_nature/': typeof ProtectedFilerBusiness_profession_natureIndexRoute
   '/_protected/_filer/capital_gain_asset/': typeof ProtectedFilerCapital_gain_assetIndexRoute
   '/_protected/_filer/capital_gain_deemed/': typeof ProtectedFilerCapital_gain_deemedIndexRoute
@@ -1583,6 +1603,8 @@ export interface FileRouteTypes {
     | '/assistance_service/'
     | '/balance_sheet/'
     | '/bank_details/'
+    | '/business_income/'
+    | '/business_profession/'
     | '/business_profession_nature/'
     | '/capital_gain_asset/'
     | '/capital_gain_deemed/'
@@ -1733,6 +1755,8 @@ export interface FileRouteTypes {
     | '/assistance_service'
     | '/balance_sheet'
     | '/bank_details'
+    | '/business_income'
+    | '/business_profession'
     | '/business_profession_nature'
     | '/capital_gain_asset'
     | '/capital_gain_deemed'
@@ -1874,6 +1898,8 @@ export interface FileRouteTypes {
     | '/_protected/_filer/assistance_service/'
     | '/_protected/_filer/balance_sheet/'
     | '/_protected/_filer/bank_details/'
+    | '/_protected/_filer/business_income/'
+    | '/_protected/_filer/business_profession/'
     | '/_protected/_filer/business_profession_nature/'
     | '/_protected/_filer/capital_gain_asset/'
     | '/_protected/_filer/capital_gain_deemed/'
@@ -2529,6 +2555,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedFilerBusiness_profession_natureIndexRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
+    '/_protected/_filer/business_profession/': {
+      id: '/_protected/_filer/business_profession/'
+      path: '/business_profession'
+      fullPath: '/business_profession/'
+      preLoaderRoute: typeof ProtectedFilerBusiness_professionIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/business_income/': {
+      id: '/_protected/_filer/business_income/'
+      path: '/business_income'
+      fullPath: '/business_income/'
+      preLoaderRoute: typeof ProtectedFilerBusiness_incomeIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
     '/_protected/_filer/bank_details/': {
       id: '/_protected/_filer/bank_details/'
       path: '/bank_details'
@@ -3096,6 +3136,8 @@ interface ProtectedFilerRouteChildren {
   ProtectedFilerAssistance_serviceIndexRoute: typeof ProtectedFilerAssistance_serviceIndexRoute
   ProtectedFilerBalance_sheetIndexRoute: typeof ProtectedFilerBalance_sheetIndexRoute
   ProtectedFilerBank_detailsIndexRoute: typeof ProtectedFilerBank_detailsIndexRoute
+  ProtectedFilerBusiness_incomeIndexRoute: typeof ProtectedFilerBusiness_incomeIndexRoute
+  ProtectedFilerBusiness_professionIndexRoute: typeof ProtectedFilerBusiness_professionIndexRoute
   ProtectedFilerBusiness_profession_natureIndexRoute: typeof ProtectedFilerBusiness_profession_natureIndexRoute
   ProtectedFilerCapital_gain_assetIndexRoute: typeof ProtectedFilerCapital_gain_assetIndexRoute
   ProtectedFilerCapital_gain_deemedIndexRoute: typeof ProtectedFilerCapital_gain_deemedIndexRoute
@@ -3211,6 +3253,10 @@ const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
     ProtectedFilerAssistance_serviceIndexRoute,
   ProtectedFilerBalance_sheetIndexRoute: ProtectedFilerBalance_sheetIndexRoute,
   ProtectedFilerBank_detailsIndexRoute: ProtectedFilerBank_detailsIndexRoute,
+  ProtectedFilerBusiness_incomeIndexRoute:
+    ProtectedFilerBusiness_incomeIndexRoute,
+  ProtectedFilerBusiness_professionIndexRoute:
+    ProtectedFilerBusiness_professionIndexRoute,
   ProtectedFilerBusiness_profession_natureIndexRoute:
     ProtectedFilerBusiness_profession_natureIndexRoute,
   ProtectedFilerCapital_gain_assetIndexRoute:

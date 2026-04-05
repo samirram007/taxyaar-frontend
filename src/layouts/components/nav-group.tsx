@@ -39,6 +39,8 @@ export function NavGroup({ title, items, collapsibleIndicator = 'chevron' }: Nav
   const { state } = useSidebar()
   const location = useLocation()
   const href = location.pathname
+  console.log("title", title);
+
 
   return (
     <SidebarGroup>
@@ -73,24 +75,35 @@ const NavBadge = ({ children }: { children: ReactNode }) => (
 
 const SidebarMenuLink = ({ item, href }: { item: NavLink; href: string }) => {
   const { setOpenMobile } = useSidebar()
+  const isActive = checkIsActive(href, item)
   if (!item.visible) return null
   return (
     <SidebarMenuItem>
       <SidebarMenuButton
         asChild
-        isActive={checkIsActive(href, item)}
+        isActive={isActive}
         tooltip={item.title}
-        className='w-full px-0! pr-2! text-xs text-slate-700 hover:bg-blue-50/70 hover:text-blue-700 data-[active=true]:bg-blue-50 data-[active=true]:text-blue-700'
+        className='w-full px-0! pr-1! text-xs text-slate-700 hover:bg-blue-50/70 hover:text-blue-700 data-[active=true]:bg-blue-50 data-[active=true]:text-blue-700'
       >
         <Link to={item.url} onClick={() => setOpenMobile(false)}
           aria-label={item.title}
+          aria-current={isActive ? 'page' : undefined}
           title={item.title}
-          className='flex w-full items-start gap-2 whitespace-normal wrap-break-word leading-5'
+          className={`flex w-full items-start gap-2 whitespace-normal wrap-break-word leading-5 transition-all duration-200 ease-out hover:tracking-[0.01em] active:scale-[0.99] ${isActive ? 'font-semibold text-blue-700 underline decoration-red-500 decoration-2 underline-offset-3' : ''}`}
         >
-          {/* {item.icon && <item.icon />} */}
-          <span className='flex-1 min-w-0 whitespace-normal wrap-break-word'>{item.title}</span>
+          <span
+            className='mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-sm transition-colors'
+          >
+            {item.icon ? (
+              <item.icon className={`size-3.5 ${isActive ? 'text-blue-700 fill-[currentColor]' : 'text-slate-500'}`} />
+            ) : (
+              <span aria-hidden='true' className='size-3.5' />
+            )}
+          </span>
+          <span className='flex-1 min-w-0 whitespace-normal wrap-break-word transition-transform duration-200 ease-out group-hover/menu-item:translate-x-0.5'>
+            {item.title}
+          </span>
           {item.badge && <NavBadge>{item.badge}</NavBadge>}
-          {!item.badge && <span aria-hidden='true' className='ml-2 w-4 shrink-0' />}
         </Link>
       </SidebarMenuButton>
     </SidebarMenuItem>
@@ -123,9 +136,11 @@ const SidebarMenuCollapsible = ({
     >
       <SidebarMenuItem>
         <CollapsibleTrigger asChild className='group/trigger'>
-          <SidebarMenuButton tooltip={item.title} className='w-full px-0! pr-2!'>
+          <SidebarMenuButton tooltip={item.title} className='w-full px-0! pr-1!'>
             {/* {item.icon && <item.icon />} */}
-            <span className='flex-1 min-w-0 whitespace-normal wrap-break-word leading-5'>{item.title}</span>
+            <span className='flex-1 min-w-0 whitespace-normal wrap-break-word leading-5 transition-transform duration-200 ease-out group-hover/menu-item:translate-x-0.5'>
+              {item.title}
+            </span>
             {item.badge && <NavBadge>{item.badge}</NavBadge>}
             {collapsibleIndicator === 'plus-minus' ? (
               <span className='ml-2 flex w-4 items-center justify-center shrink-0'>
@@ -213,10 +228,20 @@ const SidebarMenuCollapsedDropdown = ({
             <DropdownMenuItem key={`${sub.title}-${sub.url}`} asChild>
               <Link
                 to={sub.url as string}
-                className={`text-xs text-slate-700 hover:bg-blue-50/70 hover:text-blue-700 whitespace-normal wrap-break-word leading-5 ${checkIsActive(href, sub as NavItem) ? 'bg-blue-50 text-blue-700' : ''}`}
+                className={`text-xs text-slate-700 hover:bg-blue-50/70 hover:text-blue-700 whitespace-normal wrap-break-word leading-5 transition-all duration-200 ease-out hover:translate-x-0.5 hover:tracking-[0.01em] active:scale-[0.99] ${checkIsActive(href, sub as NavItem) ? 'bg-blue-50 text-blue-700' : ''}`}
               >
-                {sub.icon && <sub.icon />}
-                <span className='max-w-52 whitespace-normal wrap-break-word'>{sub.title}</span>
+                <span
+                  className='mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-sm transition-colors'
+                >
+                  {sub.icon ? (
+                    <sub.icon className={`size-3.5 ${checkIsActive(href, sub as NavItem) ? 'text-blue-700 fill-[currentColor]' : 'text-slate-500'}`} />
+                  ) : (
+                    <span aria-hidden='true' className='size-3.5' />
+                  )}
+                </span>
+                <span className='max-w-52 whitespace-normal wrap-break-word transition-transform duration-200 ease-out'>
+                  {sub.title}
+                </span>
                 {sub.badge && (
                   <span className='ml-auto text-xs'>{sub.badge}</span>
                 )}

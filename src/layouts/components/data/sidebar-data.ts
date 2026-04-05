@@ -108,7 +108,7 @@ export const sidebarData: SidebarData = {
                 {
                   title: ' Other income - Casual Income ',
                   visible: true,
-                  url: '/other_casual',
+                  url: '/other_casual_income',
                   icon: IconStar,
                 },
                 {
@@ -339,7 +339,7 @@ export const sidebarData: SidebarData = {
             {
               title: 'Net Worth',
               visible: true,
-              url: '/net_worth',
+              url: '/asset_liability',
               icon: IconStar,
             },
             {
