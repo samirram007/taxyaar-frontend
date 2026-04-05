@@ -135,7 +135,7 @@ const Form10IEDetails = () => {
 
                         </div>
                         <WizardFooter
-                            previousPageLink="/seventh_provision"
+                            previousPageLink="/seventh_proviso"
                             previousPageName="Seventh Provision"
                             nextPageLink="/bank_details"
                             nextPageName="Bank Details"

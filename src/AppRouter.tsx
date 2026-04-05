@@ -4,6 +4,7 @@ import LoadingBar from 'react-top-loading-bar';
 import { useAuth } from './features/auth/contexts/AuthContext';
 import * as TanstackQuery from './integrations/tanstack-query/root-provider';
 import { createAppRouter } from './router';
+import { useLayout } from './core/contexts/layout-context';
 
 
 const router = createAppRouter()
@@ -12,6 +13,7 @@ declare module '@tanstack/react-router' {
         router: typeof router;
         context: {
             auth: ReturnType<typeof useAuth>;
+            layout: ReturnType<typeof useLayout>;
             queryClient: ReturnType<typeof TanstackQuery.getContext>['queryClient'];
 
         };
@@ -21,7 +23,7 @@ declare module '@tanstack/react-router' {
 export function AppRouter() {
     const auth = useAuth();
     const { queryClient } = TanstackQuery.getContext();
-
+    const layout = useLayout();
     if (auth.isLoading) return <LoadingBar />;
     if (auth.isLoading) {
         return (
@@ -36,6 +38,7 @@ export function AppRouter() {
             router={router}
             context={{
                 auth,
+                layout,
                 queryClient,
             }}
         />

@@ -44,7 +44,7 @@ export const clientSchema = z.object({
     firstName: z.string(),
     middleName: z.string().nullable().optional(),
     lastName: z.string(),
-    dob: z.string().datetime(),
+    dob: z.string(),
     isVerified: z.union([z.literal(0), z.literal(1)]),
     pan: z.string(),
     validUpto: z.string().date(),

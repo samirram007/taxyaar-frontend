@@ -79,6 +79,13 @@ export function ProfileDropdown() {
               </a>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
+              <Link
+                to="/settings"
+              >
+                Settings
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem asChild>
               <Link to="/help-tickets">Your Help Tickets</Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>

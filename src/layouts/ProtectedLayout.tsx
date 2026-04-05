@@ -26,7 +26,7 @@ const ProtectedLayout = () => {
             <SearchProvider>
                 <SkipToMain />
 
-                <div className="flex sticky top-[200px] z-50">
+                <div className="scroll-container flex sticky top-50 z-50">
                     {/* <!-- ===== Page Wrapper Start ===== --> */}
                     <div className="max-w-screen w-full relative flex  h-screen overflow-hidden ">
 

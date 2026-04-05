@@ -8,7 +8,7 @@ export async function fetchAllClientService() {
     return await getData(ROUTE)
 }
 
-export async function fetchClientByIdService(id: number) {
+export async function fetchClientByIdService(id: string) {
     return await getData(`${ROUTE}/${id}`);
 }
 

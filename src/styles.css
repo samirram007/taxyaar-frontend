@@ -189,6 +189,48 @@ code {
     @apply bg-background text-foreground;
   }
 }
+ 
+@layer utilities {
+  .scroll-container {
+    overflow-y: auto;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+
+  *:hover,
+  *:focus-within {
+    scrollbar-color: rgba(100, 116, 139, 0.55) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border: 3px solid transparent;
+    border-radius: 9999px;
+    background-clip: content-box;
+    transition: background-color 180ms ease;
+  }
+
+  *:hover::-webkit-scrollbar-thumb,
+  *:focus-within::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 116, 139, 0.55);
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(51, 65, 85, 0.75);
+  }
+}
 .grid-footer {
   @apply grid grid-rows-[1fr_120px_150px] md:grid-rows-[1fr_100px_120px];
 }
