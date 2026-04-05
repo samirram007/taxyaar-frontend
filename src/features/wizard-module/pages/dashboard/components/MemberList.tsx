@@ -6,7 +6,8 @@ import { MoreVertical, Trash2 } from "lucide-react";
 import { IconArrowRight, IconEdit } from "@tabler/icons-react";
 // import { useAuthenticationUser } from "@/features/wizard-module/data/queryOptions";
 import { DeleteModal } from "./DeleteModal";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { useAuth } from "@/features/auth/contexts/AuthContext";
 
 
 
@@ -17,7 +18,12 @@ export default function MemeberList({ clientList }: { clientList: ClientList }) 
     const router = useRouter();
     // const { mutate } = useAuthenticationUser();
     const [selectedClient, setSelectedClient] = useState<Client | null>(null)
-    const [open, setOpen] = useState<boolean>(false);
+    const [open, setDelOpen] = useState<boolean>(false);
+    const { setCurrentClient } = useAuth();
+    const renderCount = useRef(0);
+    renderCount.current++;
+
+    console.log("MemeberList render count:", renderCount.current);
 
     // const onClientAuthentication = (client: Client) => {
     //     mutate(client.pan, {
@@ -31,6 +37,12 @@ export default function MemeberList({ clientList }: { clientList: ClientList }) 
     //     });
     // }
 
+    const onClientEditAction = (member: Client) => {
+        setCurrentClient(member);
+        setTimeout(() => {
+            router.navigate({ to: "/assessee/edit" });
+        }, 0);
+    };
 
 
 
@@ -87,7 +99,8 @@ export default function MemeberList({ clientList }: { clientList: ClientList }) 
                                     </DropdownMenuItem>
                                     <DropdownMenuItem className="grid grid-cols-[10px_1fr] justify-start items-center gap-4" onSelect={(e) => {
                                         e.preventDefault();
-                                        router.navigate({ to: "/assessee/edit" })
+                                        e.stopPropagation();
+                                        onClientEditAction(member)
                                     }}>
                                         <IconEdit size={16} className="ml-auto" />
                                         <div >
@@ -98,7 +111,7 @@ export default function MemeberList({ clientList }: { clientList: ClientList }) 
                                         onSelect={(e) => {
                                             e.preventDefault()
                                             setSelectedClient(member)
-                                            setOpen(true)
+                                            setDelOpen(true)
                                         }}
                                     >
                                         <Trash2 />
@@ -127,7 +140,7 @@ export default function MemeberList({ clientList }: { clientList: ClientList }) 
             {selectedClient && (
                 <DeleteModal
                     open={open}
-                    setOpen={setOpen}
+                    setOpen={setDelOpen}
                     client={selectedClient}
                 />
             )}

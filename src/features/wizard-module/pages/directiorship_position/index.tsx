@@ -92,7 +92,7 @@ const DirectorshipPosition = () => {
 
                         </div>
                         <WizardFooter
-                            previousPageLink="/seventh_provision"
+                            previousPageLink="/seventh_proviso"
                             previousPageName="Seventh Provision"
                             nextPageLink="/contact_details"
                             nextPageName="Contact Details"

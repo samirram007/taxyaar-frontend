@@ -13,6 +13,8 @@ import { AuthProvider } from './features/auth/contexts/AuthContext'
 import { env } from './env'
 import './styles.css'
 import { Form16Provider } from './features/wizard-module/pages/form16/contexts/Form16Context'
+import { Layout } from 'lucide-react'
+import { LayoutProvider } from './core/contexts/layout-context'
 
 // Render the app
 const rootElement = document.getElementById('app')
@@ -25,12 +27,15 @@ if (rootElement && !rootElement.innerHTML) {
           <ThemeContextProvider defaultTheme="light" storageKey="vite-ui-theme">
             <FontProvider>
               <AuthProvider>
-                <Form16Provider>
-                  <Toaster position="top-center" richColors />
-                  <AppRouter />
-                </Form16Provider>
+                <LayoutProvider storageKey="app-ui-layout">
+                  <Form16Provider>
+                    <Toaster position="top-center" richColors />
+                    <AppRouter />
+                  </Form16Provider>
+                </LayoutProvider>
               </AuthProvider>
             </FontProvider>
+
           </ThemeContextProvider>
         </TanstackQuery.Provider>
       </GoogleOAuthProvider>

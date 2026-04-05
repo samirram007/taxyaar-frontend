@@ -137,7 +137,7 @@ const AssetLiability = () => {
                         <WizardFooter
                             previousPageLink="/portuguese"
                             previousPageName="Portuguese Civil Code"
-                            nextPageLink="/seventh_provision"
+                            nextPageLink="/seventh_proviso"
                             nextPageName="Seventh Provision"
                             progress={{ percentage: '90%', remaining: '1 min more' }}
 

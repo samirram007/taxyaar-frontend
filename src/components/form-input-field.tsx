@@ -362,7 +362,7 @@ const MultiSelectBox = (props: Props) => {
                                     <ChevronsUpDown className="ml-2 h-4 w-4 opacity-50" />
                                 </Button>
                             </PopoverTrigger>
-                            <PopoverContent className="p-0 w-[250px]">
+                            <PopoverContent className="p-0 w-62.5">
                                 <Command>
                                     <CommandGroup>
                                         {items!.map((item) => (

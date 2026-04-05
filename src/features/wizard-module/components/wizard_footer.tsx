@@ -54,10 +54,11 @@ const WizardFooter = (props: WizardFooterProps) => {
           <div className="flex flex-row gap-2 items-center">
             <Link
               to={previousPageLink}
-              className="flex flex-row gap-1 items-center"
+              className="group flex flex-row gap-1 items-center rounded-md px-2 py-1 text-slate-700 transition-all duration-200 ease-out hover:text-sky-700 hover:-translate-x-0.5 hover:opacity-90 active:scale-[0.99]"
               onClick={() => handleLinkClick(previousPageLink)}
             >
-              <MoveLeft /> {previousPageName || 'Previous Page'}
+              <MoveLeft className="transition-transform duration-200 ease-out group-hover:-translate-x-0.5" />{' '}
+              {previousPageName || 'Previous Page'}
             </Link>
           </div>
         </div>
@@ -66,10 +67,11 @@ const WizardFooter = (props: WizardFooterProps) => {
           <div className="flex flex-row text-xl text-sky-600 cursor-pointer ">
             <Link
               to={nextPageLink}
-              className="flex flex-row gap-1 items-center"
+              className="group flex flex-row gap-1 items-center rounded-md px-2 py-1 transition-all duration-200 ease-out hover:text-sky-700 hover:translate-x-0.5 hover:opacity-90 active:scale-[0.99]"
               onClick={() => handleLinkClick(nextPageLink)}
             >
-              {nextPageName || 'Next Page'} <MoveRight />
+              {nextPageName || 'Next Page'}{' '}
+              <MoveRight className="transition-transform duration-200 ease-out group-hover:translate-x-0.5" />
             </Link>
           </div>
         </div>

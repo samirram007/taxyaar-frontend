@@ -1,4 +1,3 @@
-// import { Breadcrumb } from '@/components/ui/breadcrumb'
 import { Button } from '@/components/ui/button'
 
 import { Card } from '@/components/ui/card'
@@ -12,6 +11,10 @@ import {
 } from '@tabler/icons-react'
 import { Link } from '@tanstack/react-router'
 import CustomBreadcrumb from '../wizard-module/components/CustomBreadCrumb'
+
+const helpUrl = import.meta.env.VITE_HELP_URL || 'https://help.taxyaar.com'
+const requestUrl = helpUrl + '/requests'
+const knowledgeBaseUrl = helpUrl + '/help-center/topic_category/knowledge-base'
 
 const ProductLaunchboard = () => {
   const title = 'Tax Filing Services'
@@ -98,7 +101,12 @@ const ProductLaunchboard = () => {
                     className="btn btn-primary bg-blue-50/5 hover:text-blue-600 hover:bg-blue-50/5 text-blue-500"
                     asChild
                   >
-                    <Link to="/dashboard" className="text-blue-500   mr-4">
+                    <Link
+                      to={requestUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500   mr-4"
+                    >
                       Get Started <IconArrowRight className="" />
                     </Link>
                   </Button>
@@ -123,14 +131,14 @@ const ProductLaunchboard = () => {
                     className="btn btn-primary bg-blue-50/5 hover:text-blue-600 hover:bg-blue-50/5 text-blue-500"
                     asChild
                   >
-                    <a
-                      href="https://help.taxyaar.com"
+                    <Link
+                      to={knowledgeBaseUrl}
                       className="text-blue-500   mr-4"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       Read Articles <IconArrowRight className="" />
-                    </a>
+                    </Link>
                   </Button>
                 </div>
               </Card>

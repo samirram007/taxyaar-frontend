@@ -91,7 +91,6 @@ export default function MembersPage() {
     // }
 
     authMutation.mutate('undefined', {
-      //removing res from onSuccess (res) due to build errrors
       onSuccess: () => {
         // const token = res?.data?.data?.result?.autkn;
 

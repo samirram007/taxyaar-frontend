@@ -13,6 +13,7 @@ import {
 import type { UserWithRole } from '../data/schema'
 import type { Permission } from '@/features/modules/permission/data/schema'
 import type { Role } from '@/features/modules/role/data/schema'
+import type { Client } from '@/features/wizard-module/pages/taxfiler/data/schema'
 export type LoginProps = {
   email: string
   password: string
@@ -32,6 +33,8 @@ export interface AuthContextType {
   user: UserWithRole | null
   userFiscalYear: UserFiscalYear | null
   isLoading: boolean
+  currentClient: Client | null
+  setCurrentClient: (ccurrentClient: Client | null) => void
   isAuthenticated: boolean
   register: (props: RegisterProps) => Promise<void>
   login: (props: LoginProps) => Promise<void>
@@ -48,7 +51,8 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined)
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   // const navigate = useNavigate();
   // const [isAuthenticated, setIsAuthenticated] = useState(true)
-  const [user, setUser] = useState<UserWithRole | null>(null)
+  const [user, setUser] = useState<UserWithRole | null>(null);
+  const [currentClient, setCurrentClient] = useState<Client | null>(null);
   const [userFiscalYear, setUserFiscalYear] = useState<UserFiscalYear | null>(
     null,
   )
@@ -71,9 +75,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setPeriod(
           data?.data?.userFiscalYear
             ? {
-                startDate: new Date(data?.data?.userFiscalYear.startDate),
-                endDate: new Date(data?.data?.userFiscalYear.endDate),
-              }
+              startDate: new Date(data?.data?.userFiscalYear.startDate),
+              endDate: new Date(data?.data?.userFiscalYear.endDate),
+            }
             : null,
         )
         const perms: string[] = []
@@ -236,6 +240,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         logout,
         fetchProfile,
         permissions,
+        currentClient,
+        setCurrentClient
       }}
     >
       {children}
