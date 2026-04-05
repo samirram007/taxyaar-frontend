@@ -5,7 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Check, Lock, Mail, FileText, CreditCard, LucideIcon } from 'lucide-react';
+import { Check, Lock, Mail, FileText, CreditCard } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
 // Type definitions
 type SectionId = 'login' | 'security' | 'incomeTax' | 'invoice';
