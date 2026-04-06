@@ -66,7 +66,6 @@ export default function InvoiceSummary() {
         </Table>
       </div>
 
-      {/* Mobile Card View */}
       <div className="md:hidden">
         <div className="text-center py-8 border rounded-lg bg-white">
           <p className="text-slate-500 text-xs">No records found</p>

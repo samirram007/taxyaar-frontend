@@ -149,9 +149,7 @@ export default function LoginDetails() {
         </Table>
       </div>
 
-      {/* Mobile Card View */}
       <div className="md:hidden space-y-3">
-        {/* Username Card */}
         <div className="border rounded-lg p-4 bg-white">
           <div className="flex items-start justify-between mb-3">
             <span className="text-sm font-medium text-slate-700">
@@ -169,7 +167,6 @@ export default function LoginDetails() {
           </p>
         </div>
 
-        {/* Password Card */}
         <div className="border rounded-lg p-4 bg-white">
           <div className="flex items-start justify-between mb-3">
             <span className="text-sm font-medium text-slate-700">
@@ -185,7 +182,6 @@ export default function LoginDetails() {
           <p className="text-xs md:text-sm text-slate-900">••••••••</p>
         </div>
 
-        {/* Email Card */}
         <div className="border rounded-lg p-4 bg-white">
           <div className="flex items-start justify-between mb-3">
             <span className="text-sm font-medium text-slate-700">Email:</span>
@@ -201,7 +197,6 @@ export default function LoginDetails() {
           </p>
         </div>
 
-        {/* Subscription Card */}
         <div className="border rounded-lg p-4 bg-white">
           <div className="flex items-start justify-between">
             <div className="flex items-start gap-3 flex-1">

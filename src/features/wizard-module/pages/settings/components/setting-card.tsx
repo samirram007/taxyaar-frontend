@@ -4,7 +4,6 @@ import LoginDetails from './login-details/index'
 import SecurityPlus from './security-plus/index'
 import IncomeTaxLogin from './income-tax-login/index'
 import InvoiceSummary from './invoice-summary/index'
-import './tabs.css'
 
 export default function SettingCard() {
   return (

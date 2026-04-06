@@ -257,3 +257,19 @@ code {
 .col-lg-3 {
   @apply lg:grid-cols-3;
 } */
+
+/* settings Tab Styling */
+button[data-state="active"] {
+  border-bottom: 4px solid #2563eb !important;
+  color: #2563eb !important;
+}
+
+button[data-state="inactive"] {
+  border-bottom: 4px solid transparent !important;
+  color: #475569 !important;
+}
+
+button[data-state="inactive"]:hover {
+  border-bottom-color: #cbd5e1 !important;
+  color: #334155 !important;
+}
