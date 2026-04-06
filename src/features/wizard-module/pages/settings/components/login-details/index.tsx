@@ -58,13 +58,13 @@ export default function LoginDetails() {
   }
 
   return (
-    <div className="space-y-6">
-      <p className="text-sm text-slate-600 mb-6">
+    <div className="space-y-4 md:space-y-6">
+      <p className="text-xs md:text-sm text-slate-600 mb-4 md:mb-6">
         Here are your Login credentials. To Change the Login credentials click
         'Change' in front of the credential that you wish to change.
       </p>
 
-      <div className="overflow-x-auto border rounded-lg">
+      <div className="hidden md:block overflow-x-auto border rounded-lg">
         <Table>
           <TableHeader>
             <TableRow className="bg-slate-50">
@@ -147,6 +147,77 @@ export default function LoginDetails() {
             </TableRow>
           </TableBody>
         </Table>
+      </div>
+
+      {/* Mobile Card View */}
+      <div className="md:hidden space-y-3">
+        {/* Username Card */}
+        <div className="border rounded-lg p-4 bg-white">
+          <div className="flex items-start justify-between mb-3">
+            <span className="text-sm font-medium text-slate-700">
+              Username:
+            </span>
+            <Button
+              className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg !px-3 !py-1 text-xs font-medium flex-shrink-0"
+              onClick={() => setEditingField('username')}
+            >
+              Change
+            </Button>
+          </div>
+          <p className="text-xs md:text-sm text-slate-900 break-all">
+            Google:snehaghoshal577@gmail.com
+          </p>
+        </div>
+
+        {/* Password Card */}
+        <div className="border rounded-lg p-4 bg-white">
+          <div className="flex items-start justify-between mb-3">
+            <span className="text-sm font-medium text-slate-700">
+              Password:
+            </span>
+            <Button
+              className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg !px-3 !py-1 text-xs font-medium flex-shrink-0"
+              onClick={() => setEditingField('password')}
+            >
+              Change
+            </Button>
+          </div>
+          <p className="text-xs md:text-sm text-slate-900">••••••••</p>
+        </div>
+
+        {/* Email Card */}
+        <div className="border rounded-lg p-4 bg-white">
+          <div className="flex items-start justify-between mb-3">
+            <span className="text-sm font-medium text-slate-700">Email:</span>
+            <Button
+              className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg !px-3 !py-1 text-xs font-medium flex-shrink-0"
+              onClick={() => setEditingField('email')}
+            >
+              Change
+            </Button>
+          </div>
+          <p className="text-xs md:text-sm text-slate-900 break-all">
+            snehaghoshal577@gmail.com
+          </p>
+        </div>
+
+        {/* Subscription Card */}
+        <div className="border rounded-lg p-4 bg-white">
+          <div className="flex items-start justify-between">
+            <div className="flex items-start gap-3 flex-1">
+              <Checkbox defaultChecked />
+              <label className="text-xs md:text-sm text-slate-700 leading-tight">
+                I wish to subscribe for tax related sms alerts and newsletters
+              </label>
+            </div>
+            <Button
+              className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg !px-3 !py-1 text-xs font-medium flex-shrink-0 ml-2"
+              onClick={() => {}}
+            >
+              Update
+            </Button>
+          </div>
+        </div>
       </div>
 
       {editingField === 'username' && (
