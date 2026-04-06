@@ -32,7 +32,6 @@ const Footer = () => {
                   <Link to={'/'}>
                     <i className="fa fa-twitter" aria-hidden="true"></i>
                   </Link>
-
                 </li>
                 <li>
                   <Link to={'/'}>
@@ -44,7 +43,7 @@ const Footer = () => {
           </div>
           <div className="col-lg-9 col-md-12">
             <div className="row">
-              <div className="col-lg-3 col-md-6">
+              <div className="col-lg-3 col-md-6 col-6">
                 <div className="c-footer-nav">
                   <h3>{taxyaar.heading}</h3>
                   <ul>
@@ -56,7 +55,7 @@ const Footer = () => {
                   </ul>
                 </div>
               </div>
-              <div className="col-lg-3 col-md-6">
+              <div className="col-lg-3 col-md-6 col-6">
                 <div className="c-footer-nav">
                   <h3>{importantTools.heading}</h3>
                   <ul>
@@ -68,7 +67,7 @@ const Footer = () => {
                   </ul>
                 </div>
               </div>
-              <div className="col-lg-3 col-md-6">
+              <div className="col-lg-3 col-md-6 col-6">
                 <div className="c-footer-nav">
                   <h3>{corporate.heading}</h3>
                   <ul>
@@ -80,7 +79,7 @@ const Footer = () => {
                   </ul>
                 </div>
               </div>
-              <div className="col-lg-3 col-md-6">
+              <div className="col-lg-3 col-md-6 col-6">
                 <div className="c-footer-nav">
                   <h3>{otherLinks.heading}</h3>
                   <ul>

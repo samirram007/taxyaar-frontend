@@ -14,9 +14,11 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { useAuth } from '@/features/auth/contexts/AuthContext'
 import { Link } from '@tanstack/react-router'
+import { useIsMobile } from '@/hooks/use-mobile'
 
 export function ProfileDropdown() {
   const auth = useAuth()
+  const isMobile = useIsMobile()
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false)
 
   const displayName = auth.user?.name || auth.user?.username || 'User'
@@ -40,8 +42,10 @@ export function ProfileDropdown() {
             variant="ghost"
             className="relative h-8 w-8 rounded-full shadow-md"
           >
-            <Avatar className="h-8 w-8  text-black cursor-pointer">
-              <AvatarImage src="/avatars/01.png" alt={displayName} />
+            <Avatar className="h-8 w-8">
+              {!isMobile && (
+                <AvatarImage src="/avatars/01.png" alt={displayName} />
+              )}
               <AvatarFallback>{avatarFallback || 'U'}</AvatarFallback>
             </Avatar>
           </Button>
@@ -75,11 +79,7 @@ export function ProfileDropdown() {
               </a>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
-              <Link
-                to="/settings"
-              >
-                Settings
-              </Link>
+              <Link to="/settings">Settings</Link>
             </DropdownMenuItem>
             <DropdownMenuItem asChild>
               <Link to="/help-tickets">Your Help Tickets</Link>

@@ -1,9 +1,9 @@
 // import { useWizardModule } from '../contexts/wizard_module-context'
 
-
-import { IconClock } from "@tabler/icons-react"
-import { Link, useNavigate } from "@tanstack/react-router"
-import { MoveLeft, MoveRight } from "lucide-react"
+// import { routeTree } from "@/routeTree.gen"
+import { IconClock } from '@tabler/icons-react'
+import { Link, useNavigate } from '@tanstack/react-router'
+import { MoveLeft, MoveRight } from 'lucide-react'
 
 // import { useRouter } from '@tanstack/react-router';
 
@@ -27,9 +27,15 @@ type WizardFooterProps = {
 }
 
 const WizardFooter = (props: WizardFooterProps) => {
-  const { previousPageLink, nextPageLink, previousPageName, nextPageName, progress, validated } =
-    props
-  const navigate =useNavigate() 
+  const {
+    previousPageLink,
+    nextPageLink,
+    previousPageName,
+    nextPageName,
+    progress,
+    validated,
+  } = props
+  const navigate = useNavigate()
 
   const handleLinkClick = (link: string) => {
     if (validated && !validated()) {
@@ -42,8 +48,6 @@ const WizardFooter = (props: WizardFooterProps) => {
   }
   return (
     <div className="bg-slate-300/20 px-4 py-2 w-full lg:col-span-2 ">
-
-
       <div className="flex justify-between items-center gap-4">
         <div>
           <div>{props.indicatorTextLeft || 'Previous'}</div>
@@ -53,20 +57,24 @@ const WizardFooter = (props: WizardFooterProps) => {
               className="group flex flex-row gap-1 items-center rounded-md px-2 py-1 text-slate-700 transition-all duration-200 ease-out hover:text-sky-700 hover:-translate-x-0.5 hover:opacity-90 active:scale-[0.99]"
               onClick={() => handleLinkClick(previousPageLink)}
             >
-              <MoveLeft className="transition-transform duration-200 ease-out group-hover:-translate-x-0.5" /> {previousPageName || 'Previous Page'}
+              <MoveLeft className="transition-transform duration-200 ease-out group-hover:-translate-x-0.5" />{' '}
+              {previousPageName || 'Previous Page'}
             </Link>
           </div>
         </div>
         <div className="flex flex-col items-end">
           <div>{props.indicatorTextRight || 'Next'}</div>
           <div className="flex flex-row text-xl text-sky-600 cursor-pointer ">
-            <Link to={nextPageLink} className="group flex flex-row gap-1 items-center rounded-md px-2 py-1 transition-all duration-200 ease-out hover:text-sky-700 hover:translate-x-0.5 hover:opacity-90 active:scale-[0.99]"
-              onClick={() => handleLinkClick(nextPageLink)}>
-              {nextPageName || 'Next Page'} <MoveRight className="transition-transform duration-200 ease-out group-hover:translate-x-0.5" />
+            <Link
+              to={nextPageLink}
+              className="group flex flex-row gap-1 items-center rounded-md px-2 py-1 transition-all duration-200 ease-out hover:text-sky-700 hover:translate-x-0.5 hover:opacity-90 active:scale-[0.99]"
+              onClick={() => handleLinkClick(nextPageLink)}
+            >
+              {nextPageName || 'Next Page'}{' '}
+              <MoveRight className="transition-transform duration-200 ease-out group-hover:translate-x-0.5" />
             </Link>
           </div>
         </div>
-
       </div>
       {progress && (
         <div className="animate-slide-left flex flex-row justify-end items-center gap-2  text-xs text-muted-foreground">
