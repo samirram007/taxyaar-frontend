@@ -1,4 +1,4 @@
-import Page from '@/features/wizard-module/pages/support'
+import Page from '@/features/support'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_protected/_filer/support/')({

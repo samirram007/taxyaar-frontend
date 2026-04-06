@@ -6,7 +6,7 @@ import {
 } from '@/components/ui/collapsible'
 import {
   SidebarGroup,
-  SidebarGroupLabel,
+
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
@@ -184,18 +184,22 @@ const SidebarMenuSubItemComponent = ({
   collapsibleIndicator: 'chevron' | 'plus-minus'
 }) => {
 
+  if (subItem && 'items' in subItem) {
+    // Do not wrap SidebarMenuCollapsible in <li> to avoid nested <li> error
+    return (
+      <SidebarMenuCollapsible
+        item={subItem}
+        href={href}
+        collapsibleIndicator={collapsibleIndicator}
+      />
+    );
+  }
+  // Only wrap in <li> for leaf items
   return (
     <SidebarMenuSubItem key={subItem.title} className='px-0!'>
-      {
-        subItem && 'items' in subItem ? (
-          <SidebarMenuCollapsible item={subItem} href={href} collapsibleIndicator={collapsibleIndicator} />
-        ) : (
-          <SidebarMenuLink item={subItem as NavLink} href={href} />
-        )
-      }
-
-
-    </SidebarMenuSubItem>)
+      <SidebarMenuLink item={subItem as NavLink} href={href} />
+    </SidebarMenuSubItem>
+  );
 }
 
 const SidebarMenuCollapsedDropdown = ({
