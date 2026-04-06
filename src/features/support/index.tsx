@@ -1,10 +1,11 @@
-import Header from '../../../home/components/header'
-import Footer from '../../../home/components/footer'
+
 import SupportHero from './components/SupportHero'
 import SupportOptions from './components/SupportOptions'
 import WorkingHours from './components/WorkingHours'
 import HolidayList from './components/HolidayList'
 import supportData from './data/support-data.json'
+import Header from '../home/components/header'
+import Footer from '../home/components/footer'
 
 const Support = () => {
   const {

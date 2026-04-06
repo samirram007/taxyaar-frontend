@@ -72,20 +72,18 @@ const Header = () => {
                   <ul>
                     <li>
                       <Link
-                        to="/import-cg-shares"
-                        search={{ brokerId: undefined }}
-                        onClick={() => setIsMenuOpen(false)}
+                        to="/import-cg-shares" 
                       >
                         Import CG / Shares
                       </Link>
                     </li>
                     <li>
-                      <Link to="/pricing" onClick={() => setIsMenuOpen(false)}>
+                      <Link to="/pricing"  >
                         Pricing
                       </Link>
                     </li>
                     <li>
-                      <Link to="/support" onClick={() => setIsMenuOpen(false)}>
+                      <Link to="/support"  >
                         Support
                       </Link>
                     </li>
@@ -93,16 +91,14 @@ const Header = () => {
                       {isAuthenticated ? (
                         <Link
                           to="/dashboard"
-                          className="c-btn-1"
-                          onClick={() => setIsMenuOpen(false)}
+                          className="c-btn-1" 
                         >
                           <span>Dashboard</span>
                         </Link>
                       ) : (
                         <Link
                           to="/sign-in"
-                          className="c-btn-1"
-                          onClick={() => setIsMenuOpen(false)}
+                            className="c-btn-1" 
                         >
                           <span>Login</span>
                         </Link>
@@ -116,8 +112,7 @@ const Header = () => {
                       ) : (
                         <Link
                           to="/sign-up"
-                          className="c-btn-2"
-                          onClick={() => setIsMenuOpen(false)}
+                            className="c-btn-2"
                         >
                           <span>new user</span>
                         </Link>

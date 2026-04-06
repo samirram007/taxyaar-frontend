@@ -13,7 +13,7 @@ import { AuthProvider } from './features/auth/contexts/AuthContext'
 import { env } from './env'
 import './styles.css'
 import { Form16Provider } from './features/wizard-module/pages/form16/contexts/Form16Context'
-import { Layout } from 'lucide-react'
+
 import { LayoutProvider } from './core/contexts/layout-context'
 
 // Render the app

@@ -26,7 +26,6 @@ import { Route as ProtectedHelpTicketsIndexRouteImport } from './routes/_protect
 import { Route as ProtectedDocumentsIndexRouteImport } from './routes/_protected/documents/index'
 import { Route as ProtectedAdministrationLayoutRouteImport } from './routes/_protected/administration/_layout'
 import { Route as ProtectedauthChangePasswordRouteImport } from './routes/_protected/(auth)/change-password'
-import { Route as ProtectedSupportHelpIndexRouteImport } from './routes/_protected/support/help/index'
 import { Route as ProtectedFilerUnlisted_shareIndexRouteImport } from './routes/_protected/_filer/unlisted_share/index'
 import { Route as ProtectedFilerTrading_detailsIndexRouteImport } from './routes/_protected/_filer/trading_details/index'
 import { Route as ProtectedFilerTds_taxIndexRouteImport } from './routes/_protected/_filer/tds_tax/index'
@@ -301,12 +300,6 @@ const ProtectedauthChangePasswordRoute =
   ProtectedauthChangePasswordRouteImport.update({
     id: '/(auth)/change-password',
     path: '/change-password',
-    getParentRoute: () => ProtectedRoute,
-  } as any)
-const ProtectedSupportHelpIndexRoute =
-  ProtectedSupportHelpIndexRouteImport.update({
-    id: '/support/help/',
-    path: '/support/help/',
     getParentRoute: () => ProtectedRoute,
   } as any)
 const ProtectedFilerUnlisted_shareIndexRoute =
@@ -1191,7 +1184,6 @@ export interface FileRoutesByFullPath {
   '/tds_tax/': typeof ProtectedFilerTds_taxIndexRoute
   '/trading_details/': typeof ProtectedFilerTrading_detailsIndexRoute
   '/unlisted_share/': typeof ProtectedFilerUnlisted_shareIndexRoute
-  '/support/help/': typeof ProtectedSupportHelpIndexRoute
   '/administration/role': typeof ProtectedAdministrationLayoutRoleLayoutRouteWithChildren
   '/administration/user': typeof ProtectedAdministrationLayoutUserLayoutRouteWithChildren
   '/profile/index/': typeof ProtectedauthProfileIndexRoute
@@ -1319,6 +1311,7 @@ export interface FileRoutesByTo {
   '/general_business': typeof ProtectedFilerGeneral_businessIndexRoute
   '/general_profit_loss': typeof ProtectedFilerGeneral_profit_lossIndexRoute
   '/house_property': typeof ProtectedFilerHouse_propertyIndexRoute
+  '/import-cg-shares-protected': typeof ProtectedFilerImportCgSharesProtectedIndexRoute
   '/losses': typeof ProtectedFilerLossesIndexRoute
   '/members': typeof ProtectedFilerMembersIndexRoute
   '/other_casual_income': typeof ProtectedFilerOther_casual_incomeIndexRoute
@@ -1340,7 +1333,6 @@ export interface FileRoutesByTo {
   '/tds_tax': typeof ProtectedFilerTds_taxIndexRoute
   '/trading_details': typeof ProtectedFilerTrading_detailsIndexRoute
   '/unlisted_share': typeof ProtectedFilerUnlisted_shareIndexRoute
-  '/support/help': typeof ProtectedSupportHelpIndexRoute
   '/profile/index': typeof ProtectedauthProfileIndexRoute
   '/user-fiscal-year': typeof ProtectedauthUserFiscalYearLayoutIndexRoute
   '/assessee/add': typeof ProtectedFilerAssesseeAddIndexRoute
@@ -1486,7 +1478,6 @@ export interface FileRoutesById {
   '/_protected/_filer/tds_tax/': typeof ProtectedFilerTds_taxIndexRoute
   '/_protected/_filer/trading_details/': typeof ProtectedFilerTrading_detailsIndexRoute
   '/_protected/_filer/unlisted_share/': typeof ProtectedFilerUnlisted_shareIndexRoute
-  '/_protected/support/help/': typeof ProtectedSupportHelpIndexRoute
   '/_protected/administration/_layout/role/_layout': typeof ProtectedAdministrationLayoutRoleLayoutRouteWithChildren
   '/_protected/administration/_layout/user/_layout': typeof ProtectedAdministrationLayoutUserLayoutRouteWithChildren
   '/_protected/(auth)/profile/index/': typeof ProtectedauthProfileIndexRoute
@@ -1639,7 +1630,6 @@ export interface FileRouteTypes {
     | '/tds_tax/'
     | '/trading_details/'
     | '/unlisted_share/'
-    | '/support/help/'
     | '/administration/role'
     | '/administration/user'
     | '/profile/index/'
@@ -1767,6 +1757,7 @@ export interface FileRouteTypes {
     | '/general_business'
     | '/general_profit_loss'
     | '/house_property'
+    | '/import-cg-shares-protected'
     | '/losses'
     | '/members'
     | '/other_casual_income'
@@ -1788,7 +1779,6 @@ export interface FileRouteTypes {
     | '/tds_tax'
     | '/trading_details'
     | '/unlisted_share'
-    | '/support/help'
     | '/profile/index'
     | '/user-fiscal-year'
     | '/assessee/add'
@@ -1933,7 +1923,6 @@ export interface FileRouteTypes {
     | '/_protected/_filer/tds_tax/'
     | '/_protected/_filer/trading_details/'
     | '/_protected/_filer/unlisted_share/'
-    | '/_protected/support/help/'
     | '/_protected/administration/_layout/role/_layout'
     | '/_protected/administration/_layout/user/_layout'
     | '/_protected/(auth)/profile/index/'
@@ -2148,13 +2137,6 @@ declare module '@tanstack/react-router' {
       path: '/change-password'
       fullPath: '/change-password'
       preLoaderRoute: typeof ProtectedauthChangePasswordRouteImport
-      parentRoute: typeof ProtectedRoute
-    }
-    '/_protected/support/help/': {
-      id: '/_protected/support/help/'
-      path: '/support/help'
-      fullPath: '/support/help/'
-      preLoaderRoute: typeof ProtectedSupportHelpIndexRouteImport
       parentRoute: typeof ProtectedRoute
     }
     '/_protected/_filer/unlisted_share/': {
@@ -3538,7 +3520,6 @@ interface ProtectedRouteChildren {
   ProtectedauthAddtaxformIndexRoute: typeof ProtectedauthAddtaxformIndexRoute
   ProtectedauthMemberIndexRoute: typeof ProtectedauthMemberIndexRoute
   ProtectedauthVerifyPanIndexRoute: typeof ProtectedauthVerifyPanIndexRoute
-  ProtectedSupportHelpIndexRoute: typeof ProtectedSupportHelpIndexRoute
   ProtectedauthProfileIndexRoute: typeof ProtectedauthProfileIndexRoute
 }
 
@@ -3558,7 +3539,6 @@ const ProtectedRouteChildren: ProtectedRouteChildren = {
   ProtectedauthAddtaxformIndexRoute: ProtectedauthAddtaxformIndexRoute,
   ProtectedauthMemberIndexRoute: ProtectedauthMemberIndexRoute,
   ProtectedauthVerifyPanIndexRoute: ProtectedauthVerifyPanIndexRoute,
-  ProtectedSupportHelpIndexRoute: ProtectedSupportHelpIndexRoute,
   ProtectedauthProfileIndexRoute: ProtectedauthProfileIndexRoute,
 }
 

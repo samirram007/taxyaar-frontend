@@ -20,6 +20,7 @@ import {
 import { useNavigate } from '@tanstack/react-router'
 import React from 'react'
 import { sidebarData } from './data/sidebar-data'
+import type { NavItem } from './types'
 
 
 // import { ScrollArea } from './ui/scroll-area'
@@ -62,20 +63,23 @@ export function CommandMenu() {
                     </CommandItem>
                   )
 
-                return navItem.items?.map((subItem, i) => (
-                  <CommandItem
-                    key={`${subItem.url}-${i}`}
-                    value={subItem.title}
-                    onSelect={() => {
-                      runCommand(() => navigate({ to: subItem.url as string }))
-                    }}
-                  >
-                    <div className='mr-2 flex h-4 w-4 items-center justify-center'>
-                      <IconArrowRightDashed className='size-2 text-muted-foreground/80' />
-                    </div>
-                    {subItem.title}
-                  </CommandItem>
-                ))
+                if ('items' in navItem && Array.isArray(navItem.items)) {
+                  return navItem.items.map((subItem: NavItem, i: number) => (
+                    <CommandItem
+                      key={`${subItem.url}-${i}`}
+                      value={subItem.title}
+                      onSelect={() => {
+                        runCommand(() => navigate({ to: subItem.url as string }))
+                      }}
+                    >
+                      <div className='mr-2 flex h-4 w-4 items-center justify-center'>
+                        <IconArrowRightDashed className='size-2 text-muted-foreground/80' />
+                      </div>
+                      {subItem.title}
+                    </CommandItem>
+                  ));
+                }
+                return null;
               })}
             </CommandGroup>
           ))}
