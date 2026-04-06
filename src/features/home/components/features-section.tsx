@@ -1,10 +1,11 @@
 import React from 'react'
+import { Zap, Shield, Headphones, RefreshCw } from 'lucide-react'
 
 interface Feature {
   id: number
   title: string
   description: string
-  icon: string
+  icon: React.ReactNode
 }
 
 const FeaturesSection: React.FC = () => {
@@ -14,25 +15,25 @@ const FeaturesSection: React.FC = () => {
       title: 'Quick Filing',
       description:
         'Complete your tax return in minutes with our guided process',
-      icon: 'fa-bolt',
+      icon: <Zap size={48} />,
     },
     {
       id: 2,
       title: 'Secure & Safe',
       description: '100% secured filing with bank-level encryption',
-      icon: 'fa-shield',
+      icon: <Shield size={48} />,
     },
     {
       id: 3,
       title: 'Expert Support',
       description: 'Get help from tax experts when you need it',
-      icon: 'fa-headphones',
+      icon: <Headphones size={48} />,
     },
     {
       id: 4,
       title: 'Always Updated',
       description: 'Latest tax rules and regulations included',
-      icon: 'fa-arrow-rotate-right',
+      icon: <RefreshCw size={48} />,
     },
   ]
 
@@ -53,9 +54,7 @@ const FeaturesSection: React.FC = () => {
               key={feature.id}
               className="bg-gradient-to-b from-white to-slate-50 border-2 border-gray-300 rounded-2xl !p-8 hover:border-blue-600 hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer"
             >
-              <div className="text-5xl text-blue-600 !mb-6 bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent">
-                <i className={`fa ${feature.icon}`}></i>
-              </div>
+              <div className="text-5xl text-blue-600 !mb-6">{feature.icon}</div>
               <h3 className="!text-2xl md:!text-xl !font-semibold text-blue-600 !mb-4 !leading-tight">
                 {feature.title}
               </h3>

@@ -34,14 +34,12 @@ import { Route as ProtectedFilerTdsIndexRouteImport } from './routes/_protected/
 import { Route as ProtectedFilerTaxfilerIndexRouteImport } from './routes/_protected/_filer/taxfiler/index'
 import { Route as ProtectedFilerTaxes_startIndexRouteImport } from './routes/_protected/_filer/taxes_start/index'
 import { Route as ProtectedFilerTax_reliefIndexRouteImport } from './routes/_protected/_filer/tax_relief/index'
-import { Route as ProtectedFilerSupportIndexRouteImport } from './routes/_protected/_filer/support/index'
 import { Route as ProtectedFilerSummaryIndexRouteImport } from './routes/_protected/_filer/summary/index'
 import { Route as ProtectedFilerStartIndexRouteImport } from './routes/_protected/_filer/start/index'
 import { Route as ProtectedFilerSeventh_provisoIndexRouteImport } from './routes/_protected/_filer/seventh_proviso/index'
 import { Route as ProtectedFilerSalary_incomeIndexRouteImport } from './routes/_protected/_filer/salary_income/index'
 import { Route as ProtectedFilerResidentialIndexRouteImport } from './routes/_protected/_filer/residential/index'
 import { Route as ProtectedFilerRelief_foreignIndexRouteImport } from './routes/_protected/_filer/relief_foreign/index'
-import { Route as ProtectedFilerPricingIndexRouteImport } from './routes/_protected/_filer/pricing/index'
 import { Route as ProtectedFilerPortugueseIndexRouteImport } from './routes/_protected/_filer/portuguese/index'
 import { Route as ProtectedFilerOther_incomeIndexRouteImport } from './routes/_protected/_filer/other_income/index'
 import { Route as ProtectedFilerOther_horseIndexRouteImport } from './routes/_protected/_filer/other_horse/index'
@@ -50,7 +48,6 @@ import { Route as ProtectedFilerOther_details_startIndexRouteImport } from './ro
 import { Route as ProtectedFilerOther_casual_incomeIndexRouteImport } from './routes/_protected/_filer/other_casual_income/index'
 import { Route as ProtectedFilerMembersIndexRouteImport } from './routes/_protected/_filer/members/index'
 import { Route as ProtectedFilerLossesIndexRouteImport } from './routes/_protected/_filer/losses/index'
-import { Route as ProtectedFilerImportCgSharesIndexRouteImport } from './routes/_protected/_filer/import-cg-shares/index'
 import { Route as ProtectedFilerHouse_propertyIndexRouteImport } from './routes/_protected/_filer/house_property/index'
 import { Route as ProtectedFilerGeneral_profit_lossIndexRouteImport } from './routes/_protected/_filer/general_profit_loss/index'
 import { Route as ProtectedFilerGeneral_businessIndexRouteImport } from './routes/_protected/_filer/general_business/index'
@@ -353,12 +350,6 @@ const ProtectedFilerTax_reliefIndexRoute =
     path: '/tax_relief/',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
-const ProtectedFilerSupportIndexRoute =
-  ProtectedFilerSupportIndexRouteImport.update({
-    id: '/support/',
-    path: '/support/',
-    getParentRoute: () => ProtectedFilerRoute,
-  } as any)
 const ProtectedFilerSummaryIndexRoute =
   ProtectedFilerSummaryIndexRouteImport.update({
     id: '/summary/',
@@ -393,12 +384,6 @@ const ProtectedFilerRelief_foreignIndexRoute =
   ProtectedFilerRelief_foreignIndexRouteImport.update({
     id: '/relief_foreign/',
     path: '/relief_foreign/',
-    getParentRoute: () => ProtectedFilerRoute,
-  } as any)
-const ProtectedFilerPricingIndexRoute =
-  ProtectedFilerPricingIndexRouteImport.update({
-    id: '/pricing/',
-    path: '/pricing/',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
 const ProtectedFilerPortugueseIndexRoute =
@@ -447,12 +432,6 @@ const ProtectedFilerLossesIndexRoute =
   ProtectedFilerLossesIndexRouteImport.update({
     id: '/losses/',
     path: '/losses/',
-    getParentRoute: () => ProtectedFilerRoute,
-  } as any)
-const ProtectedFilerImportCgSharesIndexRoute =
-  ProtectedFilerImportCgSharesIndexRouteImport.update({
-    id: '/import-cg-shares/',
-    path: '/import-cg-shares/',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
 const ProtectedFilerHouse_propertyIndexRoute =
@@ -1191,7 +1170,6 @@ export interface FileRoutesByFullPath {
   '/general_business/': typeof ProtectedFilerGeneral_businessIndexRoute
   '/general_profit_loss/': typeof ProtectedFilerGeneral_profit_lossIndexRoute
   '/house_property/': typeof ProtectedFilerHouse_propertyIndexRoute
-  '/import-cg-shares/': typeof ProtectedFilerImportCgSharesIndexRoute
   '/losses/': typeof ProtectedFilerLossesIndexRoute
   '/members/': typeof ProtectedFilerMembersIndexRoute
   '/other_casual_income/': typeof ProtectedFilerOther_casual_incomeIndexRoute
@@ -1200,14 +1178,12 @@ export interface FileRoutesByFullPath {
   '/other_horse/': typeof ProtectedFilerOther_horseIndexRoute
   '/other_income/': typeof ProtectedFilerOther_incomeIndexRoute
   '/portuguese/': typeof ProtectedFilerPortugueseIndexRoute
-  '/pricing/': typeof ProtectedFilerPricingIndexRoute
   '/relief_foreign/': typeof ProtectedFilerRelief_foreignIndexRoute
   '/residential/': typeof ProtectedFilerResidentialIndexRoute
   '/salary_income/': typeof ProtectedFilerSalary_incomeIndexRoute
   '/seventh_proviso/': typeof ProtectedFilerSeventh_provisoIndexRoute
   '/start/': typeof ProtectedFilerStartIndexRoute
   '/summary/': typeof ProtectedFilerSummaryIndexRoute
-  '/support/': typeof ProtectedFilerSupportIndexRoute
   '/tax_relief/': typeof ProtectedFilerTax_reliefIndexRoute
   '/taxes_start/': typeof ProtectedFilerTaxes_startIndexRoute
   '/taxfiler/': typeof ProtectedFilerTaxfilerIndexRoute
@@ -1251,9 +1227,9 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/import-cg-shares': typeof ProtectedFilerImportCgSharesIndexRoute
-  '/pricing': typeof ProtectedFilerPricingIndexRoute
-  '/support': typeof ProtectedFilerSupportIndexRoute
+  '/import-cg-shares': typeof ImportCgSharesRoute
+  '/pricing': typeof PricingRoute
+  '/support': typeof SupportRoute
   '/otp': typeof authOtpRoute
   '/sign-in': typeof authSignInRoute
   '/sign-up': typeof authSignUpRoute
@@ -1489,7 +1465,6 @@ export interface FileRoutesById {
   '/_protected/_filer/general_business/': typeof ProtectedFilerGeneral_businessIndexRoute
   '/_protected/_filer/general_profit_loss/': typeof ProtectedFilerGeneral_profit_lossIndexRoute
   '/_protected/_filer/house_property/': typeof ProtectedFilerHouse_propertyIndexRoute
-  '/_protected/_filer/import-cg-shares/': typeof ProtectedFilerImportCgSharesIndexRoute
   '/_protected/_filer/losses/': typeof ProtectedFilerLossesIndexRoute
   '/_protected/_filer/members/': typeof ProtectedFilerMembersIndexRoute
   '/_protected/_filer/other_casual_income/': typeof ProtectedFilerOther_casual_incomeIndexRoute
@@ -1498,14 +1473,12 @@ export interface FileRoutesById {
   '/_protected/_filer/other_horse/': typeof ProtectedFilerOther_horseIndexRoute
   '/_protected/_filer/other_income/': typeof ProtectedFilerOther_incomeIndexRoute
   '/_protected/_filer/portuguese/': typeof ProtectedFilerPortugueseIndexRoute
-  '/_protected/_filer/pricing/': typeof ProtectedFilerPricingIndexRoute
   '/_protected/_filer/relief_foreign/': typeof ProtectedFilerRelief_foreignIndexRoute
   '/_protected/_filer/residential/': typeof ProtectedFilerResidentialIndexRoute
   '/_protected/_filer/salary_income/': typeof ProtectedFilerSalary_incomeIndexRoute
   '/_protected/_filer/seventh_proviso/': typeof ProtectedFilerSeventh_provisoIndexRoute
   '/_protected/_filer/start/': typeof ProtectedFilerStartIndexRoute
   '/_protected/_filer/summary/': typeof ProtectedFilerSummaryIndexRoute
-  '/_protected/_filer/support/': typeof ProtectedFilerSupportIndexRoute
   '/_protected/_filer/tax_relief/': typeof ProtectedFilerTax_reliefIndexRoute
   '/_protected/_filer/taxes_start/': typeof ProtectedFilerTaxes_startIndexRoute
   '/_protected/_filer/taxfiler/': typeof ProtectedFilerTaxfilerIndexRoute
@@ -1645,7 +1618,6 @@ export interface FileRouteTypes {
     | '/general_business/'
     | '/general_profit_loss/'
     | '/house_property/'
-    | '/import-cg-shares/'
     | '/losses/'
     | '/members/'
     | '/other_casual_income/'
@@ -1654,14 +1626,12 @@ export interface FileRouteTypes {
     | '/other_horse/'
     | '/other_income/'
     | '/portuguese/'
-    | '/pricing/'
     | '/relief_foreign/'
     | '/residential/'
     | '/salary_income/'
     | '/seventh_proviso/'
     | '/start/'
     | '/summary/'
-    | '/support/'
     | '/tax_relief/'
     | '/taxes_start/'
     | '/taxfiler/'
@@ -1942,7 +1912,6 @@ export interface FileRouteTypes {
     | '/_protected/_filer/general_business/'
     | '/_protected/_filer/general_profit_loss/'
     | '/_protected/_filer/house_property/'
-    | '/_protected/_filer/import-cg-shares/'
     | '/_protected/_filer/losses/'
     | '/_protected/_filer/members/'
     | '/_protected/_filer/other_casual_income/'
@@ -1951,14 +1920,12 @@ export interface FileRouteTypes {
     | '/_protected/_filer/other_horse/'
     | '/_protected/_filer/other_income/'
     | '/_protected/_filer/portuguese/'
-    | '/_protected/_filer/pricing/'
     | '/_protected/_filer/relief_foreign/'
     | '/_protected/_filer/residential/'
     | '/_protected/_filer/salary_income/'
     | '/_protected/_filer/seventh_proviso/'
     | '/_protected/_filer/start/'
     | '/_protected/_filer/summary/'
-    | '/_protected/_filer/support/'
     | '/_protected/_filer/tax_relief/'
     | '/_protected/_filer/taxes_start/'
     | '/_protected/_filer/taxfiler/'
@@ -2239,13 +2206,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedFilerTax_reliefIndexRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
-    '/_protected/_filer/support/': {
-      id: '/_protected/_filer/support/'
-      path: '/support'
-      fullPath: '/support/'
-      preLoaderRoute: typeof ProtectedFilerSupportIndexRouteImport
-      parentRoute: typeof ProtectedFilerRoute
-    }
     '/_protected/_filer/summary/': {
       id: '/_protected/_filer/summary/'
       path: '/summary'
@@ -2286,13 +2246,6 @@ declare module '@tanstack/react-router' {
       path: '/relief_foreign'
       fullPath: '/relief_foreign/'
       preLoaderRoute: typeof ProtectedFilerRelief_foreignIndexRouteImport
-      parentRoute: typeof ProtectedFilerRoute
-    }
-    '/_protected/_filer/pricing/': {
-      id: '/_protected/_filer/pricing/'
-      path: '/pricing'
-      fullPath: '/pricing/'
-      preLoaderRoute: typeof ProtectedFilerPricingIndexRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
     '/_protected/_filer/portuguese/': {
@@ -2349,13 +2302,6 @@ declare module '@tanstack/react-router' {
       path: '/losses'
       fullPath: '/losses/'
       preLoaderRoute: typeof ProtectedFilerLossesIndexRouteImport
-      parentRoute: typeof ProtectedFilerRoute
-    }
-    '/_protected/_filer/import-cg-shares/': {
-      id: '/_protected/_filer/import-cg-shares/'
-      path: '/import-cg-shares'
-      fullPath: '/import-cg-shares/'
-      preLoaderRoute: typeof ProtectedFilerImportCgSharesIndexRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
     '/_protected/_filer/house_property/': {
@@ -3188,7 +3134,6 @@ interface ProtectedFilerRouteChildren {
   ProtectedFilerGeneral_businessIndexRoute: typeof ProtectedFilerGeneral_businessIndexRoute
   ProtectedFilerGeneral_profit_lossIndexRoute: typeof ProtectedFilerGeneral_profit_lossIndexRoute
   ProtectedFilerHouse_propertyIndexRoute: typeof ProtectedFilerHouse_propertyIndexRoute
-  ProtectedFilerImportCgSharesIndexRoute: typeof ProtectedFilerImportCgSharesIndexRoute
   ProtectedFilerLossesIndexRoute: typeof ProtectedFilerLossesIndexRoute
   ProtectedFilerMembersIndexRoute: typeof ProtectedFilerMembersIndexRoute
   ProtectedFilerOther_casual_incomeIndexRoute: typeof ProtectedFilerOther_casual_incomeIndexRoute
@@ -3197,14 +3142,12 @@ interface ProtectedFilerRouteChildren {
   ProtectedFilerOther_horseIndexRoute: typeof ProtectedFilerOther_horseIndexRoute
   ProtectedFilerOther_incomeIndexRoute: typeof ProtectedFilerOther_incomeIndexRoute
   ProtectedFilerPortugueseIndexRoute: typeof ProtectedFilerPortugueseIndexRoute
-  ProtectedFilerPricingIndexRoute: typeof ProtectedFilerPricingIndexRoute
   ProtectedFilerRelief_foreignIndexRoute: typeof ProtectedFilerRelief_foreignIndexRoute
   ProtectedFilerResidentialIndexRoute: typeof ProtectedFilerResidentialIndexRoute
   ProtectedFilerSalary_incomeIndexRoute: typeof ProtectedFilerSalary_incomeIndexRoute
   ProtectedFilerSeventh_provisoIndexRoute: typeof ProtectedFilerSeventh_provisoIndexRoute
   ProtectedFilerStartIndexRoute: typeof ProtectedFilerStartIndexRoute
   ProtectedFilerSummaryIndexRoute: typeof ProtectedFilerSummaryIndexRoute
-  ProtectedFilerSupportIndexRoute: typeof ProtectedFilerSupportIndexRoute
   ProtectedFilerTax_reliefIndexRoute: typeof ProtectedFilerTax_reliefIndexRoute
   ProtectedFilerTaxes_startIndexRoute: typeof ProtectedFilerTaxes_startIndexRoute
   ProtectedFilerTaxfilerIndexRoute: typeof ProtectedFilerTaxfilerIndexRoute
@@ -3330,8 +3273,6 @@ const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
     ProtectedFilerGeneral_profit_lossIndexRoute,
   ProtectedFilerHouse_propertyIndexRoute:
     ProtectedFilerHouse_propertyIndexRoute,
-  ProtectedFilerImportCgSharesIndexRoute:
-    ProtectedFilerImportCgSharesIndexRoute,
   ProtectedFilerLossesIndexRoute: ProtectedFilerLossesIndexRoute,
   ProtectedFilerMembersIndexRoute: ProtectedFilerMembersIndexRoute,
   ProtectedFilerOther_casual_incomeIndexRoute:
@@ -3343,7 +3284,6 @@ const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
   ProtectedFilerOther_horseIndexRoute: ProtectedFilerOther_horseIndexRoute,
   ProtectedFilerOther_incomeIndexRoute: ProtectedFilerOther_incomeIndexRoute,
   ProtectedFilerPortugueseIndexRoute: ProtectedFilerPortugueseIndexRoute,
-  ProtectedFilerPricingIndexRoute: ProtectedFilerPricingIndexRoute,
   ProtectedFilerRelief_foreignIndexRoute:
     ProtectedFilerRelief_foreignIndexRoute,
   ProtectedFilerResidentialIndexRoute: ProtectedFilerResidentialIndexRoute,
@@ -3352,7 +3292,6 @@ const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
     ProtectedFilerSeventh_provisoIndexRoute,
   ProtectedFilerStartIndexRoute: ProtectedFilerStartIndexRoute,
   ProtectedFilerSummaryIndexRoute: ProtectedFilerSummaryIndexRoute,
-  ProtectedFilerSupportIndexRoute: ProtectedFilerSupportIndexRoute,
   ProtectedFilerTax_reliefIndexRoute: ProtectedFilerTax_reliefIndexRoute,
   ProtectedFilerTaxes_startIndexRoute: ProtectedFilerTaxes_startIndexRoute,
   ProtectedFilerTaxfilerIndexRoute: ProtectedFilerTaxfilerIndexRoute,
