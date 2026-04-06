@@ -68,7 +68,7 @@ font-size: 18px; }
 .c-menu-btn { display: none; }
 
 /*banner*/
-.c-banner-main {position: relative;padding-bottom: 40px;overflow: hidden;}
+.c-banner-main {position: relative;padding-bottom: 0;overflow: hidden;margin-bottom: 0;}
 .c-banner-slide {background: var(--blue);padding: 0 0 140px;}
 .c-banner-w h1 { color: var(--white); font-size: 124px; font-weight: bold; padding-bottom: 30px;}
 .c-banner-w h2 {color: var(--white); font-size: 80px; font-weight: bold; padding-bottom: 30px;}
@@ -87,8 +87,8 @@ font-size: 18px; }
 .c-banner-w .slick-dots button {font-size: 0; border-radius: 50%; background:var(--orange);width:12px;height:12px;margin:5px}
 .c-banner-w .slick-dots button:hover{background:var(--deepblue)}
 .c-banner-w .slick-dots .slick-active button {border-radius: 30px; background:var(--deepblue);width:20px}
-.c-banner-main .banner-bottom {width: 100%;position: relative;z-index: 1;margin-top: -240px;}
-.c-banner-main .banner-bottom img { width: 100%; object-fit: cover; height: 100%;}
+.c-banner-main .banner-bottom {width: 100%;position: relative;z-index: 10;margin-top: -233px;display: block;height: 234px;}
+.c-banner-main .banner-bottom img { width: 100%; object-fit: cover; height: 100%; display: block; object-position: top;}
 .c-banner-main .rating-section {display: flex;flex-direction: column;color: var(--white);font-weight: 200;padding: 0 0 0 170px;}
 .c-banner-main .rating-section .rating-section-star {display: flex;margin: 0 0 10px 30px;}
 .c-banner-main .rating-section .rating-section-star i { color: var(--deepblue); margin: 0 3px;}
@@ -125,5 +125,7 @@ font-size: 18px; }
 
 
 /*footer*/
+
+
 
 

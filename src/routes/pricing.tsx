@@ -12,6 +12,7 @@ function RouteComponent() {
       '/css/bootstrap.min.css',
       '/css/font-awesome.min.css',
       '/css/custom.css',
+      '/css/responsive.css',
     ]
 
     files.forEach((href) => {
