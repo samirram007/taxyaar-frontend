@@ -17,7 +17,6 @@ const WizardHeader = () => {
     const { userFiscalYear } = useAuth();
     const assessmentYear = userFiscalYear?.fiscalYear.assessmentYear;
 
-    console.log("fiscal year:", userFiscalYear?.fiscalYear.assessmentYear);
 
     if (!member) {
         router.navigate({ to: DashboardRoute.path, replace: true });
