@@ -42,6 +42,20 @@ export const putData = async (apiPath: string, payload: object) => {
       //  throw err
     })
 }
+
+export const patchData = async (apiPath: string, payload: object) => {
+  console.log(apiPath, removeEmptyStrings(payload))
+  return await axiosClient
+    .patch(apiPath, removeEmptyStrings(payload))
+    .then((response) => {
+      successHandler(response)
+      return response.data
+    })
+    .catch((err) => {
+      errorHandler(err)
+      //  throw err
+    })
+}
 export const deleteData = async (apiPath: string) => {
   return await axiosClient
     .delete(apiPath)
