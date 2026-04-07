@@ -1,21 +1,26 @@
 
 
+import { useAuth } from '@/features/auth/contexts/AuthContext'
 import { useWizardModule } from '../contexts/wizard_module-context'
 
 // import { useRouter } from '@tanstack/react-router';
 
 
-// import { Route as DashboardRoute } from '@/routes/_protected/_filer/dashboard'
+import { Route as DashboardRoute } from '@/routes/_protected/_filer/dashboard'
+import { useRouter } from '@tanstack/react-router'
 
 
 
 const WizardHeader = () => {
-    // const router = useRouter()
+    const router = useRouter()
     const { member } = useWizardModule()
-    const assessmentYear = "2025-26"
+    const { userFiscalYear } = useAuth();
+    const assessmentYear = userFiscalYear?.fiscalYear.assessmentYear;
+
+    console.log("fiscal year:", userFiscalYear?.fiscalYear.assessmentYear);
 
     if (!member) {
-        //router.navigate({ to: DashboardRoute.path, replace: true });
+        router.navigate({ to: DashboardRoute.path, replace: true });
         return null;
     }
     return (

@@ -44,6 +44,11 @@ export default function MemeberList({ clientList }: { clientList: ClientList }) 
         }, 0);
     };
 
+    const onClienAction = (data: Client) => {
+        sessionStorage.setItem("taxFilerData", JSON.stringify(data));
+        router.navigate({ to: "/department_add_client" })
+    }
+
 
 
     return (
@@ -54,7 +59,7 @@ export default function MemeberList({ clientList }: { clientList: ClientList }) 
                     clientList.map((member, index) => (
                         <div key={index} className="bg-muted mb-3 rounded-lg p-4 flex items-center justify-between hover:bg-muted/80 transition cursor-pointer">
 
-                            <div onClick={() => router.navigate({ to: "/department_add_client" })} className="flex gap-5" >
+                            <div onClick={() => onClienAction(member)} className="flex gap-5" >
                                 <div className="flex items-center gap-4">
                                     <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center shrink-0">
                                         <span className="text-primary-foreground font-bold text-lg">{member.firstName?.charAt(0)}</span>
