@@ -4,14 +4,14 @@ import { Mail, Phone, MapPin, HelpCircle } from 'lucide-react'
 
 const ContactUsSection: React.FC = () => {
   return (
-    <section className="!py-20 md:!py-28 bg-gradient-to-b from-slate-50 to-white">
-      <div className="container">
+    <section className="py-20! md:py-28! bg-linear-to-b from-slate-50 to-white">
+      <div className="container mx-auto px-4! md:px-0">
         <div className="max-w-5xl mx-auto">
-          <div className="!text-center !mb-16">
-            <h2 className="!text-4xl md:!text-5xl !font-bold text-slate-900 !mb-4 leading-tight !p-0">
+          <div className="text-center! mb-16!">
+            <h2 className="text-4xl! md:text-5xl! font-bold! text-slate-900! mb-4! leading-tight p-0!">
               Get in Touch
             </h2>
-            <p className="!text-lg text-slate-600 !p-0 max-w-2xl mx-auto">
+            <p className="text-lg! text-slate-600 !p-0 max-w-2xl mx-auto">
               Have questions or need assistance? Our team is here to help.
               Contact us and we'll respond as soon as possible.
             </p>
@@ -60,7 +60,7 @@ const ContactUsSection: React.FC = () => {
               </p>
             </div>
           </div>
-          =
+
           <div className="flex justify-center !mt-8">
             <a
               href="https://help.taxyaar.com/help-center"

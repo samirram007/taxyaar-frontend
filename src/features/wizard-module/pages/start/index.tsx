@@ -7,6 +7,7 @@ import WizardFooter from "../../components/wizard_footer"
 import WizardHeader from "../../components/wizard_header"
 // import { startQuestions } from "../../contexts/wizard-data"
 import { useWizardModule } from "../../contexts/wizard_module-context"
+import { cn } from "@/lib/utils"
 
 
 
@@ -27,90 +28,95 @@ const Start = () => {
     // }
 
     return (
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8  ">
+        <div className="mx-auto max-w-7xl px-1 sm:px-6 lg:px-8 py-8  ">
             <WizardHeader />
             <div className="grid lg:grid-cols-3 gap-8 mb-24">
-                <div className="grid grid-rows-1   lg:col-span-2">
-                    <div className="lg:col-span-2 grid grid-cols-[150px_1fr] bg-gray-50 rounded-lg p-6  gap-6">
-                        <div className="grid w-full">
-                            <img src="/images/income.png" alt="Income" className="w-full" />
-                        </div>
-                        <div className="grid grid-cols-1 justify-center items-start gap-6 px-2">
-                            <div className="space-y-1">
-                                <div className="text-2xl">Tell us about your Income between 1st April 2024 to 31st March 2025.</div>
-                                <div className="text-sm">Help us identify the heads under which you have earned Income</div>
-                                <div className="mt-5 space-y-8 ">
+                <div className=" bg-gray-50 rounded-lg  grid grid-rows-1   lg:col-span-2">
+                    <div className="lg:col-span-2 p-6  gap-6">
+                        <div className="grid grid-cols-[50px_1fr] md:grid-cols-[150px_1fr]">
 
-
-                                    {startQuestionsState.map((q) => (
-                                        <div key={q.id}>
-                                            <div className="grid grid-cols-[1fr_auto] justify-center items-start gap-6">
-                                                <div key={q.id} className="space-y-1">
-                                                    <p className="text-lg font-medium">
-                                                        {q.question}
-                                                    </p>
-                                                    <p className="text-sm text-slate-700">
-                                                        {q.description}
-                                                    </p>
-                                                </div>
-                                                <div>
-
-
-                                                    <YesNoToggle
-                                                        value={q.answer}
-                                                        onChange={(value) => {
-                                                            const updatedQuestions = startQuestionsState.map((question) =>
-                                                                question.id === q.id ? { ...question, answer: value } : question
-                                                            )
-                                                            setStartQuestionsState(updatedQuestions)
-                                                        }}
-                                                    />
-                                                    {/* {q.optionalQuestions ? 'yes' : ''}
-                                                {q.answer === "yes" ? "yes" : "no"} */}
-                                                </div>
-                                            </div>
-
-                                            {q.optionalQuestions && q.answer === "yes" && (
-                                                <div className="ml-2 mt-6 space-y-6 bg-gray-300/10">
-                                                    {q.optionalQuestions.map((oq) => (
-                                                        <div key={oq.id} className="grid grid-cols-[1fr_auto] justify-center items-start gap-6">
-                                                            <div key={oq.id} className="space-y-1">
-                                                                <p className="text-lg font-medium">
-                                                                    {oq.question}
-                                                                </p>
-                                                                <p className="text-sm text-slate-700">
-                                                                    {oq.description}
-                                                                </p>
-                                                            </div>
-                                                            <YesNoToggle
-                                                                value={oq.answer}
-                                                                onChange={(value) => {
-                                                                    const updatedQuestions = startQuestionsState.map((question) => {
-                                                                        if (question.id === q.id) {
-                                                                            const updatedOptionalQuestions = question.optionalQuestions?.map((optionalQuestion) =>
-                                                                                optionalQuestion.id === oq.id ? { ...optionalQuestion, answer: value } : optionalQuestion
-                                                                            )
-                                                                            return { ...question, optionalQuestions: updatedOptionalQuestions }
-                                                                        }
-                                                                        return question
-                                                                    })
-                                                                    setStartQuestionsState(updatedQuestions)
-                                                                }}
-                                                            />
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            )}
-                                        </div>
-                                    ))}
+                            <div className="grid w-full">
+                                <img src="/images/income.png" alt="Income" className="w-full" />
+                            </div>
+                            <div className="grid xs:col-span-2 grid-cols-1 justify-center items-start gap-6 px-2">
+                                <div className="space-y-1">
+                                    <div className="text-2xl">Tell us about your Income between 1st April 2024 to 31st March 2025.</div>
+                                    <div className="text-sm">Help us identify the heads under which you have earned Income</div>
 
                                 </div>
                             </div>
 
                         </div>
-                    </div>
+                        <div className="mt-5 space-y-8 bg- ">
 
-                    <div className="bg-gray-400/20 p-4 w-full lg:col-span-2 flex justify-between items-center gap-4">
+
+                            {startQuestionsState.map((q) => (
+                                <div key={q.id}>
+                                    <div className={cn("grid grid-cols-[1fr_auto] justify-center items-start gap-6", "border-b-2 border-gray-300/50 pb-6")}>
+                                        <div key={q.id} className="space-y-1">
+                                            <p className="text-lg font-medium">
+                                                {q.question}
+                                            </p>
+                                            <p className="text-sm text-slate-700">
+                                                {q.description}
+                                            </p>
+                                        </div>
+                                        <div>
+
+
+                                            <YesNoToggle
+                                                value={q.answer}
+                                                onChange={(value) => {
+                                                    const updatedQuestions = startQuestionsState.map((question) =>
+                                                        question.id === q.id ? { ...question, answer: value } : question
+                                                    )
+                                                    setStartQuestionsState(updatedQuestions)
+                                                }}
+                                            />
+                                            {/* {q.optionalQuestions ? 'yes' : ''}
+                                                {q.answer === "yes" ? "yes" : "no"} */}
+                                        </div>
+                                    </div>
+
+                                    {q.optionalQuestions && q.answer === "yes" && (
+                                        <div className="ml-2 mt-6 space-y-6 bg-gray-300/10">
+                                            {q.optionalQuestions.map((oq) => (
+                                                <div key={oq.id} className="grid grid-cols-[1fr_auto] justify-center items-start gap-6">
+                                                    <div key={oq.id} className="space-y-1">
+                                                        <p className="text-lg font-medium">
+                                                            {oq.question}
+                                                        </p>
+                                                        <p className="text-sm text-slate-700">
+                                                            {oq.description}
+                                                        </p>
+                                                    </div>
+                                                    <YesNoToggle
+                                                        value={oq.answer}
+                                                        onChange={(value) => {
+                                                            const updatedQuestions = startQuestionsState.map((question) => {
+                                                                if (question.id === q.id) {
+                                                                    const updatedOptionalQuestions = question.optionalQuestions?.map((optionalQuestion) =>
+                                                                        optionalQuestion.id === oq.id ? { ...optionalQuestion, answer: value } : optionalQuestion
+                                                                    )
+                                                                    return { ...question, optionalQuestions: updatedOptionalQuestions }
+                                                                }
+                                                                return question
+                                                            })
+                                                            setStartQuestionsState(updatedQuestions)
+                                                        }}
+                                                    />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+
+                        </div>
+
+
+                    </div>
+                    <div className="p-0 md:p-4 w-full lg:col-span-2 flex justify-between items-center gap-4 overflow-hidden">
                         <WizardFooter
                             previousPageLink="/dashboard"
                             previousPageName="Previous Page"
@@ -118,8 +124,10 @@ const Start = () => {
                             nextPageName="Choose Return Type"
                         />
                     </div>
+
                 </div>
                 <HelpSidebar />
+
             </div>
         </div>
     )

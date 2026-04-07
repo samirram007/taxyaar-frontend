@@ -221,7 +221,7 @@ export const sidebarData: SidebarData = {
             {
               title: 'Start Taxes',
               visible: true,
-              url: '/start_taxes',
+              url: '/taxes_start',
               icon: IconStar,
             },
             {
@@ -233,7 +233,7 @@ export const sidebarData: SidebarData = {
             {
               title: 'Tax Paid',
               visible: true,
-              url: '/tax_paid',
+              url: '/taxes_paid',
               icon: IconStar,
             },
             {

@@ -157,7 +157,7 @@ const Residential = () => {
                 <AlertDialogComponent showAlert={showAlert} setShowAlert={setShowAlert} />
             )}
 
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8  ">
+            <div className="mx-auto max-w-7xl px-1 sm:px-6 lg:px-8 py-8  ">
             <WizardHeader />
             <div className="grid lg:grid-cols-3 gap-8 mb-24">
 
@@ -171,7 +171,7 @@ const Residential = () => {
                                 <div className='border-b-2 p-6 text-2xl'>Residential Status for F.Y. 2024-25</div>
 
                             <div className="space-y-1 px-6">
-                                <div className="mt-5 space-y-8 ">
+                                    <div className=" mt-5 space-y-8 ">
                                     {questionsState.map((q) => (
                                         <div key={q.id}>
                                             <div className="grid grid-rows-1 grid-cols-1 justify-center items-start gap-2">
@@ -184,12 +184,12 @@ const Residential = () => {
                                                         value={answer}
                                                         onValueChange={(val) => handleChange(val)}
                                                         type="single"
-                                                        className=" grid grid-cols-3  w-auto mt-1 space-y-4 space-x-4 "
+                                                        className=" grid grid-col-1 md:grid-cols-2 xl:grid-cols-3  w-auto mt-1 space-y-4 space-x-4 "
                                                     >
                                                         {q.answer.map((option) => (
                                                             <React.Fragment key={option.key}>
                                                                 {option.label && (
-                                                                    <div className="col-span-3 text-sm text-muted-foreground block">
+                                                                    <div className="xl:col-span-3 text-sm text-muted-foreground block">
                                                                         {option.label}
                                                                     </div>
                                                                 )}
@@ -222,24 +222,24 @@ const Residential = () => {
                                                             In case you are a Citizen of India or a Person of Indian Origin (POI), please specify :
                                                         </p>
                                                     </div>
-                                                    <div className="mt-5 mb-8 space-y-8 ">
-                                                        <div className="grid  grid-cols-2 gap-4">
+                                                    <div className="mt-5  space-y-8 mb-4 ">
+                                                        <div className="border-b-2 pb-8 grid grid-cols-1  md:grid-cols-2 gap-4">
                                                             <label className="block text-sm font-medium text-gray-700 mb-1">
                                                                 Total period of stay in India during the previous year (in days)
                                                             </label>
                                                             <Input
                                                                 type="number"
-                                                                className="block w-10/12 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                                className="block w-full md:w-10/12 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                                                 placeholder=""
                                                             />
                                                         </div>
-                                                        <div className="grid  grid-cols-2 gap-4">
+                                                        <div className="  grid grid-cols-1  md:grid-cols-2 gap-4">
                                                             <label className="block text-sm font-medium text-gray-700 mb-1">
                                                                 Total period of stay in India during the 4 preceding years (in days)
                                                             </label>
                                                             <Input
                                                                 type="number"
-                                                                className=" block w-10/12 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                                                className=" block w-full md:w-10/12 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
                                                                 placeholder=""
                                                             />
                                                         </div>
@@ -311,7 +311,8 @@ const JurisdictionCardList = ({ country }: { country: Country[] }) => {
 
     return (
         <>
-            <div className="w-full grid grid-cols-[50px_1fr_1fr_50px] gap-4">
+            {/* Desktop header */}
+            <div className="hidden md:grid w-full grid-cols-[50px_1fr_1fr_50px] gap-4">
                 <div></div>
                 <Label htmlFor="country" className="block text-sm font-medium text-foreground ">
                     Juridiction(s) of Residence <span className="text-red-500">*</span>
@@ -321,13 +322,12 @@ const JurisdictionCardList = ({ country }: { country: Country[] }) => {
                 </Label>
                 <div></div>
             </div>
+            {/* Cards */}
             {!nriJuridictionData ? (
-
                 <div className="space-y-3">
                     <div className="h-20 rounded-md bg-muted animate-pulse"></div>
                     <div className="h-20 rounded-md bg-muted animate-pulse"></div>
                 </div>
-
             ) : (
                 nriJuridictionData.map((c, index) => (
                     <JurisdictionCard
@@ -340,9 +340,7 @@ const JurisdictionCardList = ({ country }: { country: Country[] }) => {
                     />
                 ))
             )}
-
-
-            <div>
+            <div className="mt-2">
                 <AddJuridictionCard nriJuridictionData={nriJuridictionData} setNriJuridictionData={setNriJuridictionData} />
             </div>
         </>
@@ -363,16 +361,14 @@ const JurisdictionCard = ({ arrayIndex, country, data, nriJuridictionData, setNr
         setNriJuridictionData((prev) => prev.filter((_, index) => index !== dataItemIndex))
     }
     return (
-        <div key={data.index} className='w-full grid grid-cols-1 gap-6'
-        >
-            <div className="w-full grid grid-cols-[50px_1fr_1fr_50px] items-center gap-4">
+        <>
+            {/* Desktop row */}
+            <div className="hidden md:grid w-full grid-cols-[50px_1fr_1fr_50px] items-center gap-4 bg-white border rounded-xl p-4">
                 <div className="w-10 h-10 rounded-md bg-sky-50 flex items-center justify-center text-sky-600 font-bold">{arrayIndex + 1}</div>
-
                 <Select onValueChange={handleValueChange} defaultValue={data.juridiction}  >
                     <SelectTrigger className="w-full cursor-pointer">
                         <SelectValue placeholder="--Select--" />
                     </SelectTrigger>
-
                     <SelectContent>
                         {country.map((c) => (
                             <SelectItem key={c.id} value={c.name}>
@@ -390,8 +386,40 @@ const JurisdictionCard = ({ arrayIndex, country, data, nriJuridictionData, setNr
                     )}
                 </div>
             </div>
-
-        </div >
+            {/* Mobile card */}
+            <div className="block md:hidden w-full bg-white border rounded-xl p-4 mb-4">
+                <div className="flex items-center mb-2">
+                    <div className="w-8 h-8 rounded-md bg-sky-50 flex items-center justify-center text-sky-600 font-bold mr-2">{arrayIndex + 1}.</div>
+                    <span className="font-semibold text-lg">Jurisdiction</span>
+                </div>
+                <div className="mb-2">
+                    <Label htmlFor="country" className="block text-sm font-medium text-gray-700 mb-1">Jurisdiction <span className="text-red-500">*</span></Label>
+                    <Select onValueChange={handleValueChange} defaultValue={data.juridiction}  >
+                        <SelectTrigger className="w-full cursor-pointer">
+                            <SelectValue placeholder="--Select--" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            {country.map((c) => (
+                                <SelectItem key={c.id} value={c.name}>
+                                    {c.name}
+                                </SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
+                </div>
+                <div className="mb-2">
+                    <Label htmlFor="tin" className="block text-sm font-medium text-gray-700 mb-1">Tax Identification Number (TIN) <span className="text-red-500">*</span></Label>
+                    <Input id="tin" placeholder="Enter your TIN" name='tin' onChange={(e) => handleValueChange(e.target.value)} />
+                </div>
+                {!data.isDefault && (
+                    <div className="flex justify-end">
+                        <Button type='button' variant={'ghost'} className="text-red-500 px-0 py-0 h-auto min-h-0" onClick={handleDelete}>
+                            Remove
+                        </Button>
+                    </div>
+                )}
+            </div>
+        </>
     )
 }
 

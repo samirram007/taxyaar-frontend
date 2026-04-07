@@ -43,17 +43,18 @@ const Header = () => {
   }
 
   return (
-    <header className="c-header-w">
-      <div className="container">
-        <div className="row">
-          <div className="col-8 col-md-3">
+    <header className="c-header-w  ">
+      <div className="mx-auto w-full px-3 max-w-screen-2xl">
+        <div className="grid grid-cols-2 items-start py-4">
+          <div className="col-span-1 md:col-span-1 lg:col-span-1">
             <div className="c-logo-w">
               <Link to="/">
                 <img src="img/logo.png" alt="Taxyaar" />
               </Link>
             </div>
           </div>
-          <div className="col-4 col-md-9">
+          <div className="grid col-span-1 md:col-span-1 lg:col-span-1 justify-end items-center  md:grid">
+
             <div className="c-nav-w" ref={navRef}>
               <div className="c-nav-bottom">
                 <button
@@ -72,7 +73,11 @@ const Header = () => {
                   <ul>
                     <li>
                       <Link
-                        to="/import-cg-shares" 
+                        to="/import-cg-shares"
+                        search={(previous) => ({
+                          ...previous,
+                          brokerId: undefined,
+                        })}
                       >
                         Import CG / Shares
                       </Link>
@@ -91,14 +96,14 @@ const Header = () => {
                       {isAuthenticated ? (
                         <Link
                           to="/dashboard"
-                          className="c-btn-1" 
+                          className="c-btn-1"
                         >
                           <span>Dashboard</span>
                         </Link>
                       ) : (
                         <Link
                           to="/sign-in"
-                            className="c-btn-1" 
+                            className="c-btn-1"
                         >
                           <span>Login</span>
                         </Link>
@@ -122,6 +127,7 @@ const Header = () => {
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>

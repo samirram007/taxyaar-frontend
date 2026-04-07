@@ -19,6 +19,7 @@ export default function HelpSidebar() {
       prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
     )
   }
+  const helpUrl = import.meta.env.VITE_SUPPORT_URL || "https://help.taxyaar.com"
 
   return (
     <div className="bg-background border border-border rounded-lg p-6 sticky top-24">
@@ -48,7 +49,7 @@ export default function HelpSidebar() {
         ))}
       </div>
 
-      <Link to="/support/help" className="text-primary hover:underline text-sm mt-4 block">
+      <Link to={helpUrl} className="text-primary hover:underline text-sm mt-4 block">
         View all help articles →
       </Link>
     </div>

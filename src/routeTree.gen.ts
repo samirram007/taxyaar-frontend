@@ -11,14 +11,15 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SupportRouteImport } from './routes/support'
-import { Route as PricingRouteImport } from './routes/pricing'
-import { Route as ImportCgSharesRouteImport } from './routes/import-cg-shares'
 import { Route as ProtectedRouteImport } from './routes/_protected'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as GuestRouteImport } from './routes/_guest'
+import { Route as GuestIndexRouteImport } from './routes/_guest/index'
 import { Route as ProtectedSignOutRouteImport } from './routes/_protected/sign-out'
 import { Route as ProtectedProduct_launchboardRouteImport } from './routes/_protected/product_launchboard'
 import { Route as ProtectedFilerRouteImport } from './routes/_protected/_filer'
+import { Route as GuestSupportRouteImport } from './routes/_guest/support'
+import { Route as GuestPricingRouteImport } from './routes/_guest/pricing'
+import { Route as GuestImportCgSharesRouteImport } from './routes/_guest/import-cg-shares'
 import { Route as authSignUpRouteImport } from './routes/(auth)/sign-up'
 import { Route as authSignInRouteImport } from './routes/(auth)/sign-in'
 import { Route as authOtpRouteImport } from './routes/(auth)/otp'
@@ -30,8 +31,10 @@ import { Route as ProtectedFilerUnlisted_shareIndexRouteImport } from './routes/
 import { Route as ProtectedFilerTrading_detailsIndexRouteImport } from './routes/_protected/_filer/trading_details/index'
 import { Route as ProtectedFilerTds_taxIndexRouteImport } from './routes/_protected/_filer/tds_tax/index'
 import { Route as ProtectedFilerTdsIndexRouteImport } from './routes/_protected/_filer/tds/index'
+import { Route as ProtectedFilerTcs_taxIndexRouteImport } from './routes/_protected/_filer/tcs_tax/index'
 import { Route as ProtectedFilerTaxfilerIndexRouteImport } from './routes/_protected/_filer/taxfiler/index'
 import { Route as ProtectedFilerTaxes_startIndexRouteImport } from './routes/_protected/_filer/taxes_start/index'
+import { Route as ProtectedFilerTaxes_paidIndexRouteImport } from './routes/_protected/_filer/taxes_paid/index'
 import { Route as ProtectedFilerTax_reliefIndexRouteImport } from './routes/_protected/_filer/tax_relief/index'
 import { Route as ProtectedFilerSummaryIndexRouteImport } from './routes/_protected/_filer/summary/index'
 import { Route as ProtectedFilerStartIndexRouteImport } from './routes/_protected/_filer/start/index'
@@ -92,6 +95,8 @@ import { Route as ProtectedauthAddtaxformIndexRouteImport } from './routes/_prot
 import { Route as ProtectedMastersOrganizationLayoutRouteImport } from './routes/_protected/masters/organization/_layout'
 import { Route as ProtectedFilerUnlisted_shareAddRouteImport } from './routes/_protected/_filer/unlisted_share/add'
 import { Route as ProtectedFilerTds_taxAddRouteImport } from './routes/_protected/_filer/tds_tax/add'
+import { Route as ProtectedFilerTcs_taxAddRouteImport } from './routes/_protected/_filer/tcs_tax/add'
+import { Route as ProtectedFilerTaxes_paidAddRouteImport } from './routes/_protected/_filer/taxes_paid/add'
 import { Route as ProtectedFilerTax_reliefAddRouteImport } from './routes/_protected/_filer/tax_relief/add'
 import { Route as ProtectedFilerSettingsLayoutRouteImport } from './routes/_protected/_filer/settings/_layout'
 import { Route as ProtectedFilerSalary_incomeAddRouteImport } from './routes/_protected/_filer/salary_income/add'
@@ -166,29 +171,18 @@ const authForgotPasswordLazyRouteImport = createFileRoute(
   '/(auth)/forgot-password',
 )()
 
-const SupportRoute = SupportRouteImport.update({
-  id: '/support',
-  path: '/support',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PricingRoute = PricingRouteImport.update({
-  id: '/pricing',
-  path: '/pricing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImportCgSharesRoute = ImportCgSharesRouteImport.update({
-  id: '/import-cg-shares',
-  path: '/import-cg-shares',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ProtectedRoute = ProtectedRouteImport.update({
   id: '/_protected',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
+const GuestRoute = GuestRouteImport.update({
+  id: '/_guest',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuestIndexRoute = GuestIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => GuestRoute,
 } as any)
 const errors503LazyRoute = errors503LazyRouteImport
   .update({
@@ -263,6 +257,21 @@ const ProtectedFilerRoute = ProtectedFilerRouteImport.update({
   id: '/_filer',
   getParentRoute: () => ProtectedRoute,
 } as any)
+const GuestSupportRoute = GuestSupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => GuestRoute,
+} as any)
+const GuestPricingRoute = GuestPricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => GuestRoute,
+} as any)
+const GuestImportCgSharesRoute = GuestImportCgSharesRouteImport.update({
+  id: '/import-cg-shares',
+  path: '/import-cg-shares',
+  getParentRoute: () => GuestRoute,
+} as any)
 const authSignUpRoute = authSignUpRouteImport
   .update({
     id: '/(auth)/sign-up',
@@ -326,6 +335,12 @@ const ProtectedFilerTdsIndexRoute = ProtectedFilerTdsIndexRouteImport.update({
   path: '/tds/',
   getParentRoute: () => ProtectedFilerRoute,
 } as any)
+const ProtectedFilerTcs_taxIndexRoute =
+  ProtectedFilerTcs_taxIndexRouteImport.update({
+    id: '/tcs_tax/',
+    path: '/tcs_tax/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
 const ProtectedFilerTaxfilerIndexRoute =
   ProtectedFilerTaxfilerIndexRouteImport.update({
     id: '/taxfiler/',
@@ -336,6 +351,12 @@ const ProtectedFilerTaxes_startIndexRoute =
   ProtectedFilerTaxes_startIndexRouteImport.update({
     id: '/taxes_start/',
     path: '/taxes_start/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerTaxes_paidIndexRoute =
+  ProtectedFilerTaxes_paidIndexRouteImport.update({
+    id: '/taxes_paid/',
+    path: '/taxes_paid/',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
 const ProtectedFilerTax_reliefIndexRoute =
@@ -696,6 +717,18 @@ const ProtectedFilerTds_taxAddRoute =
   ProtectedFilerTds_taxAddRouteImport.update({
     id: '/tds_tax/add',
     path: '/tds_tax/add',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerTcs_taxAddRoute =
+  ProtectedFilerTcs_taxAddRouteImport.update({
+    id: '/tcs_tax/add',
+    path: '/tcs_tax/add',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerTaxes_paidAddRoute =
+  ProtectedFilerTaxes_paidAddRouteImport.update({
+    id: '/taxes_paid/add',
+    path: '/taxes_paid/add',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
 const ProtectedFilerTax_reliefAddRoute =
@@ -1075,13 +1108,13 @@ const ProtectedAdministrationLayoutRoleLayoutIdModuleModuleidRoute =
   } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/import-cg-shares': typeof ImportCgSharesRoute
-  '/pricing': typeof PricingRoute
-  '/support': typeof SupportRoute
+  '/': typeof GuestIndexRoute
   '/otp': typeof authOtpRoute
   '/sign-in': typeof authSignInRoute
   '/sign-up': typeof authSignUpRoute
+  '/import-cg-shares': typeof GuestImportCgSharesRoute
+  '/pricing': typeof GuestPricingRoute
+  '/support': typeof GuestSupportRoute
   '/product_launchboard': typeof ProtectedProduct_launchboardRoute
   '/sign-out': typeof ProtectedSignOutRoute
   '/forgot-password': typeof authForgotPasswordLazyRoute
@@ -1126,6 +1159,8 @@ export interface FileRoutesByFullPath {
   '/salary_income/add': typeof ProtectedFilerSalary_incomeAddRoute
   '/settings': typeof ProtectedFilerSettingsLayoutRouteWithChildren
   '/tax_relief/add': typeof ProtectedFilerTax_reliefAddRoute
+  '/taxes_paid/add': typeof ProtectedFilerTaxes_paidAddRoute
+  '/tcs_tax/add': typeof ProtectedFilerTcs_taxAddRoute
   '/tds_tax/add': typeof ProtectedFilerTds_taxAddRoute
   '/unlisted_share/add': typeof ProtectedFilerUnlisted_shareAddRoute
   '/masters/organization': typeof ProtectedMastersOrganizationLayoutRouteWithChildren
@@ -1186,8 +1221,10 @@ export interface FileRoutesByFullPath {
   '/start/': typeof ProtectedFilerStartIndexRoute
   '/summary/': typeof ProtectedFilerSummaryIndexRoute
   '/tax_relief/': typeof ProtectedFilerTax_reliefIndexRoute
+  '/taxes_paid/': typeof ProtectedFilerTaxes_paidIndexRoute
   '/taxes_start/': typeof ProtectedFilerTaxes_startIndexRoute
   '/taxfiler/': typeof ProtectedFilerTaxfilerIndexRoute
+  '/tcs_tax/': typeof ProtectedFilerTcs_taxIndexRoute
   '/tds/': typeof ProtectedFilerTdsIndexRoute
   '/tds_tax/': typeof ProtectedFilerTds_taxIndexRoute
   '/trading_details/': typeof ProtectedFilerTrading_detailsIndexRoute
@@ -1226,13 +1263,13 @@ export interface FileRoutesByFullPath {
   '/administration/role/$id/': typeof ProtectedAdministrationLayoutRoleLayoutIdModuleIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/import-cg-shares': typeof ImportCgSharesRoute
-  '/pricing': typeof PricingRoute
-  '/support': typeof SupportRoute
+  '/': typeof GuestIndexRoute
   '/otp': typeof authOtpRoute
   '/sign-in': typeof authSignInRoute
   '/sign-up': typeof authSignUpRoute
+  '/import-cg-shares': typeof GuestImportCgSharesRoute
+  '/pricing': typeof GuestPricingRoute
+  '/support': typeof GuestSupportRoute
   '/product_launchboard': typeof ProtectedProduct_launchboardRoute
   '/sign-out': typeof ProtectedSignOutRoute
   '/forgot-password': typeof authForgotPasswordLazyRoute
@@ -1275,6 +1312,8 @@ export interface FileRoutesByTo {
   '/relief_foreign/add': typeof ProtectedFilerRelief_foreignAddRoute
   '/salary_income/add': typeof ProtectedFilerSalary_incomeAddRoute
   '/tax_relief/add': typeof ProtectedFilerTax_reliefAddRoute
+  '/taxes_paid/add': typeof ProtectedFilerTaxes_paidAddRoute
+  '/tcs_tax/add': typeof ProtectedFilerTcs_taxAddRoute
   '/tds_tax/add': typeof ProtectedFilerTds_taxAddRoute
   '/unlisted_share/add': typeof ProtectedFilerUnlisted_shareAddRoute
   '/masters/organization': typeof ProtectedMastersOrganizationLayoutRouteWithChildren
@@ -1335,8 +1374,10 @@ export interface FileRoutesByTo {
   '/start': typeof ProtectedFilerStartIndexRoute
   '/summary': typeof ProtectedFilerSummaryIndexRoute
   '/tax_relief': typeof ProtectedFilerTax_reliefIndexRoute
+  '/taxes_paid': typeof ProtectedFilerTaxes_paidIndexRoute
   '/taxes_start': typeof ProtectedFilerTaxes_startIndexRoute
   '/taxfiler': typeof ProtectedFilerTaxfilerIndexRoute
+  '/tcs_tax': typeof ProtectedFilerTcs_taxIndexRoute
   '/tds': typeof ProtectedFilerTdsIndexRoute
   '/tds_tax': typeof ProtectedFilerTds_taxIndexRoute
   '/trading_details': typeof ProtectedFilerTrading_detailsIndexRoute
@@ -1368,14 +1409,14 @@ export interface FileRoutesByTo {
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/_guest': typeof GuestRouteWithChildren
   '/_protected': typeof ProtectedRouteWithChildren
-  '/import-cg-shares': typeof ImportCgSharesRoute
-  '/pricing': typeof PricingRoute
-  '/support': typeof SupportRoute
   '/(auth)/otp': typeof authOtpRoute
   '/(auth)/sign-in': typeof authSignInRoute
   '/(auth)/sign-up': typeof authSignUpRoute
+  '/_guest/import-cg-shares': typeof GuestImportCgSharesRoute
+  '/_guest/pricing': typeof GuestPricingRoute
+  '/_guest/support': typeof GuestSupportRoute
   '/_protected/_filer': typeof ProtectedFilerRouteWithChildren
   '/_protected/product_launchboard': typeof ProtectedProduct_launchboardRoute
   '/_protected/sign-out': typeof ProtectedSignOutRoute
@@ -1387,6 +1428,7 @@ export interface FileRoutesById {
   '/(errors)/404': typeof errors404LazyRoute
   '/(errors)/500': typeof errors500LazyRoute
   '/(errors)/503': typeof errors503LazyRoute
+  '/_guest/': typeof GuestIndexRoute
   '/_protected/(auth)/change-password': typeof ProtectedauthChangePasswordRoute
   '/_protected/administration/_layout': typeof ProtectedAdministrationLayoutRouteWithChildren
   '/_protected/documents/': typeof ProtectedDocumentsIndexRoute
@@ -1421,6 +1463,8 @@ export interface FileRoutesById {
   '/_protected/_filer/salary_income/add': typeof ProtectedFilerSalary_incomeAddRoute
   '/_protected/_filer/settings/_layout': typeof ProtectedFilerSettingsLayoutRouteWithChildren
   '/_protected/_filer/tax_relief/add': typeof ProtectedFilerTax_reliefAddRoute
+  '/_protected/_filer/taxes_paid/add': typeof ProtectedFilerTaxes_paidAddRoute
+  '/_protected/_filer/tcs_tax/add': typeof ProtectedFilerTcs_taxAddRoute
   '/_protected/_filer/tds_tax/add': typeof ProtectedFilerTds_taxAddRoute
   '/_protected/_filer/unlisted_share/add': typeof ProtectedFilerUnlisted_shareAddRoute
   '/_protected/masters/organization/_layout': typeof ProtectedMastersOrganizationLayoutRouteWithChildren
@@ -1481,8 +1525,10 @@ export interface FileRoutesById {
   '/_protected/_filer/start/': typeof ProtectedFilerStartIndexRoute
   '/_protected/_filer/summary/': typeof ProtectedFilerSummaryIndexRoute
   '/_protected/_filer/tax_relief/': typeof ProtectedFilerTax_reliefIndexRoute
+  '/_protected/_filer/taxes_paid/': typeof ProtectedFilerTaxes_paidIndexRoute
   '/_protected/_filer/taxes_start/': typeof ProtectedFilerTaxes_startIndexRoute
   '/_protected/_filer/taxfiler/': typeof ProtectedFilerTaxfilerIndexRoute
+  '/_protected/_filer/tcs_tax/': typeof ProtectedFilerTcs_taxIndexRoute
   '/_protected/_filer/tds/': typeof ProtectedFilerTdsIndexRoute
   '/_protected/_filer/tds_tax/': typeof ProtectedFilerTds_taxIndexRoute
   '/_protected/_filer/trading_details/': typeof ProtectedFilerTrading_detailsIndexRoute
@@ -1524,12 +1570,12 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/import-cg-shares'
-    | '/pricing'
-    | '/support'
     | '/otp'
     | '/sign-in'
     | '/sign-up'
+    | '/import-cg-shares'
+    | '/pricing'
+    | '/support'
     | '/product_launchboard'
     | '/sign-out'
     | '/forgot-password'
@@ -1574,6 +1620,8 @@ export interface FileRouteTypes {
     | '/salary_income/add'
     | '/settings'
     | '/tax_relief/add'
+    | '/taxes_paid/add'
+    | '/tcs_tax/add'
     | '/tds_tax/add'
     | '/unlisted_share/add'
     | '/masters/organization'
@@ -1634,8 +1682,10 @@ export interface FileRouteTypes {
     | '/start/'
     | '/summary/'
     | '/tax_relief/'
+    | '/taxes_paid/'
     | '/taxes_start/'
     | '/taxfiler/'
+    | '/tcs_tax/'
     | '/tds/'
     | '/tds_tax/'
     | '/trading_details/'
@@ -1675,12 +1725,12 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/import-cg-shares'
-    | '/pricing'
-    | '/support'
     | '/otp'
     | '/sign-in'
     | '/sign-up'
+    | '/import-cg-shares'
+    | '/pricing'
+    | '/support'
     | '/product_launchboard'
     | '/sign-out'
     | '/forgot-password'
@@ -1723,6 +1773,8 @@ export interface FileRouteTypes {
     | '/relief_foreign/add'
     | '/salary_income/add'
     | '/tax_relief/add'
+    | '/taxes_paid/add'
+    | '/tcs_tax/add'
     | '/tds_tax/add'
     | '/unlisted_share/add'
     | '/masters/organization'
@@ -1783,8 +1835,10 @@ export interface FileRouteTypes {
     | '/start'
     | '/summary'
     | '/tax_relief'
+    | '/taxes_paid'
     | '/taxes_start'
     | '/taxfiler'
+    | '/tcs_tax'
     | '/tds'
     | '/tds_tax'
     | '/trading_details'
@@ -1815,14 +1869,14 @@ export interface FileRouteTypes {
     | '/administration/role/$id'
   id:
     | '__root__'
-    | '/'
+    | '/_guest'
     | '/_protected'
-    | '/import-cg-shares'
-    | '/pricing'
-    | '/support'
     | '/(auth)/otp'
     | '/(auth)/sign-in'
     | '/(auth)/sign-up'
+    | '/_guest/import-cg-shares'
+    | '/_guest/pricing'
+    | '/_guest/support'
     | '/_protected/_filer'
     | '/_protected/product_launchboard'
     | '/_protected/sign-out'
@@ -1834,6 +1888,7 @@ export interface FileRouteTypes {
     | '/(errors)/404'
     | '/(errors)/500'
     | '/(errors)/503'
+    | '/_guest/'
     | '/_protected/(auth)/change-password'
     | '/_protected/administration/_layout'
     | '/_protected/documents/'
@@ -1868,6 +1923,8 @@ export interface FileRouteTypes {
     | '/_protected/_filer/salary_income/add'
     | '/_protected/_filer/settings/_layout'
     | '/_protected/_filer/tax_relief/add'
+    | '/_protected/_filer/taxes_paid/add'
+    | '/_protected/_filer/tcs_tax/add'
     | '/_protected/_filer/tds_tax/add'
     | '/_protected/_filer/unlisted_share/add'
     | '/_protected/masters/organization/_layout'
@@ -1928,8 +1985,10 @@ export interface FileRouteTypes {
     | '/_protected/_filer/start/'
     | '/_protected/_filer/summary/'
     | '/_protected/_filer/tax_relief/'
+    | '/_protected/_filer/taxes_paid/'
     | '/_protected/_filer/taxes_start/'
     | '/_protected/_filer/taxfiler/'
+    | '/_protected/_filer/tcs_tax/'
     | '/_protected/_filer/tds/'
     | '/_protected/_filer/tds_tax/'
     | '/_protected/_filer/trading_details/'
@@ -1969,11 +2028,8 @@ export interface FileRouteTypes {
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  GuestRoute: typeof GuestRouteWithChildren
   ProtectedRoute: typeof ProtectedRouteWithChildren
-  ImportCgSharesRoute: typeof ImportCgSharesRoute
-  PricingRoute: typeof PricingRoute
-  SupportRoute: typeof SupportRoute
   authOtpRoute: typeof authOtpRoute
   authSignInRoute: typeof authSignInRoute
   authSignUpRoute: typeof authSignUpRoute
@@ -1989,27 +2045,6 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/support': {
-      id: '/support'
-      path: '/support'
-      fullPath: '/support'
-      preLoaderRoute: typeof SupportRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/pricing': {
-      id: '/pricing'
-      path: '/pricing'
-      fullPath: '/pricing'
-      preLoaderRoute: typeof PricingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/import-cg-shares': {
-      id: '/import-cg-shares'
-      path: '/import-cg-shares'
-      fullPath: '/import-cg-shares'
-      preLoaderRoute: typeof ImportCgSharesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/_protected': {
       id: '/_protected'
       path: ''
@@ -2017,12 +2052,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
+    '/_guest': {
+      id: '/_guest'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof GuestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_guest/': {
+      id: '/_guest/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof GuestIndexRouteImport
+      parentRoute: typeof GuestRoute
     }
     '/(errors)/503': {
       id: '/(errors)/503'
@@ -2101,6 +2143,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedFilerRouteImport
       parentRoute: typeof ProtectedRoute
     }
+    '/_guest/support': {
+      id: '/_guest/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof GuestSupportRouteImport
+      parentRoute: typeof GuestRoute
+    }
+    '/_guest/pricing': {
+      id: '/_guest/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof GuestPricingRouteImport
+      parentRoute: typeof GuestRoute
+    }
+    '/_guest/import-cg-shares': {
+      id: '/_guest/import-cg-shares'
+      path: '/import-cg-shares'
+      fullPath: '/import-cg-shares'
+      preLoaderRoute: typeof GuestImportCgSharesRouteImport
+      parentRoute: typeof GuestRoute
+    }
     '/(auth)/sign-up': {
       id: '/(auth)/sign-up'
       path: '/sign-up'
@@ -2178,6 +2241,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedFilerTdsIndexRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
+    '/_protected/_filer/tcs_tax/': {
+      id: '/_protected/_filer/tcs_tax/'
+      path: '/tcs_tax'
+      fullPath: '/tcs_tax/'
+      preLoaderRoute: typeof ProtectedFilerTcs_taxIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
     '/_protected/_filer/taxfiler/': {
       id: '/_protected/_filer/taxfiler/'
       path: '/taxfiler'
@@ -2190,6 +2260,13 @@ declare module '@tanstack/react-router' {
       path: '/taxes_start'
       fullPath: '/taxes_start/'
       preLoaderRoute: typeof ProtectedFilerTaxes_startIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/taxes_paid/': {
+      id: '/_protected/_filer/taxes_paid/'
+      path: '/taxes_paid'
+      fullPath: '/taxes_paid/'
+      preLoaderRoute: typeof ProtectedFilerTaxes_paidIndexRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
     '/_protected/_filer/tax_relief/': {
@@ -2610,6 +2687,20 @@ declare module '@tanstack/react-router' {
       path: '/tds_tax/add'
       fullPath: '/tds_tax/add'
       preLoaderRoute: typeof ProtectedFilerTds_taxAddRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/tcs_tax/add': {
+      id: '/_protected/_filer/tcs_tax/add'
+      path: '/tcs_tax/add'
+      fullPath: '/tcs_tax/add'
+      preLoaderRoute: typeof ProtectedFilerTcs_taxAddRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/taxes_paid/add': {
+      id: '/_protected/_filer/taxes_paid/add'
+      path: '/taxes_paid/add'
+      fullPath: '/taxes_paid/add'
+      preLoaderRoute: typeof ProtectedFilerTaxes_paidAddRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
     '/_protected/_filer/tax_relief/add': {
@@ -3049,6 +3140,22 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface GuestRouteChildren {
+  GuestImportCgSharesRoute: typeof GuestImportCgSharesRoute
+  GuestPricingRoute: typeof GuestPricingRoute
+  GuestSupportRoute: typeof GuestSupportRoute
+  GuestIndexRoute: typeof GuestIndexRoute
+}
+
+const GuestRouteChildren: GuestRouteChildren = {
+  GuestImportCgSharesRoute: GuestImportCgSharesRoute,
+  GuestPricingRoute: GuestPricingRoute,
+  GuestSupportRoute: GuestSupportRoute,
+  GuestIndexRoute: GuestIndexRoute,
+}
+
+const GuestRouteWithChildren = GuestRoute._addFileChildren(GuestRouteChildren)
+
 interface ProtectedFilerSettingsLayoutRouteChildren {
   ProtectedFilerSettingsLayoutIndexRoute: typeof ProtectedFilerSettingsLayoutIndexRoute
 }
@@ -3094,6 +3201,8 @@ interface ProtectedFilerRouteChildren {
   ProtectedFilerSalary_incomeAddRoute: typeof ProtectedFilerSalary_incomeAddRoute
   ProtectedFilerSettingsLayoutRoute: typeof ProtectedFilerSettingsLayoutRouteWithChildren
   ProtectedFilerTax_reliefAddRoute: typeof ProtectedFilerTax_reliefAddRoute
+  ProtectedFilerTaxes_paidAddRoute: typeof ProtectedFilerTaxes_paidAddRoute
+  ProtectedFilerTcs_taxAddRoute: typeof ProtectedFilerTcs_taxAddRoute
   ProtectedFilerTds_taxAddRoute: typeof ProtectedFilerTds_taxAddRoute
   ProtectedFilerUnlisted_shareAddRoute: typeof ProtectedFilerUnlisted_shareAddRoute
   ProtectedFilerAgriculture_incomeIndexRoute: typeof ProtectedFilerAgriculture_incomeIndexRoute
@@ -3150,8 +3259,10 @@ interface ProtectedFilerRouteChildren {
   ProtectedFilerStartIndexRoute: typeof ProtectedFilerStartIndexRoute
   ProtectedFilerSummaryIndexRoute: typeof ProtectedFilerSummaryIndexRoute
   ProtectedFilerTax_reliefIndexRoute: typeof ProtectedFilerTax_reliefIndexRoute
+  ProtectedFilerTaxes_paidIndexRoute: typeof ProtectedFilerTaxes_paidIndexRoute
   ProtectedFilerTaxes_startIndexRoute: typeof ProtectedFilerTaxes_startIndexRoute
   ProtectedFilerTaxfilerIndexRoute: typeof ProtectedFilerTaxfilerIndexRoute
+  ProtectedFilerTcs_taxIndexRoute: typeof ProtectedFilerTcs_taxIndexRoute
   ProtectedFilerTdsIndexRoute: typeof ProtectedFilerTdsIndexRoute
   ProtectedFilerTds_taxIndexRoute: typeof ProtectedFilerTds_taxIndexRoute
   ProtectedFilerTrading_detailsIndexRoute: typeof ProtectedFilerTrading_detailsIndexRoute
@@ -3206,6 +3317,8 @@ const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
   ProtectedFilerSettingsLayoutRoute:
     ProtectedFilerSettingsLayoutRouteWithChildren,
   ProtectedFilerTax_reliefAddRoute: ProtectedFilerTax_reliefAddRoute,
+  ProtectedFilerTaxes_paidAddRoute: ProtectedFilerTaxes_paidAddRoute,
+  ProtectedFilerTcs_taxAddRoute: ProtectedFilerTcs_taxAddRoute,
   ProtectedFilerTds_taxAddRoute: ProtectedFilerTds_taxAddRoute,
   ProtectedFilerUnlisted_shareAddRoute: ProtectedFilerUnlisted_shareAddRoute,
   ProtectedFilerAgriculture_incomeIndexRoute:
@@ -3296,8 +3409,10 @@ const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
   ProtectedFilerStartIndexRoute: ProtectedFilerStartIndexRoute,
   ProtectedFilerSummaryIndexRoute: ProtectedFilerSummaryIndexRoute,
   ProtectedFilerTax_reliefIndexRoute: ProtectedFilerTax_reliefIndexRoute,
+  ProtectedFilerTaxes_paidIndexRoute: ProtectedFilerTaxes_paidIndexRoute,
   ProtectedFilerTaxes_startIndexRoute: ProtectedFilerTaxes_startIndexRoute,
   ProtectedFilerTaxfilerIndexRoute: ProtectedFilerTaxfilerIndexRoute,
+  ProtectedFilerTcs_taxIndexRoute: ProtectedFilerTcs_taxIndexRoute,
   ProtectedFilerTdsIndexRoute: ProtectedFilerTdsIndexRoute,
   ProtectedFilerTds_taxIndexRoute: ProtectedFilerTds_taxIndexRoute,
   ProtectedFilerTrading_detailsIndexRoute:
@@ -3568,11 +3683,8 @@ const ProtectedRouteWithChildren = ProtectedRoute._addFileChildren(
 )
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  GuestRoute: GuestRouteWithChildren,
   ProtectedRoute: ProtectedRouteWithChildren,
-  ImportCgSharesRoute: ImportCgSharesRoute,
-  PricingRoute: PricingRoute,
-  SupportRoute: SupportRoute,
   authOtpRoute: authOtpRoute,
   authSignInRoute: authSignInRoute,
   authSignUpRoute: authSignUpRoute,

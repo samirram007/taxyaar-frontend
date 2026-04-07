@@ -1,16 +1,16 @@
-import Header from '../home/components/header'
+
 import PricingHero from './components/PricingHero'
 import TrustedCompanies from './components/TrustedCompanies'
 import PlanComparison from './components/PlanComparison'
 import pricingData from './data/pricing.json'
-import Footer from '../home/components/footer'
+
 
 const Pricing = () => {
   const { hero, plans, trustedSection, comparison } = pricingData
 
   return (
     <>
-      <Header />
+
       <div className="body bg-white text-slate-800">
         <PricingHero
           heading={hero.heading}
@@ -31,7 +31,7 @@ const Pricing = () => {
           assisted={comparison.assisted}
         />
       </div>
-      <Footer />
+
     </>
   )
 }

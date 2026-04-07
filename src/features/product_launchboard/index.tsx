@@ -20,7 +20,7 @@ const ProductLaunchboard = () => {
   const title = 'Tax Filing Services'
   const title2 = 'More Services'
   return (
-    <Main className="min-w-full">
+    <Main className="min-w-full p-1">
       <div className="min-h-screen   max-w-max mx-auto">
         <CustomBreadcrumb title="Services" />
 
@@ -28,7 +28,7 @@ const ProductLaunchboard = () => {
           <div className="grid grid-rows-1 gap-16 place-items-center">
             <div className="text-center text-xl font-bold">{title}</div>
             <div className="grid grid-cols-1 gap-8 text-center md:grid-cols-2 md:gap-12">
-              <Card className="w-126 h-72 p-8 mb-4">
+              <Card className="w-full md:w-126 h-72 p-8 mb-4">
                 <div className="card-header">
                   <div className="card-icon text-center flex items-center justify-center   rounded-md mb-2">
                     <IconShieldCheckFilled
@@ -55,7 +55,7 @@ const ProductLaunchboard = () => {
                   </Button>
                 </div>
               </Card>
-              <Card className="w-126 h-72 p-8 mb-4">
+              <Card className="w-full md:w-126 h-72 p-8 mb-4">
                 <div className="card-header">
                   <div className="card-icon text-center flex items-center justify-center   rounded-md mb-2">
                     <IconUserCircle size={36} className="text-blue-300" />
@@ -85,7 +85,7 @@ const ProductLaunchboard = () => {
           <div className="grid grid-rows-1 gap-16 place-items-center">
             <div className="text-center text-xl font-bold">{title2}</div>
             <div className="grid grid-cols-1 gap-8 text-center md:grid-cols-2 md:gap-12">
-              <Card className="w-126 h-72 p-8 mb-4">
+              <Card className="w-full md:w-126 h-72 p-8 mb-4">
                 <div className="card-header">
                   <div className="card-icon text-center flex items-center justify-center   rounded-md mb-2">
                     <IconQuestionMark size={36} className="text-blue-300" />
@@ -112,7 +112,7 @@ const ProductLaunchboard = () => {
                   </Button>
                 </div>
               </Card>
-              <Card className="w-126 h-72 p-8 mb-4">
+              <Card className="w-full md:w-126 h-72 p-8 mb-4">
                 <div className="card-header">
                   <div className="card-icon text-center flex items-center justify-center   rounded-md mb-2">
                     <IconBulbFilled size={36} className="text-blue-300" />

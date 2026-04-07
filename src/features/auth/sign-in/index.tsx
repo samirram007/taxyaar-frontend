@@ -4,117 +4,69 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { Card, CardContent } from '@/components/ui/card'
+
 import { Separator } from '@/components/ui/separator'
 import Header from '@/features/home/components/header'
 import Footer from '@/features/home/components/footer'
 import { UserAuthForm } from './components/user-auth-form'
 import { GoogleSignInButton } from '../components/google-sign-in-button'
 import { Link } from '@tanstack/react-router'
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 
 export default function SignIn() {
-  useEffect(() => {
-    const files = [
-      '/css/bootstrap.min.css',
-      '/css/font-awesome.min.css',
-      '/css/custom.css',
-      '/css/responsive.css',
-    ]
-
-    files.forEach((href) => {
-      const exists = document.querySelector(`link[href="${href}"]`)
-      if (!exists) {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = href
-        document.head.appendChild(link)
-      }
-    })
-  }, [])
-
   return (
     <>
       <Header />
-
-      <div className="body bg-slate-100/70! text-slate-800! pb-12!">
-        <section className="container px-4! pt-14! pb-8!">
-          <Card className="mx-auto! w-full! max-w-140! border-0! bg-transparent! py-0! shadow-none!">
-            <CardContent className="p-0!">
-              <div className="text-center!">
-                <h1 className="text-[42px]! leading-tight! font-semibold! text-slate-800!">
-                  Sign up to Taxyaar Income tax efiling
-                </h1>
-                <p className="mt-2! text-sm! text-slate-500!">
-                  Login to Taxyaar income tax return filing account
-                </p>
+      <div className="c-signin-main">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex justify-center">
+            <div className="w-full lg:w-1/2 md:w-2/3 sm:w-full">
+              <div className="c-card p-4 mb-4 mt-5">
+                <div className="text-center mb-4">
+                  <h1 className="c-signin-title mb-2">Sign in to Taxyaar Income tax efiling</h1>
+                  <p className="c-signin-desc">Login to your Taxyaar income tax return filing account</p>
+                </div>
+                <div className="c-card-alt mb-3 p-3">
+                  <GoogleSignInButton />
+                  <p className="c-signin-note mt-2">
+                    Google login may not work on some machines. Use email to login or{' '}
+                    <Link to="/sign-up" className="c-link-alt">sign up</Link> as a new user.
+                  </p>
+                </div>
+                <GoogleSignInDivider />
+                <UserAuthForm className="mt-3" />
+                <p className="text-center mt-4 mb-2">Don&apos;t have an account yet?</p>
+                <div className="text-center">
+                  <Link to="/sign-up" className="inline-block bg-blue-600 hover:bg-orange-500 text-white font-semibold py-3 px-8 rounded transition-colors duration-300">
+                    <span>New User? Sign up here</span>
+                  </Link>
+                </div>
               </div>
-
-              <div className="mt-7! rounded-md! border! border-slate-200! bg-blue-50/70! p-3!">
-                <GoogleSignInButton />
-                <p className="mt-2! text-xs! leading-relaxed! text-slate-500!">
-                  Google login may not work on some machines. Use email to login
-                  or{' '}
-                  <Link to="/sign-up" className="font-medium! text-sky-600!">
-                    sign up
-                  </Link>{' '}
-                  as a new user.
-                </p>
+            </div>
+          </div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 mt-12">
+          <div className="flex justify-center">
+            <div className="w-full lg:w-5/6 md:w-full">
+              <div className="c-card p-4">
+                <h2 className="text-center mb-4" style={{ fontSize: 32, fontWeight: 600 }}>Common Questions</h2>
+                <Accordion type="single" collapsible defaultValue="q-1">
+                  {faqItems.map((item, idx) => (
+                    <AccordionItem key={item.question} value={`q-${idx + 1}`} className="mb-2">
+                      <AccordionTrigger className="c-faq-question">
+                        {item.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="c-faq-answer">
+                        {item.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
               </div>
-
-              <GoogleSignInDivider />
-
-              <UserAuthForm className="mt-0!" />
-
-              <p className="mt-5! text-center! text-sm! text-slate-500!">
-                Don&apos;t have an account yet?
-              </p>
-
-              <div className="mt-2! text-center!">
-                <Link
-                  to="/sign-up"
-                  className="inline-flex! rounded-sm! bg-blue-50! px-6! py-2! text-sm! font-semibold! text-sky-600! hover:bg-blue-100!"
-                >
-                  New User? Sign up here
-                </Link>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-
-        <section className="container px-4! pt-6! pb-14!">
-          <h2 className="mb-8! text-center! text-5xl! font-semibold! text-slate-800!">
-            Common Questions
-          </h2>
-
-          <Card className="mx-auto! w-full! max-w-245! gap-0! rounded-sm! border! border-slate-200! bg-white/80! py-0! shadow-none!">
-            <CardContent className="p-0!">
-              <Accordion
-                type="single"
-                collapsible
-                defaultValue="q-1"
-                className="w-full!"
-              >
-                {faqItems.map((item, idx) => (
-                  <AccordionItem
-                    key={item.question}
-                    value={`q-${idx + 1}`}
-                    className="border-slate-200!"
-                  >
-                    <AccordionTrigger className="px-6! py-5! text-base! font-semibold! text-slate-800! hover:no-underline! [&>svg]:size-4! [&>svg]:text-sky-600!">
-                      {item.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="px-6! pb-5! text-base! leading-7! text-slate-600!">
-                      {item.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </CardContent>
-          </Card>
-        </section>
+            </div>
+          </div>
+        </div>
       </div>
-
       <Footer />
     </>
   )
@@ -150,12 +102,10 @@ const faqItems = [
 
 const GoogleSignInDivider = () => {
   return (
-    <div className="my-6! grid! grid-cols-[1fr_auto_1fr]! items-center! gap-3!">
-      <Separator className="bg-slate-300!" />
-      <div className="text-sm! font-semibold! tracking-wide! text-slate-500!">
-        OR
-      </div>
-      <Separator className="bg-slate-300!" />
+    <div className="flex items-center my-4">
+      <div className="grow"><Separator className="c-separator" /></div>
+      <div className="px-3 font-semibold text-gray-500">OR</div>
+      <div className="grow"><Separator className="c-separator" /></div>
     </div>
   )
 }

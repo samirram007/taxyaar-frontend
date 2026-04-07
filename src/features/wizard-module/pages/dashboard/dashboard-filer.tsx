@@ -53,7 +53,7 @@ export default function DashboardFiler() {
   const displayPan = taxFiler?.pan ?? "XXXX0000X"
 
   return (
-    <div className="min-h-screen bg-slate-50/5 max-w-max mx-auto">
+    <div className="min-h-screen bg-slate-50/5 max-w-max mx-auto px-1 md:px-8">
       <Breadcrumb title="Dashboard" />
 
 

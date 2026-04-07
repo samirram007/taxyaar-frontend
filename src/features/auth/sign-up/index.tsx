@@ -7,38 +7,21 @@ import {
 import { Card, CardContent } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { Link } from '@tanstack/react-router'
-import { useEffect } from 'react'
+
 import Footer from '@/features/home/components/footer'
 import Header from '@/features/home/components/header'
 import { SignUpForm } from './components/sign-up-form'
 import { GoogleSignInButton } from '../components/google-sign-in-button'
 
 export default function SignUp() {
-  useEffect(() => {
-    const files = [
-      '/css/bootstrap.min.css',
-      '/css/font-awesome.min.css',
-      '/css/custom.css',
-      '/css/responsive.css',
-    ]
 
-    files.forEach((href) => {
-      const exists = document.querySelector(`link[href="${href}"]`)
-      if (!exists) {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = href
-        document.head.appendChild(link)
-      }
-    })
-  }, [])
 
   return (
     <>
       <Header />
 
       <div className="body bg-slate-100/70! text-slate-800! pb-12!">
-        <section className="container px-4! pt-14! pb-8!">
+        <section className="container mx-auto px-4! pt-14! pb-8!">
           <Card className="mx-auto! w-full! max-w-140! border-0! bg-transparent! py-0! shadow-none!">
             <CardContent className="p-0!">
               <div className="text-center!">
@@ -94,7 +77,7 @@ export default function SignUp() {
           </Card>
         </section>
 
-        <section className="container px-4! pt-6! pb-14!">
+        <section className="container mx-auto px-4! pt-6! pb-14!">
           <h2 className="mb-8! text-center! text-5xl! font-semibold! text-slate-800!">
             Common Questions
           </h2>

@@ -40,7 +40,7 @@ export function ProfileDropdown() {
         <DropdownMenuTrigger asChild>
           <Button
             variant="ghost"
-            className="relative h-8 w-8 rounded-full shadow-md"
+            className="relative h-8 w-8 rounded-full shadow-md text-slate-800"
           >
             <Avatar className="h-8 w-8">
               {!isMobile && (
