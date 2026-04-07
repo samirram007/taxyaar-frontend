@@ -1,0 +1,337 @@
+/* Landing page responsive overrides */
+
+@media (max-width: 1399px) {
+    .c-banner-w h1 {
+        font-size: 96px;
+    }
+
+    .c-banner-w h2 {
+        font-size: 64px;
+    }
+
+    .c-banner-w h4 {
+        font-size: 38px;
+    }
+
+    .c-banner-main .rating-section {
+        padding-left: 120px;
+    }
+}
+
+@media (max-width: 1199px) {
+    .c-nav-bottom-list>ul>li {
+        padding: 0 10px;
+        font-size: 16px;
+    }
+
+    .c-btn-1,
+    .c-btn-2 {
+        padding: 10px 22px;
+    }
+
+    .c-banner-slide {
+        padding-bottom: 100px;
+    }
+
+    .c-banner-slide .container {
+        padding: 20px 20px 70px;
+    }
+
+    .c-banner-w h1 {
+        font-size: 74px;
+        padding-bottom: 20px;
+    }
+
+    .c-banner-w h2 {
+        font-size: 52px;
+        padding-bottom: 20px;
+    }
+
+    .c-banner-w h4 {
+        font-size: 30px;
+        padding-bottom: 20px;
+    }
+
+    .c-banner-main .rating-section {
+        padding-left: 60px;
+    }
+
+    .c-btn-3 {
+        font-size: 24px;
+        padding: 13px 44px;
+    }
+}
+
+@media (max-width: 991px) {
+    .c-header-w .row {
+        align-items: center;
+    }
+
+    .c-header-w .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .c-logo-w {
+        padding: 12px 0;
+        text-align: left;
+    }
+
+    .c-logo-w img {
+        max-height: 52px;
+    }
+
+    .c-nav-bottom {
+        display: flex;
+        justify-content: flex-end;
+        position: relative;
+        padding-bottom: 12px;
+    }
+
+    .c-menu-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--deepblue);
+        color: var(--white);
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 0.4px;
+        padding: 10px 14px;
+        border-radius: 6px;
+    }
+
+    .c-menu-btn i {
+        font-size: 18px;
+    }
+
+    .c-nav-bottom-list {
+        display: none;
+        width: min(320px, 92vw);
+        margin-top: 10px;
+        background: var(--deepblue);
+        border-radius: 10px;
+        padding: 8px;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        z-index: 20;
+    }
+
+    .c-nav-bottom-list.is-open {
+        display: block;
+    }
+
+    .c-nav-bottom-list>ul {
+        flex-direction: column;
+        align-items: stretch;
+        margin: 0;
+        gap: 6px;
+    }
+
+    .c-nav-bottom-list>ul>li {
+        padding: 0;
+    }
+
+    .c-nav-bottom-list>ul>li>a,
+    .c-nav-bottom-list>ul>li>button {
+        width: 100%;
+        text-align: left;
+        border-radius: 8px;
+        border-bottom: 0;
+        text-transform: none;
+        padding: 10px 12px;
+        display: block;
+    }
+
+    .c-nav-bottom-list>ul>li>a:hover {
+        border-bottom: 0;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .c-nav-bottom-list .c-btn-1,
+    .c-nav-bottom-list .c-btn-2 {
+        width: 100%;
+        text-align: center;
+        border-radius: 8px;
+        padding: 12px 16px;
+    }
+
+    .c-banner-main {
+        padding-bottom: 20px;
+    }
+
+    .c-banner-slide {
+        padding-bottom: 48px;
+    }
+
+    .c-banner-slide .container {
+        padding: 30px 16px 36px;
+        text-align: center;
+    }
+
+    .c-banner-w h1 {
+        font-size: 52px;
+    }
+
+    .c-banner-w h2 {
+        font-size: 38px;
+    }
+
+    .c-banner-w h4 {
+        font-size: 24px;
+    }
+
+    .c-banner-img-new {
+        position: static;
+        width: min(92%, 460px);
+        height: auto;
+        margin: 22px auto 0;
+    }
+
+    .c-banner-img-new img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .c-banner-main .rating-section {
+        padding: 0;
+        align-items: center;
+    }
+
+    .c-banner-main .rating-section .rating-section-star {
+        margin: 0 0 8px;
+    }
+
+    .c-banner-main .banner-button {
+        margin: 16px 0 0;
+    }
+
+    .c-btn-3 {
+        font-size: 20px;
+        padding: 12px 28px;
+    }
+
+    .c-banner-w .slick-dots {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 22px;
+    }
+
+    .c-banner-w .slick-arrow {
+        display: none;
+    }
+
+    .c-banner-main .banner-bottom {
+        margin-top: -152px;
+    }
+
+    .c-footer-w {
+        padding-top: 28px;
+    }
+
+    .c-footer-left {
+        text-align: center;
+        margin-bottom: 18px;
+    }
+
+    .c-footer-left .c-footer-logo {
+        margin: 0 auto;
+    }
+
+    .c-footer-left ul {
+        justify-content: center;
+    }
+
+    .c-footer-left ul li {
+        padding: 0 14px;
+    }
+
+    .c-footer-nav {
+        margin-bottom: 16px;
+        text-align: center;
+    }
+
+    .c-footer-nav h3 {
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width: 767px) {
+    .c-header-w {
+        border-top-width: 6px;
+    }
+
+    .c-logo-w img {
+        max-height: 44px;
+    }
+
+    .c-banner-slide {
+        padding-bottom: 36px;
+    }
+
+    .c-banner-slide .container {
+        padding: 24px 12px 30px;
+    }
+
+    .c-banner-w h1 {
+        font-size: 38px;
+        padding-bottom: 14px;
+    }
+
+    .c-banner-w h2 {
+        font-size: 28px;
+        padding-bottom: 14px;
+        line-height: 1.15;
+    }
+
+    .c-banner-w h4 {
+        font-size: 20px;
+        line-height: 1.3;
+        padding-bottom: 14px;
+    }
+
+    .rating-section-text {
+        font-size: 14px;
+    }
+
+    .c-btn-3 {
+        font-size: 18px;
+        padding: 11px 20px;
+        border-radius: 20px;
+    }
+
+    .c-banner-main .banner-bottom {
+        margin-top: -136px;
+    }
+
+    .c-footer-bottom {
+        font-size: 14px;
+        margin-bottom: 14px;
+    }
+
+    .c-footer-w .disclaimer {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 420px) {
+    .c-banner-w h1 {
+        font-size: 32px;
+    }
+
+    .c-banner-w h2 {
+        font-size: 24px;
+    }
+
+    .c-banner-w h4 {
+        font-size: 18px;
+    }
+
+    .c-banner-main .rating-section .total-review {
+        display: block;
+    }
+}

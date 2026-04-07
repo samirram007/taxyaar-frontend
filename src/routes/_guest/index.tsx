@@ -2,7 +2,7 @@ import Home from '@/features/home'
 import { createFileRoute, redirect } from '@tanstack/react-router'
 import { useEffect } from 'react'
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute('/_guest/')({
   beforeLoad: async ({ context }) => {
     if (context.auth?.isAuthenticated) {
       throw redirect({ to: '/product_launchboard' })
@@ -10,12 +10,22 @@ export const Route = createFileRoute('/')({
   },
   component: RouteComponent,
 })
+
+
 function RouteComponent() {
   useEffect(() => {
-    HeadCSS()
+    //HeadCSS()
   }, [])
 
-  return <Home />
+  return (
+    <>
+
+      <main className="body c-home-w">
+        <Home />
+      </main>
+
+    </>
+  )
 }
 export const HeadCSS = () => {
   const files = [

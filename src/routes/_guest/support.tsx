@@ -1,8 +1,8 @@
-import Pricing from '@/features/pricing'
+import Support from '@/features/support'
 import { createFileRoute } from '@tanstack/react-router'
 
 
-export const Route = createFileRoute('/pricing')({
+export const Route = createFileRoute('/_guest/support')({
   component: RouteComponent,
 })
 
@@ -25,8 +25,7 @@ function RouteComponent() {
   //     }
   //   })
 
-
   // }, [])
 
-  return <Pricing />
+  return <Support />
 }

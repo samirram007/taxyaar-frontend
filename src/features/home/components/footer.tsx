@@ -12,92 +12,68 @@ const Footer = () => {
   } = footerData
 
   return (
-    <footer className="c-footer-w">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-3 col-md-12">
-            <div className="c-footer-left">
-              <div className="c-footer-logo">
-                <Link to={'/'}>
-                  <img src="img/logo.png" alt="" />
-                </Link>
-              </div>
-              <ul>
-                <li>
-                  <Link to={'/'}>
-                    <i className="fa fa-facebook" aria-hidden="true"></i>
-                  </Link>
-                </li>
-                <li>
-                  <Link to={'/'}>
-                    <i className="fa fa-twitter" aria-hidden="true"></i>
-                  </Link>
-                </li>
-                <li>
-                  <Link to={'/'}>
-                    <i className="fa fa-instagram" aria-hidden="true"></i>
-                  </Link>
-                </li>
+    <footer className="w-full bg-blue-900 text-white pt-12 pb-6 border-t border-blue-200">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-10">
+          <div className="flex-1 mb-8 md:mb-0 flex flex-col items-start">
+            <Link to={'/'} className="mb-4 inline-block">
+              <img src="img/logo.png" alt="Taxyaar" className="h-24 text-shadow-lg w-auto" />
+            </Link>
+            <div className="flex space-x-4 mb-4">
+              <Link to={'/'} className="hover:text-blue-300"><i className="fa fa-facebook" aria-hidden="true"></i></Link>
+              <Link to={'/'} className="hover:text-blue-300"><i className="fa fa-twitter" aria-hidden="true"></i></Link>
+              <Link to={'/'} className="hover:text-blue-300"><i className="fa fa-instagram" aria-hidden="true"></i></Link>
+            </div>
+          </div>
+          <div className="flex-[3] grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="text-lg font-bold mb-3 text-blue-100">{taxyaar.heading}</h3>
+              <ul className="space-y-1">
+                {taxyaar.links.map((link) => (
+                  <li key={link}>
+                    <Link to={'/'} className="hover:text-blue-300 text-sm">{link}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-bold mb-3 text-blue-100">{importantTools.heading}</h3>
+              <ul className="space-y-1">
+                {importantTools.links.map((link) => (
+                  <li key={link}>
+                    <Link to={'/'} className="hover:text-blue-300 text-sm">{link}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-bold mb-3 text-blue-100">{corporate.heading}</h3>
+              <ul className="space-y-1">
+                {corporate.links.map((link) => (
+                  <li key={link}>
+                    <Link to={'/'} className="hover:text-blue-300 text-sm">{link}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-lg font-bold mb-3 text-blue-100">{otherLinks.heading}</h3>
+              <ul className="space-y-1">
+                {otherLinks.links.map((link) => (
+                  <li key={link}>
+                    <Link to={'/'} className="hover:text-blue-300 text-sm">{link}</Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
-          <div className="col-lg-9 col-md-12">
-            <div className="row">
-              <div className="col-lg-3 col-md-6 col-6">
-                <div className="c-footer-nav">
-                  <h3>{taxyaar.heading}</h3>
-                  <ul>
-                    {taxyaar.links.map((link) => (
-                      <li key={link}>
-                        <Link to={'/'}>{link}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              <div className="col-lg-3 col-md-6 col-6">
-                <div className="c-footer-nav">
-                  <h3>{importantTools.heading}</h3>
-                  <ul>
-                    {importantTools.links.map((link) => (
-                      <li key={link}>
-                        <Link to={'/'}>{link}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              <div className="col-lg-3 col-md-6 col-6">
-                <div className="c-footer-nav">
-                  <h3>{corporate.heading}</h3>
-                  <ul>
-                    {corporate.links.map((link) => (
-                      <li key={link}>
-                        <Link to={'/'}>{link}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              <div className="col-lg-3 col-md-6 col-6">
-                <div className="c-footer-nav">
-                  <h3>{otherLinks.heading}</h3>
-                  <ul>
-                    {otherLinks.links.map((link) => (
-                      <li key={link}>
-                        <Link to={'/'}>{link}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-        <div className="c-footer-bottom">
-          <p> {copyright} </p>
+        <div className="mt-10 border-t border-blue-400 pt-6 text-center text-sm text-blue-200">
+          <p>{copyright}</p>
         </div>
-        <div className="disclaimer">{disclaimer}</div>
+        <div className="mt-2 text-xs text-blue-300 text-center max-w-4xl mx-auto">
+          {disclaimer}
+        </div>
       </div>
     </footer>
   )

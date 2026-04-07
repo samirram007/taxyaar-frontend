@@ -11,14 +11,15 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SupportRouteImport } from './routes/support'
-import { Route as PricingRouteImport } from './routes/pricing'
-import { Route as ImportCgSharesRouteImport } from './routes/import-cg-shares'
 import { Route as ProtectedRouteImport } from './routes/_protected'
-import { Route as IndexRouteImport } from './routes/index'
+import { Route as GuestRouteImport } from './routes/_guest'
+import { Route as GuestIndexRouteImport } from './routes/_guest/index'
 import { Route as ProtectedSignOutRouteImport } from './routes/_protected/sign-out'
 import { Route as ProtectedProduct_launchboardRouteImport } from './routes/_protected/product_launchboard'
 import { Route as ProtectedFilerRouteImport } from './routes/_protected/_filer'
+import { Route as GuestSupportRouteImport } from './routes/_guest/support'
+import { Route as GuestPricingRouteImport } from './routes/_guest/pricing'
+import { Route as GuestImportCgSharesRouteImport } from './routes/_guest/import-cg-shares'
 import { Route as authSignUpRouteImport } from './routes/(auth)/sign-up'
 import { Route as authSignInRouteImport } from './routes/(auth)/sign-in'
 import { Route as authOtpRouteImport } from './routes/(auth)/otp'
@@ -47,6 +48,7 @@ import { Route as ProtectedFilerOther_details_startIndexRouteImport } from './ro
 import { Route as ProtectedFilerOther_casual_incomeIndexRouteImport } from './routes/_protected/_filer/other_casual_income/index'
 import { Route as ProtectedFilerMembersIndexRouteImport } from './routes/_protected/_filer/members/index'
 import { Route as ProtectedFilerLossesIndexRouteImport } from './routes/_protected/_filer/losses/index'
+import { Route as ProtectedFilerImportCgSharesProtectedIndexRouteImport } from './routes/_protected/_filer/import-cg-shares-protected/index'
 import { Route as ProtectedFilerHouse_propertyIndexRouteImport } from './routes/_protected/_filer/house_property/index'
 import { Route as ProtectedFilerGeneral_profit_lossIndexRouteImport } from './routes/_protected/_filer/general_profit_loss/index'
 import { Route as ProtectedFilerGeneral_businessIndexRouteImport } from './routes/_protected/_filer/general_business/index'
@@ -165,29 +167,18 @@ const authForgotPasswordLazyRouteImport = createFileRoute(
   '/(auth)/forgot-password',
 )()
 
-const SupportRoute = SupportRouteImport.update({
-  id: '/support',
-  path: '/support',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PricingRoute = PricingRouteImport.update({
-  id: '/pricing',
-  path: '/pricing',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ImportCgSharesRoute = ImportCgSharesRouteImport.update({
-  id: '/import-cg-shares',
-  path: '/import-cg-shares',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ProtectedRoute = ProtectedRouteImport.update({
   id: '/_protected',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
+const GuestRoute = GuestRouteImport.update({
+  id: '/_guest',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuestIndexRoute = GuestIndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
+  getParentRoute: () => GuestRoute,
 } as any)
 const errors503LazyRoute = errors503LazyRouteImport
   .update({
@@ -261,6 +252,21 @@ const ProtectedProduct_launchboardRoute =
 const ProtectedFilerRoute = ProtectedFilerRouteImport.update({
   id: '/_filer',
   getParentRoute: () => ProtectedRoute,
+} as any)
+const GuestSupportRoute = GuestSupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => GuestRoute,
+} as any)
+const GuestPricingRoute = GuestPricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => GuestRoute,
+} as any)
+const GuestImportCgSharesRoute = GuestImportCgSharesRouteImport.update({
+  id: '/import-cg-shares',
+  path: '/import-cg-shares',
+  getParentRoute: () => GuestRoute,
 } as any)
 const authSignUpRoute = authSignUpRouteImport
   .update({
@@ -425,6 +431,12 @@ const ProtectedFilerLossesIndexRoute =
   ProtectedFilerLossesIndexRouteImport.update({
     id: '/losses/',
     path: '/losses/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerImportCgSharesProtectedIndexRoute =
+  ProtectedFilerImportCgSharesProtectedIndexRouteImport.update({
+    id: '/import-cg-shares-protected/',
+    path: '/import-cg-shares-protected/',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
 const ProtectedFilerHouse_propertyIndexRoute =
@@ -1068,13 +1080,13 @@ const ProtectedAdministrationLayoutRoleLayoutIdModuleModuleidRoute =
   } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/import-cg-shares': typeof ImportCgSharesRoute
-  '/pricing': typeof PricingRoute
-  '/support': typeof SupportRoute
+  '/': typeof GuestIndexRoute
   '/otp': typeof authOtpRoute
   '/sign-in': typeof authSignInRoute
   '/sign-up': typeof authSignUpRoute
+  '/import-cg-shares': typeof GuestImportCgSharesRoute
+  '/pricing': typeof GuestPricingRoute
+  '/support': typeof GuestSupportRoute
   '/product_launchboard': typeof ProtectedProduct_launchboardRoute
   '/sign-out': typeof ProtectedSignOutRoute
   '/forgot-password': typeof authForgotPasswordLazyRoute
@@ -1163,6 +1175,7 @@ export interface FileRoutesByFullPath {
   '/general_business/': typeof ProtectedFilerGeneral_businessIndexRoute
   '/general_profit_loss/': typeof ProtectedFilerGeneral_profit_lossIndexRoute
   '/house_property/': typeof ProtectedFilerHouse_propertyIndexRoute
+  '/import-cg-shares-protected/': typeof ProtectedFilerImportCgSharesProtectedIndexRoute
   '/losses/': typeof ProtectedFilerLossesIndexRoute
   '/members/': typeof ProtectedFilerMembersIndexRoute
   '/other_casual_income/': typeof ProtectedFilerOther_casual_incomeIndexRoute
@@ -1218,13 +1231,13 @@ export interface FileRoutesByFullPath {
   '/administration/role/$id/': typeof ProtectedAdministrationLayoutRoleLayoutIdModuleIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/import-cg-shares': typeof ImportCgSharesRoute
-  '/pricing': typeof PricingRoute
-  '/support': typeof SupportRoute
+  '/': typeof GuestIndexRoute
   '/otp': typeof authOtpRoute
   '/sign-in': typeof authSignInRoute
   '/sign-up': typeof authSignUpRoute
+  '/import-cg-shares': typeof GuestImportCgSharesRoute
+  '/pricing': typeof GuestPricingRoute
+  '/support': typeof GuestSupportRoute
   '/product_launchboard': typeof ProtectedProduct_launchboardRoute
   '/sign-out': typeof ProtectedSignOutRoute
   '/forgot-password': typeof authForgotPasswordLazyRoute
@@ -1360,14 +1373,14 @@ export interface FileRoutesByTo {
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
+  '/_guest': typeof GuestRouteWithChildren
   '/_protected': typeof ProtectedRouteWithChildren
-  '/import-cg-shares': typeof ImportCgSharesRoute
-  '/pricing': typeof PricingRoute
-  '/support': typeof SupportRoute
   '/(auth)/otp': typeof authOtpRoute
   '/(auth)/sign-in': typeof authSignInRoute
   '/(auth)/sign-up': typeof authSignUpRoute
+  '/_guest/import-cg-shares': typeof GuestImportCgSharesRoute
+  '/_guest/pricing': typeof GuestPricingRoute
+  '/_guest/support': typeof GuestSupportRoute
   '/_protected/_filer': typeof ProtectedFilerRouteWithChildren
   '/_protected/product_launchboard': typeof ProtectedProduct_launchboardRoute
   '/_protected/sign-out': typeof ProtectedSignOutRoute
@@ -1379,6 +1392,7 @@ export interface FileRoutesById {
   '/(errors)/404': typeof errors404LazyRoute
   '/(errors)/500': typeof errors500LazyRoute
   '/(errors)/503': typeof errors503LazyRoute
+  '/_guest/': typeof GuestIndexRoute
   '/_protected/(auth)/change-password': typeof ProtectedauthChangePasswordRoute
   '/_protected/administration/_layout': typeof ProtectedAdministrationLayoutRouteWithChildren
   '/_protected/documents/': typeof ProtectedDocumentsIndexRoute
@@ -1457,6 +1471,7 @@ export interface FileRoutesById {
   '/_protected/_filer/general_business/': typeof ProtectedFilerGeneral_businessIndexRoute
   '/_protected/_filer/general_profit_loss/': typeof ProtectedFilerGeneral_profit_lossIndexRoute
   '/_protected/_filer/house_property/': typeof ProtectedFilerHouse_propertyIndexRoute
+  '/_protected/_filer/import-cg-shares-protected/': typeof ProtectedFilerImportCgSharesProtectedIndexRoute
   '/_protected/_filer/losses/': typeof ProtectedFilerLossesIndexRoute
   '/_protected/_filer/members/': typeof ProtectedFilerMembersIndexRoute
   '/_protected/_filer/other_casual_income/': typeof ProtectedFilerOther_casual_incomeIndexRoute
@@ -1515,12 +1530,12 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/import-cg-shares'
-    | '/pricing'
-    | '/support'
     | '/otp'
     | '/sign-in'
     | '/sign-up'
+    | '/import-cg-shares'
+    | '/pricing'
+    | '/support'
     | '/product_launchboard'
     | '/sign-out'
     | '/forgot-password'
@@ -1609,6 +1624,7 @@ export interface FileRouteTypes {
     | '/general_business/'
     | '/general_profit_loss/'
     | '/house_property/'
+    | '/import-cg-shares-protected/'
     | '/losses/'
     | '/members/'
     | '/other_casual_income/'
@@ -1665,12 +1681,12 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/import-cg-shares'
-    | '/pricing'
-    | '/support'
     | '/otp'
     | '/sign-in'
     | '/sign-up'
+    | '/import-cg-shares'
+    | '/pricing'
+    | '/support'
     | '/product_launchboard'
     | '/sign-out'
     | '/forgot-password'
@@ -1805,14 +1821,14 @@ export interface FileRouteTypes {
     | '/administration/role/$id'
   id:
     | '__root__'
-    | '/'
+    | '/_guest'
     | '/_protected'
-    | '/import-cg-shares'
-    | '/pricing'
-    | '/support'
     | '/(auth)/otp'
     | '/(auth)/sign-in'
     | '/(auth)/sign-up'
+    | '/_guest/import-cg-shares'
+    | '/_guest/pricing'
+    | '/_guest/support'
     | '/_protected/_filer'
     | '/_protected/product_launchboard'
     | '/_protected/sign-out'
@@ -1824,6 +1840,7 @@ export interface FileRouteTypes {
     | '/(errors)/404'
     | '/(errors)/500'
     | '/(errors)/503'
+    | '/_guest/'
     | '/_protected/(auth)/change-password'
     | '/_protected/administration/_layout'
     | '/_protected/documents/'
@@ -1902,6 +1919,7 @@ export interface FileRouteTypes {
     | '/_protected/_filer/general_business/'
     | '/_protected/_filer/general_profit_loss/'
     | '/_protected/_filer/house_property/'
+    | '/_protected/_filer/import-cg-shares-protected/'
     | '/_protected/_filer/losses/'
     | '/_protected/_filer/members/'
     | '/_protected/_filer/other_casual_income/'
@@ -1958,11 +1976,8 @@ export interface FileRouteTypes {
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  GuestRoute: typeof GuestRouteWithChildren
   ProtectedRoute: typeof ProtectedRouteWithChildren
-  ImportCgSharesRoute: typeof ImportCgSharesRoute
-  PricingRoute: typeof PricingRoute
-  SupportRoute: typeof SupportRoute
   authOtpRoute: typeof authOtpRoute
   authSignInRoute: typeof authSignInRoute
   authSignUpRoute: typeof authSignUpRoute
@@ -1978,27 +1993,6 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/support': {
-      id: '/support'
-      path: '/support'
-      fullPath: '/support'
-      preLoaderRoute: typeof SupportRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/pricing': {
-      id: '/pricing'
-      path: '/pricing'
-      fullPath: '/pricing'
-      preLoaderRoute: typeof PricingRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/import-cg-shares': {
-      id: '/import-cg-shares'
-      path: '/import-cg-shares'
-      fullPath: '/import-cg-shares'
-      preLoaderRoute: typeof ImportCgSharesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/_protected': {
       id: '/_protected'
       path: ''
@@ -2006,12 +2000,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
+    '/_guest': {
+      id: '/_guest'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof GuestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_guest/': {
+      id: '/_guest/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      preLoaderRoute: typeof GuestIndexRouteImport
+      parentRoute: typeof GuestRoute
     }
     '/(errors)/503': {
       id: '/(errors)/503'
@@ -2089,6 +2090,27 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof ProtectedFilerRouteImport
       parentRoute: typeof ProtectedRoute
+    }
+    '/_guest/support': {
+      id: '/_guest/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof GuestSupportRouteImport
+      parentRoute: typeof GuestRoute
+    }
+    '/_guest/pricing': {
+      id: '/_guest/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof GuestPricingRouteImport
+      parentRoute: typeof GuestRoute
+    }
+    '/_guest/import-cg-shares': {
+      id: '/_guest/import-cg-shares'
+      path: '/import-cg-shares'
+      fullPath: '/import-cg-shares'
+      preLoaderRoute: typeof GuestImportCgSharesRouteImport
+      parentRoute: typeof GuestRoute
     }
     '/(auth)/sign-up': {
       id: '/(auth)/sign-up'
@@ -2284,6 +2306,13 @@ declare module '@tanstack/react-router' {
       path: '/losses'
       fullPath: '/losses/'
       preLoaderRoute: typeof ProtectedFilerLossesIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/import-cg-shares-protected/': {
+      id: '/_protected/_filer/import-cg-shares-protected/'
+      path: '/import-cg-shares-protected'
+      fullPath: '/import-cg-shares-protected/'
+      preLoaderRoute: typeof ProtectedFilerImportCgSharesProtectedIndexRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
     '/_protected/_filer/house_property/': {
@@ -3031,6 +3060,22 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface GuestRouteChildren {
+  GuestImportCgSharesRoute: typeof GuestImportCgSharesRoute
+  GuestPricingRoute: typeof GuestPricingRoute
+  GuestSupportRoute: typeof GuestSupportRoute
+  GuestIndexRoute: typeof GuestIndexRoute
+}
+
+const GuestRouteChildren: GuestRouteChildren = {
+  GuestImportCgSharesRoute: GuestImportCgSharesRoute,
+  GuestPricingRoute: GuestPricingRoute,
+  GuestSupportRoute: GuestSupportRoute,
+  GuestIndexRoute: GuestIndexRoute,
+}
+
+const GuestRouteWithChildren = GuestRoute._addFileChildren(GuestRouteChildren)
+
 interface ProtectedFilerSettingsLayoutRouteChildren {
   ProtectedFilerSettingsLayoutIndexRoute: typeof ProtectedFilerSettingsLayoutIndexRoute
 }
@@ -3116,6 +3161,7 @@ interface ProtectedFilerRouteChildren {
   ProtectedFilerGeneral_businessIndexRoute: typeof ProtectedFilerGeneral_businessIndexRoute
   ProtectedFilerGeneral_profit_lossIndexRoute: typeof ProtectedFilerGeneral_profit_lossIndexRoute
   ProtectedFilerHouse_propertyIndexRoute: typeof ProtectedFilerHouse_propertyIndexRoute
+  ProtectedFilerImportCgSharesProtectedIndexRoute: typeof ProtectedFilerImportCgSharesProtectedIndexRoute
   ProtectedFilerLossesIndexRoute: typeof ProtectedFilerLossesIndexRoute
   ProtectedFilerMembersIndexRoute: typeof ProtectedFilerMembersIndexRoute
   ProtectedFilerOther_casual_incomeIndexRoute: typeof ProtectedFilerOther_casual_incomeIndexRoute
@@ -3255,6 +3301,8 @@ const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
     ProtectedFilerGeneral_profit_lossIndexRoute,
   ProtectedFilerHouse_propertyIndexRoute:
     ProtectedFilerHouse_propertyIndexRoute,
+  ProtectedFilerImportCgSharesProtectedIndexRoute:
+    ProtectedFilerImportCgSharesProtectedIndexRoute,
   ProtectedFilerLossesIndexRoute: ProtectedFilerLossesIndexRoute,
   ProtectedFilerMembersIndexRoute: ProtectedFilerMembersIndexRoute,
   ProtectedFilerOther_casual_incomeIndexRoute:
@@ -3547,11 +3595,8 @@ const ProtectedRouteWithChildren = ProtectedRoute._addFileChildren(
 )
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  GuestRoute: GuestRouteWithChildren,
   ProtectedRoute: ProtectedRouteWithChildren,
-  ImportCgSharesRoute: ImportCgSharesRoute,
-  PricingRoute: PricingRoute,
-  SupportRoute: SupportRoute,
   authOtpRoute: authOtpRoute,
   authSignInRoute: authSignInRoute,
   authSignUpRoute: authSignUpRoute,

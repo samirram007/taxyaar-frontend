@@ -4,6 +4,8 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
 import { useIsMobile } from '@/hooks/use-mobile'
+import { Star, StarHalf, StarHalfIcon } from 'lucide-react'
+import { FaStar, FaStarHalf } from 'react-icons/fa'
 
 const Banner: React.FC = () => {
   const isMobile = useIsMobile()
@@ -72,26 +74,27 @@ const Banner: React.FC = () => {
       >
         {slides.map((slide) => (
           <div key={slide.id} className="c-banner-slide">
-            <div className="container">
-              <div className="col-lg-12 col-md-12">
-                <h1>
+            <div className="container px-12!important mx-auto flex items-center justify-between gap-8">
+              <div className="space-y-0">
+                <div className="c-banner-tag text-9xl font-bold text-blue-50 mb-4">
                   {slide.title}
                   <span>,</span>
-                </h1>
-                <h2>
-                  <span>{slide.subtitle.split(' ')[0]}</span> &nbsp;
+                </div>
+                <div className="c-banner-subtag text-7xl   font-bold text-blue-100 mb-6">
+                  <span className='text-[#ffb401]'>{slide.subtitle.split(' ')[0]}</span> &nbsp;
                   {slide.subtitle.split(' ')[1]} &nbsp;
                   {slide.subtitle.split(' ')[2]}
-                </h2>
+                </div>
                 <h4>{slide.desc}</h4>
 
                 <div className="rating-section">
                   <div className="rating-section-star">
-                    <i className="fa fa-star" />
-                    <i className="fa fa-star" />
-                    <i className="fa fa-star" />
-                    <i className="fa fa-star" />
-                    <i className="fa fa-star-half-o" />
+                    <FaStar size={20} className="text-yellow-400" />
+                    <FaStar size={20} className="text-yellow-400" />
+                    <FaStar size={20} className="text-yellow-400" />
+                    <FaStar size={20} className="text-yellow-400" />
+                    <FaStar size={20} className="text-yellow-400" />
+                    <FaStarHalf size={20} className="text-yellow-400" />
                   </div>
                   <div className="rating-section-text">
                     <span className="actual-rating">4.7</span> <span>|</span>{' '}

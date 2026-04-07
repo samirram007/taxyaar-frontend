@@ -1,8 +1,23 @@
-import Support from '@/features/support'
+import ImportCGShares from '@/features/wizard-module/pages/import-cg-shares'
 import { createFileRoute } from '@tanstack/react-router'
+import { useEffect } from 'react'
 
+export const Route = createFileRoute('/_guest/import-cg-shares')({
+  validateSearch: (search: Record<string, unknown>) => {
+    const brokerIdRaw = search.brokerId
+    const brokerIdNum = Number(brokerIdRaw)
 
-export const Route = createFileRoute('/support')({
+    return {
+      brokerId:
+        Number.isFinite(brokerIdNum) && brokerIdNum > 0
+          ? brokerIdNum
+          : undefined,
+    }
+  },
+  beforeLoad: async ({ context }) => {
+    if (!context.auth?.isAuthenticated) {
+    }
+  },
   component: RouteComponent,
 })
 
@@ -25,7 +40,7 @@ function RouteComponent() {
   //     }
   //   })
 
+  //   return () => {}
   // }, [])
-
-  return <Support />
+  return <ImportCGShares />
 }

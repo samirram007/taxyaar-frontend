@@ -4,8 +4,7 @@ import SupportOptions from './components/SupportOptions'
 import WorkingHours from './components/WorkingHours'
 import HolidayList from './components/HolidayList'
 import supportData from './data/support-data.json'
-import Header from '../home/components/header'
-import Footer from '../home/components/footer'
+
 
 const Support = () => {
   const {
@@ -18,8 +17,8 @@ const Support = () => {
 
   return (
     <>
-      <Header />
-      <div className="body bg-white text-slate-800">
+
+      <div className="body c-home-w">
         <SupportHero title={header.title} subtitle={header.subtitle} />
         <SupportOptions options={supportOptions} />
         <WorkingHours
@@ -33,7 +32,7 @@ const Support = () => {
           holidays={holidayList.holidays}
         />
       </div>
-      <Footer />
+
     </>
   )
 }

@@ -1,6 +1,6 @@
 import { useNavigate } from '@tanstack/react-router'
 import { useRef } from 'react'
-import { Route } from '@/routes/import-cg-shares'
+import { Route } from '@/routes/_guest/import-cg-shares'
 import Header from '../../../home/components/header'
 import Footer from '../../../home/components/footer'
 import BrokerSelection from './components/BrokerSelection'
@@ -43,7 +43,7 @@ const ImportCGShares = () => {
 
   return (
     <>
-      <Header />
+
       <div className="body">
         <HeroSection onStartNowClick={handleScrollToBrokerSection} />
         <section ref={brokerSectionRef} className="bg-gray-50 py-10! px-8!">
@@ -63,7 +63,7 @@ const ImportCGShares = () => {
           </div>
         </section>
       </div>
-      <Footer />
+
     </>
   )
 }
