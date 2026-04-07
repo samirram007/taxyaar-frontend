@@ -5,7 +5,7 @@ import { Mail, Phone, MapPin, HelpCircle } from 'lucide-react'
 const ContactUsSection: React.FC = () => {
   return (
     <section className="!py-20 md:!py-28 bg-gradient-to-b from-slate-50 to-white">
-      <div className="container">
+      <div className="container mx-auto">
         <div className="max-w-5xl mx-auto">
           <div className="!text-center !mb-16">
             <h2 className="!text-4xl md:!text-5xl !font-bold text-slate-900 !mb-4 leading-tight !p-0">

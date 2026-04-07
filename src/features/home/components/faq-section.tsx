@@ -50,7 +50,7 @@ const FAQSection: React.FC = () => {
 
   return (
     <section className="!py-24 md:!py-32 bg-white">
-      <div className="container">
+      <div className="container mx-auto">
         <div className="!text-center !mb-20">
           <h2 className="!text-4xl md:!text-5xl !font-bold text-gray-800 !mb-4 !leading-tight">
             Frequently Asked Questions - FAQs

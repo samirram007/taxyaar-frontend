@@ -71,7 +71,7 @@ const Footer = () => {
         <div className="mt-10 border-t border-blue-400 pt-6 text-center text-sm text-blue-200">
           <p>{copyright}</p>
         </div>
-        <div className="mt-2 text-xs text-blue-300 text-center max-w-4xl mx-auto">
+        <div className="mt-2 text-xs text-blue-300  max-w-full text-justify mx-auto">
           {disclaimer}
         </div>
       </div>

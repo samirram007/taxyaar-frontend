@@ -71,7 +71,7 @@ const HowItWorksSection: React.FC = () => {
 
   return (
     <section ref={sectionRef} className="py-24 md:py-32 bg-slate-100">
-      <div className="container">
+      <div className="container mx-auto ">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold text-blue-600 mb-6 leading-tight">
             How It Works

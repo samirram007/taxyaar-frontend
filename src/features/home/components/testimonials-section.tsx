@@ -44,7 +44,7 @@ const TestimonialsSection: React.FC = () => {
 
   return (
     <section className="!py-24 md:!py-32 bg-gradient-to-r from-blue-900 to-black">
-      <div className="container">
+      <div className="container mx-auto">
         <div className="!text-center !mb-20">
           <h2 className="!text-4xl md:!text-5xl !font-bold text-white !mb-6 !leading-tight">
             What Our Users Say
