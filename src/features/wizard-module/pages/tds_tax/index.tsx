@@ -6,7 +6,7 @@ import WizardFooter from '../../components/wizard_footer'
 
 import { Link } from '@tanstack/react-router'
 import { Button } from '@/components/ui/button'
-import { IconTax } from '@tabler/icons-react'
+
 
 // const questions = [
 //     {

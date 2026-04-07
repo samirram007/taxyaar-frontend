@@ -14,13 +14,7 @@ const modeOfPayments = [
     // ...add more as needed
 ];
 
-const years = [
-    { value: '', label: 'Select Year' },
-    { value: '2024', label: '2024' },
-    { value: '2023', label: '2023' },
-    { value: '2022', label: '2022' },
-    // ...add more as needed
-];
+
 
 const TaxesPaidAdd = () => {
     const navigate = useNavigate();

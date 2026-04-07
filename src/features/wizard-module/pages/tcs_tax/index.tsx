@@ -1,5 +1,5 @@
 import WizardHeader from '../../components/wizard_header';
-import WizardFooter from '../../components/wizard_footer';
+
 import { Button } from '@/components/ui/button';
 import { Link } from '@tanstack/react-router';
 
