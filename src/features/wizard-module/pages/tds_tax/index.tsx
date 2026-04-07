@@ -50,42 +50,41 @@ const TdsTax = () => {
                     shadow rounded-lg   gap-6"
                     >
                         <div className="grid grid-cols-1 justify-center items-start gap-6 pb-6">
-                            <div className='border-b-2 p-6 text-2xl'>
+                            <div className='border-b-2 p-6 text-2xl flex flex-col sm:flex-row sm:items-center sm:justify-between'>
                                 <div>
                                     Tax Deducted at Source (Other than Salary)
+                                    <div className="text-sm text-muted-foreground font-normal mt-1">
+                                        Enter details of your TDS (Other than Salary)
+                                    </div>
                                 </div>
-                                <div className="text-sm text-muted-foreground">
-                                    Enter details of your TDS (Other than Salary)
-
-                                </div>
+                                <Button
+                                    asChild
+                                    className="bg-pink-600/80 hover:bg-pink-700/80 transition-all duration-200 ease-out hover:shadow-lg hover:-translate-y-px active:scale-[0.97] cursor-pointer px-5 py-2 text-base font-semibold mt-4 sm:mt-0"
+                                >
+                                    <Link to={"/tds_tax/add"} className="text-white">
+                                        + ADD
+                                    </Link>
+                                </Button>
                             </div>
-                            <div className="space-y-1 px-6 flex flex-col items-center gap-4">
-                                <p>Add details of your TDS (Other than Salary)</p>
-                                <p>
-                                    <Button
-                                        asChild
-                                        className="
-  bg-pink-600/80 hover:bg-pink-700/80
-  transition-all duration-200 ease-out
-  hover:shadow-lg hover:-translate-y-px
-  active:scale-[0.97] cursor-pointer">
-                                        <Link to={"/tds_tax/add"} className="text-violet-50 ">
-                                            + ADD TDS (Other than Salary)
-                                        </Link>
-                                    </Button>
-                                </p>
-                                <p><IconTax
-                                    size={96}
-                                    className="
-    text-white
-    p-4
-    rounded-full
-    bg-linear-to-br from-blue-300 via-indigo-300 to-purple-300
-    shadow-xl
-    ring-4 ring-blue-100
-  "
-                                /></p>
-
+                            {/* Table */}
+                            <div className="overflow-x-auto px-6 pb-6">
+                                <table className="min-w-full bg-white border border-gray-200 rounded-lg">
+                                    <thead>
+                                        <tr className="bg-gray-50 text-gray-700 text-sm">
+                                            <th className="px-4 py-3 font-semibold text-left border-b">Name of Deductor</th>
+                                            <th className="px-4 py-3 font-semibold text-left border-b">Section</th>
+                                            <th className="px-4 py-3 font-semibold text-left border-b">TAN</th>
+                                            <th className="px-4 py-3 font-semibold text-left border-b">TDS Deducted</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colSpan={4} className="text-center text-gray-500 py-8 border-b">
+                                                No record to display.
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
 
 
