@@ -4,7 +4,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
 import { useIsMobile } from '@/hooks/use-mobile'
-import { Star, StarHalf, StarHalfIcon } from 'lucide-react'
+
 import { FaStar, FaStarHalf } from 'react-icons/fa'
 
 const Banner: React.FC = () => {
@@ -75,17 +75,17 @@ const Banner: React.FC = () => {
         {slides.map((slide) => (
           <div key={slide.id} className="c-banner-slide">
             <div className="container px-12!important mx-auto flex items-center justify-between gap-8">
-              <div className="space-y-0">
-                <div className="c-banner-tag text-9xl font-bold text-blue-50 mb-4">
+              <div className="space-y-0 text-white px-4! md:px-0! max-w-2xl">
+                <div className="c-banner-tag text-6xl md:text-9xl font-bold   mb-4">
                   {slide.title}
                   <span>,</span>
                 </div>
-                <div className="c-banner-subtag text-7xl   font-bold text-blue-100 mb-6">
+                <div className="c-banner-subtag text-4xl md:text-7xl   font-bold  mb-6">
                   <span className='text-[#ffb401]'>{slide.subtitle.split(' ')[0]}</span> &nbsp;
                   {slide.subtitle.split(' ')[1]} &nbsp;
                   {slide.subtitle.split(' ')[2]}
                 </div>
-                <h4>{slide.desc}</h4>
+                <div className='text-3xl md:text-4xl'>{slide.desc}</div>
 
                 <div className="rating-section">
                   <div className="rating-section-star">

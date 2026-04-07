@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-interface Stat {
-  id: number
-  number: string
-  label: string
-  suffix: string
-}
+// interface Stat {
+//   id: number
+//   number: string
+//   label: string
+//   suffix: string
+// }
 
 const StatsSection: React.FC = () => {
 

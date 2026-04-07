@@ -16,7 +16,7 @@ export default function VerifyPage() {
     { id: "2", title: "Why do we need OTP?" },
     { id: "3", title: "How long is OTP valid?" },
   ]
-
+  const helpUrl = import.meta.env.VITE_SUPPORT_URL || "https://help.taxyaar.com"
   return (
     <div className="min-h-screen bg-background">
       
@@ -26,7 +26,7 @@ export default function VerifyPage() {
             
 
             <div className="flex items-center gap-4">
-              <Link to="/support/help" className="text-muted-foreground hover:text-foreground transition text-sm">
+              <Link to={helpUrl} className="text-muted-foreground hover:text-foreground transition text-sm">
                 Support
               </Link>
               <button className="text-sm text-muted-foreground hover:text-foreground transition">
@@ -82,7 +82,7 @@ export default function VerifyPage() {
                 <h3 className="text-sm font-semibold text-muted-foreground mb-4 flex items-center gap-2">
                   <span>💬</span> SUPPORT
                 </h3>
-                <Link to="/support/help" className="text-primary hover:underline text-sm">
+                <Link to={helpUrl} className="text-primary hover:underline text-sm">
                   Ask our Support Team
                 </Link>
               </div>
@@ -92,7 +92,7 @@ export default function VerifyPage() {
                   <span>👥</span> ASSISTED FILING
                 </h3>
                 <p className="text-sm text-muted-foreground mb-3">Need assistance? Let our experts help you.</p>
-                <Link to="/support/help" className="text-primary hover:underline text-sm">
+                <Link to={helpUrl} className="text-primary hover:underline text-sm">
                   Learn more
                 </Link>
               </div>

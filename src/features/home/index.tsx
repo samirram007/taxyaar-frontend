@@ -1,6 +1,5 @@
 import Banner from './components/banner'
-import Footer from './components/footer'
-import Header from './components/header'
+
 import FeaturesSection from './components/features-section'
 import HowItWorksSection from './components/how-it-works-section'
 import StatsSection from './components/stats-section'

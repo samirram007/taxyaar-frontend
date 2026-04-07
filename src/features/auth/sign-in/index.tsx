@@ -18,9 +18,9 @@ export default function SignIn() {
     <>
       <Header />
       <div className="c-signin-main">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-lg-6 col-md-8 col-12">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex justify-center">
+            <div className="w-full lg:w-1/2 md:w-2/3 sm:w-full">
               <div className="c-card p-4 mb-4 mt-5">
                 <div className="text-center mb-4">
                   <h1 className="c-signin-title mb-2">Sign in to Taxyaar Income tax efiling</h1>
@@ -37,7 +37,7 @@ export default function SignIn() {
                 <UserAuthForm className="mt-3" />
                 <p className="text-center mt-4 mb-2">Don&apos;t have an account yet?</p>
                 <div className="text-center">
-                  <Link to="/sign-up" className="c-btn-1">
+                  <Link to="/sign-up" className="inline-block bg-blue-600 hover:bg-orange-500 text-white font-semibold py-3 px-8 rounded transition-colors duration-300">
                     <span>New User? Sign up here</span>
                   </Link>
                 </div>
@@ -45,9 +45,9 @@ export default function SignIn() {
             </div>
           </div>
         </div>
-        <div className="container mt-5">
-          <div className="row justify-content-center">
-            <div className="col-lg-10 col-md-12">
+        <div className="max-w-7xl mx-auto px-4 mt-12">
+          <div className="flex justify-center">
+            <div className="w-full lg:w-5/6 md:w-full">
               <div className="c-card p-4">
                 <h2 className="text-center mb-4" style={{ fontSize: 32, fontWeight: 600 }}>Common Questions</h2>
                 <Accordion type="single" collapsible defaultValue="q-1">
@@ -102,10 +102,10 @@ const faqItems = [
 
 const GoogleSignInDivider = () => {
   return (
-    <div className="c-divider d-flex align-items-center my-4">
-      <div className="flex-fill"><Separator className="c-separator" /></div>
-      <div className="c-divider-label px-3">OR</div>
-      <div className="flex-fill"><Separator className="c-separator" /></div>
+    <div className="flex items-center my-4">
+      <div className="grow"><Separator className="c-separator" /></div>
+      <div className="px-3 font-semibold text-gray-500">OR</div>
+      <div className="grow"><Separator className="c-separator" /></div>
     </div>
   )
 }
