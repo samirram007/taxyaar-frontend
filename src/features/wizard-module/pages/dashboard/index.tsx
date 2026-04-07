@@ -13,7 +13,7 @@ export default function Dashboard({ data }: DashboardProps) {
 
     return (
         <>
-            <Main className='min-w-full'>
+            <Main className='min-w-full px-1'>
                 <MemberCard clientList={data} />
             </Main>
         </>

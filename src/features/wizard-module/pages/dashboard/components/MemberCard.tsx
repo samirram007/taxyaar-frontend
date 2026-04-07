@@ -19,7 +19,8 @@ export default function MemberCard({ clientList }: { clientList: ClientList }) {
 
                     <div className="lg:col-span-2">
                         <div className="bg-background border border-border rounded-lg py-8">
-                            <div className="mb-8 grid grid-cols-[1fr_100px] gap-4 items-center border-b border-border pb-4 px-8">
+                            <div className="mb-8 grid grid-cols-[1fr_100px] gap-4 items-center 
+                            border-b border-border pb-4 px-2 md:px-8">
                                 <div className="">
 
                                     <h2 className="text-xl font-bold text-foreground mb-2">Click on a name to continue</h2>
@@ -28,10 +29,10 @@ export default function MemberCard({ clientList }: { clientList: ClientList }) {
                                         on the right to add a new Tax Filer.
                                     </p>
                                 </div>
-                                <div className="flex justify-end">
+                                <div className="h-full flex items-start justify-start md:justify-end">
                                     <Button
                                         onClick={() => router.navigate({ to: "/assessee/add" })}
-                                        className="ml-auto px-4 py-2 rounded bg-blue-100 text-blue-500 cursor-pointer hover:bg-blue-200 transition hover:opacity-90 font-medium"
+                                        className="ml-auto w-full md:px-4 py-2 rounded bg-blue-100 text-blue-500 cursor-pointer hover:bg-blue-200 transition hover:opacity-90 font-medium"
                                     >
                                         Add
                                     </Button>

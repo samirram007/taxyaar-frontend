@@ -40,7 +40,7 @@ const ProtectedWebLayout = () => {
                             <WizardSidebar />
                             <div className="flex min-w-0 flex-1 flex-col">
                                 <main className="bg-linear-to-b from-slate-100 from-10% to-slate-300 to-20% flex-1 min-h-0 overflow-y-auto">
-                                    <div className="container mx-auto h-full w-full px-4 py-8 sm:px-6 lg:px-8">
+                                    <div className="container mx-auto h-full w-full px-0 py-8 sm:px-6 lg:px-8">
                                         <Suspense fallback={<Toaster />}>
                                             <Outlet />
                                         </Suspense>

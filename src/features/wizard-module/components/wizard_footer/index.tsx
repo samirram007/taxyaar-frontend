@@ -47,14 +47,16 @@ const WizardFooter = (props: WizardFooterProps) => {
     // For example, you could log the navigation or perform some checks
   }
   return (
-    <div className="bg-slate-300/20 px-4 py-2 w-full lg:col-span-2 ">
+    <div className="wizard-footer bg-slate-100/80 px-1 md:px-4 py-2 w-full lg:col-span-2 overflow-hidden ">
       <div className="flex justify-between items-center gap-4">
         <div>
           <div>{props.indicatorTextLeft || 'Previous'}</div>
           <div className="flex flex-row gap-2 items-center">
             <Link
               to={previousPageLink}
-              className="group flex flex-row gap-1 items-center rounded-md px-2 py-1 text-slate-700 transition-all duration-200 ease-out hover:text-sky-700 hover:-translate-x-0.5 hover:opacity-90 active:scale-[0.99]"
+              className="group whitespace-nowrap text-sm  flex flex-row gap-1 items-center rounded-md 
+              px-0 py-1 text-slate-700 
+              transition-all duration-200 ease-out hover:text-sky-700 hover:-translate-x-0.5 hover:opacity-90 active:scale-[0.99]"
               onClick={() => handleLinkClick(previousPageLink)}
             >
               <MoveLeft className="transition-transform duration-200 ease-out group-hover:-translate-x-0.5" />{' '}
@@ -67,11 +69,11 @@ const WizardFooter = (props: WizardFooterProps) => {
           <div className="flex flex-row text-xl text-sky-600 cursor-pointer ">
             <Link
               to={nextPageLink}
-              className="group flex flex-row gap-1 items-center rounded-md px-2 py-1 transition-all duration-200 ease-out hover:text-sky-700 hover:translate-x-0.5 hover:opacity-90 active:scale-[0.99]"
+              className="group whitespace-pre-line text-sm md:text-xl flex flex-row gap-1 items-center rounded-md px-0  py-1 transition-all duration-200 ease-out hover:text-sky-700 hover:translate-x-0.5 hover:opacity-90 active:scale-[0.99]"
               onClick={() => handleLinkClick(nextPageLink)}
             >
               {nextPageName || 'Next Page'}{' '}
-              <MoveRight className="transition-transform duration-200 ease-out group-hover:translate-x-0.5" />
+              <MoveRight className="transition-transform whitespace-nowrap duration-200 ease-out group-hover:translate-x-0.5" />
             </Link>
           </div>
         </div>

@@ -23,7 +23,7 @@ export default function MemeberList({ clientList }: { clientList: ClientList }) 
     const renderCount = useRef(0);
     renderCount.current++;
 
-    console.log("MemeberList render count:", renderCount.current);
+    // console.log("MemeberList render count:", renderCount.current);
 
     // const onClientAuthentication = (client: Client) => {
     //     mutate(client.pan, {
@@ -48,7 +48,7 @@ export default function MemeberList({ clientList }: { clientList: ClientList }) 
 
     return (
         <>
-            <div className="px-8">
+            <div className="px-2 md:px-8">
 
                 {
                     clientList.map((member, index) => (
@@ -80,6 +80,8 @@ export default function MemeberList({ clientList }: { clientList: ClientList }) 
 
 
 
+
+                            <div className="h-full flex items-start justify-start md:justify-end">
 
 
                             <DropdownMenu>
@@ -120,6 +122,7 @@ export default function MemeberList({ clientList }: { clientList: ClientList }) 
 
                                 </DropdownMenuContent>
                             </DropdownMenu>
+                            </div>
                         </div>
                     ))
                 }
