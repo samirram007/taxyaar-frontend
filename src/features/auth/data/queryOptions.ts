@@ -1,5 +1,6 @@
 import { queryOptions, useMutation, useQueryClient } from "@tanstack/react-query"
 import { changePasswordService } from "./apis"
+import { toast } from "sonner"
 
 const Key = "AUTH"
 export const authQueryOptions = (key: string = Key) => {
@@ -20,10 +21,12 @@ export function useChangePasswordMutation() {
             return await changePasswordService(data)
         },
         onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: [Key] })
+            queryClient.invalidateQueries({ queryKey: [Key] });
+            toast.success("Your password has been updated successfully.")
         },
         onError: (error) => {
             console.error("Change password mutation failed:", error)
+            toast.error("Failed to update password.")
         },
     })
 }

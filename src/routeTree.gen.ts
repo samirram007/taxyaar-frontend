@@ -47,6 +47,7 @@ import { Route as ProtectedFilerOther_details_startIndexRouteImport } from './ro
 import { Route as ProtectedFilerOther_casual_incomeIndexRouteImport } from './routes/_protected/_filer/other_casual_income/index'
 import { Route as ProtectedFilerMembersIndexRouteImport } from './routes/_protected/_filer/members/index'
 import { Route as ProtectedFilerLossesIndexRouteImport } from './routes/_protected/_filer/losses/index'
+import { Route as ProtectedFilerImportCgSharesProtectedIndexRouteImport } from './routes/_protected/_filer/import-cg-shares-protected/index'
 import { Route as ProtectedFilerHouse_propertyIndexRouteImport } from './routes/_protected/_filer/house_property/index'
 import { Route as ProtectedFilerGeneral_profit_lossIndexRouteImport } from './routes/_protected/_filer/general_profit_loss/index'
 import { Route as ProtectedFilerGeneral_businessIndexRouteImport } from './routes/_protected/_filer/general_business/index'
@@ -425,6 +426,12 @@ const ProtectedFilerLossesIndexRoute =
   ProtectedFilerLossesIndexRouteImport.update({
     id: '/losses/',
     path: '/losses/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerImportCgSharesProtectedIndexRoute =
+  ProtectedFilerImportCgSharesProtectedIndexRouteImport.update({
+    id: '/import-cg-shares-protected/',
+    path: '/import-cg-shares-protected/',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
 const ProtectedFilerHouse_propertyIndexRoute =
@@ -1163,6 +1170,7 @@ export interface FileRoutesByFullPath {
   '/general_business/': typeof ProtectedFilerGeneral_businessIndexRoute
   '/general_profit_loss/': typeof ProtectedFilerGeneral_profit_lossIndexRoute
   '/house_property/': typeof ProtectedFilerHouse_propertyIndexRoute
+  '/import-cg-shares-protected/': typeof ProtectedFilerImportCgSharesProtectedIndexRoute
   '/losses/': typeof ProtectedFilerLossesIndexRoute
   '/members/': typeof ProtectedFilerMembersIndexRoute
   '/other_casual_income/': typeof ProtectedFilerOther_casual_incomeIndexRoute
@@ -1457,6 +1465,7 @@ export interface FileRoutesById {
   '/_protected/_filer/general_business/': typeof ProtectedFilerGeneral_businessIndexRoute
   '/_protected/_filer/general_profit_loss/': typeof ProtectedFilerGeneral_profit_lossIndexRoute
   '/_protected/_filer/house_property/': typeof ProtectedFilerHouse_propertyIndexRoute
+  '/_protected/_filer/import-cg-shares-protected/': typeof ProtectedFilerImportCgSharesProtectedIndexRoute
   '/_protected/_filer/losses/': typeof ProtectedFilerLossesIndexRoute
   '/_protected/_filer/members/': typeof ProtectedFilerMembersIndexRoute
   '/_protected/_filer/other_casual_income/': typeof ProtectedFilerOther_casual_incomeIndexRoute
@@ -1609,6 +1618,7 @@ export interface FileRouteTypes {
     | '/general_business/'
     | '/general_profit_loss/'
     | '/house_property/'
+    | '/import-cg-shares-protected/'
     | '/losses/'
     | '/members/'
     | '/other_casual_income/'
@@ -1902,6 +1912,7 @@ export interface FileRouteTypes {
     | '/_protected/_filer/general_business/'
     | '/_protected/_filer/general_profit_loss/'
     | '/_protected/_filer/house_property/'
+    | '/_protected/_filer/import-cg-shares-protected/'
     | '/_protected/_filer/losses/'
     | '/_protected/_filer/members/'
     | '/_protected/_filer/other_casual_income/'
@@ -2284,6 +2295,13 @@ declare module '@tanstack/react-router' {
       path: '/losses'
       fullPath: '/losses/'
       preLoaderRoute: typeof ProtectedFilerLossesIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/import-cg-shares-protected/': {
+      id: '/_protected/_filer/import-cg-shares-protected/'
+      path: '/import-cg-shares-protected'
+      fullPath: '/import-cg-shares-protected/'
+      preLoaderRoute: typeof ProtectedFilerImportCgSharesProtectedIndexRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
     '/_protected/_filer/house_property/': {
@@ -3116,6 +3134,7 @@ interface ProtectedFilerRouteChildren {
   ProtectedFilerGeneral_businessIndexRoute: typeof ProtectedFilerGeneral_businessIndexRoute
   ProtectedFilerGeneral_profit_lossIndexRoute: typeof ProtectedFilerGeneral_profit_lossIndexRoute
   ProtectedFilerHouse_propertyIndexRoute: typeof ProtectedFilerHouse_propertyIndexRoute
+  ProtectedFilerImportCgSharesProtectedIndexRoute: typeof ProtectedFilerImportCgSharesProtectedIndexRoute
   ProtectedFilerLossesIndexRoute: typeof ProtectedFilerLossesIndexRoute
   ProtectedFilerMembersIndexRoute: typeof ProtectedFilerMembersIndexRoute
   ProtectedFilerOther_casual_incomeIndexRoute: typeof ProtectedFilerOther_casual_incomeIndexRoute
@@ -3255,6 +3274,8 @@ const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
     ProtectedFilerGeneral_profit_lossIndexRoute,
   ProtectedFilerHouse_propertyIndexRoute:
     ProtectedFilerHouse_propertyIndexRoute,
+  ProtectedFilerImportCgSharesProtectedIndexRoute:
+    ProtectedFilerImportCgSharesProtectedIndexRoute,
   ProtectedFilerLossesIndexRoute: ProtectedFilerLossesIndexRoute,
   ProtectedFilerMembersIndexRoute: ProtectedFilerMembersIndexRoute,
   ProtectedFilerOther_casual_incomeIndexRoute:

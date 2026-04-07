@@ -1,0 +1,69 @@
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+
+interface ChangeEmailFormProps {
+  newEmail: string
+  confirmEmail: string
+  onNewEmailChange: (value: string) => void
+  onConfirmEmailChange: (value: string) => void
+  onSubmit: () => void
+  onCancel: () => void
+}
+
+export default function ChangeEmailForm({
+  newEmail,
+  confirmEmail,
+  onNewEmailChange,
+  onConfirmEmailChange,
+  onSubmit,
+  onCancel,
+}: ChangeEmailFormProps) {
+  return (
+    <div className="border rounded-lg p-4 md:p-6 bg-slate-50 space-y-4">
+      <h3 className="font-semibold text-sm md:text-base text-slate-900 mb-4">
+        Change Email
+      </h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+        <div>
+          <label className="block text-xs md:text-sm font-medium text-slate-700 mb-2">
+            Enter New Email ID
+          </label>
+          <Input
+            type="email"
+            placeholder="Your New Email ID"
+            value={newEmail}
+            onChange={(e) => onNewEmailChange(e.target.value)}
+            className="border-slate-300 focus:border-blue-500 focus:ring-blue-500 rounded-lg text-sm"
+          />
+        </div>
+        <div>
+          <label className="block text-xs md:text-sm font-medium text-slate-700 mb-2">
+            Re-confirm New Email ID
+          </label>
+          <Input
+            type="email"
+            placeholder="Re-enter New Email ID"
+            value={confirmEmail}
+            onChange={(e) => onConfirmEmailChange(e.target.value)}
+            className="border-slate-300 focus:border-blue-500 focus:ring-blue-500 rounded-lg text-sm"
+          />
+        </div>
+      </div>
+      <div className="flex flex-col-reverse md:flex-row gap-2 md:gap-3 pt-2 md:pt-4 md:justify-end">
+        <Button
+          variant="outline"
+          onClick={onCancel}
+          className="rounded-lg text-sm w-full md:w-auto"
+        >
+          Cancel
+        </Button>
+        <Button
+          onClick={onSubmit}
+          className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm w-full md:w-auto"
+        >
+          Submit
+        </Button>
+      </div>
+    </div>
+  )
+}
