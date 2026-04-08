@@ -7,6 +7,7 @@ import FAQSection from './components/faq-section'
 import TestimonialsSection from './components/testimonials-section'
 import ContactUsSection from './components/cta-section'
 import { Suspense } from 'react'
+
 const BannerSkeleton = () => (
   <div className="h-dvh delay-1000 bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500 animate-pulse" />
 )

@@ -4,6 +4,7 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
 import { useIsMobile } from '@/hooks/use-mobile'
+import '../../../responsive.css'
 
 import { FaStar, FaStarHalf } from 'react-icons/fa'
 
@@ -73,19 +74,22 @@ const Banner: React.FC = () => {
         className="slick-slider c-banner-w slick-initialized"
       >
         {slides.map((slide) => (
-          <div key={slide.id} className="c-banner-slide">
-            <div className="container px-12!important mx-auto flex items-center justify-between gap-8">
+          <div key={slide.id} className="c-banner-slide ">
+            <div className="container px-12! mx-auto flex items-center justify-between gap-8">
               <div className="space-y-0 text-white px-4! md:px-0! max-w-2xl">
                 <div className="c-banner-tag text-6xl md:text-9xl font-bold   mb-4">
                   {slide.title}
                   <span>,</span>
                 </div>
                 <div className="c-banner-subtag text-4xl md:text-7xl   font-bold  mb-6">
-                  <span className='text-[#ffb401]'>{slide.subtitle.split(' ')[0]}</span> &nbsp;
+                  <span className="text-[#ffb401]">
+                    {slide.subtitle.split(' ')[0]}
+                  </span>{' '}
+                  &nbsp;
                   {slide.subtitle.split(' ')[1]} &nbsp;
                   {slide.subtitle.split(' ')[2]}
                 </div>
-                <div className='text-3xl md:text-4xl'>{slide.desc}</div>
+                <div className="text-3xl md:text-4xl">{slide.desc}</div>
 
                 <div className="rating-section">
                   <div className="rating-section-star">

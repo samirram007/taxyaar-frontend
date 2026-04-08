@@ -17,53 +17,69 @@ export default function SignIn() {
   return (
     <>
       <Header />
-      <div className="c-signin-main">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex justify-center">
-            <div className="w-full lg:w-1/2 md:w-2/3 sm:w-full">
-              <div className="c-card p-4 mb-4 mt-5">
-                <div className="text-center mb-4">
-                  <h1 className="c-signin-title mb-2">Sign in to Taxyaar Income tax efiling</h1>
-                  <p className="c-signin-desc">Login to your Taxyaar income tax return filing account</p>
-                </div>
-                <div className="c-card-alt mb-3 p-3">
-                  <GoogleSignInButton />
-                  <p className="c-signin-note mt-2">
-                    Google login may not work on some machines. Use email to login or{' '}
-                    <Link to="/sign-up" className="c-link-alt">sign up</Link> as a new user.
-                  </p>
-                </div>
-                <GoogleSignInDivider />
-                <UserAuthForm className="mt-3" />
-                <p className="text-center mt-4 mb-2">Don&apos;t have an account yet?</p>
-                <div className="text-center">
-                  <Link to="/sign-up" className="inline-block bg-blue-600 hover:bg-orange-500 text-white font-semibold py-3 px-8 rounded transition-colors duration-300">
-                    <span>New User? Sign up here</span>
-                  </Link>
-                </div>
-              </div>
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100/50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-[30rem]">
+          <div className="space-y-6 p-8">
+            <div className="text-center">
+              <h1 className="text-2xl font-semibold text-gray-900">
+                Sign in to myITreturn Income tax efiling
+              </h1>
+              <p className="mt-2 text-sm text-gray-600">
+                Login to your myITreturn income tax return filing account
+              </p>
+            </div>
+
+            <GoogleSignInButton />
+            <p className="text-center text-xs leading-relaxed text-gray-600">
+              Google login may not work on some machines. Use email to login or{' '}
+              <Link
+                to="/sign-up"
+                className="font-medium text-blue-600 hover:text-blue-700"
+              >
+                sign up
+              </Link>{' '}
+              as a new user
+            </p>
+
+            <GoogleSignInDivider />
+
+            <UserAuthForm className="space-y-4" />
+
+            <div className="space-y-3 text-center">
+              <p className="text-sm text-gray-600">
+                Don&apos;t have an account yet?
+              </p>
+              <Link
+                to="/sign-up"
+                className="inline-block w-full rounded-lg bg-blue-100 px-4 py-2.5 text-center font-medium text-blue-600 transition-colors hover:bg-blue-100"
+              >
+                New User? Sign up here
+              </Link>
             </div>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto px-4 mt-12">
-          <div className="flex justify-center">
-            <div className="w-full lg:w-5/6 md:w-full">
-              <div className="c-card p-4">
-                <h2 className="text-center mb-4" style={{ fontSize: 32, fontWeight: 600 }}>Common Questions</h2>
-                <Accordion type="single" collapsible defaultValue="q-1">
-                  {faqItems.map((item, idx) => (
-                    <AccordionItem key={item.question} value={`q-${idx + 1}`} className="mb-2">
-                      <AccordionTrigger className="c-faq-question">
-                        {item.question}
-                      </AccordionTrigger>
-                      <AccordionContent className="c-faq-answer">
-                        {item.answer}
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </div>
-            </div>
+
+        <div className="mx-auto mt-16 w-full max-w-3xl px-4">
+          <h2 className="mb-8 text-center text-2xl font-semibold text-gray-900">
+            Common Questions
+          </h2>
+          <div className="rounded-lg bg-white shadow-sm p-6">
+            <Accordion type="single" collapsible defaultValue="q-1">
+              {faqItems.map((item, idx) => (
+                <AccordionItem
+                  key={item.question}
+                  value={`q-${idx + 1}`}
+                  className="border-gray-200"
+                >
+                  <AccordionTrigger className="text-left font-semibold text-gray-900 hover:text-blue-600 hover:no-underline">
+                    {item.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-gray-700">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </div>
@@ -102,10 +118,10 @@ const faqItems = [
 
 const GoogleSignInDivider = () => {
   return (
-    <div className="flex items-center my-4">
-      <div className="grow"><Separator className="c-separator" /></div>
-      <div className="px-3 font-semibold text-gray-500">OR</div>
-      <div className="grow"><Separator className="c-separator" /></div>
+    <div className="relative flex items-center">
+      <div className="flex-grow border-t border-gray-300"></div>
+      <span className="mx-4 text-sm font-medium text-gray-600">OR</span>
+      <div className="flex-grow border-t border-gray-300"></div>
     </div>
   )
 }
