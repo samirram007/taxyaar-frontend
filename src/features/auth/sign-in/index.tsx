@@ -5,7 +5,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 
-import { Separator } from '@/components/ui/separator'
+// import { Separator } from '@/components/ui/separator'
 import Header from '@/features/home/components/header'
 import Footer from '@/features/home/components/footer'
 import { UserAuthForm } from './components/user-auth-form'

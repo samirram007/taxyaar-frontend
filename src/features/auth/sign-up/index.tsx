@@ -4,8 +4,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { Card, CardContent } from '@/components/ui/card'
-import { Separator } from '@/components/ui/separator'
+// import { Card, CardContent } from '@/components/ui/card'
+// import { Separator } from '@/components/ui/separator'
 import { Link } from '@tanstack/react-router'
 
 import Footer from '@/features/home/components/footer'
