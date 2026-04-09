@@ -1,5 +1,5 @@
 
-import LongText from '@/components/long-text'
+import LongText from '@/components/web/long-text'
 import type { AccountLedger } from '@/features/modules/account_ledger/data/schema'
 import type { Row } from '@tanstack/react-table'
 import { useAccountLedger } from '../contexts/account-ledger-context'

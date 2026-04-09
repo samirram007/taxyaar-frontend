@@ -1,4 +1,4 @@
-import { SelectDropdown } from "@/components/select-dropdown";
+import { SelectDropdown } from "@/components/web/select-dropdown";
 import { Badge } from "@/components/ui/badge";
 import { FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";

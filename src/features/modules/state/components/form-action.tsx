@@ -6,7 +6,7 @@ import {
 } from '@/components/ui/form'
 
 
-import FormInputField from '@/components/form-input-field'
+import FormInputField from '@/components/web/form-input-field'
 import { Dialog, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { lowerCase } from '@/utils/removeEmptyStrings'
 import { showSubmittedData } from '@/utils/show-submitted-data'

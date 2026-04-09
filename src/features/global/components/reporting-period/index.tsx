@@ -1,4 +1,4 @@
-import FormInputField from "@/components/form-input-field";
+import FormInputField from "@/components/web/form-input-field";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Form } from "@/components/ui/form";

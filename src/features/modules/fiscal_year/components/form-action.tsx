@@ -6,7 +6,7 @@ import {
 } from '@/components/ui/form'
 
 
-import FormInputField from '@/components/form-input-field'
+import FormInputField from '@/components/web/form-input-field'
 import { Dialog, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'

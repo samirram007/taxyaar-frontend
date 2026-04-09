@@ -20,7 +20,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 import { useForm, type Resolver } from 'react-hook-form'
 
-import FormInputField from '@/components/form-input-field'
+import FormInputField from '@/components/web/form-input-field'
 import { storeAccountLedgerService, updateAccountLedgerService } from '../data/api'
 import AccountGroupDropdown from './account_group-dropdown'
 

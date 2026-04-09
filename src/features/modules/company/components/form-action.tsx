@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { Form } from '@/components/ui/form'
 
-import FormInputField from '@/components/form-input-field'
+import FormInputField from '@/components/web/form-input-field'
 import {
     Dialog,
     DialogDescription,

@@ -1,4 +1,4 @@
-import { PasswordInput } from '@/components/password-input'
+import { PasswordInput } from '@/components/web/password-input'
 import { Button } from '@/components/ui/button'
 import {
   Form,
@@ -71,7 +71,7 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   return (
     <div className={cn('grid! gap-4!', className)} {...props}>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className='grid items-center'>
           <div className="grid! gap-4!">
             <FormField
               control={form.control}
@@ -119,12 +119,15 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
                 </FormItem>
               )}
             />
+            <div className='flex items-center justify-center'>
+
             <Button
-              className="mt-2! h-11! w-full! rounded-sm! bg-blue-600! text-base! font-semibold! text-white! hover:bg-blue-700!"
+                className="mt-2! h-11! w-6/12! rounded-sm! bg-blue-600! text-base! font-semibold! text-white! hover:bg-blue-700!"
               disabled={isLoading}
-            >
+              >
               Continue
             </Button>
+            </div>
           </div>
         </form>
       </Form>

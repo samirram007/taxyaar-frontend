@@ -1,4 +1,4 @@
-import { Search } from "@/components/search"
+import { Search } from "@/components/web/search"
 import { Label } from "@/components/ui/label"
 import { SidebarInput } from "@/components/ui/sidebar"
 export function SearchForm({ ...props }: React.ComponentProps<"form">) {

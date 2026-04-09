@@ -35,9 +35,10 @@ export default function SignIn() {
                 </div>
                 <GoogleSignInDivider />
                 <UserAuthForm className="mt-3" />
-                <p className="text-center mt-4 mb-2">Don&apos;t have an account yet?</p>
+                <p className="text-center mt-8 mb-2">Don&apos;t have an account yet?</p>
                 <div className="text-center">
-                  <Link to="/sign-up" className="inline-block bg-blue-600 hover:bg-orange-500 text-white font-semibold py-3 px-8 rounded transition-colors duration-300">
+                  <Link to="/sign-up" className="inline-block bg-blue-100 hover:bg-orange-500
+                   text-blue-600 font-semibold py-3 px-8 rounded transition-colors duration-300">
                     <span>New User? Sign up here</span>
                   </Link>
                 </div>

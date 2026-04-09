@@ -19,7 +19,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 
 import { useForm, type Resolver } from 'react-hook-form'
 
-import FormInputField from '@/components/form-input-field'
+import FormInputField from '@/components/web/form-input-field'
 
 import { Badge } from '@/components/ui/badge'
 import { Loader2 } from 'lucide-react'

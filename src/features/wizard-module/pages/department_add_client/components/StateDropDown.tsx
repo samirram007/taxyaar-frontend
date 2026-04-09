@@ -1,4 +1,4 @@
-import { SelectDropdown } from '@/components/select-dropdown'
+import { SelectDropdown } from '@/components/web/select-dropdown'
 import {
     FormField,
     FormItem,

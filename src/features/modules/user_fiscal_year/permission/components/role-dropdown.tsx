@@ -3,7 +3,7 @@ import { capitalizeAllWords } from "@/utils/removeEmptyStrings";
 import { useQuery } from "@tanstack/react-query";
 import type { UseFormReturn } from "react-hook-form";
 
-import FormInputField from "@/components/form-input-field";
+import FormInputField from "@/components/web/form-input-field";
 import { fetchRoleService } from "../../role/data/api";
 import type { Role } from "../../role/data/schema";
 import type { PermissionForm } from "../data/schema";

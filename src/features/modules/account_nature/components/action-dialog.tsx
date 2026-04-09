@@ -18,7 +18,7 @@ import { showSubmittedData } from '@/utils/show-submitted-data'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 
-import FormInputField from '@/components/form-input-field'
+import FormInputField from '@/components/web/form-input-field'
 import { useForm } from 'react-hook-form'
 import { lowerCase } from '../../../../utils/removeEmptyStrings'
 import { storeAccountNatureService, updateAccountNatureService } from '../data/api'

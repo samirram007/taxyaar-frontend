@@ -1,6 +1,6 @@
 import { useState } from 'react'
 // import { Link } from '@tanstack/react-router'
-import { ProfileEditModal } from '@/components/profile-edit-modal'
+import { ProfileEditModal } from '@/components/web/profile-edit-modal'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import {

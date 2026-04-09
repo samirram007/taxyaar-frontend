@@ -88,7 +88,7 @@
 
 import type { UseFormReturn } from 'react-hook-form'
 
-import FormInputField from '@/components/form-input-field'
+import FormInputField from '@/components/web/form-input-field'
 
 import type { CompanyForm } from '../data/schema'
 import StateDropdown from '../components/dropdown/state-dropdown'
