@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 
 import { useChangePasswordMutation } from '../data/queryOptions'
 import { Form } from '@/components/ui/form'
-import FormInputField from '@/components/form-input-field'
+import FormInputField from '@/components/web/form-input-field'
 
 
 import z from 'zod'

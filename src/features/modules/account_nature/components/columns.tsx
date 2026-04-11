@@ -1,4 +1,4 @@
-import LongText from '@/components/long-text'
+import LongText from '@/components/web/long-text'
 import { Badge } from '@/components/ui/badge'
 import { Checkbox } from '@/components/ui/checkbox'
 import { cn } from '@/lib/utils'

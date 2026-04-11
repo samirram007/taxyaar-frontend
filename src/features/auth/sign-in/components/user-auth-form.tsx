@@ -1,4 +1,4 @@
-import { PasswordInput } from '@/components/password-input'
+import { PasswordInput } from '@/components/web/password-input'
 import { Button } from '@/components/ui/button'
 import {
   Form,

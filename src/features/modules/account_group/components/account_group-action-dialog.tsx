@@ -20,7 +20,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 import { useForm } from 'react-hook-form'
 
-import FormInputField from '@/components/form-input-field'
+import FormInputField from '@/components/web/form-input-field'
 import type { AccountGroupForm } from '../types/types'
 import AccountNatureDropdown from './account_nature-dropdown'
 import AccountGroupDropdown from './dropdown/account_group-dropdown'

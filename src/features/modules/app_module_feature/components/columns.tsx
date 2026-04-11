@@ -1,11 +1,11 @@
-import LongText from '@/components/long-text'
+import LongText from '@/components/web/long-text'
 import { Badge } from '@/components/ui/badge'
 import { Checkbox } from '@/components/ui/checkbox'
 import { cn } from '@/lib/utils'
 import type { ColumnDef } from '@tanstack/react-table'
 
 
-import Icon from '@/components/icon'
+import Icon from '@/components/web/icon'
 
 import { DataTableColumnHeader } from '@/features/global/components/data-table/data-table-column-header'
 import { ActiveInactiveStatusTypes } from '@/types/active-inactive-status'

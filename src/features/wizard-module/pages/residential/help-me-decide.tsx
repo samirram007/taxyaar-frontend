@@ -1,4 +1,4 @@
-import { YesNoToggle } from "@/components/yes-no-toggle"
+import { YesNoToggle } from "@/components/web/yes-no-toggle"
 import { useEffect, useState } from "react"
 
 

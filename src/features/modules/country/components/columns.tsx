@@ -1,4 +1,4 @@
-import LongText from '@/components/long-text'
+import LongText from '@/components/web/long-text'
 import { Checkbox } from '@/components/ui/checkbox'
 import { cn } from '@/lib/utils'
 import type { ColumnDef } from '@tanstack/react-table'

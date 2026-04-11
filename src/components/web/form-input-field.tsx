@@ -5,12 +5,12 @@ import { Check, ChevronsUpDown } from 'lucide-react';
 import { useState } from 'react';
 import type { Control, UseFormReturn } from "react-hook-form";
 import { SelectDropdown } from './select-dropdown';
-import { Button } from './ui/button';
-import { Command, CommandGroup, CommandItem } from './ui/command';
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "./ui/form";
-import { Input } from "./ui/input";
-import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
-import { Textarea } from "./ui/textarea";
+import { Button } from '../ui/button';
+import { Command, CommandGroup, CommandItem } from '../ui/command';
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
+import { Input } from "../ui/input";
+import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
+import { Textarea } from "../ui/textarea";
 
 type Option = { label: string; value: string | boolean };
 type InputType = 'hidden' | 'text' | 'number' | 'textarea' | 'checkbox' | 'select' | 'multiselect' | 'date';

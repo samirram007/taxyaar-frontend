@@ -1,4 +1,4 @@
-import SkipToMain from '@/components/skip-to-main'
+import SkipToMain from '@/components/web/skip-to-main'
 import { Toaster } from '@/components/ui/sonner'
 import { SearchProvider } from '@/core/contexts/search-context'
 import { Outlet } from '@tanstack/react-router'

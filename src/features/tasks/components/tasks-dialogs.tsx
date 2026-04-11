@@ -1,4 +1,4 @@
-import { ConfirmDialog } from '@/components/confirm-dialog'
+import { ConfirmDialog } from '@/components/web/confirm-dialog'
 import { showSubmittedData } from '@/utils/show-submitted-data'
 import { useTasks } from '../context/tasks-context'
 import { TasksImportDialog } from './tasks-import-dialog'

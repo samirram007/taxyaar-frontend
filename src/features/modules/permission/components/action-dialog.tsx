@@ -19,7 +19,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm, type Resolver } from 'react-hook-form'
 import { lowerCase } from '../../../../utils/removeEmptyStrings'
 
-import FormInputField from '@/components/form-input-field'
+import FormInputField from '@/components/web/form-input-field'
 import { showSubmittedData } from '@/utils/show-submitted-data'
 import { Loader2 } from 'lucide-react'
 import { usePermissionMutation } from '../data/queryOptions'

@@ -16,7 +16,7 @@ import {
 
 import { zodResolver } from '@hookform/resolvers/zod'
 
-import FormInputField from '@/components/form-input-field'
+import FormInputField from '@/components/web/form-input-field'
 import { useForm } from 'react-hook-form'
 
 
