@@ -299,7 +299,7 @@ export const sidebarData: SidebarData = {
                 {
                   title: 'Foreign Signing Authority Account',
                   visible: true,
-                  url: '/foreign_signing_authority_account',
+                  url: '/foreign_signing_authority',
                   icon: IconStar,
                 },
                 {
@@ -324,7 +324,7 @@ export const sidebarData: SidebarData = {
                 {
                   title: 'Foreign Equity and Debt Interest',
                   visible: true,
-                  url: '/foreign_equity_debt_interest',
+                  url: '/financial_equity_and_debt_interest',
                   icon: IconStar,
                 },
                 {

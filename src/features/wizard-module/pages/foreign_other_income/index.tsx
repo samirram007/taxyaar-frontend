@@ -1,110 +1,114 @@
-
 import HelpSidebar from '../../components/HelpSidebar'
-
 import WizardHeader from '../../components/wizard_header'
-import WizardFooter from '../../components/wizard_footer'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
+import { Edit, Trash2 } from 'lucide-react'
+import { useRouter } from '@tanstack/react-router'
+import { AddButton } from '@/components/ui/add-button'
+import { useForeignIncome } from '../../contexts/foreign-income-context'
 
-import { Link } from '@tanstack/react-router'
-import { Button } from '@/components/ui/button'
-import { IconTax } from '@tabler/icons-react'
+const ForeignOtherIncomeIndex = () => {
+  const router = useRouter()
+  const { incomes, deleteIncome } = useForeignIncome()
 
-// const questions = [
-//     {
-//         id: 8,
-//         attributeName: 'regime_type',
-//         question:
-//             'Under which regime you want to file?',
-//         description: 'Under which regime you want to file?',
-//         answer: [
-//             {
-//                 key: 'new',
-//                 value: "New Regime",
-//                 disabled: false,
-//             },
-//             {
-//                 key: 'old',
-//                 value: 'Old Regime',
-//                 disabled: true,
-//             },
+  const handleEdit = (id: number) => {
+    router.navigate({
+      to: `/foreign_other_income/${id}/edit`,
+    })
+  }
 
-//         ],
-//     },
-// ]
-// const helpUrl = import.meta.env.VITE_HELP_URL || "https://help.taxyaar.com"
-const ForeignOtherIncome = () => {
-    // const [questionsState /*, setQuestionsState */] = useState(questions)
-    // const [answer, setAnswer] = useState(questions[0].answer[0].key)
-    // const handleChange = (value: string) => {
-    //     setAnswer(value)
-    // }
+  const handleDelete = (id: number) => {
+    deleteIncome(id)
+  }
 
-    return (
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8  ">
-            <WizardHeader />
-            <div className="grid lg:grid-cols-3 gap-8 mb-24">
-
-                <div className="grid grid-rows-1   lg:col-span-2">
-
-                    <div
-                        className="lg:col-span-2    grid-cols-1 bg-white
-                    shadow rounded-lg   gap-6"
-                    >
-                        <div className="grid grid-cols-1 justify-center items-start gap-6 pb-6">
-                            <div className='border-b-2 p-6 text-2xl'>
-                                <div>
-                                    Tax Deducted at Source (Other than Salary)
-                                </div>
-                                <div className="text-sm text-muted-foreground">
-                                    Enter details of your TDS (Other than Salary)
-
-                                </div>
-                            </div>
-                            <div className="space-y-1 px-6 flex flex-col items-center gap-4">
-                                <p>Add details of your TDS (Other than Salary)</p>
-                                <p>
-                                    <Button
-                                        asChild
-                                        className="
-  bg-pink-600/80 hover:bg-pink-700/80
-  transition-all duration-200 ease-out
-  hover:shadow-lg hover:-translate-y-px
-  active:scale-[0.97] cursor-pointer">
-                                        <Link to={"/tds_tax/add"} className="text-violet-50 ">
-                                            + ADD TDS (Other than Salary)
-                                        </Link>
-                                    </Button>
-                                </p>
-                                <p><IconTax
-                                    size={96}
-                                    className="
-    text-white
-    p-4
-    rounded-full
-    bg-linear-to-br from-blue-300 via-indigo-300 to-purple-300
-    shadow-xl
-    ring-4 ring-blue-100
-  "
-                                /></p>
-
-                            </div>
-
-
-
-                        </div>
-                        <WizardFooter
-                            previousPageLink="/taxes_start"
-                            previousPageName="Taxes Paid"
-                            nextPageLink="/other_details_start"
-                            nextPageName="Other Details Start"
-                            progress={{ percentage: '62%', remaining: '6 min more' }}
-
-                        />
-                    </div>
+  return (
+    <>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+        <WizardHeader />
+        <div className="grid lg:grid-cols-3 gap-8 mb-24">
+          <div className="grid grid-rows-1 lg:col-span-2">
+            <div className="bg-white grid grid-cols-1 justify-center items-start gap-6 pb-6 shadow-md rounded-lg border border-gray-200">
+              <div className="border-b-2 p-6 text-2xl">
+                <div>Foreign Income Details</div>
+                <div className="text-sm text-muted-foreground">
+                  Details of income earned outside India
                 </div>
-                <HelpSidebar />
+              </div>
+
+              <div className="px-6">
+                <AddButton to="/foreign_other_income/add" />
+              </div>
+
+              <div className="px-6">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Country</TableHead>
+                      <TableHead>Name</TableHead>
+                      <TableHead>Nature</TableHead>
+                      <TableHead>Income</TableHead>
+                      <TableHead>Actions</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {incomes.map((income) => (
+                      <TableRow key={income.id}>
+                        <TableCell>{income.countryName}</TableCell>
+                        <TableCell>{income.nameOfPerson}</TableCell>
+                        <TableCell>{income.natureOfIncome}</TableCell>
+                        <TableCell>{income.incomeDerived}</TableCell>
+                        <TableCell>
+                          <div className="flex gap-2">
+                            <button
+                              onClick={() => handleEdit(income.id)}
+                              className="text-blue-600 hover:text-blue-800"
+                            >
+                              <Edit size={16} />
+                            </button>
+                            <button
+                              onClick={() => handleDelete(income.id)}
+                              className="text-red-600 hover:text-red-800"
+                            >
+                              <Trash2 size={16} />
+                            </button>
+                          </div>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+
+              <div className="flex justify-between items-center px-6 py-4 border-t">
+                <button
+                  onClick={() => router.navigate({ to: '/foreign_trust' })}
+                  className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded hover:bg-gray-200"
+                >
+                  &larr; Foreign Trust
+                </button>
+                <span className="text-sm text-muted-foreground">81%</span>
+                <button
+                  onClick={() =>
+                    router.navigate({ to: '/foreign_custodial_accounts' })
+                  }
+                  className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded hover:bg-gray-200"
+                >
+                  Custodial Accounts &rarr;
+                </button>
+              </div>
             </div>
+          </div>
+          <HelpSidebar />
         </div>
-    )
+      </div>
+    </>
+  )
 }
 
-export default ForeignOtherIncome
+export default ForeignOtherIncomeIndex

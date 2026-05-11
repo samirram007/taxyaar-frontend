@@ -1,6 +1,6 @@
 import { useAuth } from '@/features/auth/contexts/AuthContext'
 import { Link } from '@tanstack/react-router'
-import { Hamburger, MenuIcon } from 'lucide-react'
+// import { Hamburger, MenuIcon } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import '../../../responsive.css'
 
