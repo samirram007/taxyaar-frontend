@@ -72,93 +72,91 @@ export function SignUpForm({ className, ...props }: SignUpFormProps) {
   }
 
   return (
-    <div className={cn('grid! gap-4!', className)} {...props}>
+    <div className={cn('space-y-4', className)} {...props}>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
-          <div className="grid! gap-4!">
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem className="space-y-1!">
-                  <FormLabel className="text-sm! font-medium! text-slate-600!">
-                    Full Name
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder=""
-                      className="h-11! rounded-sm! border-slate-300! bg-white! text-sm!"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem className="space-y-1!">
-                  <FormLabel className="text-sm! font-medium! text-slate-600!">
-                    Your email
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder=""
-                      className="h-11! rounded-sm! border-slate-300! bg-white! text-sm!"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => (
-                <FormItem className="space-y-1!">
-                  <FormLabel className="text-sm! font-medium! text-slate-600!">
-                    Password
-                  </FormLabel>
-                  <FormControl>
-                    <PasswordInput
-                      placeholder=""
-                      className="h-11!"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="confirmPassword"
-              render={({ field }) => (
-                <FormItem className="space-y-1!">
-                  <FormLabel className="text-sm! font-medium! text-slate-600!">
-                    Confirm Password
-                  </FormLabel>
-                  <FormControl>
-                    <PasswordInput
-                      placeholder=""
-                      className="h-11!"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button
-              className="mt-2! h-11! w-full! rounded-sm! bg-blue-600! text-base! font-semibold! text-white! hover:bg-blue-700!"
-              disabled={isLoading}
-            >
-              Create Account
-            </Button>
-          </div>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-sm font-medium text-gray-700">
+                  Full Name
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder=""
+                    className="h-10 bg-white text-sm border-b border-gray-300 rounded-none"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-sm font-medium text-gray-700">
+                  Your email
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder=""
+                    className="h-10 bg-white text-sm border-b border-gray-300 rounded-none"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="password"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-sm font-medium text-gray-700">
+                  Password
+                </FormLabel>
+                <FormControl>
+                  <PasswordInput
+                    placeholder=""
+                    className="h-10 border-b border-gray-300 rounded-none"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="confirmPassword"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-sm font-medium text-gray-700">
+                  Confirm Password
+                </FormLabel>
+                <FormControl>
+                  <PasswordInput
+                    placeholder=""
+                    className="h-10 border-b border-gray-300 rounded-none"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button
+            className="h-10 w-full bg-blue-600 text-base font-semibold text-white hover:bg-blue-700 transition-colors"
+            disabled={isLoading}
+          >
+            Create Account
+          </Button>
         </form>
       </Form>
     </div>

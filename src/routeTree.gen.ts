@@ -63,7 +63,10 @@ import { Route as ProtectedFilerForeign_other_incomeIndexRouteImport } from './r
 import { Route as ProtectedFilerForeign_other_assetsIndexRouteImport } from './routes/_protected/_filer/foreign_other_assets/index'
 import { Route as ProtectedFilerForeign_immovable_propertyIndexRouteImport } from './routes/_protected/_filer/foreign_immovable_property/index'
 import { Route as ProtectedFilerForeign_financial_entityIndexRouteImport } from './routes/_protected/_filer/foreign_financial_entity/index'
+import { Route as ProtectedFilerForeign_custodial_accountsIndexRouteImport } from './routes/_protected/_filer/foreign_custodial_accounts/index'
+import { Route as ProtectedFilerForeign_cash_value_insuranceIndexRouteImport } from './routes/_protected/_filer/foreign_cash_value_insurance/index'
 import { Route as ProtectedFilerForeign_bank_accountIndexRouteImport } from './routes/_protected/_filer/foreign_bank_account/index'
+import { Route as ProtectedFilerFinancial_equity_and_debt_interestIndexRouteImport } from './routes/_protected/_filer/financial_equity_and_debt_interest/index'
 import { Route as ProtectedFilerFamily_incomeIndexRouteImport } from './routes/_protected/_filer/family_income/index'
 import { Route as ProtectedFilerExempt_incomeIndexRouteImport } from './routes/_protected/_filer/exempt_income/index'
 import { Route as ProtectedFilerDirectiorship_positionIndexRouteImport } from './routes/_protected/_filer/directiorship_position/index'
@@ -108,13 +111,26 @@ import { Route as ProtectedFilerOther_casual_incomeAddRouteImport } from './rout
 import { Route as ProtectedFilerLossesAddRouteImport } from './routes/_protected/_filer/losses/add'
 import { Route as ProtectedFilerHouse_propertyAddRouteImport } from './routes/_protected/_filer/house_property/add'
 import { Route as ProtectedFilerGeneral_profit_lossAddRouteImport } from './routes/_protected/_filer/general_profit_loss/add'
+import { Route as ProtectedFilerForeign_trustEditRouteImport } from './routes/_protected/_filer/foreign_trust/edit'
 import { Route as ProtectedFilerForeign_trustAddRouteImport } from './routes/_protected/_filer/foreign_trust/add'
+import { Route as ProtectedFilerForeign_signing_authorityEditRouteImport } from './routes/_protected/_filer/foreign_signing_authority/edit'
 import { Route as ProtectedFilerForeign_signing_authorityAddRouteImport } from './routes/_protected/_filer/foreign_signing_authority/add'
+import { Route as ProtectedFilerForeign_other_incomeEditRouteImport } from './routes/_protected/_filer/foreign_other_income/edit'
 import { Route as ProtectedFilerForeign_other_incomeAddRouteImport } from './routes/_protected/_filer/foreign_other_income/add'
+import { Route as ProtectedFilerForeign_other_assetsEditRouteImport } from './routes/_protected/_filer/foreign_other_assets/edit'
 import { Route as ProtectedFilerForeign_other_assetsAddRouteImport } from './routes/_protected/_filer/foreign_other_assets/add'
+import { Route as ProtectedFilerForeign_immovable_propertyEditRouteImport } from './routes/_protected/_filer/foreign_immovable_property/edit'
 import { Route as ProtectedFilerForeign_immovable_propertyAddRouteImport } from './routes/_protected/_filer/foreign_immovable_property/add'
+import { Route as ProtectedFilerForeign_financial_entityEditRouteImport } from './routes/_protected/_filer/foreign_financial_entity/edit'
 import { Route as ProtectedFilerForeign_financial_entityAddRouteImport } from './routes/_protected/_filer/foreign_financial_entity/add'
+import { Route as ProtectedFilerForeign_custodial_accountsEditRouteImport } from './routes/_protected/_filer/foreign_custodial_accounts/edit'
+import { Route as ProtectedFilerForeign_custodial_accountsAddRouteImport } from './routes/_protected/_filer/foreign_custodial_accounts/add'
+import { Route as ProtectedFilerForeign_cash_value_insuranceEditRouteImport } from './routes/_protected/_filer/foreign_cash_value_insurance/edit'
+import { Route as ProtectedFilerForeign_cash_value_insuranceAddRouteImport } from './routes/_protected/_filer/foreign_cash_value_insurance/add'
+import { Route as ProtectedFilerForeign_bank_accountEditRouteImport } from './routes/_protected/_filer/foreign_bank_account/edit'
 import { Route as ProtectedFilerForeign_bank_accountAddRouteImport } from './routes/_protected/_filer/foreign_bank_account/add'
+import { Route as ProtectedFilerFinancial_equity_and_debt_interestEditRouteImport } from './routes/_protected/_filer/financial_equity_and_debt_interest/edit'
+import { Route as ProtectedFilerFinancial_equity_and_debt_interestAddRouteImport } from './routes/_protected/_filer/financial_equity_and_debt_interest/add'
 import { Route as ProtectedFilerFamily_incomeAddRouteImport } from './routes/_protected/_filer/family_income/add'
 import { Route as ProtectedFilerExempt_incomeAddRouteImport } from './routes/_protected/_filer/exempt_income/add'
 import { Route as ProtectedFilerCrypto_incomeAddRouteImport } from './routes/_protected/_filer/crypto_income/add'
@@ -137,6 +153,16 @@ import { Route as ProtectedFilerAssesseeAddIndexRouteImport } from './routes/_pr
 import { Route as ProtectedauthUserFiscalYearLayoutIndexRouteImport } from './routes/_protected/(auth)/user-fiscal-year/_layout/index'
 import { Route as ProtectedAdministrationLayoutUserLayoutRouteImport } from './routes/_protected/administration/_layout/user/_layout'
 import { Route as ProtectedAdministrationLayoutRoleLayoutRouteImport } from './routes/_protected/administration/_layout/role/_layout'
+import { Route as ProtectedFilerForeign_trustEditIdRouteImport } from './routes/_protected/_filer/foreign_trust/edit/$id'
+import { Route as ProtectedFilerForeign_signing_authorityEditIdRouteImport } from './routes/_protected/_filer/foreign_signing_authority/edit/$id'
+import { Route as ProtectedFilerForeign_other_incomeEditIdRouteImport } from './routes/_protected/_filer/foreign_other_income/edit/$id'
+import { Route as ProtectedFilerForeign_other_assetsEditIdRouteImport } from './routes/_protected/_filer/foreign_other_assets/edit/$id'
+import { Route as ProtectedFilerForeign_immovable_propertyEditIdRouteImport } from './routes/_protected/_filer/foreign_immovable_property/edit/$id'
+import { Route as ProtectedFilerForeign_financial_entityEditIdRouteImport } from './routes/_protected/_filer/foreign_financial_entity/edit/$id'
+import { Route as ProtectedFilerForeign_custodial_accountsEditIdRouteImport } from './routes/_protected/_filer/foreign_custodial_accounts/edit/$id'
+import { Route as ProtectedFilerForeign_cash_value_insuranceEditIdRouteImport } from './routes/_protected/_filer/foreign_cash_value_insurance/edit/$id'
+import { Route as ProtectedFilerForeign_bank_accountEditIdRouteImport } from './routes/_protected/_filer/foreign_bank_account/edit/$id'
+import { Route as ProtectedFilerFinancial_equity_and_debt_interestEditIdRouteImport } from './routes/_protected/_filer/financial_equity_and_debt_interest/edit/$id'
 import { Route as ProtectedMastersOrganizationLayoutBranchIndexRouteImport } from './routes/_protected/masters/organization/_layout/branch/index'
 import { Route as ProtectedAdministrationLayoutUserLayoutIndexRouteImport } from './routes/_protected/administration/_layout/user/_layout/index'
 import { Route as ProtectedAdministrationLayoutRoleLayoutIndexRouteImport } from './routes/_protected/administration/_layout/role/_layout/index'
@@ -527,10 +553,28 @@ const ProtectedFilerForeign_financial_entityIndexRoute =
     path: '/foreign_financial_entity/',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
+const ProtectedFilerForeign_custodial_accountsIndexRoute =
+  ProtectedFilerForeign_custodial_accountsIndexRouteImport.update({
+    id: '/foreign_custodial_accounts/',
+    path: '/foreign_custodial_accounts/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerForeign_cash_value_insuranceIndexRoute =
+  ProtectedFilerForeign_cash_value_insuranceIndexRouteImport.update({
+    id: '/foreign_cash_value_insurance/',
+    path: '/foreign_cash_value_insurance/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
 const ProtectedFilerForeign_bank_accountIndexRoute =
   ProtectedFilerForeign_bank_accountIndexRouteImport.update({
     id: '/foreign_bank_account/',
     path: '/foreign_bank_account/',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerFinancial_equity_and_debt_interestIndexRoute =
+  ProtectedFilerFinancial_equity_and_debt_interestIndexRouteImport.update({
+    id: '/financial_equity_and_debt_interest/',
+    path: '/financial_equity_and_debt_interest/',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
 const ProtectedFilerFamily_incomeIndexRoute =
@@ -796,10 +840,22 @@ const ProtectedFilerGeneral_profit_lossAddRoute =
     path: '/general_profit_loss/add',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
+const ProtectedFilerForeign_trustEditRoute =
+  ProtectedFilerForeign_trustEditRouteImport.update({
+    id: '/foreign_trust/edit',
+    path: '/foreign_trust/edit',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
 const ProtectedFilerForeign_trustAddRoute =
   ProtectedFilerForeign_trustAddRouteImport.update({
     id: '/foreign_trust/add',
     path: '/foreign_trust/add',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerForeign_signing_authorityEditRoute =
+  ProtectedFilerForeign_signing_authorityEditRouteImport.update({
+    id: '/foreign_signing_authority/edit',
+    path: '/foreign_signing_authority/edit',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
 const ProtectedFilerForeign_signing_authorityAddRoute =
@@ -808,10 +864,22 @@ const ProtectedFilerForeign_signing_authorityAddRoute =
     path: '/foreign_signing_authority/add',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
+const ProtectedFilerForeign_other_incomeEditRoute =
+  ProtectedFilerForeign_other_incomeEditRouteImport.update({
+    id: '/foreign_other_income/edit',
+    path: '/foreign_other_income/edit',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
 const ProtectedFilerForeign_other_incomeAddRoute =
   ProtectedFilerForeign_other_incomeAddRouteImport.update({
     id: '/foreign_other_income/add',
     path: '/foreign_other_income/add',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerForeign_other_assetsEditRoute =
+  ProtectedFilerForeign_other_assetsEditRouteImport.update({
+    id: '/foreign_other_assets/edit',
+    path: '/foreign_other_assets/edit',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
 const ProtectedFilerForeign_other_assetsAddRoute =
@@ -820,10 +888,22 @@ const ProtectedFilerForeign_other_assetsAddRoute =
     path: '/foreign_other_assets/add',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
+const ProtectedFilerForeign_immovable_propertyEditRoute =
+  ProtectedFilerForeign_immovable_propertyEditRouteImport.update({
+    id: '/foreign_immovable_property/edit',
+    path: '/foreign_immovable_property/edit',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
 const ProtectedFilerForeign_immovable_propertyAddRoute =
   ProtectedFilerForeign_immovable_propertyAddRouteImport.update({
     id: '/foreign_immovable_property/add',
     path: '/foreign_immovable_property/add',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerForeign_financial_entityEditRoute =
+  ProtectedFilerForeign_financial_entityEditRouteImport.update({
+    id: '/foreign_financial_entity/edit',
+    path: '/foreign_financial_entity/edit',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
 const ProtectedFilerForeign_financial_entityAddRoute =
@@ -832,10 +912,52 @@ const ProtectedFilerForeign_financial_entityAddRoute =
     path: '/foreign_financial_entity/add',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
+const ProtectedFilerForeign_custodial_accountsEditRoute =
+  ProtectedFilerForeign_custodial_accountsEditRouteImport.update({
+    id: '/foreign_custodial_accounts/edit',
+    path: '/foreign_custodial_accounts/edit',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerForeign_custodial_accountsAddRoute =
+  ProtectedFilerForeign_custodial_accountsAddRouteImport.update({
+    id: '/foreign_custodial_accounts/add',
+    path: '/foreign_custodial_accounts/add',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerForeign_cash_value_insuranceEditRoute =
+  ProtectedFilerForeign_cash_value_insuranceEditRouteImport.update({
+    id: '/foreign_cash_value_insurance/edit',
+    path: '/foreign_cash_value_insurance/edit',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerForeign_cash_value_insuranceAddRoute =
+  ProtectedFilerForeign_cash_value_insuranceAddRouteImport.update({
+    id: '/foreign_cash_value_insurance/add',
+    path: '/foreign_cash_value_insurance/add',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerForeign_bank_accountEditRoute =
+  ProtectedFilerForeign_bank_accountEditRouteImport.update({
+    id: '/foreign_bank_account/edit',
+    path: '/foreign_bank_account/edit',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
 const ProtectedFilerForeign_bank_accountAddRoute =
   ProtectedFilerForeign_bank_accountAddRouteImport.update({
     id: '/foreign_bank_account/add',
     path: '/foreign_bank_account/add',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerFinancial_equity_and_debt_interestEditRoute =
+  ProtectedFilerFinancial_equity_and_debt_interestEditRouteImport.update({
+    id: '/financial_equity_and_debt_interest/edit',
+    path: '/financial_equity_and_debt_interest/edit',
+    getParentRoute: () => ProtectedFilerRoute,
+  } as any)
+const ProtectedFilerFinancial_equity_and_debt_interestAddRoute =
+  ProtectedFilerFinancial_equity_and_debt_interestAddRouteImport.update({
+    id: '/financial_equity_and_debt_interest/add',
+    path: '/financial_equity_and_debt_interest/add',
     getParentRoute: () => ProtectedFilerRoute,
   } as any)
 const ProtectedFilerFamily_incomeAddRoute =
@@ -971,6 +1093,67 @@ const ProtectedAdministrationLayoutRoleLayoutRoute =
     id: '/role/_layout',
     path: '/role',
     getParentRoute: () => ProtectedAdministrationLayoutRoute,
+  } as any)
+const ProtectedFilerForeign_trustEditIdRoute =
+  ProtectedFilerForeign_trustEditIdRouteImport.update({
+    id: '/$id',
+    path: '/$id',
+    getParentRoute: () => ProtectedFilerForeign_trustEditRoute,
+  } as any)
+const ProtectedFilerForeign_signing_authorityEditIdRoute =
+  ProtectedFilerForeign_signing_authorityEditIdRouteImport.update({
+    id: '/$id',
+    path: '/$id',
+    getParentRoute: () => ProtectedFilerForeign_signing_authorityEditRoute,
+  } as any)
+const ProtectedFilerForeign_other_incomeEditIdRoute =
+  ProtectedFilerForeign_other_incomeEditIdRouteImport.update({
+    id: '/$id',
+    path: '/$id',
+    getParentRoute: () => ProtectedFilerForeign_other_incomeEditRoute,
+  } as any)
+const ProtectedFilerForeign_other_assetsEditIdRoute =
+  ProtectedFilerForeign_other_assetsEditIdRouteImport.update({
+    id: '/$id',
+    path: '/$id',
+    getParentRoute: () => ProtectedFilerForeign_other_assetsEditRoute,
+  } as any)
+const ProtectedFilerForeign_immovable_propertyEditIdRoute =
+  ProtectedFilerForeign_immovable_propertyEditIdRouteImport.update({
+    id: '/$id',
+    path: '/$id',
+    getParentRoute: () => ProtectedFilerForeign_immovable_propertyEditRoute,
+  } as any)
+const ProtectedFilerForeign_financial_entityEditIdRoute =
+  ProtectedFilerForeign_financial_entityEditIdRouteImport.update({
+    id: '/$id',
+    path: '/$id',
+    getParentRoute: () => ProtectedFilerForeign_financial_entityEditRoute,
+  } as any)
+const ProtectedFilerForeign_custodial_accountsEditIdRoute =
+  ProtectedFilerForeign_custodial_accountsEditIdRouteImport.update({
+    id: '/$id',
+    path: '/$id',
+    getParentRoute: () => ProtectedFilerForeign_custodial_accountsEditRoute,
+  } as any)
+const ProtectedFilerForeign_cash_value_insuranceEditIdRoute =
+  ProtectedFilerForeign_cash_value_insuranceEditIdRouteImport.update({
+    id: '/$id',
+    path: '/$id',
+    getParentRoute: () => ProtectedFilerForeign_cash_value_insuranceEditRoute,
+  } as any)
+const ProtectedFilerForeign_bank_accountEditIdRoute =
+  ProtectedFilerForeign_bank_accountEditIdRouteImport.update({
+    id: '/$id',
+    path: '/$id',
+    getParentRoute: () => ProtectedFilerForeign_bank_accountEditRoute,
+  } as any)
+const ProtectedFilerFinancial_equity_and_debt_interestEditIdRoute =
+  ProtectedFilerFinancial_equity_and_debt_interestEditIdRouteImport.update({
+    id: '/$id',
+    path: '/$id',
+    getParentRoute: () =>
+      ProtectedFilerFinancial_equity_and_debt_interestEditRoute,
   } as any)
 const ProtectedMastersOrganizationLayoutBranchIndexRoute =
   ProtectedMastersOrganizationLayoutBranchIndexRouteImport.update({
@@ -1141,13 +1324,26 @@ export interface FileRoutesByFullPath {
   '/crypto_income/add': typeof ProtectedFilerCrypto_incomeAddRoute
   '/exempt_income/add': typeof ProtectedFilerExempt_incomeAddRoute
   '/family_income/add': typeof ProtectedFilerFamily_incomeAddRoute
+  '/financial_equity_and_debt_interest/add': typeof ProtectedFilerFinancial_equity_and_debt_interestAddRoute
+  '/financial_equity_and_debt_interest/edit': typeof ProtectedFilerFinancial_equity_and_debt_interestEditRouteWithChildren
   '/foreign_bank_account/add': typeof ProtectedFilerForeign_bank_accountAddRoute
+  '/foreign_bank_account/edit': typeof ProtectedFilerForeign_bank_accountEditRouteWithChildren
+  '/foreign_cash_value_insurance/add': typeof ProtectedFilerForeign_cash_value_insuranceAddRoute
+  '/foreign_cash_value_insurance/edit': typeof ProtectedFilerForeign_cash_value_insuranceEditRouteWithChildren
+  '/foreign_custodial_accounts/add': typeof ProtectedFilerForeign_custodial_accountsAddRoute
+  '/foreign_custodial_accounts/edit': typeof ProtectedFilerForeign_custodial_accountsEditRouteWithChildren
   '/foreign_financial_entity/add': typeof ProtectedFilerForeign_financial_entityAddRoute
+  '/foreign_financial_entity/edit': typeof ProtectedFilerForeign_financial_entityEditRouteWithChildren
   '/foreign_immovable_property/add': typeof ProtectedFilerForeign_immovable_propertyAddRoute
+  '/foreign_immovable_property/edit': typeof ProtectedFilerForeign_immovable_propertyEditRouteWithChildren
   '/foreign_other_assets/add': typeof ProtectedFilerForeign_other_assetsAddRoute
+  '/foreign_other_assets/edit': typeof ProtectedFilerForeign_other_assetsEditRouteWithChildren
   '/foreign_other_income/add': typeof ProtectedFilerForeign_other_incomeAddRoute
+  '/foreign_other_income/edit': typeof ProtectedFilerForeign_other_incomeEditRouteWithChildren
   '/foreign_signing_authority/add': typeof ProtectedFilerForeign_signing_authorityAddRoute
+  '/foreign_signing_authority/edit': typeof ProtectedFilerForeign_signing_authorityEditRouteWithChildren
   '/foreign_trust/add': typeof ProtectedFilerForeign_trustAddRoute
+  '/foreign_trust/edit': typeof ProtectedFilerForeign_trustEditRouteWithChildren
   '/general_profit_loss/add': typeof ProtectedFilerGeneral_profit_lossAddRoute
   '/house_property/add': typeof ProtectedFilerHouse_propertyAddRoute
   '/losses/add': typeof ProtectedFilerLossesAddRoute
@@ -1192,7 +1388,10 @@ export interface FileRoutesByFullPath {
   '/directiorship_position/': typeof ProtectedFilerDirectiorship_positionIndexRoute
   '/exempt_income/': typeof ProtectedFilerExempt_incomeIndexRoute
   '/family_income/': typeof ProtectedFilerFamily_incomeIndexRoute
+  '/financial_equity_and_debt_interest/': typeof ProtectedFilerFinancial_equity_and_debt_interestIndexRoute
   '/foreign_bank_account/': typeof ProtectedFilerForeign_bank_accountIndexRoute
+  '/foreign_cash_value_insurance/': typeof ProtectedFilerForeign_cash_value_insuranceIndexRoute
+  '/foreign_custodial_accounts/': typeof ProtectedFilerForeign_custodial_accountsIndexRoute
   '/foreign_financial_entity/': typeof ProtectedFilerForeign_financial_entityIndexRoute
   '/foreign_immovable_property/': typeof ProtectedFilerForeign_immovable_propertyIndexRoute
   '/foreign_other_assets/': typeof ProtectedFilerForeign_other_assetsIndexRoute
@@ -1229,6 +1428,16 @@ export interface FileRoutesByFullPath {
   '/tds_tax/': typeof ProtectedFilerTds_taxIndexRoute
   '/trading_details/': typeof ProtectedFilerTrading_detailsIndexRoute
   '/unlisted_share/': typeof ProtectedFilerUnlisted_shareIndexRoute
+  '/financial_equity_and_debt_interest/edit/$id': typeof ProtectedFilerFinancial_equity_and_debt_interestEditIdRoute
+  '/foreign_bank_account/edit/$id': typeof ProtectedFilerForeign_bank_accountEditIdRoute
+  '/foreign_cash_value_insurance/edit/$id': typeof ProtectedFilerForeign_cash_value_insuranceEditIdRoute
+  '/foreign_custodial_accounts/edit/$id': typeof ProtectedFilerForeign_custodial_accountsEditIdRoute
+  '/foreign_financial_entity/edit/$id': typeof ProtectedFilerForeign_financial_entityEditIdRoute
+  '/foreign_immovable_property/edit/$id': typeof ProtectedFilerForeign_immovable_propertyEditIdRoute
+  '/foreign_other_assets/edit/$id': typeof ProtectedFilerForeign_other_assetsEditIdRoute
+  '/foreign_other_income/edit/$id': typeof ProtectedFilerForeign_other_incomeEditIdRoute
+  '/foreign_signing_authority/edit/$id': typeof ProtectedFilerForeign_signing_authorityEditIdRoute
+  '/foreign_trust/edit/$id': typeof ProtectedFilerForeign_trustEditIdRoute
   '/administration/role': typeof ProtectedAdministrationLayoutRoleLayoutRouteWithChildren
   '/administration/user': typeof ProtectedAdministrationLayoutUserLayoutRouteWithChildren
   '/profile/index/': typeof ProtectedauthProfileIndexRoute
@@ -1295,13 +1504,26 @@ export interface FileRoutesByTo {
   '/crypto_income/add': typeof ProtectedFilerCrypto_incomeAddRoute
   '/exempt_income/add': typeof ProtectedFilerExempt_incomeAddRoute
   '/family_income/add': typeof ProtectedFilerFamily_incomeAddRoute
+  '/financial_equity_and_debt_interest/add': typeof ProtectedFilerFinancial_equity_and_debt_interestAddRoute
+  '/financial_equity_and_debt_interest/edit': typeof ProtectedFilerFinancial_equity_and_debt_interestEditRouteWithChildren
   '/foreign_bank_account/add': typeof ProtectedFilerForeign_bank_accountAddRoute
+  '/foreign_bank_account/edit': typeof ProtectedFilerForeign_bank_accountEditRouteWithChildren
+  '/foreign_cash_value_insurance/add': typeof ProtectedFilerForeign_cash_value_insuranceAddRoute
+  '/foreign_cash_value_insurance/edit': typeof ProtectedFilerForeign_cash_value_insuranceEditRouteWithChildren
+  '/foreign_custodial_accounts/add': typeof ProtectedFilerForeign_custodial_accountsAddRoute
+  '/foreign_custodial_accounts/edit': typeof ProtectedFilerForeign_custodial_accountsEditRouteWithChildren
   '/foreign_financial_entity/add': typeof ProtectedFilerForeign_financial_entityAddRoute
+  '/foreign_financial_entity/edit': typeof ProtectedFilerForeign_financial_entityEditRouteWithChildren
   '/foreign_immovable_property/add': typeof ProtectedFilerForeign_immovable_propertyAddRoute
+  '/foreign_immovable_property/edit': typeof ProtectedFilerForeign_immovable_propertyEditRouteWithChildren
   '/foreign_other_assets/add': typeof ProtectedFilerForeign_other_assetsAddRoute
+  '/foreign_other_assets/edit': typeof ProtectedFilerForeign_other_assetsEditRouteWithChildren
   '/foreign_other_income/add': typeof ProtectedFilerForeign_other_incomeAddRoute
+  '/foreign_other_income/edit': typeof ProtectedFilerForeign_other_incomeEditRouteWithChildren
   '/foreign_signing_authority/add': typeof ProtectedFilerForeign_signing_authorityAddRoute
+  '/foreign_signing_authority/edit': typeof ProtectedFilerForeign_signing_authorityEditRouteWithChildren
   '/foreign_trust/add': typeof ProtectedFilerForeign_trustAddRoute
+  '/foreign_trust/edit': typeof ProtectedFilerForeign_trustEditRouteWithChildren
   '/general_profit_loss/add': typeof ProtectedFilerGeneral_profit_lossAddRoute
   '/house_property/add': typeof ProtectedFilerHouse_propertyAddRoute
   '/losses/add': typeof ProtectedFilerLossesAddRoute
@@ -1345,7 +1567,10 @@ export interface FileRoutesByTo {
   '/directiorship_position': typeof ProtectedFilerDirectiorship_positionIndexRoute
   '/exempt_income': typeof ProtectedFilerExempt_incomeIndexRoute
   '/family_income': typeof ProtectedFilerFamily_incomeIndexRoute
+  '/financial_equity_and_debt_interest': typeof ProtectedFilerFinancial_equity_and_debt_interestIndexRoute
   '/foreign_bank_account': typeof ProtectedFilerForeign_bank_accountIndexRoute
+  '/foreign_cash_value_insurance': typeof ProtectedFilerForeign_cash_value_insuranceIndexRoute
+  '/foreign_custodial_accounts': typeof ProtectedFilerForeign_custodial_accountsIndexRoute
   '/foreign_financial_entity': typeof ProtectedFilerForeign_financial_entityIndexRoute
   '/foreign_immovable_property': typeof ProtectedFilerForeign_immovable_propertyIndexRoute
   '/foreign_other_assets': typeof ProtectedFilerForeign_other_assetsIndexRoute
@@ -1382,6 +1607,16 @@ export interface FileRoutesByTo {
   '/tds_tax': typeof ProtectedFilerTds_taxIndexRoute
   '/trading_details': typeof ProtectedFilerTrading_detailsIndexRoute
   '/unlisted_share': typeof ProtectedFilerUnlisted_shareIndexRoute
+  '/financial_equity_and_debt_interest/edit/$id': typeof ProtectedFilerFinancial_equity_and_debt_interestEditIdRoute
+  '/foreign_bank_account/edit/$id': typeof ProtectedFilerForeign_bank_accountEditIdRoute
+  '/foreign_cash_value_insurance/edit/$id': typeof ProtectedFilerForeign_cash_value_insuranceEditIdRoute
+  '/foreign_custodial_accounts/edit/$id': typeof ProtectedFilerForeign_custodial_accountsEditIdRoute
+  '/foreign_financial_entity/edit/$id': typeof ProtectedFilerForeign_financial_entityEditIdRoute
+  '/foreign_immovable_property/edit/$id': typeof ProtectedFilerForeign_immovable_propertyEditIdRoute
+  '/foreign_other_assets/edit/$id': typeof ProtectedFilerForeign_other_assetsEditIdRoute
+  '/foreign_other_income/edit/$id': typeof ProtectedFilerForeign_other_incomeEditIdRoute
+  '/foreign_signing_authority/edit/$id': typeof ProtectedFilerForeign_signing_authorityEditIdRoute
+  '/foreign_trust/edit/$id': typeof ProtectedFilerForeign_trustEditIdRoute
   '/profile/index': typeof ProtectedauthProfileIndexRoute
   '/user-fiscal-year': typeof ProtectedauthUserFiscalYearLayoutIndexRoute
   '/assessee/add': typeof ProtectedFilerAssesseeAddIndexRoute
@@ -1445,13 +1680,26 @@ export interface FileRoutesById {
   '/_protected/_filer/crypto_income/add': typeof ProtectedFilerCrypto_incomeAddRoute
   '/_protected/_filer/exempt_income/add': typeof ProtectedFilerExempt_incomeAddRoute
   '/_protected/_filer/family_income/add': typeof ProtectedFilerFamily_incomeAddRoute
+  '/_protected/_filer/financial_equity_and_debt_interest/add': typeof ProtectedFilerFinancial_equity_and_debt_interestAddRoute
+  '/_protected/_filer/financial_equity_and_debt_interest/edit': typeof ProtectedFilerFinancial_equity_and_debt_interestEditRouteWithChildren
   '/_protected/_filer/foreign_bank_account/add': typeof ProtectedFilerForeign_bank_accountAddRoute
+  '/_protected/_filer/foreign_bank_account/edit': typeof ProtectedFilerForeign_bank_accountEditRouteWithChildren
+  '/_protected/_filer/foreign_cash_value_insurance/add': typeof ProtectedFilerForeign_cash_value_insuranceAddRoute
+  '/_protected/_filer/foreign_cash_value_insurance/edit': typeof ProtectedFilerForeign_cash_value_insuranceEditRouteWithChildren
+  '/_protected/_filer/foreign_custodial_accounts/add': typeof ProtectedFilerForeign_custodial_accountsAddRoute
+  '/_protected/_filer/foreign_custodial_accounts/edit': typeof ProtectedFilerForeign_custodial_accountsEditRouteWithChildren
   '/_protected/_filer/foreign_financial_entity/add': typeof ProtectedFilerForeign_financial_entityAddRoute
+  '/_protected/_filer/foreign_financial_entity/edit': typeof ProtectedFilerForeign_financial_entityEditRouteWithChildren
   '/_protected/_filer/foreign_immovable_property/add': typeof ProtectedFilerForeign_immovable_propertyAddRoute
+  '/_protected/_filer/foreign_immovable_property/edit': typeof ProtectedFilerForeign_immovable_propertyEditRouteWithChildren
   '/_protected/_filer/foreign_other_assets/add': typeof ProtectedFilerForeign_other_assetsAddRoute
+  '/_protected/_filer/foreign_other_assets/edit': typeof ProtectedFilerForeign_other_assetsEditRouteWithChildren
   '/_protected/_filer/foreign_other_income/add': typeof ProtectedFilerForeign_other_incomeAddRoute
+  '/_protected/_filer/foreign_other_income/edit': typeof ProtectedFilerForeign_other_incomeEditRouteWithChildren
   '/_protected/_filer/foreign_signing_authority/add': typeof ProtectedFilerForeign_signing_authorityAddRoute
+  '/_protected/_filer/foreign_signing_authority/edit': typeof ProtectedFilerForeign_signing_authorityEditRouteWithChildren
   '/_protected/_filer/foreign_trust/add': typeof ProtectedFilerForeign_trustAddRoute
+  '/_protected/_filer/foreign_trust/edit': typeof ProtectedFilerForeign_trustEditRouteWithChildren
   '/_protected/_filer/general_profit_loss/add': typeof ProtectedFilerGeneral_profit_lossAddRoute
   '/_protected/_filer/house_property/add': typeof ProtectedFilerHouse_propertyAddRoute
   '/_protected/_filer/losses/add': typeof ProtectedFilerLossesAddRoute
@@ -1496,7 +1744,10 @@ export interface FileRoutesById {
   '/_protected/_filer/directiorship_position/': typeof ProtectedFilerDirectiorship_positionIndexRoute
   '/_protected/_filer/exempt_income/': typeof ProtectedFilerExempt_incomeIndexRoute
   '/_protected/_filer/family_income/': typeof ProtectedFilerFamily_incomeIndexRoute
+  '/_protected/_filer/financial_equity_and_debt_interest/': typeof ProtectedFilerFinancial_equity_and_debt_interestIndexRoute
   '/_protected/_filer/foreign_bank_account/': typeof ProtectedFilerForeign_bank_accountIndexRoute
+  '/_protected/_filer/foreign_cash_value_insurance/': typeof ProtectedFilerForeign_cash_value_insuranceIndexRoute
+  '/_protected/_filer/foreign_custodial_accounts/': typeof ProtectedFilerForeign_custodial_accountsIndexRoute
   '/_protected/_filer/foreign_financial_entity/': typeof ProtectedFilerForeign_financial_entityIndexRoute
   '/_protected/_filer/foreign_immovable_property/': typeof ProtectedFilerForeign_immovable_propertyIndexRoute
   '/_protected/_filer/foreign_other_assets/': typeof ProtectedFilerForeign_other_assetsIndexRoute
@@ -1533,6 +1784,16 @@ export interface FileRoutesById {
   '/_protected/_filer/tds_tax/': typeof ProtectedFilerTds_taxIndexRoute
   '/_protected/_filer/trading_details/': typeof ProtectedFilerTrading_detailsIndexRoute
   '/_protected/_filer/unlisted_share/': typeof ProtectedFilerUnlisted_shareIndexRoute
+  '/_protected/_filer/financial_equity_and_debt_interest/edit/$id': typeof ProtectedFilerFinancial_equity_and_debt_interestEditIdRoute
+  '/_protected/_filer/foreign_bank_account/edit/$id': typeof ProtectedFilerForeign_bank_accountEditIdRoute
+  '/_protected/_filer/foreign_cash_value_insurance/edit/$id': typeof ProtectedFilerForeign_cash_value_insuranceEditIdRoute
+  '/_protected/_filer/foreign_custodial_accounts/edit/$id': typeof ProtectedFilerForeign_custodial_accountsEditIdRoute
+  '/_protected/_filer/foreign_financial_entity/edit/$id': typeof ProtectedFilerForeign_financial_entityEditIdRoute
+  '/_protected/_filer/foreign_immovable_property/edit/$id': typeof ProtectedFilerForeign_immovable_propertyEditIdRoute
+  '/_protected/_filer/foreign_other_assets/edit/$id': typeof ProtectedFilerForeign_other_assetsEditIdRoute
+  '/_protected/_filer/foreign_other_income/edit/$id': typeof ProtectedFilerForeign_other_incomeEditIdRoute
+  '/_protected/_filer/foreign_signing_authority/edit/$id': typeof ProtectedFilerForeign_signing_authorityEditIdRoute
+  '/_protected/_filer/foreign_trust/edit/$id': typeof ProtectedFilerForeign_trustEditIdRoute
   '/_protected/administration/_layout/role/_layout': typeof ProtectedAdministrationLayoutRoleLayoutRouteWithChildren
   '/_protected/administration/_layout/user/_layout': typeof ProtectedAdministrationLayoutUserLayoutRouteWithChildren
   '/_protected/(auth)/profile/index/': typeof ProtectedauthProfileIndexRoute
@@ -1602,13 +1863,26 @@ export interface FileRouteTypes {
     | '/crypto_income/add'
     | '/exempt_income/add'
     | '/family_income/add'
+    | '/financial_equity_and_debt_interest/add'
+    | '/financial_equity_and_debt_interest/edit'
     | '/foreign_bank_account/add'
+    | '/foreign_bank_account/edit'
+    | '/foreign_cash_value_insurance/add'
+    | '/foreign_cash_value_insurance/edit'
+    | '/foreign_custodial_accounts/add'
+    | '/foreign_custodial_accounts/edit'
     | '/foreign_financial_entity/add'
+    | '/foreign_financial_entity/edit'
     | '/foreign_immovable_property/add'
+    | '/foreign_immovable_property/edit'
     | '/foreign_other_assets/add'
+    | '/foreign_other_assets/edit'
     | '/foreign_other_income/add'
+    | '/foreign_other_income/edit'
     | '/foreign_signing_authority/add'
+    | '/foreign_signing_authority/edit'
     | '/foreign_trust/add'
+    | '/foreign_trust/edit'
     | '/general_profit_loss/add'
     | '/house_property/add'
     | '/losses/add'
@@ -1653,7 +1927,10 @@ export interface FileRouteTypes {
     | '/directiorship_position/'
     | '/exempt_income/'
     | '/family_income/'
+    | '/financial_equity_and_debt_interest/'
     | '/foreign_bank_account/'
+    | '/foreign_cash_value_insurance/'
+    | '/foreign_custodial_accounts/'
     | '/foreign_financial_entity/'
     | '/foreign_immovable_property/'
     | '/foreign_other_assets/'
@@ -1690,6 +1967,16 @@ export interface FileRouteTypes {
     | '/tds_tax/'
     | '/trading_details/'
     | '/unlisted_share/'
+    | '/financial_equity_and_debt_interest/edit/$id'
+    | '/foreign_bank_account/edit/$id'
+    | '/foreign_cash_value_insurance/edit/$id'
+    | '/foreign_custodial_accounts/edit/$id'
+    | '/foreign_financial_entity/edit/$id'
+    | '/foreign_immovable_property/edit/$id'
+    | '/foreign_other_assets/edit/$id'
+    | '/foreign_other_income/edit/$id'
+    | '/foreign_signing_authority/edit/$id'
+    | '/foreign_trust/edit/$id'
     | '/administration/role'
     | '/administration/user'
     | '/profile/index/'
@@ -1756,13 +2043,26 @@ export interface FileRouteTypes {
     | '/crypto_income/add'
     | '/exempt_income/add'
     | '/family_income/add'
+    | '/financial_equity_and_debt_interest/add'
+    | '/financial_equity_and_debt_interest/edit'
     | '/foreign_bank_account/add'
+    | '/foreign_bank_account/edit'
+    | '/foreign_cash_value_insurance/add'
+    | '/foreign_cash_value_insurance/edit'
+    | '/foreign_custodial_accounts/add'
+    | '/foreign_custodial_accounts/edit'
     | '/foreign_financial_entity/add'
+    | '/foreign_financial_entity/edit'
     | '/foreign_immovable_property/add'
+    | '/foreign_immovable_property/edit'
     | '/foreign_other_assets/add'
+    | '/foreign_other_assets/edit'
     | '/foreign_other_income/add'
+    | '/foreign_other_income/edit'
     | '/foreign_signing_authority/add'
+    | '/foreign_signing_authority/edit'
     | '/foreign_trust/add'
+    | '/foreign_trust/edit'
     | '/general_profit_loss/add'
     | '/house_property/add'
     | '/losses/add'
@@ -1806,7 +2106,10 @@ export interface FileRouteTypes {
     | '/directiorship_position'
     | '/exempt_income'
     | '/family_income'
+    | '/financial_equity_and_debt_interest'
     | '/foreign_bank_account'
+    | '/foreign_cash_value_insurance'
+    | '/foreign_custodial_accounts'
     | '/foreign_financial_entity'
     | '/foreign_immovable_property'
     | '/foreign_other_assets'
@@ -1843,6 +2146,16 @@ export interface FileRouteTypes {
     | '/tds_tax'
     | '/trading_details'
     | '/unlisted_share'
+    | '/financial_equity_and_debt_interest/edit/$id'
+    | '/foreign_bank_account/edit/$id'
+    | '/foreign_cash_value_insurance/edit/$id'
+    | '/foreign_custodial_accounts/edit/$id'
+    | '/foreign_financial_entity/edit/$id'
+    | '/foreign_immovable_property/edit/$id'
+    | '/foreign_other_assets/edit/$id'
+    | '/foreign_other_income/edit/$id'
+    | '/foreign_signing_authority/edit/$id'
+    | '/foreign_trust/edit/$id'
     | '/profile/index'
     | '/user-fiscal-year'
     | '/assessee/add'
@@ -1905,13 +2218,26 @@ export interface FileRouteTypes {
     | '/_protected/_filer/crypto_income/add'
     | '/_protected/_filer/exempt_income/add'
     | '/_protected/_filer/family_income/add'
+    | '/_protected/_filer/financial_equity_and_debt_interest/add'
+    | '/_protected/_filer/financial_equity_and_debt_interest/edit'
     | '/_protected/_filer/foreign_bank_account/add'
+    | '/_protected/_filer/foreign_bank_account/edit'
+    | '/_protected/_filer/foreign_cash_value_insurance/add'
+    | '/_protected/_filer/foreign_cash_value_insurance/edit'
+    | '/_protected/_filer/foreign_custodial_accounts/add'
+    | '/_protected/_filer/foreign_custodial_accounts/edit'
     | '/_protected/_filer/foreign_financial_entity/add'
+    | '/_protected/_filer/foreign_financial_entity/edit'
     | '/_protected/_filer/foreign_immovable_property/add'
+    | '/_protected/_filer/foreign_immovable_property/edit'
     | '/_protected/_filer/foreign_other_assets/add'
+    | '/_protected/_filer/foreign_other_assets/edit'
     | '/_protected/_filer/foreign_other_income/add'
+    | '/_protected/_filer/foreign_other_income/edit'
     | '/_protected/_filer/foreign_signing_authority/add'
+    | '/_protected/_filer/foreign_signing_authority/edit'
     | '/_protected/_filer/foreign_trust/add'
+    | '/_protected/_filer/foreign_trust/edit'
     | '/_protected/_filer/general_profit_loss/add'
     | '/_protected/_filer/house_property/add'
     | '/_protected/_filer/losses/add'
@@ -1956,7 +2282,10 @@ export interface FileRouteTypes {
     | '/_protected/_filer/directiorship_position/'
     | '/_protected/_filer/exempt_income/'
     | '/_protected/_filer/family_income/'
+    | '/_protected/_filer/financial_equity_and_debt_interest/'
     | '/_protected/_filer/foreign_bank_account/'
+    | '/_protected/_filer/foreign_cash_value_insurance/'
+    | '/_protected/_filer/foreign_custodial_accounts/'
     | '/_protected/_filer/foreign_financial_entity/'
     | '/_protected/_filer/foreign_immovable_property/'
     | '/_protected/_filer/foreign_other_assets/'
@@ -1993,6 +2322,16 @@ export interface FileRouteTypes {
     | '/_protected/_filer/tds_tax/'
     | '/_protected/_filer/trading_details/'
     | '/_protected/_filer/unlisted_share/'
+    | '/_protected/_filer/financial_equity_and_debt_interest/edit/$id'
+    | '/_protected/_filer/foreign_bank_account/edit/$id'
+    | '/_protected/_filer/foreign_cash_value_insurance/edit/$id'
+    | '/_protected/_filer/foreign_custodial_accounts/edit/$id'
+    | '/_protected/_filer/foreign_financial_entity/edit/$id'
+    | '/_protected/_filer/foreign_immovable_property/edit/$id'
+    | '/_protected/_filer/foreign_other_assets/edit/$id'
+    | '/_protected/_filer/foreign_other_income/edit/$id'
+    | '/_protected/_filer/foreign_signing_authority/edit/$id'
+    | '/_protected/_filer/foreign_trust/edit/$id'
     | '/_protected/administration/_layout/role/_layout'
     | '/_protected/administration/_layout/user/_layout'
     | '/_protected/(auth)/profile/index/'
@@ -2465,11 +2804,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedFilerForeign_financial_entityIndexRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
+    '/_protected/_filer/foreign_custodial_accounts/': {
+      id: '/_protected/_filer/foreign_custodial_accounts/'
+      path: '/foreign_custodial_accounts'
+      fullPath: '/foreign_custodial_accounts/'
+      preLoaderRoute: typeof ProtectedFilerForeign_custodial_accountsIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/foreign_cash_value_insurance/': {
+      id: '/_protected/_filer/foreign_cash_value_insurance/'
+      path: '/foreign_cash_value_insurance'
+      fullPath: '/foreign_cash_value_insurance/'
+      preLoaderRoute: typeof ProtectedFilerForeign_cash_value_insuranceIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
     '/_protected/_filer/foreign_bank_account/': {
       id: '/_protected/_filer/foreign_bank_account/'
       path: '/foreign_bank_account'
       fullPath: '/foreign_bank_account/'
       preLoaderRoute: typeof ProtectedFilerForeign_bank_accountIndexRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/financial_equity_and_debt_interest/': {
+      id: '/_protected/_filer/financial_equity_and_debt_interest/'
+      path: '/financial_equity_and_debt_interest'
+      fullPath: '/financial_equity_and_debt_interest/'
+      preLoaderRoute: typeof ProtectedFilerFinancial_equity_and_debt_interestIndexRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
     '/_protected/_filer/family_income/': {
@@ -2780,11 +3140,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedFilerGeneral_profit_lossAddRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
+    '/_protected/_filer/foreign_trust/edit': {
+      id: '/_protected/_filer/foreign_trust/edit'
+      path: '/foreign_trust/edit'
+      fullPath: '/foreign_trust/edit'
+      preLoaderRoute: typeof ProtectedFilerForeign_trustEditRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
     '/_protected/_filer/foreign_trust/add': {
       id: '/_protected/_filer/foreign_trust/add'
       path: '/foreign_trust/add'
       fullPath: '/foreign_trust/add'
       preLoaderRoute: typeof ProtectedFilerForeign_trustAddRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/foreign_signing_authority/edit': {
+      id: '/_protected/_filer/foreign_signing_authority/edit'
+      path: '/foreign_signing_authority/edit'
+      fullPath: '/foreign_signing_authority/edit'
+      preLoaderRoute: typeof ProtectedFilerForeign_signing_authorityEditRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
     '/_protected/_filer/foreign_signing_authority/add': {
@@ -2794,11 +3168,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedFilerForeign_signing_authorityAddRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
+    '/_protected/_filer/foreign_other_income/edit': {
+      id: '/_protected/_filer/foreign_other_income/edit'
+      path: '/foreign_other_income/edit'
+      fullPath: '/foreign_other_income/edit'
+      preLoaderRoute: typeof ProtectedFilerForeign_other_incomeEditRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
     '/_protected/_filer/foreign_other_income/add': {
       id: '/_protected/_filer/foreign_other_income/add'
       path: '/foreign_other_income/add'
       fullPath: '/foreign_other_income/add'
       preLoaderRoute: typeof ProtectedFilerForeign_other_incomeAddRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/foreign_other_assets/edit': {
+      id: '/_protected/_filer/foreign_other_assets/edit'
+      path: '/foreign_other_assets/edit'
+      fullPath: '/foreign_other_assets/edit'
+      preLoaderRoute: typeof ProtectedFilerForeign_other_assetsEditRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
     '/_protected/_filer/foreign_other_assets/add': {
@@ -2808,11 +3196,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedFilerForeign_other_assetsAddRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
+    '/_protected/_filer/foreign_immovable_property/edit': {
+      id: '/_protected/_filer/foreign_immovable_property/edit'
+      path: '/foreign_immovable_property/edit'
+      fullPath: '/foreign_immovable_property/edit'
+      preLoaderRoute: typeof ProtectedFilerForeign_immovable_propertyEditRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
     '/_protected/_filer/foreign_immovable_property/add': {
       id: '/_protected/_filer/foreign_immovable_property/add'
       path: '/foreign_immovable_property/add'
       fullPath: '/foreign_immovable_property/add'
       preLoaderRoute: typeof ProtectedFilerForeign_immovable_propertyAddRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/foreign_financial_entity/edit': {
+      id: '/_protected/_filer/foreign_financial_entity/edit'
+      path: '/foreign_financial_entity/edit'
+      fullPath: '/foreign_financial_entity/edit'
+      preLoaderRoute: typeof ProtectedFilerForeign_financial_entityEditRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
     '/_protected/_filer/foreign_financial_entity/add': {
@@ -2822,11 +3224,60 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProtectedFilerForeign_financial_entityAddRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
+    '/_protected/_filer/foreign_custodial_accounts/edit': {
+      id: '/_protected/_filer/foreign_custodial_accounts/edit'
+      path: '/foreign_custodial_accounts/edit'
+      fullPath: '/foreign_custodial_accounts/edit'
+      preLoaderRoute: typeof ProtectedFilerForeign_custodial_accountsEditRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/foreign_custodial_accounts/add': {
+      id: '/_protected/_filer/foreign_custodial_accounts/add'
+      path: '/foreign_custodial_accounts/add'
+      fullPath: '/foreign_custodial_accounts/add'
+      preLoaderRoute: typeof ProtectedFilerForeign_custodial_accountsAddRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/foreign_cash_value_insurance/edit': {
+      id: '/_protected/_filer/foreign_cash_value_insurance/edit'
+      path: '/foreign_cash_value_insurance/edit'
+      fullPath: '/foreign_cash_value_insurance/edit'
+      preLoaderRoute: typeof ProtectedFilerForeign_cash_value_insuranceEditRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/foreign_cash_value_insurance/add': {
+      id: '/_protected/_filer/foreign_cash_value_insurance/add'
+      path: '/foreign_cash_value_insurance/add'
+      fullPath: '/foreign_cash_value_insurance/add'
+      preLoaderRoute: typeof ProtectedFilerForeign_cash_value_insuranceAddRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/foreign_bank_account/edit': {
+      id: '/_protected/_filer/foreign_bank_account/edit'
+      path: '/foreign_bank_account/edit'
+      fullPath: '/foreign_bank_account/edit'
+      preLoaderRoute: typeof ProtectedFilerForeign_bank_accountEditRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
     '/_protected/_filer/foreign_bank_account/add': {
       id: '/_protected/_filer/foreign_bank_account/add'
       path: '/foreign_bank_account/add'
       fullPath: '/foreign_bank_account/add'
       preLoaderRoute: typeof ProtectedFilerForeign_bank_accountAddRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/financial_equity_and_debt_interest/edit': {
+      id: '/_protected/_filer/financial_equity_and_debt_interest/edit'
+      path: '/financial_equity_and_debt_interest/edit'
+      fullPath: '/financial_equity_and_debt_interest/edit'
+      preLoaderRoute: typeof ProtectedFilerFinancial_equity_and_debt_interestEditRouteImport
+      parentRoute: typeof ProtectedFilerRoute
+    }
+    '/_protected/_filer/financial_equity_and_debt_interest/add': {
+      id: '/_protected/_filer/financial_equity_and_debt_interest/add'
+      path: '/financial_equity_and_debt_interest/add'
+      fullPath: '/financial_equity_and_debt_interest/add'
+      preLoaderRoute: typeof ProtectedFilerFinancial_equity_and_debt_interestAddRouteImport
       parentRoute: typeof ProtectedFilerRoute
     }
     '/_protected/_filer/family_income/add': {
@@ -2982,6 +3433,76 @@ declare module '@tanstack/react-router' {
       fullPath: '/administration/role'
       preLoaderRoute: typeof ProtectedAdministrationLayoutRoleLayoutRouteImport
       parentRoute: typeof ProtectedAdministrationLayoutRoute
+    }
+    '/_protected/_filer/foreign_trust/edit/$id': {
+      id: '/_protected/_filer/foreign_trust/edit/$id'
+      path: '/$id'
+      fullPath: '/foreign_trust/edit/$id'
+      preLoaderRoute: typeof ProtectedFilerForeign_trustEditIdRouteImport
+      parentRoute: typeof ProtectedFilerForeign_trustEditRoute
+    }
+    '/_protected/_filer/foreign_signing_authority/edit/$id': {
+      id: '/_protected/_filer/foreign_signing_authority/edit/$id'
+      path: '/$id'
+      fullPath: '/foreign_signing_authority/edit/$id'
+      preLoaderRoute: typeof ProtectedFilerForeign_signing_authorityEditIdRouteImport
+      parentRoute: typeof ProtectedFilerForeign_signing_authorityEditRoute
+    }
+    '/_protected/_filer/foreign_other_income/edit/$id': {
+      id: '/_protected/_filer/foreign_other_income/edit/$id'
+      path: '/$id'
+      fullPath: '/foreign_other_income/edit/$id'
+      preLoaderRoute: typeof ProtectedFilerForeign_other_incomeEditIdRouteImport
+      parentRoute: typeof ProtectedFilerForeign_other_incomeEditRoute
+    }
+    '/_protected/_filer/foreign_other_assets/edit/$id': {
+      id: '/_protected/_filer/foreign_other_assets/edit/$id'
+      path: '/$id'
+      fullPath: '/foreign_other_assets/edit/$id'
+      preLoaderRoute: typeof ProtectedFilerForeign_other_assetsEditIdRouteImport
+      parentRoute: typeof ProtectedFilerForeign_other_assetsEditRoute
+    }
+    '/_protected/_filer/foreign_immovable_property/edit/$id': {
+      id: '/_protected/_filer/foreign_immovable_property/edit/$id'
+      path: '/$id'
+      fullPath: '/foreign_immovable_property/edit/$id'
+      preLoaderRoute: typeof ProtectedFilerForeign_immovable_propertyEditIdRouteImport
+      parentRoute: typeof ProtectedFilerForeign_immovable_propertyEditRoute
+    }
+    '/_protected/_filer/foreign_financial_entity/edit/$id': {
+      id: '/_protected/_filer/foreign_financial_entity/edit/$id'
+      path: '/$id'
+      fullPath: '/foreign_financial_entity/edit/$id'
+      preLoaderRoute: typeof ProtectedFilerForeign_financial_entityEditIdRouteImport
+      parentRoute: typeof ProtectedFilerForeign_financial_entityEditRoute
+    }
+    '/_protected/_filer/foreign_custodial_accounts/edit/$id': {
+      id: '/_protected/_filer/foreign_custodial_accounts/edit/$id'
+      path: '/$id'
+      fullPath: '/foreign_custodial_accounts/edit/$id'
+      preLoaderRoute: typeof ProtectedFilerForeign_custodial_accountsEditIdRouteImport
+      parentRoute: typeof ProtectedFilerForeign_custodial_accountsEditRoute
+    }
+    '/_protected/_filer/foreign_cash_value_insurance/edit/$id': {
+      id: '/_protected/_filer/foreign_cash_value_insurance/edit/$id'
+      path: '/$id'
+      fullPath: '/foreign_cash_value_insurance/edit/$id'
+      preLoaderRoute: typeof ProtectedFilerForeign_cash_value_insuranceEditIdRouteImport
+      parentRoute: typeof ProtectedFilerForeign_cash_value_insuranceEditRoute
+    }
+    '/_protected/_filer/foreign_bank_account/edit/$id': {
+      id: '/_protected/_filer/foreign_bank_account/edit/$id'
+      path: '/$id'
+      fullPath: '/foreign_bank_account/edit/$id'
+      preLoaderRoute: typeof ProtectedFilerForeign_bank_accountEditIdRouteImport
+      parentRoute: typeof ProtectedFilerForeign_bank_accountEditRoute
+    }
+    '/_protected/_filer/financial_equity_and_debt_interest/edit/$id': {
+      id: '/_protected/_filer/financial_equity_and_debt_interest/edit/$id'
+      path: '/$id'
+      fullPath: '/financial_equity_and_debt_interest/edit/$id'
+      preLoaderRoute: typeof ProtectedFilerFinancial_equity_and_debt_interestEditIdRouteImport
+      parentRoute: typeof ProtectedFilerFinancial_equity_and_debt_interestEditRoute
     }
     '/_protected/masters/organization/_layout/branch/': {
       id: '/_protected/masters/organization/_layout/branch/'
@@ -3156,6 +3677,156 @@ const GuestRouteChildren: GuestRouteChildren = {
 
 const GuestRouteWithChildren = GuestRoute._addFileChildren(GuestRouteChildren)
 
+interface ProtectedFilerFinancial_equity_and_debt_interestEditRouteChildren {
+  ProtectedFilerFinancial_equity_and_debt_interestEditIdRoute: typeof ProtectedFilerFinancial_equity_and_debt_interestEditIdRoute
+}
+
+const ProtectedFilerFinancial_equity_and_debt_interestEditRouteChildren: ProtectedFilerFinancial_equity_and_debt_interestEditRouteChildren =
+  {
+    ProtectedFilerFinancial_equity_and_debt_interestEditIdRoute:
+      ProtectedFilerFinancial_equity_and_debt_interestEditIdRoute,
+  }
+
+const ProtectedFilerFinancial_equity_and_debt_interestEditRouteWithChildren =
+  ProtectedFilerFinancial_equity_and_debt_interestEditRoute._addFileChildren(
+    ProtectedFilerFinancial_equity_and_debt_interestEditRouteChildren,
+  )
+
+interface ProtectedFilerForeign_bank_accountEditRouteChildren {
+  ProtectedFilerForeign_bank_accountEditIdRoute: typeof ProtectedFilerForeign_bank_accountEditIdRoute
+}
+
+const ProtectedFilerForeign_bank_accountEditRouteChildren: ProtectedFilerForeign_bank_accountEditRouteChildren =
+  {
+    ProtectedFilerForeign_bank_accountEditIdRoute:
+      ProtectedFilerForeign_bank_accountEditIdRoute,
+  }
+
+const ProtectedFilerForeign_bank_accountEditRouteWithChildren =
+  ProtectedFilerForeign_bank_accountEditRoute._addFileChildren(
+    ProtectedFilerForeign_bank_accountEditRouteChildren,
+  )
+
+interface ProtectedFilerForeign_cash_value_insuranceEditRouteChildren {
+  ProtectedFilerForeign_cash_value_insuranceEditIdRoute: typeof ProtectedFilerForeign_cash_value_insuranceEditIdRoute
+}
+
+const ProtectedFilerForeign_cash_value_insuranceEditRouteChildren: ProtectedFilerForeign_cash_value_insuranceEditRouteChildren =
+  {
+    ProtectedFilerForeign_cash_value_insuranceEditIdRoute:
+      ProtectedFilerForeign_cash_value_insuranceEditIdRoute,
+  }
+
+const ProtectedFilerForeign_cash_value_insuranceEditRouteWithChildren =
+  ProtectedFilerForeign_cash_value_insuranceEditRoute._addFileChildren(
+    ProtectedFilerForeign_cash_value_insuranceEditRouteChildren,
+  )
+
+interface ProtectedFilerForeign_custodial_accountsEditRouteChildren {
+  ProtectedFilerForeign_custodial_accountsEditIdRoute: typeof ProtectedFilerForeign_custodial_accountsEditIdRoute
+}
+
+const ProtectedFilerForeign_custodial_accountsEditRouteChildren: ProtectedFilerForeign_custodial_accountsEditRouteChildren =
+  {
+    ProtectedFilerForeign_custodial_accountsEditIdRoute:
+      ProtectedFilerForeign_custodial_accountsEditIdRoute,
+  }
+
+const ProtectedFilerForeign_custodial_accountsEditRouteWithChildren =
+  ProtectedFilerForeign_custodial_accountsEditRoute._addFileChildren(
+    ProtectedFilerForeign_custodial_accountsEditRouteChildren,
+  )
+
+interface ProtectedFilerForeign_financial_entityEditRouteChildren {
+  ProtectedFilerForeign_financial_entityEditIdRoute: typeof ProtectedFilerForeign_financial_entityEditIdRoute
+}
+
+const ProtectedFilerForeign_financial_entityEditRouteChildren: ProtectedFilerForeign_financial_entityEditRouteChildren =
+  {
+    ProtectedFilerForeign_financial_entityEditIdRoute:
+      ProtectedFilerForeign_financial_entityEditIdRoute,
+  }
+
+const ProtectedFilerForeign_financial_entityEditRouteWithChildren =
+  ProtectedFilerForeign_financial_entityEditRoute._addFileChildren(
+    ProtectedFilerForeign_financial_entityEditRouteChildren,
+  )
+
+interface ProtectedFilerForeign_immovable_propertyEditRouteChildren {
+  ProtectedFilerForeign_immovable_propertyEditIdRoute: typeof ProtectedFilerForeign_immovable_propertyEditIdRoute
+}
+
+const ProtectedFilerForeign_immovable_propertyEditRouteChildren: ProtectedFilerForeign_immovable_propertyEditRouteChildren =
+  {
+    ProtectedFilerForeign_immovable_propertyEditIdRoute:
+      ProtectedFilerForeign_immovable_propertyEditIdRoute,
+  }
+
+const ProtectedFilerForeign_immovable_propertyEditRouteWithChildren =
+  ProtectedFilerForeign_immovable_propertyEditRoute._addFileChildren(
+    ProtectedFilerForeign_immovable_propertyEditRouteChildren,
+  )
+
+interface ProtectedFilerForeign_other_assetsEditRouteChildren {
+  ProtectedFilerForeign_other_assetsEditIdRoute: typeof ProtectedFilerForeign_other_assetsEditIdRoute
+}
+
+const ProtectedFilerForeign_other_assetsEditRouteChildren: ProtectedFilerForeign_other_assetsEditRouteChildren =
+  {
+    ProtectedFilerForeign_other_assetsEditIdRoute:
+      ProtectedFilerForeign_other_assetsEditIdRoute,
+  }
+
+const ProtectedFilerForeign_other_assetsEditRouteWithChildren =
+  ProtectedFilerForeign_other_assetsEditRoute._addFileChildren(
+    ProtectedFilerForeign_other_assetsEditRouteChildren,
+  )
+
+interface ProtectedFilerForeign_other_incomeEditRouteChildren {
+  ProtectedFilerForeign_other_incomeEditIdRoute: typeof ProtectedFilerForeign_other_incomeEditIdRoute
+}
+
+const ProtectedFilerForeign_other_incomeEditRouteChildren: ProtectedFilerForeign_other_incomeEditRouteChildren =
+  {
+    ProtectedFilerForeign_other_incomeEditIdRoute:
+      ProtectedFilerForeign_other_incomeEditIdRoute,
+  }
+
+const ProtectedFilerForeign_other_incomeEditRouteWithChildren =
+  ProtectedFilerForeign_other_incomeEditRoute._addFileChildren(
+    ProtectedFilerForeign_other_incomeEditRouteChildren,
+  )
+
+interface ProtectedFilerForeign_signing_authorityEditRouteChildren {
+  ProtectedFilerForeign_signing_authorityEditIdRoute: typeof ProtectedFilerForeign_signing_authorityEditIdRoute
+}
+
+const ProtectedFilerForeign_signing_authorityEditRouteChildren: ProtectedFilerForeign_signing_authorityEditRouteChildren =
+  {
+    ProtectedFilerForeign_signing_authorityEditIdRoute:
+      ProtectedFilerForeign_signing_authorityEditIdRoute,
+  }
+
+const ProtectedFilerForeign_signing_authorityEditRouteWithChildren =
+  ProtectedFilerForeign_signing_authorityEditRoute._addFileChildren(
+    ProtectedFilerForeign_signing_authorityEditRouteChildren,
+  )
+
+interface ProtectedFilerForeign_trustEditRouteChildren {
+  ProtectedFilerForeign_trustEditIdRoute: typeof ProtectedFilerForeign_trustEditIdRoute
+}
+
+const ProtectedFilerForeign_trustEditRouteChildren: ProtectedFilerForeign_trustEditRouteChildren =
+  {
+    ProtectedFilerForeign_trustEditIdRoute:
+      ProtectedFilerForeign_trustEditIdRoute,
+  }
+
+const ProtectedFilerForeign_trustEditRouteWithChildren =
+  ProtectedFilerForeign_trustEditRoute._addFileChildren(
+    ProtectedFilerForeign_trustEditRouteChildren,
+  )
+
 interface ProtectedFilerSettingsLayoutRouteChildren {
   ProtectedFilerSettingsLayoutIndexRoute: typeof ProtectedFilerSettingsLayoutIndexRoute
 }
@@ -3183,13 +3854,26 @@ interface ProtectedFilerRouteChildren {
   ProtectedFilerCrypto_incomeAddRoute: typeof ProtectedFilerCrypto_incomeAddRoute
   ProtectedFilerExempt_incomeAddRoute: typeof ProtectedFilerExempt_incomeAddRoute
   ProtectedFilerFamily_incomeAddRoute: typeof ProtectedFilerFamily_incomeAddRoute
+  ProtectedFilerFinancial_equity_and_debt_interestAddRoute: typeof ProtectedFilerFinancial_equity_and_debt_interestAddRoute
+  ProtectedFilerFinancial_equity_and_debt_interestEditRoute: typeof ProtectedFilerFinancial_equity_and_debt_interestEditRouteWithChildren
   ProtectedFilerForeign_bank_accountAddRoute: typeof ProtectedFilerForeign_bank_accountAddRoute
+  ProtectedFilerForeign_bank_accountEditRoute: typeof ProtectedFilerForeign_bank_accountEditRouteWithChildren
+  ProtectedFilerForeign_cash_value_insuranceAddRoute: typeof ProtectedFilerForeign_cash_value_insuranceAddRoute
+  ProtectedFilerForeign_cash_value_insuranceEditRoute: typeof ProtectedFilerForeign_cash_value_insuranceEditRouteWithChildren
+  ProtectedFilerForeign_custodial_accountsAddRoute: typeof ProtectedFilerForeign_custodial_accountsAddRoute
+  ProtectedFilerForeign_custodial_accountsEditRoute: typeof ProtectedFilerForeign_custodial_accountsEditRouteWithChildren
   ProtectedFilerForeign_financial_entityAddRoute: typeof ProtectedFilerForeign_financial_entityAddRoute
+  ProtectedFilerForeign_financial_entityEditRoute: typeof ProtectedFilerForeign_financial_entityEditRouteWithChildren
   ProtectedFilerForeign_immovable_propertyAddRoute: typeof ProtectedFilerForeign_immovable_propertyAddRoute
+  ProtectedFilerForeign_immovable_propertyEditRoute: typeof ProtectedFilerForeign_immovable_propertyEditRouteWithChildren
   ProtectedFilerForeign_other_assetsAddRoute: typeof ProtectedFilerForeign_other_assetsAddRoute
+  ProtectedFilerForeign_other_assetsEditRoute: typeof ProtectedFilerForeign_other_assetsEditRouteWithChildren
   ProtectedFilerForeign_other_incomeAddRoute: typeof ProtectedFilerForeign_other_incomeAddRoute
+  ProtectedFilerForeign_other_incomeEditRoute: typeof ProtectedFilerForeign_other_incomeEditRouteWithChildren
   ProtectedFilerForeign_signing_authorityAddRoute: typeof ProtectedFilerForeign_signing_authorityAddRoute
+  ProtectedFilerForeign_signing_authorityEditRoute: typeof ProtectedFilerForeign_signing_authorityEditRouteWithChildren
   ProtectedFilerForeign_trustAddRoute: typeof ProtectedFilerForeign_trustAddRoute
+  ProtectedFilerForeign_trustEditRoute: typeof ProtectedFilerForeign_trustEditRouteWithChildren
   ProtectedFilerGeneral_profit_lossAddRoute: typeof ProtectedFilerGeneral_profit_lossAddRoute
   ProtectedFilerHouse_propertyAddRoute: typeof ProtectedFilerHouse_propertyAddRoute
   ProtectedFilerLossesAddRoute: typeof ProtectedFilerLossesAddRoute
@@ -3230,7 +3914,10 @@ interface ProtectedFilerRouteChildren {
   ProtectedFilerDirectiorship_positionIndexRoute: typeof ProtectedFilerDirectiorship_positionIndexRoute
   ProtectedFilerExempt_incomeIndexRoute: typeof ProtectedFilerExempt_incomeIndexRoute
   ProtectedFilerFamily_incomeIndexRoute: typeof ProtectedFilerFamily_incomeIndexRoute
+  ProtectedFilerFinancial_equity_and_debt_interestIndexRoute: typeof ProtectedFilerFinancial_equity_and_debt_interestIndexRoute
   ProtectedFilerForeign_bank_accountIndexRoute: typeof ProtectedFilerForeign_bank_accountIndexRoute
+  ProtectedFilerForeign_cash_value_insuranceIndexRoute: typeof ProtectedFilerForeign_cash_value_insuranceIndexRoute
+  ProtectedFilerForeign_custodial_accountsIndexRoute: typeof ProtectedFilerForeign_custodial_accountsIndexRoute
   ProtectedFilerForeign_financial_entityIndexRoute: typeof ProtectedFilerForeign_financial_entityIndexRoute
   ProtectedFilerForeign_immovable_propertyIndexRoute: typeof ProtectedFilerForeign_immovable_propertyIndexRoute
   ProtectedFilerForeign_other_assetsIndexRoute: typeof ProtectedFilerForeign_other_assetsIndexRoute
@@ -3289,19 +3976,45 @@ const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
   ProtectedFilerCrypto_incomeAddRoute: ProtectedFilerCrypto_incomeAddRoute,
   ProtectedFilerExempt_incomeAddRoute: ProtectedFilerExempt_incomeAddRoute,
   ProtectedFilerFamily_incomeAddRoute: ProtectedFilerFamily_incomeAddRoute,
+  ProtectedFilerFinancial_equity_and_debt_interestAddRoute:
+    ProtectedFilerFinancial_equity_and_debt_interestAddRoute,
+  ProtectedFilerFinancial_equity_and_debt_interestEditRoute:
+    ProtectedFilerFinancial_equity_and_debt_interestEditRouteWithChildren,
   ProtectedFilerForeign_bank_accountAddRoute:
     ProtectedFilerForeign_bank_accountAddRoute,
+  ProtectedFilerForeign_bank_accountEditRoute:
+    ProtectedFilerForeign_bank_accountEditRouteWithChildren,
+  ProtectedFilerForeign_cash_value_insuranceAddRoute:
+    ProtectedFilerForeign_cash_value_insuranceAddRoute,
+  ProtectedFilerForeign_cash_value_insuranceEditRoute:
+    ProtectedFilerForeign_cash_value_insuranceEditRouteWithChildren,
+  ProtectedFilerForeign_custodial_accountsAddRoute:
+    ProtectedFilerForeign_custodial_accountsAddRoute,
+  ProtectedFilerForeign_custodial_accountsEditRoute:
+    ProtectedFilerForeign_custodial_accountsEditRouteWithChildren,
   ProtectedFilerForeign_financial_entityAddRoute:
     ProtectedFilerForeign_financial_entityAddRoute,
+  ProtectedFilerForeign_financial_entityEditRoute:
+    ProtectedFilerForeign_financial_entityEditRouteWithChildren,
   ProtectedFilerForeign_immovable_propertyAddRoute:
     ProtectedFilerForeign_immovable_propertyAddRoute,
+  ProtectedFilerForeign_immovable_propertyEditRoute:
+    ProtectedFilerForeign_immovable_propertyEditRouteWithChildren,
   ProtectedFilerForeign_other_assetsAddRoute:
     ProtectedFilerForeign_other_assetsAddRoute,
+  ProtectedFilerForeign_other_assetsEditRoute:
+    ProtectedFilerForeign_other_assetsEditRouteWithChildren,
   ProtectedFilerForeign_other_incomeAddRoute:
     ProtectedFilerForeign_other_incomeAddRoute,
+  ProtectedFilerForeign_other_incomeEditRoute:
+    ProtectedFilerForeign_other_incomeEditRouteWithChildren,
   ProtectedFilerForeign_signing_authorityAddRoute:
     ProtectedFilerForeign_signing_authorityAddRoute,
+  ProtectedFilerForeign_signing_authorityEditRoute:
+    ProtectedFilerForeign_signing_authorityEditRouteWithChildren,
   ProtectedFilerForeign_trustAddRoute: ProtectedFilerForeign_trustAddRoute,
+  ProtectedFilerForeign_trustEditRoute:
+    ProtectedFilerForeign_trustEditRouteWithChildren,
   ProtectedFilerGeneral_profit_lossAddRoute:
     ProtectedFilerGeneral_profit_lossAddRoute,
   ProtectedFilerHouse_propertyAddRoute: ProtectedFilerHouse_propertyAddRoute,
@@ -3363,8 +4076,14 @@ const ProtectedFilerRouteChildren: ProtectedFilerRouteChildren = {
     ProtectedFilerDirectiorship_positionIndexRoute,
   ProtectedFilerExempt_incomeIndexRoute: ProtectedFilerExempt_incomeIndexRoute,
   ProtectedFilerFamily_incomeIndexRoute: ProtectedFilerFamily_incomeIndexRoute,
+  ProtectedFilerFinancial_equity_and_debt_interestIndexRoute:
+    ProtectedFilerFinancial_equity_and_debt_interestIndexRoute,
   ProtectedFilerForeign_bank_accountIndexRoute:
     ProtectedFilerForeign_bank_accountIndexRoute,
+  ProtectedFilerForeign_cash_value_insuranceIndexRoute:
+    ProtectedFilerForeign_cash_value_insuranceIndexRoute,
+  ProtectedFilerForeign_custodial_accountsIndexRoute:
+    ProtectedFilerForeign_custodial_accountsIndexRoute,
   ProtectedFilerForeign_financial_entityIndexRoute:
     ProtectedFilerForeign_financial_entityIndexRoute,
   ProtectedFilerForeign_immovable_propertyIndexRoute:

@@ -6,53 +6,87 @@ import { Suspense, useEffect, type CSSProperties } from 'react'
 import HeaderComponent from './components/HeaderComponent'
 import { SidebarProvider } from '@/components/ui/sidebar'
 import WizardSidebar from './components/wizard-sidebar'
-
-
-
+import { BankAccountProvider } from '@/features/wizard-module/contexts/bank-account-context'
+import { FinancialEntityProvider } from '@/features/wizard-module/contexts/financial-entity-context'
+import { ImmovablePropertyProvider } from '@/features/wizard-module/contexts/immovable-property-context'
+import { OtherAssetProvider } from '@/features/wizard-module/contexts/other-asset-context'
+import { TrustProvider } from '@/features/wizard-module/contexts/trust-context'
+import { ForeignIncomeProvider } from '@/features/wizard-module/contexts/foreign-income-context'
+import { CustodialAccountProvider } from '@/features/wizard-module/contexts/custodial-account-context'
+import { CashValueInsuranceProvider } from '@/features/wizard-module/contexts/cash-value-insurance-context'
+import { SigningAuthorityProvider } from '@/features/wizard-module/contexts/signing-authority-context'
+import { FinancialEquityProvider } from '@/features/wizard-module/contexts/financial-equity-context'
 
 const ProtectedWebLayout = () => {
-    const layoutStyle = {
-        '--header-height': '3.5rem',
-    } as CSSProperties
+  const layoutStyle = {
+    '--header-height': '3.5rem',
+  } as CSSProperties
 
-    useEffect(() => {
+  useEffect(() => {
+    document.querySelectorAll('link').forEach((styleTag) => {
+      const id = styleTag.getAttribute('href') || ''
 
-        document.querySelectorAll('link').forEach((styleTag) => {
-            const id = styleTag.getAttribute("href") || "";
-
-            // Keep ONLY your styles.css (exact path match)
-            if (id.includes("slick-theme.css") || id.includes("slick.css") || id.includes("bootstrap.min.css") || id.includes("font-awesome.min.css") || id.includes("custom.css")) {
-                styleTag.remove();
-            }
-
-        });
-    }, []);
-    return (
-        <Suspense fallback={<Toaster />}>
-            <SearchProvider>
-                <SidebarProvider defaultOpen={true}>
-                    <SkipToMain />
-                    <div className="flex h-svh w-full flex-col overflow-hidden" style={layoutStyle}>
-                        <div className="shrink-0">
-                            <HeaderComponent />
-                        </div>
-                        <div className="flex min-h-0 flex-1 overflow-hidden">
-                            <WizardSidebar />
-                            <div className="flex min-w-0 flex-1 flex-col">
-                                <main className="bg-linear-to-b from-slate-100 from-10% to-slate-300 to-20% flex-1 min-h-0 overflow-y-auto">
-                                    <div className="container mx-auto h-full w-full px-0 py-8 sm:px-6 lg:px-8">
+      // Keep ONLY your styles.css (exact path match)
+      if (
+        id.includes('slick-theme.css') ||
+        id.includes('slick.css') ||
+        id.includes('bootstrap.min.css') ||
+        id.includes('font-awesome.min.css') ||
+        id.includes('custom.css')
+      ) {
+        styleTag.remove()
+      }
+    })
+  }, [])
+  return (
+    <Suspense fallback={<Toaster />}>
+      <SearchProvider>
+        <SidebarProvider defaultOpen={true}>
+          <SkipToMain />
+          <div
+            className="flex h-svh w-full flex-col overflow-hidden"
+            style={layoutStyle}
+          >
+            <div className="shrink-0">
+              <HeaderComponent />
+            </div>
+            <div className="flex min-h-0 flex-1 overflow-hidden">
+              <WizardSidebar />
+              <div className="flex min-w-0 flex-1 flex-col">
+                <main className="bg-linear-to-b from-slate-100 from-10% to-slate-300 to-20% flex-1 min-h-0 overflow-y-auto">
+                  <div className="container mx-auto h-full w-full px-0 py-8 sm:px-6 lg:px-8">
+                    <BankAccountProvider>
+                      <FinancialEntityProvider>
+                        <ImmovablePropertyProvider>
+                          <OtherAssetProvider>
+                            <TrustProvider>
+                              <ForeignIncomeProvider>
+                                <CustodialAccountProvider>
+                                  <CashValueInsuranceProvider>
+                                    <SigningAuthorityProvider>
+                                      <FinancialEquityProvider>
                                         <Suspense fallback={<Toaster />}>
-                                            <Outlet />
+                                          <Outlet />
                                         </Suspense>
-                                    </div>
-                                </main>
-                            </div>
-                        </div>
-                    </div>
-                </SidebarProvider>
-            </SearchProvider>
-        </Suspense>
-    )
+                                      </FinancialEquityProvider>
+                                    </SigningAuthorityProvider>
+                                  </CashValueInsuranceProvider>
+                                </CustodialAccountProvider>
+                              </ForeignIncomeProvider>
+                            </TrustProvider>
+                          </OtherAssetProvider>
+                        </ImmovablePropertyProvider>
+                      </FinancialEntityProvider>
+                    </BankAccountProvider>
+                  </div>
+                </main>
+              </div>
+            </div>
+          </div>
+        </SidebarProvider>
+      </SearchProvider>
+    </Suspense>
+  )
 }
 
 export default ProtectedWebLayout

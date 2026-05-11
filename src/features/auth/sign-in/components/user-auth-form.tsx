@@ -69,66 +69,61 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   }
 
   return (
-    <div className={cn('grid! gap-4!', className)} {...props}>
+    <div className={cn('space-y-4', className)} {...props}>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className='grid items-center'>
-          <div className="grid! gap-4!">
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem className="space-y-1!">
-                  <FormLabel className="text-sm! font-medium! text-slate-600!">
-                    Your email
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-sm font-medium text-gray-700">
+                  Your email
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder=""
+                    className="h-10 bg-white text-sm border-b border-gray-300 rounded-none"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="password"
+            render={({ field }) => (
+              <FormItem>
+                <div className="flex items-center justify-between">
+                  <FormLabel className="text-sm font-medium text-gray-700">
+                    Password
                   </FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder=""
-                      className="h-11! rounded-sm! border-slate-300! bg-white! text-sm!"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => (
-                <FormItem className="space-y-1!">
-                  <div className="flex! items-center! justify-between!">
-                    <FormLabel className="text-sm! font-medium! text-slate-600!">
-                      Password
-                    </FormLabel>
-                    <Link
-                      to="/forgot-password"
-                      className="text-sm! font-medium! text-sky-600! hover:opacity-80!"
-                    >
-                      Forgot Password?
-                    </Link>
-                  </div>
-                  <FormControl>
-                    <PasswordInput
-                      placeholder=""
-                      className="h-11!  "
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <div className='flex items-center justify-center'>
-
-            <Button
-                className="mt-2! h-11! w-6/12! rounded-sm! bg-blue-600! text-base! font-semibold! text-white! hover:bg-blue-700!"
-              disabled={isLoading}
-              >
-              Continue
-            </Button>
-            </div>
-          </div>
+                  <Link
+                    to="/forgot-password"
+                    className="text-sm font-medium text-blue-600 hover:text-blue-700"
+                  >
+                    Forgot Password?
+                  </Link>
+                </div>
+                <FormControl>
+                  <PasswordInput
+                    placeholder=""
+                    className="h-10 border-b border-gray-300 rounded-none"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button
+            className="h-10 w-full bg-blue-600 text-base font-semibold text-white hover:bg-blue-700 transition-colors"
+            disabled={isLoading}
+          >
+            Continue
+          </Button>
         </form>
       </Form>
     </div>

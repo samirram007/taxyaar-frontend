@@ -81,11 +81,15 @@
         max-height: 52px;
     }
 
+    .c-nav-w {
+        width: auto;
+    }
+
     .c-nav-bottom {
         display: flex;
         justify-content: flex-end;
         position: relative;
-        padding-bottom: 12px;
+        padding-bottom: 0;
     }
 
     .c-menu-btn {
@@ -100,6 +104,7 @@
         letter-spacing: 0.4px;
         padding: 10px 14px;
         border-radius: 6px;
+        cursor: pointer;
     }
 
     .c-menu-btn i {
@@ -117,10 +122,11 @@
         top: 100%;
         right: 0;
         z-index: 20;
+        flex-direction: column;
     }
 
     .c-nav-bottom-list.is-open {
-        display: block;
+        display: flex;
     }
 
     .c-nav-bottom-list>ul {

@@ -60,6 +60,9 @@ font-size: 18px; }
 .c-nav-top-social ul li a:hover {background-color:var(--main-color) ;color:var(--white) ;} 
 .c-logo-w {padding: 8px 0;padding-top: 11px;}
 .c-logo-w img {filter: invert(100%) sepia(100%) saturate(0%) brightness(200%);}
+.c-nav-w { width: 100%; display: flex; justify-content: flex-end; }
+.c-nav-bottom { display: flex; justify-content: flex-end; position: relative; }
+.c-nav-bottom-list { display: flex; align-items: center; justify-content: flex-end; }
 .c-nav-bottom-list > ul {display: flex;align-items: center;justify-content: flex-end;margin: 12px 0 15px;}
 .c-nav-bottom-list > ul > li { padding: 0 15px;font-size: 18px; }
 .c-nav-bottom-list > ul > li > a {display: block;color: var(--white);border-bottom: 4px solid transparent;text-transform: uppercase;}
