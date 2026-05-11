@@ -10,6 +10,12 @@ import { BankAccountProvider } from '@/features/wizard-module/contexts/bank-acco
 import { FinancialEntityProvider } from '@/features/wizard-module/contexts/financial-entity-context'
 import { ImmovablePropertyProvider } from '@/features/wizard-module/contexts/immovable-property-context'
 import { OtherAssetProvider } from '@/features/wizard-module/contexts/other-asset-context'
+import { TrustProvider } from '@/features/wizard-module/contexts/trust-context'
+import { ForeignIncomeProvider } from '@/features/wizard-module/contexts/foreign-income-context'
+import { CustodialAccountProvider } from '@/features/wizard-module/contexts/custodial-account-context'
+import { CashValueInsuranceProvider } from '@/features/wizard-module/contexts/cash-value-insurance-context'
+import { SigningAuthorityProvider } from '@/features/wizard-module/contexts/signing-authority-context'
+import { FinancialEquityProvider } from '@/features/wizard-module/contexts/financial-equity-context'
 
 const ProtectedWebLayout = () => {
   const layoutStyle = {
@@ -53,9 +59,21 @@ const ProtectedWebLayout = () => {
                       <FinancialEntityProvider>
                         <ImmovablePropertyProvider>
                           <OtherAssetProvider>
-                            <Suspense fallback={<Toaster />}>
-                              <Outlet />
-                            </Suspense>
+                            <TrustProvider>
+                              <ForeignIncomeProvider>
+                                <CustodialAccountProvider>
+                                  <CashValueInsuranceProvider>
+                                    <SigningAuthorityProvider>
+                                      <FinancialEquityProvider>
+                                        <Suspense fallback={<Toaster />}>
+                                          <Outlet />
+                                        </Suspense>
+                                      </FinancialEquityProvider>
+                                    </SigningAuthorityProvider>
+                                  </CashValueInsuranceProvider>
+                                </CustodialAccountProvider>
+                              </ForeignIncomeProvider>
+                            </TrustProvider>
                           </OtherAssetProvider>
                         </ImmovablePropertyProvider>
                       </FinancialEntityProvider>
